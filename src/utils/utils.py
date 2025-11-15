@@ -19,6 +19,7 @@ from ..config.config import (
     TEXT_CHUNK_MIN_SIZE, TEXT_CHUNK_MERGE_THRESHOLD,
     HEURISTIC_MAX_LENGTH
 )
+from .logging_utils import setup_logger
 
 # Load models (shared across the codebase)
 nlp = spacy.load("en_core_web_sm")
@@ -27,6 +28,8 @@ embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
 # Configure Gemini
 genai.configure(api_key=GEMINI_API_KEY)
 gemini_model = genai.GenerativeModel(GEMINI_MODEL_NAME)
+
+logger = setup_logger("utils")
 
 
 def looks_like_inline_table(text):
@@ -105,7 +108,7 @@ def semantic_text_chunking(text, min_size=TEXT_CHUNK_MIN_SIZE, merge_threshold=T
         return merged_chunks
     
     except Exception as e:
-        print(f"⚠️  Warning: Semantic merging failed: {e}. Returning initial chunks.")
+        logger.warning(f"⚠️  Warning: Semantic merging failed: {e}. Returning initial chunks.")
         return chunks
 
 
@@ -141,7 +144,7 @@ def extract_tables_pdfplumber(page) -> list[str]:
             md_tables.append(md.strip())
         return md_tables
     except Exception as e:
-        print(f"[pdfplumber] Error: {e}")
+        logger.warning(f"[pdfplumber] Error: {e}")
         return []
 
 
@@ -163,7 +166,7 @@ def extract_images_fitz(page, page_num) -> list[dict]:
                 "image_base64": b64
             })
         except Exception as e:
-            print(f"[Image] Failed XREF {xref}: {e}")
+            logger.warning(f"[Image] Failed XREF {xref}: {e}")
     return img_chunks
 
 
@@ -190,7 +193,7 @@ def ask_gemini_with_image(image_pil, prompt_text=None):
         )
         return response.text.strip()
     except Exception as e:
-        print(f"[Gemini] Failed: {e}")
+        logger.warning(f"[Gemini] Failed: {e}")
         return None
 
 
@@ -198,7 +201,7 @@ def save_chunks_to_json(chunks, output_path):
     """Save chunks to JSON file."""
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(chunks, f, ensure_ascii=False, indent=4)
-    print(f"✅ Chunks saved to {output_path}")
+    logger.info(f"✅ Chunks saved to {output_path}")
 
 
 def is_header_or_footer_by_heuristics(text):

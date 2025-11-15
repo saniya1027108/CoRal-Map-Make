@@ -18,6 +18,9 @@ from ..utils.utils import (
     extract_caption_from_gemini,
     save_chunks_to_json
 )
+from ..utils.logging_utils import setup_logger
+
+logger = setup_logger("chunking")
 
 
 class PDFChunker:
@@ -74,7 +77,7 @@ class PDFChunker:
                         "table_content": f"##Markdown Table##\n\n{md}\n\n##Caption##\n\n{caption}"
                     })
         except Exception as e:
-            print(f"[Table] Page {page_num + 1} failed: {e}")
+            logger.warning(f"[Table] Page {page_num + 1} failed: {e}")
     
     def _process_figures(self, raw_text, page, page_num):
         """Extract and process figures if detected on the page."""
@@ -104,9 +107,9 @@ class PDFChunker:
         """Main method to process the entire PDF and generate chunks."""
         try:
             # Step 0: Learn header/footer patterns
-            print("🔍 Analyzing PDF for header/footer patterns...")
+            logger.info("🔍 Analyzing PDF for header/footer patterns...")
             patterns = detect_repeating_patterns(self.pdf_path)
-            print(f"   Found {len(patterns['top_patterns'])} top patterns and {len(patterns['bottom_patterns'])} bottom patterns")
+            logger.info(f"   Found {len(patterns['top_patterns'])} top patterns and {len(patterns['bottom_patterns'])} bottom patterns")
             
             doc = fitz.open(self.pdf_path)
             stop_processing = False
@@ -132,17 +135,17 @@ class PDFChunker:
 
             doc.close()
         except Exception as e:
-            print(f"Chunking failed: {e}")
+            logger.error(f"Chunking failed: {e}")
         
         return self.chunks
 
 
 def process_pdf(pdf_path, output_path="pdf_chunks.json"):
     """Entry point function to process PDF using the PDFChunker class."""
-    print(f"\n🔄 Processing PDF: {pdf_path} ...\n")
+    logger.info(f"\n🔄 Processing PDF: {pdf_path} ...\n")
     chunker = PDFChunker(pdf_path)
     chunks = chunker.chunk()
-    print(f"✅ Extracted {len(chunks)} chunks.")
+    logger.info(f"✅ Extracted {len(chunks)} chunks.")
     save_chunks_to_json(chunks, output_path)
-    print("\n📄 Sample Chunk:\n")
-    print(json.dumps(chunks[0] if chunks else {}, indent=4, ensure_ascii=False))
+    logger.info("\n📄 Sample Chunk:\n")
+    logger.info(json.dumps(chunks[0] if chunks else {}, indent=4, ensure_ascii=False))

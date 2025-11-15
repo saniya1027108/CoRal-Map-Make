@@ -5,6 +5,9 @@ import re
 from collections import Counter
 from ..config.config import PATTERN_SAMPLE_PAGES, TOP_MARGIN, BOTTOM_MARGIN, TOP_THRESHOLD_RATIO, BOTTOM_THRESHOLD_RATIO
 from ..utils.utils import is_header_or_footer_by_heuristics
+from ..utils.logging_utils import setup_logger
+
+logger = setup_logger("preprocessing")
 
 
 def extract_text_blocks_with_position(page):
@@ -87,7 +90,7 @@ def detect_repeating_patterns(pdf_path, sample_pages=PATTERN_SAMPLE_PAGES):
         }
     
     except Exception as e:
-        print(f"⚠️ Pattern detection failed: {e}")
+        logger.warning(f"⚠️ Pattern detection failed: {e}")
         return {"top_patterns": [], "bottom_patterns": []}
 
 
