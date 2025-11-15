@@ -1,0 +1,9 @@
+PyMuPDF
+pdfplumber
+spacy
+sentence-transformers
+scikit-learn
+pandas
+Pillow
+google-generativeai
+tabulate
