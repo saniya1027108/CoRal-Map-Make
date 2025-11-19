@@ -6,11 +6,11 @@ import json
 from PIL import Image
 from io import BytesIO
 from ..config.config import PIXMAP_RESOLUTION
-from ..preprocessing.preprocess_pdf import (
+from ..preprocessing.pdf_margin_processing import (
     detect_repeating_patterns,
     clean_page_text_advanced
 )
-from ..utils.utils import (
+from .utils_chunking import (
     semantic_text_chunking,
     extract_tables_pdfplumber,
     ask_gemini_with_image,

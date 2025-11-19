@@ -1,49 +1,80 @@
+# main/main.py
 import os
 import sys
 import shutil
+import json
+from pathlib import Path
 
-# Add project root to path for imports
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-if PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT)
+# --------------------------------------------------------------
+# 1. Resolve project root and fix sys.path
+# --------------------------------------------------------------
+# Add project root and src folder to Python path
+PROJECT_ROOT = Path(__file__).resolve().parents[2]  # Map_and_Make
+SRC_FOLDER = PROJECT_ROOT / "src"
 
+sys.path.insert(0, str(PROJECT_ROOT))
+sys.path.insert(0, str(SRC_FOLDER))
+
+# --------------------------------------------------------------
+# 2. Imports (now guaranteed to work)
+# --------------------------------------------------------------
 from src.chunking.chunking import process_pdf
+from table_definitions.definitions import load_definitions
+from src.fill_table.fill_table import fill_table_smart
+from src.utils.logging_utils import setup_logger
+
+logger = setup_logger("main")
 
 
 if __name__ == "__main__":
     pdf_path = input("Enter the full path of your local research paper PDF: ").strip()
-    
-    if not pdf_path:
-        print("❌ No path provided.")
+    pdf_path = Path(pdf_path)
+
+    if not pdf_path.exists():
+        print("PDF not found.")
         sys.exit(1)
-    
-    if not os.path.exists(pdf_path):
-        print(f"❌ PDF file not found: {pdf_path}")
-        sys.exit(1)
-    
-    # Extract PDF filename without extension (e.g., "NEJMoa1702900")
-    pdf_filename = os.path.splitext(os.path.basename(pdf_path))[0]
-    
-    # Create output directory structure: test_results/NEJMoa1702900/
-    BASE_OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "../../test_results")
-    OUTPUT_DIR = os.path.join(BASE_OUTPUT_DIR, pdf_filename)
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    
-    # Define paths
-    copied_pdf_path = os.path.join(OUTPUT_DIR, f"{pdf_filename}.pdf")
-    json_output_path = os.path.join(OUTPUT_DIR, "pdf_chunked.json")
-    
-    # Copy the PDF to the output directory
-    try:
-        shutil.copy2(pdf_path, copied_pdf_path)
-        print(f"✅ PDF copied to: {copied_pdf_path}")
-    except Exception as e:
-        print(f"⚠️  Warning: Could not copy PDF: {e}")
-    
-    # Process the PDF using the structured chunker
-    process_pdf(pdf_path, output_path=json_output_path)
-    
-    print(f"\n✅ Results saved to: {OUTPUT_DIR}")
-    print(f"   📄 PDF: {copied_pdf_path}")
-    print(f"   📋 JSON: {json_output_path}")
-    
+
+    # ------------------- Output folder -------------------
+    out_dir = PROJECT_ROOT / "test_results" / pdf_path.stem
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    copied_pdf   = out_dir / f"{pdf_path.stem}.pdf"
+    chunk_json   = out_dir / "pdf_chunked.json"
+    table_csv    = out_dir / "extracted_table.csv"
+    meta_json    = out_dir / "extraction_metadata.json"
+
+    # ------------------- Copy PDF -------------------
+    shutil.copy2(pdf_path, copied_pdf)
+    print(f"PDF copied to {copied_pdf}")
+
+    # ------------------- Chunk -------------------
+    logger.info("Chunking PDF...")
+    process_pdf(str(pdf_path), output_path=str(chunk_json))
+    with open(chunk_json, "r", encoding="utf-8") as f:
+        chunks = json.load(f)
+    print(f"Chunked JSON saved to {chunk_json}")
+
+    # ------------------- Load groups (from config) -------------------
+    groups = load_definitions()          # picks up DEFINITIONS_CSV_PATH from config
+    logger.info(f"Loaded {len(groups)} column groups")
+
+    # ------------------- Fill table -------------------
+    logger.info("Running LLM extraction...")
+    fill_table_smart(
+        chunks=chunks,
+        groups=groups,
+        output_path=str(table_csv),
+        metadata_path=str(meta_json)
+    )
+    print(f"Table CSV saved to {table_csv}")
+    print(f"Metadata JSON saved to {meta_json}")
+
+    # ------------------- Summary -------------------
+    print("\n" + "="*60)
+    print("ALL DONE!")
+    print(f"Folder : {out_dir}")
+    print(f"   PDF : {copied_pdf.name}")
+    print(f"   JSON: {chunk_json.name}")
+    print(f"   CSV : {table_csv.name}")
+    print(f"   Meta: {meta_json.name}")
+    print("="*60)
