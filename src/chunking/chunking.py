@@ -4,6 +4,7 @@ import fitz  # PyMuPDF
 import re
 import json
 from PIL import Image
+import pdfplumber
 from io import BytesIO
 from ..config.config import PIXMAP_RESOLUTION
 from ..preprocessing.preprocess_pdf import (
@@ -56,7 +57,7 @@ class PDFChunker:
     def _process_tables(self, page, page_num, pdf_path):
         """Extract and process tables for a single page."""
         try:
-            import pdfplumber
+            
             with pdfplumber.open(pdf_path) as plumber:
                 pl_page = plumber.pages[page_num]
                 md_tables = extract_tables_pdfplumber(pl_page)

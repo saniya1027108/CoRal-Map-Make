@@ -12,6 +12,7 @@ import spacy
 import pdfplumber
 import google.generativeai as genai
 from collections import Counter
+import fitz 
 
 # Import config (assuming EMBEDDING_MODEL_NAME is available)
 from ..config.config import (
@@ -19,7 +20,7 @@ from ..config.config import (
     TEXT_CHUNK_MIN_SIZE, TEXT_CHUNK_MERGE_THRESHOLD,
     HEURISTIC_MAX_LENGTH
 )
-from .logging_utils import setup_logger
+from ..utils.logging_utils import setup_logger
 
 # Load models (shared across the codebase)
 nlp = spacy.load("en_core_web_sm")
@@ -150,7 +151,7 @@ def extract_tables_pdfplumber(page) -> list[str]:
 
 def extract_images_fitz(page, page_num) -> list[dict]:
     """Extract embedded images from a PDF page using PyMuPDF."""
-    import fitz  # Local import to avoid circular dependencies
+    
     img_chunks = []
     for img in page.get_images(full=True):
         xref = img[0]

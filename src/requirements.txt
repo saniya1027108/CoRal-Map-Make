@@ -4,6 +4,8 @@ spacy
 sentence-transformers
 scikit-learn
 pandas
+numpy
 Pillow
 google-generativeai
 tabulate
+openai
