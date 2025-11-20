@@ -5,7 +5,7 @@ import numpy as np
 import fitz
 from ..utils.logging_utils import setup_logger
 from ..model_handling.llm_extraction import extract_group_from_chunk
-from ..model_handling.retriever import embed_texts, retrieve_top_chunks
+# from ..model_handling.retriever import embed_texts, retrieve_top_chunks
 
 logger = setup_logger("table_filling")
 
