@@ -1,0 +1,800 @@
+{
+    "Add-on Treatment": {
+        "value": "abiraterone acetate and prednisolone",
+        "evidence": "ADT plus abir­aterone acetate (1000 mg daily) and prednisolone (5 mg daily) (combination therapy).",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment": {
+        "value": "47%",
+        "evidence": "Grade 3 to 5 adverse events occurred in 47% of the patients in the combination group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control": {
+        "value": "33%",
+        "evidence": "and in 33% of the patients in the ADT-alone group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 5 | Treatment": {
+        "value": "9",
+        "evidence": "with nine grade 5 events",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 5 | Control": {
+        "value": "3",
+        "evidence": "and in 33% of the patients in the ADT-alone group (with three grade 5 events)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Author": {
+        "value": "N.D. James, J.S. de Bono, M.R. Spears, N.W. Clarke, M.D. Mason, D.P. Dearnaley, A.W.S. Ritchie, C.L. Amos, C. Gilson, R.J. Jones, D. Matheson, R. Millman, G. Attard, S. Chowdhury, W.R. Cross, S. Gillessen, C.C. Parker, J.M. Russell, D.R. Berthold, C. Brawley, F. Adab, S. Aung, A.J. Birtle, J. Bowen, S. Brock, P. Chakraborti, C. Ferguson, J. Gale, E. Gray, M. Hingorani, P.J. Hoskin, J.F. Lester, Z.I. Malik, F. McKinna, N. McPhail, J. Money‑Kyrle, J. O’Sullivan, O. Parikh, A. Protheroe, A. Robinson, N.N. Srihari, C. Thomas, J. Wagstaff, J. Wylie, A. Zarkar, M.K.B. Parmar, and M.R. Sydes, for the STAMPEDE Investigators",
+        "evidence": "Abiraterone for Prostate Cancer Not Previously Treated with Hormone Therapy N.D. James, J.S. de Bono, M.R. Spears, N.W. Clarke, M.D. Mason, D.P. Dearnaley, A.W.S. Ritchie, C.L. Amos, C. Gilson, R.J. Jones, D. Matheson, R. Millman, G. Attard, S. Chowdhury, W.R. Cross, S. Gillessen, C.C. Parker, J.M. Russell, D.R. Berthold, C. Brawley, F. Adab, S. Aung, A.J. Birtle, J. Bowen, S. Brock, P. Chakraborti, C. Ferguson, J. Gale, E. Gray, M. Hingorani, P.J. Hoskin, J.F. Lester, Z.I. Malik, F. McKinna, N. McPhail, J. Money‑Kyrle, J. O’Sullivan, O. Parikh, A. Protheroe, A. Robinson, N.N. Srihari, C. Thomas, J. Wagstaff, J. Wylie, A. Zarkar, M.K.B. Parmar, and M.R. Sydes, for the STAMPEDE Investigators",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "COE_RCT_IND_OVERALL_RJ": {
+        "value": "0.63 (0.52–0.76)",
+        "evidence": "Overall 0.63 (0.52–0.76)",
+        "chunk_id": 37,
+        "page": 9
+    },
+    "Class of Agent in Treatment Arm 1": {
+        "value": "Androgen biosynthesis inhibitor",
+        "evidence": "Abiraterone acetate is a selective, irreversible inhibitor of CYP17",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Control Arm": {
+        "value": "ADT alone",
+        "evidence": "We randomly assigned patients in a 1:1 ratio to receive ADT alone or ADT plus abir­aterone acetate",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Control Arm - N": {
+        "value": "958",
+        "evidence": "A total of 1917 patients underwent randomization from November 2011 through January 2014.",
+        "chunk_id": 1,
+        "page": 1
+    },
+    "Docetaxel administration - N (%) | Treatment": {
+        "value": "83 (33.5%)",
+        "evidence": "Docetaxel 248 (83)",
+        "chunk_id": 50,
+        "page": 11
+    },
+    "Docetaxel administration - N (%) | Control": {
+        "value": "102 (19.1%)",
+        "evidence": "Docetaxel 535 (102)",
+        "chunk_id": 50,
+        "page": 11
+    },
+    "Full Pub or Abstract": {
+        "value": "Full Pub",
+        "evidence": "This article was published on June 3, 2017, at NEJM.org.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Gleason score - N (%) | ≤ 7 | Treatment": {
+        "value": "221 (23%)",
+        "evidence": "Gleason score — no. (%)‡ ≤7 221 (23%)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Gleason score - N (%) | ≤ 7 | Control": {
+        "value": "223 (23%)",
+        "evidence": "Gleason score — no. (%)‡ ≤7 223 (23%)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Gleason score - N (%) | ≥ 8 | Treatment": {
+        "value": "715 (74%)",
+        "evidence": "Gleason score — no. (%)‡ 8 to 10 715 (74%)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Gleason score - N (%) | ≥ 8 | Control": {
+        "value": "721 (75%)",
+        "evidence": "Gleason score — no. (%)‡ 8 to 10 721 (75%)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Median Age (years) | Treatment": {
+        "value": "67",
+        "evidence": "The median age was 67 years",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Median Age (years) | Control": {
+        "value": "67",
+        "evidence": "The median age was 67 years",
+        "chunk_id": 1,
+        "page": 1
+    },
+    "Median Follow-Up Duration (mo)": {
+        "value": "40",
+        "evidence": "The median follow-up was 40 months.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Median OS (mo) | Overall | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | Overall | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | High volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | High volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | Low volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | Low volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median On-Treatment Duration (mo) | Treatment": {
+        "value": "23.7",
+        "evidence": "The median duration of abiraterone treatment was 23.7 months in the patients for whom the duration was capped at 2 years",
+        "chunk_id": 14,
+        "page": 4
+    },
+    "Median On-Treatment Duration (mo) | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | Overall | Treatment": {
+        "value": "43.9",
+        "evidence": "restricted mean failure-free survival time: 43.9 months in the combination group",
+        "chunk_id": 20,
+        "page": 6
+    },
+    "Median PFS (mo) | Overall | Control": {
+        "value": "30.0",
+        "evidence": "restricted mean failure-free survival time: 30.0 months in the ADT-alone group",
+        "chunk_id": 20,
+        "page": 6
+    },
+    "Median PFS (mo) | High volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | High volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | Low volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | Low volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Liver | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Liver | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Lungs | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Lungs | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Bone | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Bone | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Nodal | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Nodal | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Mode of metastases - N (%) | Synchronous | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Mode of metastases - N (%) | Synchronous | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Mode of metastases - N (%) | Metachronous | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Mode of metastases - N (%) | Metachronous | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "NCT": {
+        "value": "NCT00268476",
+        "evidence": "STAMPEDE ClinicalTrials.gov number, NCT00268476",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "No. of Deaths - N | Treatment": {
+        "value": "184",
+        "evidence": "There were 184 deaths in the combination group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "No. of Deaths - N | Control": {
+        "value": "262",
+        "evidence": "as compared with 262 in the ADT-alone group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Number of Arms Included": {
+        "value": "2",
+        "evidence": "We randomly assigned patients in a 1:1 ratio to receive ADT alone or ADT plus abir­aterone acetate (1000 mg daily) and prednisolone (5 mg daily) (combination therapy).",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "ORR - N (%) | Treatment | Overall": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Treatment | CR": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Treatment | SD": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Treatment | PD": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Control | Overall": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Control | CR": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Control | SD": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "ORR - N (%) | Control | PD": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | Overall | Treatment": {
+        "value": "83%",
+        "evidence": "3-year survival of 83% as compared with 76% in the ADT-alone group",
+        "chunk_id": 15,
+        "page": 4
+    },
+    "OS Rate (%) | Overall | Control": {
+        "value": "76%",
+        "evidence": "3-year survival of 83% as compared with 76% in the ADT-alone group",
+        "chunk_id": 15,
+        "page": 4
+    },
+    "OS Rate (%) | Synchronous | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | Synchronous | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | Metachronous | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | Metachronous | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | High volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | High volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | Low volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "OS Rate (%) | Low volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Original/Follow Up": {
+        "value": "Original",
+        "evidence": "Original Article",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "PFS Rate (%) | Overall | Treatment": {
+        "value": "0.29 (95% CI, 0.25 to 0.34)",
+        "evidence": "There were 248 treatment-failure events in the combination group as compared with 535 in the ADT-alone group (hazard ratio, 0.29; 95% CI, 0.25 to 0.34; P<0.001)",
+        "chunk_id": 4,
+        "page": 1
+    },
+    "PFS Rate (%) | Overall | Control": {
+        "value": "62 (62%)",
+        "evidence": "The 3-year progression-free survival was 62% in the ADT-alone group",
+        "chunk_id": 21,
+        "page": 6
+    },
+    "PS - N (%) | 0 | Treatment": {
+        "value": "745 (78%)",
+        "evidence": "WHO performance status — no. (%)† 0 744 (78) 745 (78)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "PS - N (%) | 0 | Control": {
+        "value": "744 (78%)",
+        "evidence": "WHO performance status — no. (%)† 0 744 (78) 745 (78)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "PS - N (%) | 1-2 | Treatment": {
+        "value": "215 (22%)",
+        "evidence": "1 or 2 213 (22) 215 (22)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "PS - N (%) | 1-2 | Control": {
+        "value": "213 (22%)",
+        "evidence": "1 or 2 213 (22) 215 (22)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Phase": {
+        "value": "II–III",
+        "evidence": "seamless phase 2–3 component",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Previous local therapy - N (%) | Prostatectomy | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Previous local therapy - N (%) | Prostatectomy | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Previous local therapy - N (%) | Orchiectomy | Treatment": {
+        "value": "3 (<1%)",
+        "evidence": "Planned or current long‑term ADT — no. (%) Orchiectomy 3 (<1)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Orchiectomy | Control": {
+        "value": "5 (1%)",
+        "evidence": "Planned or current long‑term ADT — no. (%) Orchiectomy 5 (1)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Radiotherapy | Treatment": {
+        "value": "396 (41%)",
+        "evidence": "Radiotherapy planned — no. (%) Yes 396 (41)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Radiotherapy | Control": {
+        "value": "396 (41%)",
+        "evidence": "Radiotherapy planned — no. (%) Yes 396 (41)",
+        "chunk_id": 19,
+        "page": 5
+    },
+    "Primary Endpoint(s)": {
+        "value": "overall survival",
+        "evidence": "The primary outcome measure was overall survival.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "PubMed ID": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Quality of Life Scale": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Quality of Life reported": {
+        "value": "No",
+        "evidence": "quality of life (data not shown)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Race - N (%) | White | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | White | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Black or African American | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Black or African American | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Asian | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Asian | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Nat. Hawaiian or Pac. Islander | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Amer. Indian or Alaska Nat. | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Amer. Indian or Alaska Nat. | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Other | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Other | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Unknown | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Unknown | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | North America | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | North America | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | South America | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | South America | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Europe | Treatment": {
+        "value": "960 (100%)",
+        "evidence": "a total of 1917 consenting patients at 111 U.K. and 5 Swiss sites underwent randomization (957 to ADT alone and 960 to combination therapy)",
+        "chunk_id": 13,
+        "page": 4
+    },
+    "Region - N (%) | Europe | Control": {
+        "value": "957 (100%)",
+        "evidence": "a total of 1917 consenting patients at 111 U.K. and 5 Swiss sites underwent randomization (957 to ADT alone and 960 to combination therapy)",
+        "chunk_id": 13,
+        "page": 4
+    },
+    "Region - N (%) | Africa | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Africa | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Asia | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Asia | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Oceania | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Oceania | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | Synchronous": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | Metachronous": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | High volume": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | Low volume": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Secondary Endpoint(s)": {
+        "value": "adverse events, symptomatic skeletal events, progression-free survival, prostate cancer–specific survival, and quality of life",
+        "evidence": "Secondary outcome measures included adverse events, symptomatic skeletal events, progression-free survival (i.e., failure-free survival excluding biochemical failure), prostate cancer–specific survival, and (data not shown) quality of life.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "TTPSA (mo) | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "TTPSA (mo) | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Total Participants - N": {
+        "value": "1917",
+        "evidence": "A total of 1917 patients underwent randomization from November 2011 through January 2014.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Arm - N": {
+        "value": "1917",
+        "evidence": "A total of 1917 patients underwent randomization",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Arm 1 Regimen": {
+        "value": "ADT plus abiraterone acetate (1000 mg daily) and prednisolone (5 mg daily)",
+        "evidence": "We randomly assigned patients in a 1:1 ratio to receive ADT alone or ADT plus abir­aterone acetate (1000 mg daily) and prednisolone (5 mg daily) (combination therapy).",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Arm(s)": {
+        "value": "ADT plus abiraterone acetate and prednisolone",
+        "evidence": "ADT plus abir­aterone acetate (1000 mg daily) and prednisolone (5 mg daily) (combination therapy)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Class": {
+        "value": "Systemic Therapy",
+        "evidence": "\"Systemic Therapy in Advancing or Metastatic Prostate Cancer: Evaluation of Drug Efficacy (STAMPEDE)\"",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Trial": {
+        "value": "Systemic Therapy in Advancing or Metastatic Prostate Cancer: Evaluation of Drug Efficacy (STAMPEDE)",
+        "evidence": "Systemic Therapy in Advancing or Metastatic Prostate Cancer: Evaluation of Drug Efficacy (STAMPEDE)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Trial Name": {
+        "value": "STAMPEDE",
+        "evidence": "Systemic Therapy in Advancing or Metastatic Prostate Cancer: Evaluation of Drug Efficacy (STAMPEDE)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Type of Therapy": {
+        "value": "ADT plus abiraterone acetate (1000 mg daily) and prednisolone (5 mg daily)",
+        "evidence": "We randomly assigned patients in a 1:1 ratio to receive ADT alone or ADT plus abir­aterone acetate (1000 mg daily) and prednisolone (5 mg daily) (combination therapy).",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Volume of disease - N (%) | High | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Volume of disease - N (%) | High | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Volume of disease - N (%) | Low | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Year": {
+        "value": "2017",
+        "evidence": "This article was published on June 3, 2017, at NEJM.org.",
+        "chunk_id": 0,
+        "page": 1
+    }
+}

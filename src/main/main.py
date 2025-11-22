@@ -19,6 +19,8 @@ sys.path.insert(0, str(SRC_FOLDER))
 from src.chunking.chunking import process_pdf
 from table_definitions.definitions import load_definitions
 from src.fill_table.fill_table import fill_table_all_chunks
+from src.evaluation.evaluator import Evaluator
+from src.config.config import GOLD_TABLE_PATH
 from src.utils.logging_utils import setup_logger
 
 logger = setup_logger("main")
@@ -65,8 +67,28 @@ if __name__ == "__main__":
         output_path=str(table_csv),
         metadata_path=str(meta_json)
     )
-    # print(f"Table CSV saved to {table_csv}")
-    # print(f"Metadata JSON saved to {meta_json}")
+
+    # ------------------- Evaluation -------------------
+    gold_table = PROJECT_ROOT / GOLD_TABLE_PATH
+    if gold_table.exists():
+        try:
+            logger.info("Running evaluation against gold labels...")
+            evaluator = Evaluator(
+                extracted_csv=table_csv,
+                gold_csv=gold_table,
+                pdf_name=pdf_path.stem,
+                output_dir=out_dir / "metrics"
+            )
+            eval_results = evaluator.evaluate()
+            
+            logger.info(f"✅ Overall Accuracy: {eval_results['overall_accuracy']:.2f}%")
+            logger.info(f"✅ Non-null Accuracy: {eval_results['non_null_accuracy']:.2f}%")
+        except ValueError as e:
+            logger.warning(f"⚠️ Evaluation skipped: {e}")
+        except Exception as e:
+            logger.error(f"❌ Evaluation failed: {e}")
+    else:
+        logger.info("⚠️ No gold table found, skipping evaluation")
 
     # ------------------- Summary -------------------
     print("\n" + "="*60)
@@ -76,4 +98,6 @@ if __name__ == "__main__":
     print(f"   JSON: {chunk_json.name}")
     print(f"   CSV : {table_csv.name}")
     print(f"   Meta: {meta_json.name}")
+    if (out_dir / "metrics").exists():
+        print(f"   Eval: metrics/evaluation_summary.json")
     print("="*60)
