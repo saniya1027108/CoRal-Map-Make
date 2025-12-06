@@ -1,4 +1,4 @@
-# src/utils/utils.py
+# src/utils/utils_chunking.py
 # Utility functions for text processing, embeddings, and external API calls
 import re
 import json
@@ -17,7 +17,7 @@ import fitz
 # Import config (assuming EMBEDDING_MODEL_NAME is available)
 from ..config.config import (
     EMBEDDING_MODEL_NAME, GEMINI_API_KEY, GEMINI_MODEL_NAME,
-    TEXT_CHUNK_MIN_SIZE, TEXT_CHUNK_MERGE_THRESHOLD,
+    TEXT_CHUNK_MIN_SIZE,
     HEURISTIC_MAX_LENGTH
 )
 from ..utils.logging_utils import setup_logger
@@ -51,17 +51,82 @@ def is_table_caption_or_footnote(text):
     )
 
 
-def semantic_text_chunking(text, min_size=TEXT_CHUNK_MIN_SIZE, merge_threshold=TEXT_CHUNK_MERGE_THRESHOLD):
+# def semantic_text_chunking(text, min_size=TEXT_CHUNK_MIN_SIZE, merge_threshold=TEXT_CHUNK_MERGE_THRESHOLD):
+#     """
+#     Two-stage text chunking:
+#     1. Create initial chunks based on sentence boundaries and min_size
+#     2. Merge semantically similar chunks using embeddings
+#     """
+#     doc = nlp(text)
+#     chunks = []
+#     current_chunk = ""
+    
+#     # Stage 1: Initial chunking with filtering
+#     for sent in doc.sents:
+#         sentence = sent.text.strip()
+        
+#         # Skip sentences that look like tables or metadata
+#         if looks_like_inline_table(sentence) or is_table_caption_or_footnote(sentence):
+#             continue
+        
+#         # Additional check: skip if sentence looks like header/footer
+#         if is_header_or_footer_by_heuristics(sentence):
+#             continue
+        
+#         current_chunk += " " + sentence
+#         if len(current_chunk) >= min_size:
+#             chunks.append(current_chunk.strip())
+#             current_chunk = ""
+    
+#     if current_chunk.strip():
+#         chunks.append(current_chunk.strip())
+    
+#     # If we only have one chunk or no chunks, return as is
+#     if len(chunks) <= 1:
+#         return chunks
+    
+#     # Stage 2: Semantic merging using embeddings
+#     try:
+#         embeddings = embedding_model.encode(chunks)
+#         similarities = cosine_similarity(embeddings, embeddings)
+        
+#         merged_chunks = []
+#         visited = set()
+        
+#         for i, chunk in enumerate(chunks):
+#             if i in visited:
+#                 continue
+            
+#             similar = [chunk]
+            
+#             for j in range(i+ 1, len(chunks)):
+#                 if j not in visited and similarities[i][j] > merge_threshold:
+#                     similar.append(chunks[j])
+#                     visited.add(j)
+            
+#             merged_chunks.append(" ".join(similar))
+        
+#         return merged_chunks
+    
+#     except Exception as e:
+#         logger.warning(f"⚠️  Warning: Semantic merging failed: {e}. Returning initial chunks.")
+#         return chunks
+
+def text_chunking(text, max_size=TEXT_CHUNK_MIN_SIZE):
     """
-    Two-stage text chunking:
-    1. Create initial chunks based on sentence boundaries and min_size
-    2. Merge semantically similar chunks using embeddings
+    Simple sentence-based text chunking.
+    
+    Args:
+        text: Input text to chunk
+        max_size: Maximum size of each chunk in characters
+    
+    Returns:
+        List of text chunks
     """
     doc = nlp(text)
     chunks = []
     current_chunk = ""
     
-    # Stage 1: Initial chunking with filtering
     for sent in doc.sents:
         sentence = sent.text.strip()
         
@@ -69,48 +134,25 @@ def semantic_text_chunking(text, min_size=TEXT_CHUNK_MIN_SIZE, merge_threshold=T
         if looks_like_inline_table(sentence) or is_table_caption_or_footnote(sentence):
             continue
         
-        # Additional check: skip if sentence looks like header/footer
+        # Skip if sentence looks like header/footer
         if is_header_or_footer_by_heuristics(sentence):
             continue
         
-        current_chunk += " " + sentence
-        if len(current_chunk) >= min_size:
-            chunks.append(current_chunk.strip())
-            current_chunk = ""
+        # Check if adding this sentence would exceed max_size
+        if current_chunk and len(current_chunk) + len(sentence) + 1 > max_size:
+            # Save current chunk and start new one
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+            current_chunk = sentence
+        else:
+            # Add sentence to current chunk
+            current_chunk += (" " + sentence) if current_chunk else sentence
     
+    # Add the last chunk if it exists
     if current_chunk.strip():
         chunks.append(current_chunk.strip())
     
-    # If we only have one chunk or no chunks, return as is
-    if len(chunks) <= 1:
-        return chunks
-    
-    # Stage 2: Semantic merging using embeddings
-    try:
-        embeddings = embedding_model.encode(chunks)
-        similarities = cosine_similarity(embeddings, embeddings)
-        
-        merged_chunks = []
-        visited = set()
-        
-        for i, chunk in enumerate(chunks):
-            if i in visited:
-                continue
-            
-            similar = [chunk]
-            
-            for j in range(i + 1, len(chunks)):
-                if j not in visited and similarities[i][j] > merge_threshold:
-                    similar.append(chunks[j])
-                    visited.add(j)
-            
-            merged_chunks.append(" ".join(similar))
-        
-        return merged_chunks
-    
-    except Exception as e:
-        logger.warning(f"⚠️  Warning: Semantic merging failed: {e}. Returning initial chunks.")
-        return chunks
+    return chunks
 
 
 def extract_caption_from_gemini(text: str) -> str:

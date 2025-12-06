@@ -12,7 +12,7 @@ from ..preprocessing.pdf_margin_preprocessing import (
     clean_page_text_advanced
 )
 from ..chunking.utils_chunking import (
-    semantic_text_chunking,
+    text_chunking,
     extract_tables_pdfplumber,
     ask_gemini_with_image,
     extract_images_fitz,
@@ -46,7 +46,7 @@ class PDFChunker:
         
         # Generate text chunks
         if raw_text.strip():
-            for txt in semantic_text_chunking(raw_text):
+            for txt in text_chunking(raw_text):
                 self.chunks.append({
                     "type": "text",
                     "content": txt,

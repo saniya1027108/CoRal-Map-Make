@@ -20,8 +20,9 @@ from src.chunking.chunking import process_pdf
 from table_definitions.definitions import load_definitions
 from src.fill_table.fill_table import fill_table_all_chunks
 from src.evaluation.evaluator import Evaluator
-from src.config.config import GOLD_TABLE_PATH
+from src.config.config import GOLD_TABLE_PATH, COST_PER_1K_INPUT, COST_PER_1K_OUTPUT
 from src.utils.logging_utils import setup_logger
+from src.model_handling.llm_extraction import save_cost_metrics  # Adjusted import path
 
 logger = setup_logger("main")
 
@@ -59,8 +60,8 @@ if __name__ == "__main__":
     logger.info(f"Loaded {len(groups)} column groups")
 
     # ------------------- Fill table -------------------
-    logger.info("Running LLM extraction...")
-    fill_table_all_chunks(
+    logger.info("Running LLM extraction (parallel over groups)...")
+    output_data, metrics = fill_table_all_chunks(
         chunks=chunks,
         groups=groups,
         pdf_path=str(pdf_path),
@@ -90,6 +91,24 @@ if __name__ == "__main__":
     else:
         logger.info("⚠️ No gold table found, skipping evaluation")
 
+    # ------------------- Save LLM Cost Metrics -------------------
+    metrics_dir = out_dir / "metrics"
+    metrics_dir.mkdir(exist_ok=True)   # Ensure folder exists
+
+    cost_file = metrics_dir / "llm_cost_metrics.txt"
+    try:
+        # Compute total cost
+        total_cost = (
+            (metrics["input_tokens"] / 1000.0) * COST_PER_1K_INPUT +
+            (metrics["output_tokens"] / 1000.0) * COST_PER_1K_OUTPUT
+        )
+        metrics["total_cost_usd"] = round(total_cost, 4)
+        
+        save_cost_metrics(str(cost_file), metrics)
+        logger.info(f"💰 LLM cost metrics saved to {cost_file}")
+    except Exception as e:
+        logger.error(f"❌ Failed to save LLM cost metrics: {e}")
+        
     # ------------------- Summary -------------------
     print("\n" + "="*60)
     print("ALL DONE!")

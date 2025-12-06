@@ -2,7 +2,7 @@
 import json
 import base64
 import openai
-from ..config.config import OPENAI_API_KEY, OPEN_AI_MODEL, OPENAI_TEMPERATURE
+from ..config.config import OPENAI_API_KEY, OPEN_AI_MODEL, OPENAI_TEMPERATURE, COST_PER_1K_INPUT, COST_PER_1K_OUTPUT
 from ..utils.logging_utils import setup_logger
 
 logger = setup_logger("llm_extraction")
@@ -42,6 +42,8 @@ Content:
 def extract_group_from_chunk(chunk, group, context_text = None):
     """
     Extract values using OpenAI (gpt-4o-mini or gpt-4o)
+    
+    Returns: (extracted_dict, input_tokens, output_tokens)
     """
     try:
         # Build content based on chunk type
@@ -56,7 +58,8 @@ def extract_group_from_chunk(chunk, group, context_text = None):
             content_text = ""
 
         if not content_text.strip():
-            return {col["Column Name"]: {"value": None, "evidence": None} for col in group}
+            fallback = {col["Column Name"]: {"value": None, "evidence": None} for col in group}
+            return fallback, 0, 0
 
         prompt = ""
         if context_text:
@@ -72,6 +75,15 @@ def extract_group_from_chunk(chunk, group, context_text = None):
             temperature=OPENAI_TEMPERATURE,
             max_tokens=1500
         )
+
+        # Get usage
+        usage = getattr(response, "usage", None)
+        if usage:
+            input_tokens = usage.prompt_tokens
+            output_tokens = usage.completion_tokens
+        else:
+            input_tokens = 0
+            output_tokens = 0
 
         raw = response.choices[0].message.content.strip()
 
@@ -97,12 +109,22 @@ def extract_group_from_chunk(chunk, group, context_text = None):
                 entry["evidence"] = None
             result[col_name] = entry
 
-        return result
+        return result, input_tokens, output_tokens
 
     except json.JSONDecodeError as e:
         logger.warning(f"JSON parse failed: {e}\nRaw output: {raw}")
+        fallback = {col["Column Name"]: {"value": None, "evidence": None} for col in group}
+        return fallback, input_tokens, output_tokens  # Usage still counted even on parse error
     except Exception as e:
-        logger.error(f"Open ReasonableAI extraction failed: {e}")
+        logger.error(f"OpenAI extraction failed: {e}")
+        fallback = {col["Column Name"]: {"value": None, "evidence": None} for col in group}
+        return fallback, 0, 0
 
-    # Fallback: all null
-    return {col["Column Name"]: {"value": None, "evidence": None} for col in group}
+
+def save_cost_metrics(file_path, metrics):
+    """
+    Save cost metrics to file from metrics dict.
+    """
+    with open(file_path, "w") as f:
+        for k, v in metrics.items():
+            f.write(f"{k}: {v}\n")
