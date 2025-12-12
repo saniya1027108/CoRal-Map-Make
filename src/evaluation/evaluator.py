@@ -100,49 +100,37 @@ class Evaluator:
                 "comparison_text": batch_text
             })
             
-            logger.info(f"Batch {batch_num}: {len(batch_columns)} columns (columns {i+1}-{i+len(batch_columns)})")
+            logger.info(f"Batch {batch_num}: {len(batch_columns)} columns")
     
     def _call_llm_judge(self):
         """Call LLM to evaluate each batch."""
-        logger.info(f"Evaluating {len(self.comparison_batches)} batches with LLM judge ({EVALUATION_MODEL})...")
+        logger.info(f"Calling LLM ({EVALUATION_MODEL}) for evaluation...")
         
         for batch in self.comparison_batches:
-            batch_num = batch["batch_num"]
-            logger.info(f"Processing Batch {batch_num}/{len(self.comparison_batches)}...")
+            logger.info(f"Evaluating Batch {batch['batch_num']}")
             
-            llm_response = ask_llm_text(
-                prompt_path=EVALUATION_PROMPT_PATH,
-                text=batch["comparison_text"],
+            response = ask_llm_text(
+                EVALUATION_PROMPT_PATH,
+                batch["comparison_text"],
                 model_type=EVALUATION_MODEL
             )
             
-            if not llm_response:
-                logger.error(f"LLM evaluation failed for Batch {batch_num}")
-                raise RuntimeError(f"LLM evaluation failed for Batch {batch_num}")
-            
-            self.llm_responses.append({
-                "batch_num": batch_num,
-                "columns": batch["columns"],
-                "response": llm_response
-            })
-            
-            logger.info(f"Batch {batch_num} completed")
-        
-        logger.info("All batches evaluated successfully")
+            if response:
+                self.llm_responses.append({
+                    "batch_num": batch["batch_num"],
+                    "response": response
+                })
+                logger.info(f"Batch {batch['batch_num']} evaluated successfully")
+            else:
+                logger.error(f"Failed to evaluate Batch {batch['batch_num']}")
     
-    def _verify_completeness(self):
-        """Verify that all columns are present in the evaluation results."""
-        logger.info("Verifying completeness of evaluation...")
-        
-        # Get all columns that should be evaluated
-        common_columns = set(self.extracted_data.keys()) & set(self.gold_data.keys())
-        expected_columns = sorted(common_columns)
-        
-        # Extract evaluated columns from LLM responses
+    def _verify_completeness(self) -> bool:
+        """Verify that all columns are covered in the LLM responses."""
         evaluated_columns = set()
+        
         for response_data in self.llm_responses:
+            # Extract column names from response
             for line in response_data["response"].split('\n'):
-                # Extract column name from line (format: "Column Name: ... => ...")
                 if "=>" in line:
                     match = re.match(r"^([^:]+):", line)
                     if match:
@@ -150,53 +138,34 @@ class Evaluator:
                         evaluated_columns.add(col_name)
         
         # Find missing columns
-        self.missing_columns = [col for col in expected_columns if col not in evaluated_columns]
+        all_columns = set(self.extracted_data.keys()) & set(self.gold_data.keys())
+        self.missing_columns = list(all_columns - evaluated_columns)
         
         if self.missing_columns:
-            logger.warning(f"Missing {len(self.missing_columns)} columns in evaluation:")
-            for col in self.missing_columns[:10]:  # Show first 10
+            logger.warning(f"Missing columns in evaluation: {len(self.missing_columns)}")
+            for col in self.missing_columns[:5]:  # Log first 5
                 logger.warning(f"  - {col}")
-            if len(self.missing_columns) > 10:
-                logger.warning(f"  ... and {len(self.missing_columns) - 10} more")
-        else:
-            logger.info("✅ All columns present in evaluation")
+            if len(self.missing_columns) > 5:
+                logger.warning(f"  ... and {len(self.missing_columns) - 5} more")
         
         return len(self.missing_columns) == 0
     
     def _parse_evaluation(self):
-        """Parse LLM responses to extract metrics."""
-        logger.info("Parsing evaluation results...")
-        
-        total = 0
-        correct = 0
-        non_null_total = 0
-        non_null_correct = 0
-        
-        batch_results = []
+        """Parse LLM responses to calculate accuracy metrics."""
+        total = correct = 0
+        non_null_total = non_null_correct = 0
         
         NULL_TOKENS = {"nan", "not present", "n/a", "na", ""}
         value_pattern = re.compile(r":\s*(.*?)\s*vs\s*(.*?)\s*=>", re.IGNORECASE)
         
-        # Process each batch
         for response_data in self.llm_responses:
-            batch_num = response_data["batch_num"]
-            response = response_data["response"]
-            
-            batch_total = 0
-            batch_correct = 0
-            batch_non_null_total = 0
-            batch_non_null_correct = 0
-            
-            for line in response.split('\n'):
+            for line in response_data["response"].split('\n'):
                 # Overall accuracy
                 if "Not Equivalent" in line and "=>" in line:
                     total += 1
-                    batch_total += 1
                 elif "Equivalent" in line and "=>" in line and "Not Equivalent" not in line:
                     total += 1
                     correct += 1
-                    batch_total += 1
-                    batch_correct += 1
                 
                 # Non-null accuracy
                 match = value_pattern.search(line)
@@ -204,30 +173,11 @@ class Evaluator:
                     gold_val = match.group(1).strip()
                     if gold_val.lower() not in NULL_TOKENS:
                         non_null_total += 1
-                        batch_non_null_total += 1
                         if "Equivalent" in line and "Not Equivalent" not in line:
                             non_null_correct += 1
-                            batch_non_null_correct += 1
-            
-            # Calculate batch metrics
-            batch_overall_acc = (batch_correct / batch_total * 100) if batch_total > 0 else 0.0
-            batch_non_null_acc = (batch_non_null_correct / batch_non_null_total * 100) if batch_non_null_total > 0 else 0.0
-            
-            batch_results.append({
-                "batch_num": batch_num,
-                "total_columns": batch_total,
-                "correct_columns": batch_correct,
-                "overall_accuracy": batch_overall_acc,
-                "non_null_total": batch_non_null_total,
-                "non_null_correct": batch_non_null_correct,
-                "non_null_accuracy": batch_non_null_acc
-            })
-            
-            logger.info(f"Batch {batch_num} - Overall: {batch_overall_acc:.2f}%, Non-null: {batch_non_null_acc:.2f}%")
         
-        # Calculate overall metrics
-        overall_acc = (correct / total * 100) if total > 0 else 0.0
-        non_null_acc = (non_null_correct / non_null_total * 100) if non_null_total > 0 else 0.0
+        overall_acc = (correct / total * 100) if total else 0.0
+        non_null_acc = (non_null_correct / non_null_total * 100) if non_null_total else 0.0
         
         self.results = {
             "total_columns": total,
@@ -236,21 +186,15 @@ class Evaluator:
             "non_null_total": non_null_total,
             "non_null_correct": non_null_correct,
             "non_null_accuracy": non_null_acc,
-            "batch_results": batch_results,
-            "missing_columns": self.missing_columns,
-            "missing_columns_count": len(self.missing_columns)
+            "missing_columns": len(self.missing_columns)
         }
         
-        logger.info("=" * 60)
-        logger.info(f"OVERALL RESULTS:")
-        logger.info(f"Overall Accuracy: {overall_acc:.2f}% ({correct}/{total})")
-        logger.info(f"Non-null Accuracy: {non_null_acc:.2f}% ({non_null_correct}/{non_null_total})")
-        logger.info(f"Missing Columns: {len(self.missing_columns)}")
-        logger.info("=" * 60)
+        logger.info(f"Overall Accuracy: {overall_acc:.2f}%")
+        logger.info(f"Non-null Accuracy: {non_null_acc:.2f}%")
     
     def _save_results(self):
         """Save evaluation results to files."""
-        # 1. Combined full output from all batches
+        # 1. Full combined results
         full_output_path = self.output_dir / "evaluation_results.txt"
         with open(full_output_path, "w", encoding="utf-8") as f:
             for i, response_data in enumerate(self.llm_responses):
@@ -260,7 +204,7 @@ class Evaluator:
                 f.write("="*60 + "\n")
                 f.write(response_data["response"])
             
-            # Add summary at the end
+            # Summary
             f.write("\n\n" + "="*60 + "\n")
             f.write("SUMMARY\n")
             f.write("="*60 + "\n")

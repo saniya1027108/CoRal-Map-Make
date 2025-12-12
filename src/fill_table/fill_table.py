@@ -1,12 +1,14 @@
 # src/fill_table/fill_table.py
+# (Updated with multi-threading over group-chunk pairs, performance monitoring, and metrics accumulation)
 import json
 import pandas as pd
 import numpy as np
 import fitz
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 from ..utils.logging_utils import setup_logger
-from ..model_handling.llm_extraction import extract_group_from_chunk  # Adjusted import path based on filename
-# from ..model_handling.retriever import embed_texts, retrieve_top_chunks
+from ..model_handling.llm_extraction import extract_group_from_chunk
+from ..utils.performance_monitor import PerformanceMonitor
 
 logger = setup_logger("table_filling")
 
@@ -54,69 +56,82 @@ def extract_first_n_pages_text(pdf_path, n=2):
     return "\n\n".join(texts)
 
 
-def process_group(group_label, group, chunks, context_text):
-    """
-    Process a single group: extract from all chunks sequentially, take first non-null values.
-    Returns: (group_output_dict, local_metrics_dict)
-    """
-    group_output = {
-        col["Column Name"]: {"value": None, "evidence": None, "chunk_id": None, "page": None}
-        for col in group
-    }
-    local_metrics = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
-
-    for chunk_idx, chunk in enumerate(chunks):
-        extracted, in_t, out_t = extract_group_from_chunk(chunk, group, context_text)
-        local_metrics["calls"] += 1
-        local_metrics["input_tokens"] += in_t
-        local_metrics["output_tokens"] += out_t
-
-        for col_name, data in extracted.items():
-            if data["value"] is not None and group_output[col_name]["value"] is None:
-                group_output[col_name].update({
-                    "value": data["value"],
-                    "evidence": data["evidence"],
-                    "chunk_id": chunk_idx,
-                    "page": chunk["page"]
-                })
-
-    logger.info(f"Group '{group_label}' processed: {local_metrics['calls']} LLM calls")
-    return group_output, local_metrics
-
-
 #function to extract values from the pdf to fill the table - without the retriever
 def fill_table_all_chunks(chunks, groups, pdf_path, output_path="extracted_table.csv", metadata_path="extraction_metadata.json"):
     """
-    Parallel version: Process each group in parallel using ThreadPoolExecutor.
-    For each group, process chunks sequentially to respect API rate limits.
-    Assumes column groups are disjoint (no overlapping columns).
+    Highly parallel version: Process all (group, chunk) pairs in parallel using ThreadPoolExecutor.
+    For each group, collect results, sort by chunk order, and merge respecting the first non-null rule.
+    Incorporates performance monitoring.
     """
+    out_dir = Path(output_path).parent
+    metrics_dir = out_dir / "metrics"
+    metrics_dir.mkdir(parents=True, exist_ok=True)
+    
+    monitor = PerformanceMonitor(metrics_dir)
+    monitor.start_monitoring()
+
     context_text = extract_first_n_pages_text(pdf_path, n=2)
     
     # Initialize output
     output_data = {}
     total_metrics = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
     
-    # Parallel processing over groups (max_workers=8 to avoid overwhelming OpenAI API)
-    with ThreadPoolExecutor(max_workers=4) as executor:
-        futures = [
-            executor.submit(process_group, group_label, group, chunks, context_text)
-            for group_label, group in groups.items()
-        ]
+    # Parallel processing over all (group, chunk) pairs (max_workers=8 for balance between speed and API limits)
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {}
         
-        for future in as_completed(futures):
-            group_output, local_metrics = future.result()
+        for group_label, group in groups.items():
+            monitor.record_group_start(group_label)
+            group_futures = []
+            for chunk_idx, chunk in enumerate(chunks):
+                monitor.record_call_start(group_label, chunk_idx)
+                future = executor.submit(
+                    extract_group_from_chunk, chunk, group, context_text, metrics_dir  # Pass metrics_dir for logging
+                )
+                group_futures.append((chunk_idx, future))
+            futures[group_label] = group_futures
+        
+        # Process results per group, respecting chunk order
+        for group_label, group_futures in futures.items():
+            group_output = {
+                col["Column Name"]: {"value": None, "evidence": None, "chunk_id": None, "page": None}
+                for col in groups[group_label]
+            }
+            local_metrics = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
             
-            # Merge group output (disjoint columns)
+            # Collect in chunk order
+            for chunk_idx, future in sorted(group_futures, key=lambda x: x[0]):
+                extracted, in_t, out_t = future.result()
+                monitor.record_call_end(group_label, chunk_idx)
+                
+                local_metrics["calls"] += 1
+                local_metrics["input_tokens"] += in_t
+                local_metrics["output_tokens"] += out_t
+                
+                for col_name, data in extracted.items():
+                    if data["value"] is not None and group_output[col_name]["value"] is None:
+                        group_output[col_name].update({
+                            "value": data["value"],
+                            "evidence": data["evidence"],
+                            "chunk_id": chunk_idx,
+                            "page": chunks[chunk_idx]["page"]
+                        })
+            
+            # Merge group output
             for col_name, info in group_output.items():
-                if col_name not in output_data:
-                    output_data[col_name] = info
+                output_data[col_name] = info
             
             # Accumulate metrics
             for key in total_metrics:
                 total_metrics[key] += local_metrics[key]
+            
+            monitor.record_group_end(group_label)
+            logger.info(f"Group '{group_label}' processed: {local_metrics['calls']} LLM calls")
 
-    logger.info(f"Total LLM calls made: {total_metrics['calls']} (parallel over groups)")
+    monitor.finish_monitoring()
+    monitor.save_report()
+
+    logger.info(f"Total LLM calls made: {total_metrics['calls']} (parallel over group-chunk pairs)")
 
     # Save results
     values = {col: _safe_json_value(info["value"]) for col, info in output_data.items()}

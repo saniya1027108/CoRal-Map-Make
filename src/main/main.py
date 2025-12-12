@@ -1,4 +1,5 @@
 # main/main.py
+# (Updated to store context_text and integrate performance monitoring/logging flow)
 import os
 import sys
 import shutil
@@ -18,7 +19,7 @@ sys.path.insert(0, str(SRC_FOLDER))
 # --------------------------------------------------------------
 from src.chunking.chunking import process_pdf
 from table_definitions.definitions import load_definitions
-from src.fill_table.fill_table import fill_table_all_chunks
+from src.fill_table.fill_table import fill_table_all_chunks, extract_first_n_pages_text  # Import extract_first_n_pages_text
 from src.evaluation.evaluator import Evaluator
 from src.config.config import GOLD_TABLE_PATH, COST_PER_1K_INPUT, COST_PER_1K_OUTPUT
 from src.utils.logging_utils import setup_logger
@@ -36,13 +37,14 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # ------------------- Output folder -------------------
-    out_dir = PROJECT_ROOT / "test_results" / pdf_path.stem
+    out_dir = PROJECT_ROOT / "test_results" / "new" / pdf_path.stem
     out_dir.mkdir(parents=True, exist_ok=True)
 
     copied_pdf   = out_dir / f"{pdf_path.stem}.pdf"
     chunk_json   = out_dir / "pdf_chunked.json"
     table_csv    = out_dir / "extracted_table.csv"
     meta_json    = out_dir / "extraction_metadata.json"
+    context_txt  = out_dir / "context_text.txt"  # New: Store context
 
     # ------------------- Copy PDF -------------------
     shutil.copy2(pdf_path, copied_pdf)
@@ -59,8 +61,14 @@ if __name__ == "__main__":
     groups = load_definitions()          # picks up DEFINITIONS_CSV_PATH from config
     logger.info(f"Loaded {len(groups)} column groups")
 
+    # ------------------- Extract and store context -------------------
+    context_text = extract_first_n_pages_text(str(pdf_path), n=2)
+    with open(context_txt, "w", encoding="utf-8") as f:
+        f.write(context_text)
+    logger.info(f"Context (first 2 pages) saved to {context_txt}")
+
     # ------------------- Fill table -------------------
-    logger.info("Running LLM extraction (parallel over groups)...")
+    logger.info("Running LLM extraction (parallel over group-chunk pairs)...")
     output_data, metrics = fill_table_all_chunks(
         chunks=chunks,
         groups=groups,
@@ -117,6 +125,7 @@ if __name__ == "__main__":
     print(f"   JSON: {chunk_json.name}")
     print(f"   CSV : {table_csv.name}")
     print(f"   Meta: {meta_json.name}")
+    print(f"   Context: {context_txt.name}")
     if (out_dir / "metrics").exists():
         print(f"   Eval: metrics/evaluation_summary.json")
     print("="*60)
