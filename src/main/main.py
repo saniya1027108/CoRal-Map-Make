@@ -21,7 +21,7 @@ from src.chunking.chunking import process_pdf
 from table_definitions.definitions import load_definitions
 from src.fill_table.fill_table import fill_table_all_chunks, extract_first_n_pages_text  # Import extract_first_n_pages_text
 from src.evaluation.evaluator import Evaluator
-from src.config.config import GOLD_TABLE_PATH, COST_PER_1K_INPUT, COST_PER_1K_OUTPUT
+from src.config.config import GOLD_TABLE_PATH
 from src.utils.logging_utils import setup_logger
 from src.model_handling.llm_extraction import save_cost_metrics  # Adjusted import path
 
@@ -105,15 +105,11 @@ if __name__ == "__main__":
 
     cost_file = metrics_dir / "llm_cost_metrics.txt"
     try:
-        # Compute total cost
-        total_cost = (
-            (metrics["input_tokens"] / 1000.0) * COST_PER_1K_INPUT +
-            (metrics["output_tokens"] / 1000.0) * COST_PER_1K_OUTPUT
-        )
-        metrics["total_cost_usd"] = round(total_cost, 4)
-        
+        # Cost is now tracked per-call in llm_logs/llm_calls.jsonl
+        # This just saves the token summary
         save_cost_metrics(str(cost_file), metrics)
-        logger.info(f"💰 LLM cost metrics saved to {cost_file}")
+        logger.info(f"💰 LLM metrics saved to {cost_file}")
+        logger.info(f"   Total tokens: {metrics.get('input_tokens', 0)} input, {metrics.get('output_tokens', 0)} output")
     except Exception as e:
         logger.error(f"❌ Failed to save LLM cost metrics: {e}")
         

@@ -10,3 +10,5 @@ google-generativeai
 tabulate
 openai
 python-dotenv 
+vertexai
+groq

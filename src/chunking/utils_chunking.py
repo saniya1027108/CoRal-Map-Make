@@ -1,4 +1,4 @@
-# src/utils/utils_chunking.py
+# src/chunking/utils_chunking.py
 # Utility functions for text processing, embeddings, and external API calls
 import re
 import json
@@ -10,27 +10,36 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import spacy
 import pdfplumber
-import google.generativeai as genai
 from collections import Counter
 import fitz 
 
-# Import config (assuming EMBEDDING_MODEL_NAME is available)
+# Import config
 from ..config.config import (
-    EMBEDDING_MODEL_NAME, GEMINI_API_KEY, GEMINI_MODEL_NAME,
+    EMBEDDING_MODEL_NAME,
     TEXT_CHUNK_MIN_SIZE,
-    HEURISTIC_MAX_LENGTH
+    HEURISTIC_MAX_LENGTH,
+    CHUNKING_PROVIDER,
+    CHUNKING_MODEL
 )
 from ..utils.logging_utils import setup_logger
+from ..LLMProvider import LLMProvider
 
 # Load models (shared across the codebase)
 nlp = spacy.load("en_core_web_sm")
 embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
 
-# Configure Gemini
-genai.configure(api_key=GEMINI_API_KEY)
-gemini_model = genai.GenerativeModel(GEMINI_MODEL_NAME)
-
 logger = setup_logger("utils")
+
+# Lazy-loaded chunking provider
+_chunking_provider = None
+
+def _get_chunking_provider():
+    """Get or initialize the chunking LLM provider."""
+    global _chunking_provider
+    if _chunking_provider is None:
+        _chunking_provider = LLMProvider(provider=CHUNKING_PROVIDER, model=CHUNKING_MODEL)
+        logger.info(f"Initialized chunking provider: {CHUNKING_PROVIDER}/{CHUNKING_MODEL}")
+    return _chunking_provider
 
 
 def looks_like_inline_table(text):
@@ -50,67 +59,6 @@ def is_table_caption_or_footnote(text):
         or re.search(r'\b[A-Z]{2,}\s*=', text)
     )
 
-
-# def semantic_text_chunking(text, min_size=TEXT_CHUNK_MIN_SIZE, merge_threshold=TEXT_CHUNK_MERGE_THRESHOLD):
-#     """
-#     Two-stage text chunking:
-#     1. Create initial chunks based on sentence boundaries and min_size
-#     2. Merge semantically similar chunks using embeddings
-#     """
-#     doc = nlp(text)
-#     chunks = []
-#     current_chunk = ""
-    
-#     # Stage 1: Initial chunking with filtering
-#     for sent in doc.sents:
-#         sentence = sent.text.strip()
-        
-#         # Skip sentences that look like tables or metadata
-#         if looks_like_inline_table(sentence) or is_table_caption_or_footnote(sentence):
-#             continue
-        
-#         # Additional check: skip if sentence looks like header/footer
-#         if is_header_or_footer_by_heuristics(sentence):
-#             continue
-        
-#         current_chunk += " " + sentence
-#         if len(current_chunk) >= min_size:
-#             chunks.append(current_chunk.strip())
-#             current_chunk = ""
-    
-#     if current_chunk.strip():
-#         chunks.append(current_chunk.strip())
-    
-#     # If we only have one chunk or no chunks, return as is
-#     if len(chunks) <= 1:
-#         return chunks
-    
-#     # Stage 2: Semantic merging using embeddings
-#     try:
-#         embeddings = embedding_model.encode(chunks)
-#         similarities = cosine_similarity(embeddings, embeddings)
-        
-#         merged_chunks = []
-#         visited = set()
-        
-#         for i, chunk in enumerate(chunks):
-#             if i in visited:
-#                 continue
-            
-#             similar = [chunk]
-            
-#             for j in range(i+ 1, len(chunks)):
-#                 if j not in visited and similarities[i][j] > merge_threshold:
-#                     similar.append(chunks[j])
-#                     visited.add(j)
-            
-#             merged_chunks.append(" ".join(similar))
-        
-#         return merged_chunks
-    
-#     except Exception as e:
-#         logger.warning(f"⚠️  Warning: Semantic merging failed: {e}. Returning initial chunks.")
-#         return chunks
 
 def text_chunking(text, max_size=TEXT_CHUNK_MIN_SIZE):
     """
@@ -156,7 +104,7 @@ def text_chunking(text, max_size=TEXT_CHUNK_MIN_SIZE):
 
 
 def extract_caption_from_gemini(text: str) -> str:
-    """Extract caption from Gemini output."""
+    """Extract caption from LLM output."""
     if not text:
         return "Table"
 
@@ -174,7 +122,7 @@ def extract_caption_from_gemini(text: str) -> str:
     return first_sentence + "." if first_sentence else "Table"
 
 
-def extract_tables_pdfplumber(page) -> list[str]:
+def extract_tables_pdfplumber(page) -> list:
     """Extract tables from a pdfplumber page and return as markdown strings."""
     try:
         tables = page.extract_tables()
@@ -191,7 +139,7 @@ def extract_tables_pdfplumber(page) -> list[str]:
         return []
 
 
-def extract_images_fitz(page, page_num) -> list[dict]:
+def extract_images_fitz(page, page_num) -> list:
     """Extract embedded images from a PDF page using PyMuPDF."""
     
     img_chunks = []
@@ -213,8 +161,20 @@ def extract_images_fitz(page, page_num) -> list[dict]:
     return img_chunks
 
 
-def ask_gemini_with_image(image_pil, prompt_text=None):
-    """Send Image to Gemini Vision and get human readable response."""
+def analyze_image_with_llm(image_pil, prompt_text=None):
+    """
+    Analyze image using configured LLM provider (multimodal).
+    
+    Uses CHUNKING_PROVIDER and CHUNKING_MODEL from config.
+    Supports: Gemini (default), GPT-4V
+    
+    Args:
+        image_pil: PIL Image object
+        prompt_text: Optional custom prompt
+    
+    Returns:
+        tuple: (text_response, input_tokens, output_tokens)
+    """
     if not prompt_text:
         prompt_text = (
             "Analyze this image from a research paper.\n"
@@ -227,17 +187,27 @@ def ask_gemini_with_image(image_pil, prompt_text=None):
             "Description in 2-3 sentences.\n"
             "Return ONLY the content, no JSON."
         )
-    buf = BytesIO()
-    image_pil.save(buf, format="PNG")
-    buf.seek(0)
-    try:
-        response = gemini_model.generate_content(
-            [prompt_text, {"mime_type": "image/png", "data": buf.getvalue()}]
-        )
-        return response.text.strip()
-    except Exception as e:
-        logger.warning(f"[Gemini] Failed: {e}")
-        return None
+    
+    provider = _get_chunking_provider()
+    response = provider.generate_with_image(prompt_text, image_pil)
+    
+    if response.success:
+        return response.text, response.input_tokens, response.output_tokens
+    else:
+        logger.warning(f"[LLM] Failed: {response.error}")
+        return None, 0, 0
+
+
+# Keep old function name as alias for backward compatibility
+def ask_gemini_with_image(image_pil, prompt_text=None):
+    """
+    Legacy function name. Use analyze_image_with_llm instead.
+    
+    Returns:
+        str: Text response (for backward compatibility, does not return tokens)
+    """
+    text, _, _ = analyze_image_with_llm(image_pil, prompt_text)
+    return text
 
 
 def save_chunks_to_json(chunks, output_path):

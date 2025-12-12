@@ -1,30 +1,32 @@
 # src/model_handling/llm_extraction.py
-# (Updated with LLM logging, reasoning in output, and passing log dir)
+"""
+LLM-based extraction for clinical trial data.
+Uses unified LLMProvider for all inference.
+"""
 import json
 from datetime import datetime
 from pathlib import Path
-from ..config.config import OPENAI_API_KEY, OPEN_AI_MODEL, OPENAI_TEMPERATURE, COST_PER_1K_INPUT, COST_PER_1K_OUTPUT, EXTRACTION_MODEL, GROQ_MODEL_NAME, NOVITA_MODEL_NAME, GROQ_API_KEY, NOVITA_API_KEY
+from ..config.config import EXTRACTION_PROVIDER, EXTRACTION_MODEL
+from ..LLMProvider import LLMProvider
 from ..utils.logging_utils import setup_logger
 
 logger = setup_logger("llm_extraction")
 
-# Configure OpenAI
-from groq import Groq
-import openai
-from openai import OpenAI
-# OpenAI client (official)
-openai.api_key = OPENAI_API_KEY
+# Lazy-loaded extraction provider
+_extraction_provider = None
 
-# Groq client
-groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
-# Novita client (OpenAI-compatible API)
-novita_client = OpenAI(
-    base_url="https://api.novita.ai/v3/openai",
-    api_key=NOVITA_API_KEY
-) if NOVITA_API_KEY else None
+def _get_extraction_provider():
+    """Get or initialize the extraction LLM provider."""
+    global _extraction_provider
+    if _extraction_provider is None:
+        _extraction_provider = LLMProvider(provider=EXTRACTION_PROVIDER, model=EXTRACTION_MODEL)
+        logger.info(f"Initialized extraction provider: {EXTRACTION_PROVIDER}/{EXTRACTION_MODEL}")
+    return _extraction_provider
+
 
 def build_extraction_prompt(group):
+    """Build extraction prompt for a group of columns."""
     columns_str = "\n".join([
         f'- {col["Column Name"]}: {col["Definition"]}'
         for col in group
@@ -53,16 +55,30 @@ Content:
 """
 
 
-def extract_group_from_chunk(chunk, group, context_text = None, metrics_dir: Path = None):
+SYSTEM_PROMPT = "You are a precise medical data extractor. Never hallucinate. Always explain your reasoning."
+
+
+def extract_group_from_chunk(chunk, group, context_text=None, metrics_dir: Path = None):
     """
-    Extract values using OpenAI (gpt-4o-mini or gpt-4o). Logs each call with reasoning.
+    Extract values from a chunk using unified LLMProvider.
     
-    Returns: (extracted_dict, input_tokens, output_tokens)
+    Args:
+        chunk: Document chunk dict with 'type' and 'content'
+        group: List of column definitions to extract
+        context_text: Optional context from first pages
+        metrics_dir: Directory for logging LLM calls
+    
+    Returns:
+        tuple: (extracted_dict, input_tokens, output_tokens)
     """
     llm_logs_dir = metrics_dir / "llm_logs" if metrics_dir else Path("llm_logs")
     llm_logs_dir.mkdir(parents=True, exist_ok=True)
     log_file = llm_logs_dir / "llm_calls.jsonl"
 
+    provider = _get_extraction_provider()
+    prompt = None
+    raw_response = None
+    
     try:
         # Build content based on chunk type
         if chunk["type"] == "text":
@@ -70,7 +86,6 @@ def extract_group_from_chunk(chunk, group, context_text = None, metrics_dir: Pat
         elif chunk["type"] in ["table", "figure"]:
             content_text = chunk.get("table_content") or chunk.get("figure_content", "")
         elif chunk["type"] == "image":
-            # Optional: describe image via Gemini first? Or skip
             content_text = "[Image content - extracting from surrounding text]"
         else:
             content_text = ""
@@ -79,69 +94,30 @@ def extract_group_from_chunk(chunk, group, context_text = None, metrics_dir: Pat
             fallback = {col["Column Name"]: {"value": None, "evidence": None, "reasoning": None} for col in group}
             return fallback, 0, 0
 
+        # Build full prompt
         prompt = ""
         if context_text:
             prompt += f"CONTEXT (from first 2 pages):\n{context_text}\n\n"
         prompt += build_extraction_prompt(group) + content_text
 
-        model_used = None
-        raw_response = None
-        input_tokens = 0
-        output_tokens = 0
-        error = None
+        # Call unified provider
+        response = provider.generate(
+            prompt=prompt,
+            system_prompt=SYSTEM_PROMPT,
+            temperature=0.0,
+            max_tokens=1500
+        )
 
-        if EXTRACTION_MODEL == "groq" and groq_client:
-            model_used = GROQ_MODEL_NAME
-            response = groq_client.chat.completions.create(
-                model=GROQ_MODEL_NAME,
-                messages=[
-                    {"role": "system", "content": "You are a precise medical data extractor. Never hallucinate. Always explain reasoning."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.0,
-                max_tokens=1500,
-                response_format={"type": "json_object"}
-            )
-            raw_response = response.choices[0].message.content.strip()
-            input_tokens = response.usage.prompt_tokens
-            output_tokens = response.usage.completion_tokens
+        if not response.success:
+            raise Exception(response.error)
 
-        elif EXTRACTION_MODEL == "novita" and novita_client:
-            model_used = NOVITA_MODEL_NAME
-            response = novita_client.chat.completions.create(
-                model=NOVITA_MODEL_NAME,
-                messages=[
-                    {"role": "system", "content": "You are a precise medical data extractor. Never hallucinate. Always explain your reasoning."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.0,
-                max_tokens=1500
-            )
-            raw_response = response.choices[0].message.content.strip()
-            input_tokens = response.usage.prompt_tokens if response.usage else 0
-            output_tokens = response.usage.completion_tokens if response.usage else 0
-
-        elif EXTRACTION_MODEL == "openai":
-            model_used = OPEN_AI_MODEL
-            response = openai.chat.completions.create(
-                model=OPEN_AI_MODEL,
-                messages=[
-                    {"role": "system", "content": "You are a precise medical data extractor. Never hallucinate. Always explain your reasoning."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=OPENAI_TEMPERATURE,
-                max_tokens=1500
-            )
-            raw_response = response.choices[0].message.content.strip()
-            input_tokens = response.usage.prompt_tokens
-            output_tokens = response.usage.completion_tokens
-
-        else:
-            raise ValueError(f"Model {EXTRACTION_MODEL} not available or API key missing")
+        raw_response = response.text
 
         # Clean code blocks
         if raw_response.startswith("```json"):
             raw_response = raw_response[7:]
+        if raw_response.startswith("```"):
+            raw_response = raw_response[3:]
         if raw_response.endswith("```"):
             raw_response = raw_response[:-3]
         raw_response = raw_response.strip()
@@ -166,61 +142,61 @@ def extract_group_from_chunk(chunk, group, context_text = None, metrics_dir: Pat
         # Log the call
         log_entry = {
             "timestamp": datetime.now().isoformat(),
-            "model": model_used,
+            "provider": response.provider,
+            "model": response.model,
             "prompt": prompt,
             "response": raw_response,
             "extracted": result,
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "error": error
+            "input_tokens": response.input_tokens,
+            "output_tokens": response.output_tokens,
+            "cost": response.cost,
+            "error": None
         }
         with open(log_file, "a", encoding="utf-8") as f:
             f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
 
-        return result, input_tokens, output_tokens
+        return result, response.input_tokens, response.output_tokens
 
     except json.JSONDecodeError as e:
         error = f"JSON parse failed: {e}"
         logger.warning(error)
         fallback = {col["Column Name"]: {"value": None, "evidence": None, "reasoning": None} for col in group}
-        # Log error
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "model": model_used,
-            "prompt": prompt,
-            "response": raw_response,
-            "extracted": None,
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "error": error
-        }
-        with open(log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
-        return fallback, input_tokens, output_tokens  # Usage still counted even on parse error
+        _log_error(log_file, provider, prompt, raw_response, error, 
+                   getattr(response, 'input_tokens', 0) if 'response' in dir() else 0,
+                   getattr(response, 'output_tokens', 0) if 'response' in dir() else 0)
+        return fallback, getattr(response, 'input_tokens', 0) if 'response' in dir() else 0, getattr(response, 'output_tokens', 0) if 'response' in dir() else 0
+    
     except Exception as e:
         error = f"Extraction failed: {e}"
         logger.error(error)
         fallback = {col["Column Name"]: {"value": None, "evidence": None, "reasoning": None} for col in group}
-        # Log error
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "model": model_used,
-            "prompt": prompt,
-            "response": None,
-            "extracted": None,
-            "input_tokens": 0,
-            "output_tokens": 0,
-            "error": error
-        }
-        with open(log_file, "a", encoding="utf-8") as f:
-            f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+        _log_error(log_file, provider, prompt, raw_response, error, 0, 0)
         return fallback, 0, 0
 
 
+def _log_error(log_file, provider, prompt, raw_response, error, input_tokens=0, output_tokens=0):
+    """Helper to log errors."""
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "provider": provider.provider if provider else None,
+        "model": provider.model if provider else None,
+        "prompt": prompt,
+        "response": raw_response,
+        "extracted": None,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "cost": 0,
+        "error": error
+    }
+    try:
+        with open(log_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+    except Exception:
+        pass  # Don't fail on logging errors
+
+
 def save_cost_metrics(file_path, metrics):
-    """
-    Save cost metrics to file from metrics dict.
-    """
+    """Save cost metrics to file from metrics dict."""
     with open(file_path, "w") as f:
         for k, v in metrics.items():
             f.write(f"{k}: {v}\n")

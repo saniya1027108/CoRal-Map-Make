@@ -1,11 +1,11 @@
 # src/evaluation/evaluator.py
-'''Enhanced evaluator that processes columns in batches and verifie completeness'''
+"""Enhanced evaluator that processes columns in batches and verifies completeness."""
 import re
 import json
 import pandas as pd
 from pathlib import Path
 from ..utils.llm_utils import ask_llm_text
-from ..config.config import EVALUATION_MODEL, EVALUATION_PROMPT_PATH
+from ..config.config import EVALUATION_PROVIDER, EVALUATION_MODEL, EVALUATION_PROMPT_PATH
 from ..utils.logging_utils import setup_logger
 
 logger = setup_logger("evaluator")
@@ -15,6 +15,7 @@ class Evaluator:
     """
     Evaluates extracted CSV against gold labels using LLM-as-judge.
     Processes columns in batches of 40 and verifies completeness.
+    Tracks token usage and costs.
     """
     
     def __init__(self, extracted_csv, gold_csv, pdf_name, output_dir, batch_size=40):
@@ -39,6 +40,10 @@ class Evaluator:
         self.llm_responses = []
         self.results = {}
         self.missing_columns = []
+        
+        # Token tracking
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
     
     def _load_data(self):
         """Load extracted and gold CSVs, match by document name."""
@@ -104,23 +109,29 @@ class Evaluator:
     
     def _call_llm_judge(self):
         """Call LLM to evaluate each batch."""
-        logger.info(f"Calling LLM ({EVALUATION_MODEL}) for evaluation...")
+        logger.info(f"Calling LLM ({EVALUATION_PROVIDER}/{EVALUATION_MODEL}) for evaluation...")
         
         for batch in self.comparison_batches:
             logger.info(f"Evaluating Batch {batch['batch_num']}")
             
-            response = ask_llm_text(
+            # ask_llm_text now returns (text, input_tokens, output_tokens)
+            response_text, input_tokens, output_tokens = ask_llm_text(
                 EVALUATION_PROMPT_PATH,
-                batch["comparison_text"],
-                model_type=EVALUATION_MODEL
+                batch["comparison_text"]
             )
             
-            if response:
+            # Track tokens
+            self.total_input_tokens += input_tokens
+            self.total_output_tokens += output_tokens
+            
+            if response_text:
                 self.llm_responses.append({
                     "batch_num": batch["batch_num"],
-                    "response": response
+                    "response": response_text,
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens
                 })
-                logger.info(f"Batch {batch['batch_num']} evaluated successfully")
+                logger.info(f"Batch {batch['batch_num']} evaluated successfully (tokens: {input_tokens}in/{output_tokens}out)")
             else:
                 logger.error(f"Failed to evaluate Batch {batch['batch_num']}")
     
@@ -186,11 +197,17 @@ class Evaluator:
             "non_null_total": non_null_total,
             "non_null_correct": non_null_correct,
             "non_null_accuracy": non_null_acc,
-            "missing_columns": len(self.missing_columns)
+            "missing_columns": len(self.missing_columns),
+            # Token tracking
+            "total_input_tokens": self.total_input_tokens,
+            "total_output_tokens": self.total_output_tokens,
+            "evaluation_provider": EVALUATION_PROVIDER,
+            "evaluation_model": EVALUATION_MODEL
         }
         
         logger.info(f"Overall Accuracy: {overall_acc:.2f}%")
         logger.info(f"Non-null Accuracy: {non_null_acc:.2f}%")
+        logger.info(f"Total tokens used: {self.total_input_tokens} input, {self.total_output_tokens} output")
     
     def _save_results(self):
         """Save evaluation results to files."""
@@ -201,6 +218,7 @@ class Evaluator:
                 if i > 0:
                     f.write("\n\n" + "="*60 + "\n\n")
                 f.write(f"BATCH {response_data['batch_num']}\n")
+                f.write(f"Tokens: {response_data.get('input_tokens', 0)} input, {response_data.get('output_tokens', 0)} output\n")
                 f.write("="*60 + "\n")
                 f.write(response_data["response"])
             
@@ -208,12 +226,15 @@ class Evaluator:
             f.write("\n\n" + "="*60 + "\n")
             f.write("SUMMARY\n")
             f.write("="*60 + "\n")
+            f.write(f"Provider: {EVALUATION_PROVIDER}/{EVALUATION_MODEL}\n")
             f.write(f"Total Evaluated Columns: {self.results['total_columns']}\n")
             f.write(f"Correct Columns: {self.results['correct_columns']}\n")
             f.write(f"Overall Accuracy: {self.results['overall_accuracy']:.2f}%\n\n")
             f.write(f"Non-null Gold Columns: {self.results['non_null_total']}\n")
             f.write(f"Non-null Correct Columns: {self.results['non_null_correct']}\n")
             f.write(f"Non-null Accuracy: {self.results['non_null_accuracy']:.2f}%\n\n")
+            f.write(f"Total Input Tokens: {self.total_input_tokens}\n")
+            f.write(f"Total Output Tokens: {self.total_output_tokens}\n")
             
             if self.missing_columns:
                 f.write(f"\n⚠️  MISSING COLUMNS ({len(self.missing_columns)}):\n")
