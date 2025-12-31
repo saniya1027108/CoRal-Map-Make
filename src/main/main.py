@@ -79,6 +79,9 @@ if __name__ == "__main__":
 
     # ------------------- Evaluation -------------------
     gold_table = PROJECT_ROOT / GOLD_TABLE_PATH
+    metrics_dir = out_dir / "metrics"
+    metrics_dir.mkdir(exist_ok=True)   # Ensure folder exists
+
     if gold_table.exists():
         try:
             logger.info("Running evaluation against gold labels...")
@@ -86,12 +89,16 @@ if __name__ == "__main__":
                 extracted_csv=table_csv,
                 gold_csv=gold_table,
                 pdf_name=pdf_path.stem,
-                output_dir=out_dir / "metrics"
+                output_dir=metrics_dir
             )
             eval_results = evaluator.evaluate()
             
             logger.info(f"✅ Overall Accuracy: {eval_results['overall_accuracy']:.2f}%")
             logger.info(f"✅ Non-null Accuracy: {eval_results['non_null_accuracy']:.2f}%")
+            print(f"\nEvaluation results saved in: {metrics_dir}")
+            print(f"  - evaluation_results.txt (full LLM output)")
+            print(f"  - evaluation_summary.json (metrics)")
+            print(f"  - non_null_evaluation.txt (non-null columns only)")
         except ValueError as e:
             logger.warning(f"⚠️ Evaluation skipped: {e}")
         except Exception as e:
@@ -100,9 +107,6 @@ if __name__ == "__main__":
         logger.info("⚠️ No gold table found, skipping evaluation")
 
     # ------------------- Save LLM Cost Metrics -------------------
-    metrics_dir = out_dir / "metrics"
-    metrics_dir.mkdir(exist_ok=True)   # Ensure folder exists
-
     cost_file = metrics_dir / "llm_cost_metrics.txt"
     try:
         # Cost is now tracked per-call in llm_logs/llm_calls.jsonl
@@ -122,6 +126,8 @@ if __name__ == "__main__":
     print(f"   CSV : {table_csv.name}")
     print(f"   Meta: {meta_json.name}")
     print(f"   Context: {context_txt.name}")
-    if (out_dir / "metrics").exists():
+    if metrics_dir.exists():
         print(f"   Eval: metrics/evaluation_summary.json")
+        print(f"   Eval (full): metrics/evaluation_results.txt")
+        print(f"   Eval (non-null): metrics/non_null_evaluation.txt")
     print("="*60)

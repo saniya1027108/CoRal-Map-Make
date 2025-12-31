@@ -12,6 +12,21 @@ from ..utils.performance_monitor import PerformanceMonitor
 
 logger = setup_logger("table_filling")
 
+def log_llm_response(metrics_dir, group_label, chunk_idx, prompt, response, extracted):
+    """
+    Log the LLM prompt, response, and extracted values for error analysis.
+    """
+    log_path = Path(metrics_dir) / "llm_responses.log"
+    entry = {
+        "group": group_label,
+        "chunk_idx": chunk_idx,
+        "prompt": prompt,
+        "response": response,
+        "extracted": extracted
+    }
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        
 def _safe_json_value(val):
     """Convert numpy/pandas types to native Python types"""
     if isinstance(val, (np.integer, np.int64, np.int32)):
@@ -55,6 +70,12 @@ def extract_first_n_pages_text(pdf_path, n=2):
     doc.close()
     return "\n\n".join(texts)
 
+def llm_call_and_log(chunk, group, context_text, metrics_dir, group_label, chunk_idx):
+    # Only unpack 3 values as returned by extract_group_from_chunk
+    extracted, in_t, out_t = extract_group_from_chunk(chunk, group, context_text, metrics_dir)
+    # You may want to log only what you have (prompt/response not available)
+    log_llm_response(metrics_dir, group_label, chunk_idx, None, None, extracted)
+    return extracted, in_t, out_t
 
 #function to extract values from the pdf to fill the table - without the retriever
 def fill_table_all_chunks(chunks, groups, pdf_path, output_path="extracted_table.csv", metadata_path="extraction_metadata.json"):
@@ -85,11 +106,13 @@ def fill_table_all_chunks(chunks, groups, pdf_path, output_path="extracted_table
             group_futures = []
             for chunk_idx, chunk in enumerate(chunks):
                 monitor.record_call_start(group_label, chunk_idx)
+                
+
                 future = executor.submit(
-                    extract_group_from_chunk, chunk, group, context_text, metrics_dir  # Pass metrics_dir for logging
-                )
+                        llm_call_and_log, chunk, group, context_text, metrics_dir, group_label, chunk_idx
+                    )
                 group_futures.append((chunk_idx, future))
-            futures[group_label] = group_futures
+                futures[group_label] = group_futures
         
         # Process results per group, respecting chunk order
         for group_label, group_futures in futures.items():

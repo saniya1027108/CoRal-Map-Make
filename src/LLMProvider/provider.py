@@ -11,34 +11,36 @@ from PIL import Image
 from io import BytesIO
 from pathlib import Path
 
-from vertexai import init as vertex_init
-from vertexai.generative_models import GenerativeModel, Part
+# from vertexai import init as vertex_init
+# from vertexai.generative_models import GenerativeModel, Part
 from openai import OpenAI
 from groq import Groq
 from dotenv import load_dotenv
+
+# Gemini API import
+import google.generativeai as genai
 
 from .models import get_model_pricing
 
 load_dotenv()
 
 # Vertex AI initialization flag
-_VERTEX_INITIALIZED = False
+# _VERTEX_INITIALIZED = False
 
-
-def _ensure_vertex_init():
-    """Initialize Vertex AI once (lazy initialization)."""
-    global _VERTEX_INITIALIZED
-    if not _VERTEX_INITIALIZED:
-        project_id = os.getenv("GCP_PROJECT_ID", "")
-        location = os.getenv("GCP_LOCATION", "")
-        
-        # Set credentials path if config.json exists
-        config_json_path = Path(__file__).parent / "config.json"
-        if config_json_path.exists():
-            os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(config_json_path)
-        
-        vertex_init(project=project_id, location=location)
-        _VERTEX_INITIALIZED = True
+# def _ensure_vertex_init():
+#     """Initialize Vertex AI once (lazy initialization)."""
+#     global _VERTEX_INITIALIZED
+#     if not _VERTEX_INITIALIZED:
+#         project_id = os.getenv("GCP_PROJECT_ID", "")
+#         location = os.getenv("GCP_LOCATION", "")
+#         
+#         # Set credentials path if config.json exists
+#         config_json_path = Path(__file__).parent / "config.json"
+#         if config_json_path.exists():
+#             os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(config_json_path)
+#         
+#         vertex_init(project=project_id, location=location)
+#         _VERTEX_INITIALIZED = True
 
 
 @dataclass
@@ -71,12 +73,12 @@ class LLMProvider:
         - groq: Groq (fast inference)
     """
     
-    def __init__(self, provider: str = "gemini", model: str = None):
+    def __init__(self, provider: str = "openai", model: str = None):
         """
         Initialize LLM provider.
         
         Args:
-            provider: "gemini", "openai", "novita", "groq"
+            provider: "openai", "novita", "groq"
             model: Specific model name (uses default if not provided)
         """
         self.provider = provider.lower()
@@ -87,18 +89,21 @@ class LLMProvider:
     def _get_default_model(self) -> str:
         """Get default model for provider."""
         defaults = {
-            "gemini": "gemini-2.5-flash",
+            "gemini": "gemini-1.5-flash",  # Default Gemini API model
             "openai": "gpt-4o",
             "novita": "meta-llama/llama-3.1-8b-instruct",
             "groq": "llama-3.1-70b-versatile"
         }
-        return defaults.get(self.provider, "gemini-2.5-flash")
+        return defaults.get(self.provider, "gpt-4o")
     
     def _init_client(self):
         """Initialize the appropriate client based on provider."""
         if self.provider == "gemini":
-            _ensure_vertex_init()
-            self._client = GenerativeModel(self.model)
+            api_key = os.getenv("GEMINI_API_KEY")
+            if not api_key:
+                raise ValueError("GEMINI_API_KEY environment variable not set")
+            genai.configure(api_key=api_key)
+            self._client = genai.GenerativeModel(self.model)
         
         elif self.provider == "openai":
             api_key = os.getenv("OPENAI_API_KEY")
@@ -150,7 +155,7 @@ class LLMProvider:
         """
         try:
             if self.provider == "gemini":
-                return self._generate_gemini(prompt, system_prompt, temperature, max_tokens)
+                return self._generate_gemini_api(prompt, system_prompt, temperature, max_tokens)
             else:
                 return self._generate_openai_compatible(prompt, system_prompt, temperature, max_tokens)
         
@@ -166,16 +171,16 @@ class LLMProvider:
                 error=str(e)
             )
     
-    def _generate_gemini(
+    def _generate_gemini_api(
         self, 
         prompt: str, 
         system_prompt: str, 
         temperature: float, 
         max_tokens: int
     ) -> LLMResponse:
-        """Generate using Vertex AI Gemini."""
+        """Generate using Gemini API."""
+        # Gemini API expects a list of messages (role/content) or just a string
         full_prompt = f"{system_prompt}\n\n{prompt}" if system_prompt else prompt
-        
         response = self._client.generate_content(
             full_prompt,
             generation_config={
@@ -183,12 +188,10 @@ class LLMProvider:
                 "max_output_tokens": max_tokens
             }
         )
-        
-        # Extract token counts from usage metadata
+        # Gemini API: usage_metadata may not always be present
         usage = getattr(response, 'usage_metadata', None)
         input_tokens = getattr(usage, 'prompt_token_count', 0) if usage else 0
         output_tokens = getattr(usage, 'candidates_token_count', 0) if usage else 0
-        
         return LLMResponse(
             text=response.text.strip(),
             input_tokens=input_tokens,
@@ -242,24 +245,12 @@ class LLMProvider:
     ) -> LLMResponse:
         """
         Generate response with image input (multimodal).
-        
-        Supported:
-            - Gemini models (all have vision)
-            - OpenAI GPT-4 models (gpt-4o, gpt-4-turbo)
-        
-        Args:
-            prompt: Text prompt
-            image: PIL Image or bytes
-            temperature: Sampling temperature
-            max_tokens: Maximum output tokens
-        
-        Returns:
-            LLMResponse
+        Gemini API and OpenAI GPT-4 models supported.
         """
         try:
             if self.provider == "gemini":
-                return self._generate_gemini_with_image(prompt, image, temperature, max_tokens)
-            elif self.provider == "openai" and "gpt-4" in self.model:
+                return self._generate_gemini_api_with_image(prompt, image, temperature, max_tokens)
+            if self.provider == "openai" and "gpt-4" in self.model:
                 return self._generate_openai_with_image(prompt, image, temperature, max_tokens)
             else:
                 raise ValueError(f"Multimodal not supported for {self.provider}/{self.model}")
@@ -276,36 +267,35 @@ class LLMProvider:
                 error=str(e)
             )
     
-    def _generate_gemini_with_image(
+    def _generate_gemini_api_with_image(
         self, 
         prompt: str, 
         image: Union[Image.Image, bytes], 
         temperature: float, 
         max_tokens: int
     ) -> LLMResponse:
-        """Generate with image using Gemini."""
-        # Convert PIL to bytes if needed
+        """Generate with image using Gemini API."""
         if isinstance(image, Image.Image):
             buf = BytesIO()
             image.save(buf, format="PNG")
             image_bytes = buf.getvalue()
         else:
             image_bytes = image
-        
-        image_part = Part.from_data(image_bytes, mime_type="image/png")
-        
+        # Gemini API expects dict with 'mime_type' and 'data'
+        gemini_image = {
+            "mime_type": "image/png",
+            "data": image_bytes
+        }
         response = self._client.generate_content(
-            [prompt, image_part],
+            [prompt, gemini_image],
             generation_config={
                 "temperature": temperature,
                 "max_output_tokens": max_tokens
             }
         )
-        
         usage = getattr(response, 'usage_metadata', None)
         input_tokens = getattr(usage, 'prompt_token_count', 0) if usage else 0
         output_tokens = getattr(usage, 'candidates_token_count', 0) if usage else 0
-        
         return LLMResponse(
             text=response.text.strip(),
             input_tokens=input_tokens,

@@ -12,6 +12,7 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("LLAMA_KEY", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 NOVITA_API_KEY = os.getenv("NOVITA_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # <-- Add this if not present
 
 # ============== GCP / VERTEX AI ==============
 GCP_PROJECT_ID = os.getenv("GCP_PROJECT_ID", "")
@@ -26,8 +27,8 @@ CHUNKING_PROVIDER = "gemini"
 CHUNKING_MODEL = "gemini-2.5-flash"
 
 # Extraction (data extraction from text chunks)
-EXTRACTION_PROVIDER = "gemini"
-EXTRACTION_MODEL = "gemini-2.5-flash"
+EXTRACTION_PROVIDER = "openai"
+EXTRACTION_MODEL = "gpt-4o-mini"
 
 # Evaluation (LLM-as-judge)
 EVALUATION_PROVIDER = "gemini"
