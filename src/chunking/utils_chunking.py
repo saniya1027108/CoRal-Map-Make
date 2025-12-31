@@ -122,6 +122,55 @@ def extract_caption_from_gemini(text: str) -> str:
     return first_sentence + "." if first_sentence else "Table"
 
 
+def parse_table_extraction_response(llm_response: str) -> dict:
+    """
+    Parse LLM response from table extraction prompt.
+    
+    Expected format:
+    ##Markdown Table##
+    
+    [Markdown table content here]
+    
+    
+    ##Caption##
+    
+    [Extracted and enriched caption here]
+    
+    Args:
+        llm_response: Raw LLM response text
+    
+    Returns:
+        dict with keys: 'markdown_table' and 'caption'
+        Returns None values if parsing fails
+    """
+    if not llm_response:
+        return {"markdown_table": None, "caption": None}
+    
+    result = {"markdown_table": None, "caption": None}
+    
+    # Try to extract markdown table section
+    table_match = re.search(r"##\s*Markdown\s+Table\s*##\s*\n(.*?)(?=\n\s*##|$)", llm_response, re.DOTALL | re.IGNORECASE)
+    if table_match:
+        table_content = table_match.group(1).strip()
+        # Remove any trailing markdown table markers that might be in the content
+        table_content = re.sub(r"\s*##\s*Markdown\s+Table\s*##\s*$", "", table_content, flags=re.IGNORECASE)
+        if table_content:
+            result["markdown_table"] = table_content
+    
+    # Try to extract caption section
+    caption_match = re.search(r"##\s*Caption\s*##\s*\n(.*?)(?=\n\s*##|$)", llm_response, re.DOTALL | re.IGNORECASE)
+    if caption_match:
+        caption_content = caption_match.group(1).strip()
+        if caption_content:
+            result["caption"] = caption_content
+    
+    # Fallback: if format doesn't match, try to extract caption using old method
+    if not result["caption"]:
+        result["caption"] = extract_caption_from_gemini(llm_response)
+    
+    return result
+
+
 def extract_tables_pdfplumber(page) -> list:
     """Extract tables from a pdfplumber page and return as markdown strings."""
     try:

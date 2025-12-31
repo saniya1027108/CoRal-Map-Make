@@ -1,7 +1,7 @@
 # src/LLMProvider/__init__.py
 """
 Unified LLM Provider module.
-Supports: Gemini (Vertex AI), OpenAI, Novita, Groq
+Supports: Gemini (Vertex AI), OpenAI, Novita, Groq, DeepInfra
 """
 
 from .provider import LLMProvider, LLMResponse

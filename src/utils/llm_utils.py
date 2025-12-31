@@ -48,7 +48,7 @@ def ask_llm_text(prompt_path, text, model_type=None):
         prompt=full_prompt,
         system_prompt="You are an expert evaluator for clinical trial data extraction.",
         temperature=0.0,
-        max_tokens=4000
+        max_tokens=60000
     )
     
     if response.success:
@@ -58,7 +58,7 @@ def ask_llm_text(prompt_path, text, model_type=None):
         return None, 0, 0
 
 
-def generate_text(prompt: str, system_prompt: str = None, temperature: float = 0.0, max_tokens: int = 4000):
+def generate_text(prompt: str, system_prompt: str = None, temperature: float = 0.0):
     """
     General-purpose text generation using evaluation provider.
     
@@ -66,7 +66,6 @@ def generate_text(prompt: str, system_prompt: str = None, temperature: float = 0
         prompt: User prompt
         system_prompt: Optional system instruction
         temperature: Sampling temperature
-        max_tokens: Maximum output tokens
     
     Returns:
         tuple: (response_text, input_tokens, output_tokens)
@@ -77,7 +76,7 @@ def generate_text(prompt: str, system_prompt: str = None, temperature: float = 0
         prompt=prompt,
         system_prompt=system_prompt,
         temperature=temperature,
-        max_tokens=max_tokens
+        max_tokens=60000
     )
     
     if response.success:

@@ -29,6 +29,12 @@ SUPPORTED_MODELS = {
         "llama-3.1-8b-instant": {"input": 0.00005, "output": 0.00008},
         "llama-3.3-70b-versatile": {"input": 0.00059, "output": 0.00079},
         "mixtral-8x7b-32768": {"input": 0.00024, "output": 0.00024},
+    },
+    "deepinfra": {
+        "Qwen/Qwen2.5-VL-32B-Instruct": {"input": 0.0005, "output": 0.0005},
+        "deepinfra/deepseek-v3": {"input": 0.0007, "output": 0.0014},
+        "meta-llama/Llama-3.1-70B-Instruct": {"input": 0.00059, "output": 0.00079},
+        "meta-llama/Llama-3.1-8B-Instruct": {"input": 0.0001, "output": 0.0001},
     }
 }
 
@@ -38,7 +44,7 @@ def get_model_pricing(provider: str, model: str) -> dict:
     Get pricing for a specific model.
     
     Args:
-        provider: Provider name (gemini, openai, novita, groq)
+        provider: Provider name (gemini, openai, novita, groq, deepinfra)
         model: Model name
     
     Returns:

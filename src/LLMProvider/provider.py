@@ -1,7 +1,7 @@
 # src/LLMProvider/provider.py
 """
 Unified LLM Provider for all inference tasks.
-Supports: Gemini (Vertex AI), OpenAI, Novita, Groq
+Supports: Gemini (Vertex AI), OpenAI, Novita, Groq, DeepInfra
 """
 import os
 from dataclasses import dataclass
@@ -71,6 +71,7 @@ class LLMProvider:
         - openai: OpenAI GPT models
         - novita: Novita AI (OpenAI-compatible)
         - groq: Groq (fast inference)
+        - deepinfra: DeepInfra (OpenAI-compatible, supports multimodal)
     """
     
     def __init__(self, provider: str = "openai", model: str = None):
@@ -78,7 +79,7 @@ class LLMProvider:
         Initialize LLM provider.
         
         Args:
-            provider: "openai", "novita", "groq"
+            provider: "openai", "novita", "groq", "deepinfra", "gemini"
             model: Specific model name (uses default if not provided)
         """
         self.provider = provider.lower()
@@ -89,10 +90,11 @@ class LLMProvider:
     def _get_default_model(self) -> str:
         """Get default model for provider."""
         defaults = {
-            "gemini": "gemini-1.5-flash",  # Default Gemini API model
+            "gemini": "gemini-2.5-flash",  # Default Gemini API model
             "openai": "gpt-4o",
             "novita": "meta-llama/llama-3.1-8b-instruct",
-            "groq": "llama-3.1-70b-versatile"
+            "groq": "llama-3.1-70b-versatile",
+            "deepinfra": "Qwen/Qwen2.5-VL-32B-Instruct",
         }
         return defaults.get(self.provider, "gpt-4o")
     
@@ -126,8 +128,17 @@ class LLMProvider:
                 raise ValueError("GROQ_API_KEY or LLAMA_KEY environment variable not set")
             self._client = Groq(api_key=api_key)
         
+        elif self.provider == "deepinfra":
+            api_key = os.getenv("DEEPINFRA_API_KEY")
+            if not api_key:
+                raise ValueError("DEEPINFRA_API_KEY environment variable not set")
+            self._client = OpenAI(
+                base_url="https://api.deepinfra.com/v1/openai",
+                api_key=api_key
+            )
+        
         else:
-            raise ValueError(f"Unsupported provider: {self.provider}. Supported: gemini, openai, novita, groq")
+            raise ValueError(f"Unsupported provider: {self.provider}. Supported: gemini, openai, novita, groq, deepinfra")
     
     def _calculate_cost(self, input_tokens: int, output_tokens: int) -> float:
         """Calculate cost based on token usage."""
@@ -245,12 +256,15 @@ class LLMProvider:
     ) -> LLMResponse:
         """
         Generate response with image input (multimodal).
-        Gemini API and OpenAI GPT-4 models supported.
+        Gemini API, OpenAI GPT-4 models, and DeepInfra multimodal models supported.
         """
         try:
             if self.provider == "gemini":
                 return self._generate_gemini_api_with_image(prompt, image, temperature, max_tokens)
             if self.provider == "openai" and "gpt-4" in self.model:
+                return self._generate_openai_with_image(prompt, image, temperature, max_tokens)
+            if self.provider == "deepinfra":
+                # DeepInfra supports multimodal models like Qwen2.5-VL
                 return self._generate_openai_with_image(prompt, image, temperature, max_tokens)
             else:
                 raise ValueError(f"Multimodal not supported for {self.provider}/{self.model}")

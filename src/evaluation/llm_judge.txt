@@ -20,13 +20,11 @@ After evaluating all columns, provide a summary line that includes:
 - The number of columns that are deemed equivalent.
 - The percentage of columns that are equivalent.
 
-Return your answer as plain text with one evaluation per line followed by the summary, in this exact format:
+Return your answer as plain text with one evaluation per line in this exact format:
 
 ```
 Column Name 1: Gold Value 1 vs Predicted Value 1 => Equivalent/Not Equivalent, Explanation: <...>
 Column Name 2: Gold Value 2 vs Predicted Value 2 => Equivalent/Not Equivalent, Explanation: <...>
 ...
-Total Evaluated Columns: X, Equivalent Columns: Y, Percentage Equivalent: Z%
-```
 
 Now, please evaluate the following unified mapping and provide your evaluation based on the instructions above. Give the answer in the specified format as above.

@@ -13,6 +13,7 @@ GROQ_API_KEY = os.getenv("LLAMA_KEY", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 NOVITA_API_KEY = os.getenv("NOVITA_API_KEY", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # <-- Add this if not present
+DEEPINFRA_API_KEY = os.getenv("DEEPINFRA_API_KEY", "")
 
 # ============== GCP / VERTEX AI ==============
 GCP_PROJECT_ID = os.getenv("GCP_PROJECT_ID", "")
@@ -20,7 +21,7 @@ GCP_LOCATION = os.getenv("GCP_LOCATION", "")
 
 # ============== PER-TASK LLM CONFIG ==============
 # Each task can use a different provider and model
-# Supported providers: "gemini", "openai", "novita", "groq"
+# Supported providers: "gemini", "openai", "novita", "groq", "deepinfra"
 
 # Chunking (image/table analysis - requires multimodal)
 CHUNKING_PROVIDER = "gemini"

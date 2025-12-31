@@ -17,6 +17,7 @@ from ..chunking.utils_chunking import (
     ask_gemini_with_image,
     extract_images_fitz,
     extract_caption_from_gemini,
+    parse_table_extraction_response,
     save_chunks_to_json
 )
 from ..utils.logging_utils import setup_logger
@@ -55,28 +56,79 @@ class PDFChunker:
                 })
     
     def _process_tables(self, page, page_num, pdf_path):
-        """Extract and process tables for a single page."""
+        """Extract and process tables for a single page using LLM with retry logic."""
         try:
+            # Use page screenshot for LLM analysis
+            pix = page.get_pixmap(matrix=fitz.Matrix(PIXMAP_RESOLUTION, PIXMAP_RESOLUTION))
+            img_bytes = pix.tobytes("png")
+            img_pil = Image.open(BytesIO(img_bytes))
             
-            with pdfplumber.open(pdf_path) as plumber:
-                pl_page = plumber.pages[page_num]
-                md_tables = extract_tables_pdfplumber(pl_page)
-                for md in md_tables:
-                    # Use page screenshot for Gemini analysis
-                    pix = page.get_pixmap(matrix=fitz.Matrix(PIXMAP_RESOLUTION, PIXMAP_RESOLUTION))
-                    img_bytes = pix.tobytes("png")
-                    img_pil = Image.open(BytesIO(img_bytes))
-                    gemini_raw = ask_gemini_with_image(img_pil)
-                    caption = extract_caption_from_gemini(gemini_raw)
-                    
-                    self.chunks.append({
-                        "type": "table",
-                        "content": caption,
-                        "page": page_num + 1,
-                        "length": len(img_bytes),
-                        "source": "image",
-                        "table_content": f"##Markdown Table##\n\n{md}\n\n##Caption##\n\n{caption}"
-                    })
+            # Load table extraction prompt
+            from pathlib import Path
+            prompt_path = Path(__file__).parent / "table_extraction.txt"
+            if not prompt_path.exists():
+                logger.warning(f"[Table] Prompt file not found: {prompt_path}, using default")
+                prompt_text = None
+            else:
+                with open(prompt_path, "r", encoding="utf-8") as f:
+                    prompt_text = f.read()
+            
+            # Retry logic: try up to 3 times to get valid table extraction
+            max_retries = 3
+            markdown_table = None
+            caption = "Table"
+            
+            for attempt in range(1, max_retries + 1):
+                # Call LLM to extract table and caption
+                llm_response = ask_gemini_with_image(img_pil, prompt_text=prompt_text)
+                
+                if not llm_response:
+                    logger.warning(f"[Table] Page {page_num + 1}, attempt {attempt}/{max_retries}: No LLM response")
+                    if attempt < max_retries:
+                        continue
+                    else:
+                        break
+                
+                # Parse LLM response to extract markdown table and caption
+                parsed = parse_table_extraction_response(llm_response)
+                markdown_table = parsed.get("markdown_table")
+                caption = parsed.get("caption") or "Table"
+                
+                if markdown_table:
+                    logger.info(f"[Table] Page {page_num + 1}: Successfully extracted table on attempt {attempt}")
+                    break
+                else:
+                    logger.warning(f"[Table] Page {page_num + 1}, attempt {attempt}/{max_retries}: Could not extract table from LLM response")
+                    if attempt < max_retries:
+                        logger.info(f"[Table] Page {page_num + 1}: Retrying...")
+            
+            # If all retries failed, fallback to pdfplumber
+            if not markdown_table:
+                logger.warning(f"[Table] Page {page_num + 1}: All {max_retries} LLM attempts failed, trying pdfplumber fallback")
+                try:
+                    with pdfplumber.open(pdf_path) as plumber:
+                        pl_page = plumber.pages[page_num]
+                        md_tables = extract_tables_pdfplumber(pl_page)
+                        if md_tables:
+                            markdown_table = md_tables[0]
+                            logger.info(f"[Table] Page {page_num + 1}: Using pdfplumber fallback")
+                        else:
+                            logger.warning(f"[Table] Page {page_num + 1}: pdfplumber found no tables")
+                            return
+                except Exception as e:
+                    logger.warning(f"[Table] Page {page_num + 1}: pdfplumber fallback failed: {e}")
+                    return
+            
+            # Create table chunk with LLM-generated content (or pdfplumber fallback)
+            self.chunks.append({
+                "type": "table",
+                "content": caption,
+                "page": page_num + 1,
+                "length": len(img_bytes),
+                "source": "image",
+                "table_content": f"##Markdown Table##\n\n{markdown_table}\n\n##Caption##\n\n{caption}"
+            })
+            
         except Exception as e:
             logger.warning(f"[Table] Page {page_num + 1} failed: {e}")
     
