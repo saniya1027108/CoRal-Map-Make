@@ -1,0 +1,57 @@
+Here are the evaluations for each column:
+
+Add-on Treatment: Darolutamide + Docetaxel, darolutamide => Equivalent, Explanation: Both values are the same treatment.
+Adverse Events - N (%) | All-Cause Grade 3 or Higher => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control: 439 (67.5), not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Adverse Events - N (%) | Treatment-related Grade 5 => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Adverse Events - N (%) | Treatment-related Grade 5 | Control: 27 (4.0), not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Adverse Events - N (%) | Treatment-related Grade 5 | Treatment: 28 (4.1), not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Author: Hussain M et al, Hussain M et al. => Equivalent, Explanation: Both values are the same author.
+COE_RCT_IND_OVERALL_RJ: V, not present => Not Equivalent, Explanation: The gold value is a letter, while the predicted value is "not present".
+Class of Agent in Treatment Arm 1: NHT; Chemotherapy, androgen receptor pathway inhibitor => Equivalent, Explanation: Both values describe the same class of agent.
+Control Arm: D+ADT, placebo plus androgen-deprivation therapy and docetaxel => Equivalent, Explanation: Both values describe the same control arm.
+Control Arm - N: 654.0, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Docetaxel administration - N (%) | Control: 654 (100), not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Docetaxel administration - N (%) | Treatment: 651 (100) , not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Full Pub or Abstract: Full Pub, Full Pub => Equivalent, Explanation: Both values are the same publication type.
+Gleason score - N (%) | ≤ 7 => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is also a percentage, but not exactly equal.
+Gleason score - N (%) | ≤ 7 | Control: 138 (21.1), not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Gleason score - N (%) | ≤ 7 | Treatment: 110 (22.4) , not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Gleason score - N (%) | ≥ 8 => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is also a percentage, but not exactly equal.
+Gleason score - N (%) | ≥ 8 | Control: 516 (78.9), not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Gleason score - N (%) | ≥ 8 | Treatment: 505 (77.6) , not present => Not Equivalent, Explanation: The gold value is a percentage, while the predicted value is "not present".
+Median Age (years) | Control: 67.0, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median Age (years) | Treatment: 67, not present => Equivalent, Explanation: Both values are the same age.
+Median Follow-Up Duration (mo): 43.7; 42.4, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median OS (mo) | High volume => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median OS (mo) | High volume | Control: 42.4, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median OS (mo) | High volume | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median OS (mo) | Low volume => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Median OS (mo) | Low volume | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median OS (mo) | Low volume | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median OS (mo) | Overall => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median OS (mo) | Overall | Control: 42.4, 42.4 => Equivalent, Explanation: Both values are the same number.
+Median OS (mo) | Overall | Treatment: 43.7, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median On-Treatment Duration (mo) | Treatment: 41, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median PFS (mo) | High volume => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Median PFS (mo) | High volume | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median PFS (mo) | High volume | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median PFS (mo) | Low volume => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Median PFS (mo) | Low volume | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median PFS (mo) | Low volume | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Median PFS (mo) | Overall => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median PFS (mo) | Overall | Control: 49.9, not present => Not Equivalent, Explanation: The gold value is a number, while the predicted value is "not present".
+Median PFS (mo) | Overall | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Metastases - N (%) | Bone => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Metastases - N (%) | Bone | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Metastases - N (%) | Bone | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Metastases - N (%) | Liver => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Metastases - N (%) | Liver | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Metastases - N (%) | Liver | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+Metastases - N (%) | Lungs => Not Equivalent, Explanation: The gold value is "not present", while the predicted value is also "not present".
+Metastases - N (%) | Lungs | Control: not present, not present => Equivalent, Explanation: Both values are "not present".
+Metastases - N (%) | Lungs | Treatment: not present, not present => Equivalent, Explanation: Both values are "not present".
+
+Total Evaluated Columns: 34, Equivalent Columns: 7, Percentage Equivalent: 20.6%

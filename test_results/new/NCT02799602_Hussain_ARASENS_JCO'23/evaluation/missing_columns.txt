@@ -1,0 +1,56 @@
+Missing Columns Report
+Total Missing: 52
+============================================================
+
+OS Rate (%) | Low volume | Treatment
+ORR - N (%) | Treatment | CR
+OS Rate (%) | Synchronous | Treatment
+PFS Rate (%) | Overall | Treatment
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment
+PFS Rate (%) | Overall | Control
+Treatment Arm - N
+ORR - N (%) | Treatment | Overall
+Mode of metastases - N (%) | Synchronous | Control
+Mode of metastases - N (%) | Synchronous | Treatment
+Metastases - N (%) | Nodal | Control
+PS - N (%) | 1-2 | Treatment
+Previous local therapy - N (%) | Prostatectomy | Control
+Volume of disease - N (%) | High | Treatment
+Type of Therapy
+PS - N (%) | 0 | Treatment
+OS Rate (%) | Overall | Treatment
+ORR - N (%) | Treatment | SD
+No. of Deaths - N | Control
+PS - N (%) | 1-2 | Control
+ORR - N (%) | Control | PD
+Treatment Arm(s)
+Previous local therapy - N (%) | Orchiectomy | Control
+ORR - N (%) | Treatment | PD
+OS Rate (%) | High volume | Control
+OS Rate (%) | Low volume | Control
+ORR - N (%) | Control | Overall
+Metastases - N (%) | Nodal | Treatment
+OS Rate (%) | Metachronous | Control
+ORR - N (%) | Control | CR
+Year
+NCT
+OS Rate (%) | Synchronous | Control
+Mode of metastases - N (%) | Metachronous | Control
+No. of Deaths - N | Treatment
+Mode of metastases - N (%) | Metachronous | Treatment
+Previous local therapy - N (%) | Orchiectomy | Treatment
+Original/Follow Up
+PS - N (%) | 0 | Control
+OS Rate (%) | Metachronous | Treatment
+Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment
+OS Rate (%) | Overall | Control
+ORR - N (%) | Control | SD
+Phase
+OS Rate (%) | High volume | Treatment
+Total Participants - N
+Treatment Class
+Trial Name
+Volume of disease - N (%) | Low | Control
+Volume of disease - N (%) | High | Control
+Treatment Arm 1 Regimen
+Number of Arms Included

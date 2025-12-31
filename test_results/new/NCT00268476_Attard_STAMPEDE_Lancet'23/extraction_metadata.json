@@ -1,0 +1,800 @@
+{
+    "Add-on Treatment": {
+        "value": "enzalutamide",
+        "evidence": "abiraterone acetate and prednisolone plus enzalutamide 160 mg orally once a day",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment": {
+        "value": "302 (68%)",
+        "evidence": "the highest toxic effects were seen when abiraterone and enzalutamide were added to standard of care (302 [68%] of 445)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control": {
+        "value": "204 (45%)",
+        "evidence": "204 [45%] of 454 with standard of care",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment": {
+        "value": "302 (68%)",
+        "evidence": "the highest toxic effects were seen when abiraterone and enzalutamide were added to standard of care (302 [68%] of 445 vs 204 [45%] of 454 with standard of care)",
+        "chunk_id": 4,
+        "page": 1
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control": {
+        "value": "204 (45%)",
+        "evidence": "the highest toxic effects were seen when abiraterone and enzalutamide were added to standard of care (302 [68%] of 445 vs 204 [45%] of 454 with standard of care)",
+        "chunk_id": 4,
+        "page": 1
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 5 | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Adverse Events - N (%) | Treatment-related Grade 5 | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Author": {
+        "value": "Gerhardt Attard et al.",
+        "evidence": "Prof G Attard, Laura Murphy, Noel W Clarke, Ashwin Sachdeva, Craig Jones, ... for the STAMPEDE investigators",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "COE_RCT_IND_OVERALL_RJ": {
+        "value": "positive",
+        "evidence": "Clinically important improvements in survival from addition of abiraterone to androgen deprivation therapy are maintained for longer than 7 years.",
+        "chunk_id": 1,
+        "page": 1
+    },
+    "Class of Agent in Treatment Arm 1": {
+        "value": "abiraterone acetate",
+        "evidence": "standard of care plus abiraterone acetate 1000 mg and prednisolone 5 mg",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Control Arm": {
+        "value": "standard of care",
+        "evidence": "Patients were randomly assigned (1:1) using a computerised algorithm... to either standard of care (androgen deprivation therapy; docetaxel 75 mg/m² intravenously for six cycles with prednisolone 10 mg orally once per day allowed...)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Control Arm - N": {
+        "value": 502,
+        "evidence": "1003 patients were randomly assigned to standard of care (n=502)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Docetaxel administration - N (%) | Treatment": {
+        "value": "NA",
+        "evidence": null,
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Docetaxel administration - N (%) | Control": {
+        "value": "NA",
+        "evidence": null,
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Full Pub or Abstract": {
+        "value": "Full Pub",
+        "evidence": "Copyright © 2023 The Author(s). Published by Elsevier Ltd. This is an Open Access article under the CC BY 4.0 license",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Gleason score - N (%) | ≤ 7 | Treatment": {
+        "value": "102 (20%)",
+        "evidence": "Present102 (20%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Gleason score - N (%) | ≤ 7 | Control": {
+        "value": "107 (21%)",
+        "evidence": "107 (21%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Gleason score - N (%) | ≥ 8 | Treatment": {
+        "value": "78 (17%)",
+        "evidence": "78 (17%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Gleason score - N (%) | ≥ 8 | Control": {
+        "value": "86 (19%)",
+        "evidence": "86 (19%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Median Age (years) | Treatment": {
+        "value": 67,
+        "evidence": "Median 67 (62–72)",
+        "chunk_id": 26,
+        "page": 5
+    },
+    "Median Age (years) | Control": {
+        "value": 67,
+        "evidence": "Median 67 (62–71)",
+        "chunk_id": 26,
+        "page": 5
+    },
+    "Median Follow-Up Duration (mo)": {
+        "value": 96,
+        "evidence": "Median follow-up was 96 months (IQR 86–107) in the abiraterone trial",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Median OS (mo) | Overall | Treatment": {
+        "value": "76.6",
+        "evidence": "In the abiraterone trial, median overall survival was 76·6 months (95% CI 67·8–86·9) in the abiraterone group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Median OS (mo) | Overall | Control": {
+        "value": "45.7",
+        "evidence": "versus 45·7 months (41·6–52·0) in the standard of care group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Median OS (mo) | High volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | High volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | Low volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median OS (mo) | Low volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median On-Treatment Duration (mo) | Treatment": {
+        "value": 73,
+        "evidence": "median follow-up of 73 months",
+        "chunk_id": 49,
+        "page": 8
+    },
+    "Median On-Treatment Duration (mo) | Control": {
+        "value": 52,
+        "evidence": "51 months for abiraterone",
+        "chunk_id": 49,
+        "page": 8
+    },
+    "Median PFS (mo) | Overall | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | Overall | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | High volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | High volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | Low volume | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Median PFS (mo) | Low volume | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Liver | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Liver | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Lungs | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Lungs | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Metastases - N (%) | Bone | Treatment": {
+        "value": "370 (74%)",
+        "evidence": "370 (74%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Metastases - N (%) | Bone | Control": {
+        "value": "376 (75%)",
+        "evidence": "376 (75%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Metastases - N (%) | Nodal | Treatment": {
+        "value": "315 (69%)",
+        "evidence": "315 (69%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Metastases - N (%) | Nodal | Control": {
+        "value": "325 (70%)",
+        "evidence": "325 (70%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Mode of metastases - N (%) | Synchronous | Treatment": {
+        "value": "102 (20%)",
+        "evidence": "Present102 (20%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Mode of metastases - N (%) | Synchronous | Control": {
+        "value": "107 (21%)",
+        "evidence": "107 (21%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Mode of metastases - N (%) | Metachronous | Treatment": {
+        "value": "78 (17%)",
+        "evidence": "78 (17%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Mode of metastases - N (%) | Metachronous | Control": {
+        "value": "86 (19%)",
+        "evidence": "86 (19%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "NCT": {
+        "value": "NCT00268476",
+        "evidence": "STAMPEDE is registered with ClinicalTrials.gov (NCT00268476)",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "No. of Deaths - N | Treatment": {
+        "value": 5,
+        "evidence": "five [1%] with standard of care plus abiraterone and enzalutamide [two attributed to treatment]",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "No. of Deaths - N | Control": {
+        "value": 1,
+        "evidence": "one (<1%) with standard of care in the abiraterone trial",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Number of Arms Included": {
+        "value": 4,
+        "evidence": "Patients were randomly assigned (1:1) to either standard of care... or standard of care plus abiraterone acetate... or abiraterone acetate and prednisolone plus enzalutamide.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "ORR - N (%) | Treatment | Overall": {
+        "value": "20",
+        "evidence": "Present102 (20%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "ORR - N (%) | Treatment | CR": {
+        "value": "21",
+        "evidence": "107 (21%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "ORR - N (%) | Treatment | SD": {
+        "value": "17",
+        "evidence": "78 (17%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "ORR - N (%) | Treatment | PD": {
+        "value": "19",
+        "evidence": "86 (19%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "ORR - N (%) | Control | Overall": {
+        "value": "59%",
+        "evidence": "273 (59%)",
+        "chunk_id": 29,
+        "page": 5
+    },
+    "ORR - N (%) | Control | CR": {
+        "value": "118 (24%)",
+        "evidence": "118 (24%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "ORR - N (%) | Control | SD": {
+        "value": "5 (1%)",
+        "evidence": "5 (1%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "ORR - N (%) | Control | PD": {
+        "value": "0",
+        "evidence": "0",
+        "chunk_id": 59,
+        "page": 10
+    },
+    "OS Rate (%) | Overall | Treatment": {
+        "value": 76.6,
+        "evidence": "In the abiraterone trial, median overall survival was 76·6 months (95% CI 67·8–86·9) in the abiraterone group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "OS Rate (%) | Overall | Control": {
+        "value": 45.7,
+        "evidence": "versus 45·7 months (41·6–52·0) in the standard of care group",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "OS Rate (%) | Synchronous | Treatment": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | Synchronous | Control": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | Metachronous | Treatment": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | Metachronous | Control": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | High volume | Treatment": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | High volume | Control": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | Low volume | Treatment": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "OS Rate (%) | Low volume | Control": {
+        "value": "null",
+        "evidence": null,
+        "chunk_id": 19,
+        "page": 4
+    },
+    "Original/Follow Up": {
+        "value": "Original",
+        "evidence": "This is the first phase 3 randomised trial evaluating abiraterone with an androgen receptor antagonist added at the start of androgen deprivation therapy for patients with metastatic prostate cancer.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "PFS Rate (%) | Overall | Treatment": {
+        "value": "0.65 (65%)",
+        "evidence": "0·65 (0·55–0·77)",
+        "chunk_id": 49,
+        "page": 8
+    },
+    "PFS Rate (%) | Overall | Control": {
+        "value": "0.63 (63%)",
+        "evidence": "0·63 (0·49–0·82)",
+        "chunk_id": 49,
+        "page": 8
+    },
+    "PS - N (%) | 0 | Treatment": {
+        "value": "370 (74%)",
+        "evidence": "370 (74%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "PS - N (%) | 0 | Control": {
+        "value": "376 (75%)",
+        "evidence": "376 (75%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "PS - N (%) | 1-2 | Treatment": {
+        "value": "271 (54%)",
+        "evidence": "271 (54%)",
+        "chunk_id": 31,
+        "page": 5
+    },
+    "PS - N (%) | 1-2 | Control": {
+        "value": "204 (41%)",
+        "evidence": "204 (41%)",
+        "chunk_id": 31,
+        "page": 5
+    },
+    "Phase": {
+        "value": "III",
+        "evidence": "We analysed two open-label, randomised, controlled, phase 3 trials",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Previous local therapy - N (%) | Prostatectomy | Treatment": {
+        "value": "370 (74%)",
+        "evidence": "370 (74%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Prostatectomy | Control": {
+        "value": "376 (75%)",
+        "evidence": "376 (75%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Orchiectomy | Treatment": {
+        "value": "7 (1%)",
+        "evidence": "7 (1%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Orchiectomy | Control": {
+        "value": "5 (1%)",
+        "evidence": "5 (1%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Radiotherapy | Treatment": {
+        "value": "315 (69%)",
+        "evidence": "315 (69%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Previous local therapy - N (%) | Radiotherapy | Control": {
+        "value": "325 (70%)",
+        "evidence": "325 (70%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Primary Endpoint(s)": {
+        "value": "overall survival",
+        "evidence": "The primary outcome was overall survival assessed in the intention-to-treat population.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "PubMed ID": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Quality of Life Scale": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Quality of Life reported": {
+        "value": "No",
+        "evidence": null,
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Race - N (%) | White | Treatment": {
+        "value": "102 (20%)",
+        "evidence": "Present102 (20%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Race - N (%) | White | Control": {
+        "value": "107 (21%)",
+        "evidence": "107 (21%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Race - N (%) | Black or African American | Treatment": {
+        "value": "78 (17%)",
+        "evidence": "78 (17%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Race - N (%) | Black or African American | Control": {
+        "value": "86 (19%)",
+        "evidence": "86 (19%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Race - N (%) | Asian | Treatment": {
+        "value": "7 (1%)",
+        "evidence": "7 (1%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Race - N (%) | Asian | Control": {
+        "value": "5 (1%)",
+        "evidence": "5 (1%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment": {
+        "value": "7 (1%)",
+        "evidence": "7 (1%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Race - N (%) | Nat. Hawaiian or Pac. Islander | Control": {
+        "value": "8 (2%)",
+        "evidence": "8 (2%)",
+        "chunk_id": 33,
+        "page": 5
+    },
+    "Race - N (%) | Amer. Indian or Alaska Nat. | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Amer. Indian or Alaska Nat. | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Other | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Other | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Race - N (%) | Unknown | Treatment": {
+        "value": "4 (1%)",
+        "evidence": "Unknown4 (1%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Race - N (%) | Unknown | Control": {
+        "value": "5 (1%)",
+        "evidence": "5 (1%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Region - N (%) | North America | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | North America | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | South America | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | South America | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Europe | Treatment": {
+        "value": "501 (100%)",
+        "evidence": "1003 patients were randomly assigned to standard of care (n=502) or standard of care plus abiraterone (n=501) in the abiraterone trial.",
+        "chunk_id": 1,
+        "page": 1
+    },
+    "Region - N (%) | Europe | Control": {
+        "value": "502 (100%)",
+        "evidence": "1003 patients were randomly assigned to standard of care (n=502) or standard of care plus abiraterone (n=501) in the abiraterone trial.",
+        "chunk_id": 1,
+        "page": 1
+    },
+    "Region - N (%) | Africa | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Africa | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Asia | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Asia | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Oceania | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Region - N (%) | Oceania | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | Synchronous": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | Metachronous": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Reporting by prognostic groups - Y/N | High volume": {
+        "value": "Y",
+        "evidence": "Physicians classified patients by high-volume or low-volume disease using the CHAARTED trial criteria.",
+        "chunk_id": 18,
+        "page": 4
+    },
+    "Reporting by prognostic groups - Y/N | Low volume": {
+        "value": "Y",
+        "evidence": "Physicians classified patients by high-volume or low-volume disease using the CHAARTED trial criteria.",
+        "chunk_id": 18,
+        "page": 4
+    },
+    "Secondary Endpoint(s)": {
+        "value": "prostate cancer-specific survival, failure-free survival, progression-free survival, metastatic progression-free survival, symptomatic skeletal-related events, toxic effects and adverse events, cost-effectiveness of research treatment",
+        "evidence": "Secondary outcomes were prostate cancer-specific survival (defined as the time from randomisation to death from prostate cancer); failure-free survival (defined as biochemical failure, local or lymph node progression, distant metastases, or death from prostate cancer); progression-free survival (defined as failure-free survival but excluding biochemical failure); metastatic progression-free survival (defined as progression of or new distant metastases or death from prostate cancer); symptomatic skeletal-related events (defined as pathological fracture or spinal cord compression or bone pain requiring radiotherapy or surgery); toxic effects and adverse events; and cost-effectiveness of research treatment.",
+        "chunk_id": 19,
+        "page": 4
+    },
+    "TTPSA (mo) | Treatment": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "TTPSA (mo) | Control": {
+        "value": null,
+        "evidence": null,
+        "chunk_id": null,
+        "page": null
+    },
+    "Total Participants - N": {
+        "value": 1919,
+        "evidence": "1003 patients were randomly assigned to standard of care (n=502) or standard of care plus abiraterone (n=501) in the abiraterone trial. Between July 29, 2014, and March 31, 2016, 916 patients were randomly assigned to standard of care (n=454) or standard of care plus abiraterone and enzalutamide (n=462) in the abiraterone and enzalutamide trial.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Arm - N": {
+        "value": 501,
+        "evidence": "1003 patients were randomly assigned to standard of care (n=502) or standard of care plus abiraterone (n=501) in the abiraterone trial.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Arm 1 Regimen": {
+        "value": "standard of care plus abiraterone acetate 1000 mg and prednisolone 5 mg",
+        "evidence": "Patients were randomly assigned to either standard of care plus abiraterone acetate 1000 mg and prednisolone 5 mg",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Arm(s)": {
+        "value": "standard of care plus abiraterone; standard of care plus abiraterone and enzalutamide",
+        "evidence": "patients were randomly assigned to either standard of care plus abiraterone acetate 1000 mg and prednisolone 5 mg... or abiraterone acetate and prednisolone plus enzalutamide 160 mg",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Treatment Class": {
+        "value": "androgen deprivation therapy, abiraterone acetate, enzalutamide",
+        "evidence": "standard of care plus abiraterone acetate 1000 mg and prednisolone 5 mg... or abiraterone acetate and prednisolone plus enzalutamide 160 mg",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Trial": {
+        "value": "STAMPEDE",
+        "evidence": "STAMPEDE has used a multiarm multistage platform design",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Trial Name": {
+        "value": "STAMPEDE",
+        "evidence": "STAMPEDE is registered with ClinicalTrials.gov (NCT00268476) and ISRCTN (ISRCTN78818544).",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Type of Therapy": {
+        "value": "abiraterone acetate plus prednisolone or enzalutamide added at the start of androgen deprivation therapy",
+        "evidence": "Abiraterone acetate plus prednisolone (herein referred to as abiraterone) or enzalutamide added at the start of androgen deprivation therapy improves outcomes for patients with metastatic prostate cancer.",
+        "chunk_id": 0,
+        "page": 1
+    },
+    "Volume of disease - N (%) | High | Treatment": {
+        "value": "102 (20%)",
+        "evidence": "Present102 (20%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Volume of disease - N (%) | High | Control": {
+        "value": "107 (21%)",
+        "evidence": "107 (21%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Volume of disease - N (%) | Low | Control": {
+        "value": "78 (17%)",
+        "evidence": "78 (17%)",
+        "chunk_id": 25,
+        "page": 5
+    },
+    "Year": {
+        "value": 2023,
+        "evidence": "Lancet Oncol 2023; 24: 443–56",
+        "chunk_id": 0,
+        "page": 1
+    }
+}
