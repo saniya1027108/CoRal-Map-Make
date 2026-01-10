@@ -24,8 +24,8 @@ GCP_LOCATION = os.getenv("GCP_LOCATION", "")
 # Supported providers: "gemini", "openai", "novita", "groq", "deepinfra"
 
 # Chunking (image/table analysis - requires multimodal)
-CHUNKING_PROVIDER = "gemini"
-CHUNKING_MODEL = "gemini-2.5-flash"
+CHUNKING_PROVIDER = "openai"
+CHUNKING_MODEL = "gpt-4o-mini"
 
 # Extraction (data extraction from text chunks)
 EXTRACTION_PROVIDER = "openai"
