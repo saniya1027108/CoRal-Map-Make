@@ -19,9 +19,9 @@ sys.path.insert(0, str(SRC_FOLDER))
 # --------------------------------------------------------------
 from src.chunking.chunking import process_pdf
 from table_definitions.definitions import load_definitions
-from src.fill_table.fill_table import fill_table_all_chunks, extract_first_n_pages_text  # Import extract_first_n_pages_text
+from src.fill_table.fill_table import fill_table_all_chunks, fill_table_with_retrieval, extract_first_n_pages_text
 from src.evaluation.evaluator import Evaluator
-from src.config.config import GOLD_TABLE_PATH
+from src.config.config import GOLD_TABLE_PATH, USE_RETRIEVAL
 from src.utils.logging_utils import setup_logger
 from src.model_handling.llm_extraction import save_cost_metrics  # Adjusted import path
 
@@ -91,14 +91,26 @@ if __name__ == "__main__":
             chunks = json.load(f)
         groups = load_definitions()
         logger.info(f"Loaded {len(groups)} column groups")
-        logger.info("Running LLM extraction (parallel over group-chunk pairs)...")
-        output_data, metrics = fill_table_all_chunks(
-            chunks=chunks,
-            groups=groups,
-            pdf_path=str(pdf_path),
-            output_path=str(table_csv),
-            metadata_path=str(meta_json)
-        )
+        
+        # Choose extraction method based on config
+        if USE_RETRIEVAL:
+            logger.info("🔍 Running RETRIEVAL-BASED extraction (one LLM call per group)...")
+            output_data, metrics = fill_table_with_retrieval(
+                chunks=chunks,
+                groups=groups,
+                pdf_path=str(pdf_path),
+                output_path=str(table_csv),
+                metadata_path=str(meta_json)
+            )
+        else:
+            logger.info("🔄 Running BRUTE-FORCE extraction (all chunks, parallel)...")
+            output_data, metrics = fill_table_all_chunks(
+                chunks=chunks,
+                groups=groups,
+                pdf_path=str(pdf_path),
+                output_path=str(table_csv),
+                metadata_path=str(meta_json)
+            )
         # Save LLM cost metrics
         cost_file = metrics_dir / "llm_cost_metrics.txt"
         try:

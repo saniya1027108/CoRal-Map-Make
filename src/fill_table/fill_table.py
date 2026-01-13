@@ -9,6 +9,15 @@ from pathlib import Path
 from ..utils.logging_utils import setup_logger
 from ..model_handling.llm_extraction import extract_group_from_chunk
 from ..utils.performance_monitor import PerformanceMonitor
+from ..retrieval.retriever import get_retriever, build_retrieval_query, combine_retrieved_chunks
+from ..config.config import (
+    USE_RETRIEVAL,
+    RETRIEVAL_STRATEGY,
+    RETRIEVAL_TOP_N,
+    RETRIEVAL_BM25_WEIGHT,
+    RETRIEVAL_SEMANTIC_WEIGHT,
+    RETRIEVAL_MAX_COMBINED_CHUNKS
+)
 
 logger = setup_logger("table_filling")
 
@@ -167,6 +176,146 @@ def fill_table_all_chunks(chunks, groups, pdf_path, output_path="extracted_table
     logger.info(f"[INFO] Filled columns: {filled_columns}")
     logger.info(f"[INFO] Remaining null columns: {null_columns}")
 
+    logger.info(f"Table saved to {output_path}")
+    logger.info(f"Metadata JSON saved to {metadata_path}")
+    
+    return output_data, total_metrics
+
+
+def fill_table_with_retrieval(chunks, groups, pdf_path, output_path="extracted_table.csv", 
+                               metadata_path="extraction_metadata.json", 
+                               top_n=None, strategy=None):
+    """
+    Retrieval-based table filling: For each group, retrieve top-N relevant chunks,
+    combine them into a single context, and make ONE LLM call per group.
+    
+    This is much faster and cheaper than processing all chunks.
+    
+    Args:
+        chunks: List of document chunks
+        groups: Dictionary of column groups {group_name: [col_defs...]}
+        pdf_path: Path to PDF for context extraction
+        output_path: Where to save CSV
+        metadata_path: Where to save metadata JSON
+        top_n: Number of chunks to retrieve per group (overrides config)
+        strategy: Retrieval strategy (overrides config): "bm25", "semantic", "hybrid"
+    
+    Returns:
+        (output_data, total_metrics)
+    """
+    # Use config values if not specified
+    if top_n is None:
+        top_n = RETRIEVAL_TOP_N
+    if strategy is None:
+        strategy = RETRIEVAL_STRATEGY
+    
+    out_dir = Path(output_path).parent
+    metrics_dir = out_dir / "metrics"
+    metrics_dir.mkdir(parents=True, exist_ok=True)
+    
+    monitor = PerformanceMonitor(metrics_dir)
+    monitor.start_monitoring()
+    
+    # Extract context from first 2 pages
+    context_text = extract_first_n_pages_text(pdf_path, n=2)
+    
+    # Initialize retriever (builds indices once)
+    logger.info(f"Initializing {strategy} retriever with {len(chunks)} chunks...")
+    retriever = get_retriever(
+        chunks, 
+        strategy=strategy,
+        bm25_weight=RETRIEVAL_BM25_WEIGHT,
+        semantic_weight=RETRIEVAL_SEMANTIC_WEIGHT
+    )
+    logger.info("Retriever initialized successfully")
+    
+    # Initialize output
+    output_data = {}
+    total_metrics = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
+    
+    # Process each group (can be parallelized later if needed)
+    for group_label, group in groups.items():
+        monitor.record_group_start(group_label)
+        logger.info(f"Processing group: {group_label}")
+        
+        # 1. Build retrieval query from column definitions
+        query = build_retrieval_query(group)
+        logger.info(f"Query: {query[:200]}...")  # Log first 200 chars
+        
+        # 2. Retrieve top-N relevant chunks
+        top_chunks = retriever.retrieve(query, top_n=top_n)
+        logger.info(f"Retrieved {len(top_chunks)} chunks for group '{group_label}'")
+        
+        # 3. Combine chunks into single structured context
+        combined_chunk = combine_retrieved_chunks(
+            top_chunks, 
+            max_chunks=RETRIEVAL_MAX_COMBINED_CHUNKS
+        )
+        logger.info(f"Combined into {combined_chunk['source_chunks']} chunk(s)")
+        
+        # 4. Single LLM call for entire group
+        monitor.record_call_start(group_label, 0)
+        try:
+            extracted, in_t, out_t = extract_group_from_chunk(
+                combined_chunk, 
+                group, 
+                context_text, 
+                metrics_dir
+            )
+            monitor.record_call_end(group_label, 0)
+            
+            # Log the extraction
+            log_llm_response(metrics_dir, group_label, "combined", None, None, extracted)
+            
+            # Update metrics
+            total_metrics["calls"] += 1
+            total_metrics["input_tokens"] += in_t
+            total_metrics["output_tokens"] += out_t
+            
+            # Store extracted values
+            for col_name, data in extracted.items():
+                output_data[col_name] = {
+                    "value": data.get("value"),
+                    "evidence": data.get("evidence"),
+                    "chunk_id": "combined",  # Mark as combined retrieval
+                    "page": combined_chunk.get("pages", [None])[0] if combined_chunk.get("pages") else None,
+                    "retrieved_pages": combined_chunk.get("pages", [])
+                }
+            
+            logger.info(f"Group '{group_label}' processed: 1 LLM call, "
+                       f"{in_t} input tokens, {out_t} output tokens")
+        
+        except Exception as e:
+            logger.error(f"Failed to extract group '{group_label}': {e}")
+            # Initialize with null values
+            for col in group:
+                col_name = col["Column Name"]
+                output_data[col_name] = {
+                    "value": None,
+                    "evidence": None,
+                    "chunk_id": None,
+                    "page": None,
+                    "retrieved_pages": []
+                }
+        
+        monitor.record_group_end(group_label)
+    
+    monitor.finish_monitoring()
+    monitor.save_report()
+    
+    logger.info(f"Total LLM calls made: {total_metrics['calls']} (retrieval-based, one per group)")
+    
+    # Save results
+    values = {col: _safe_json_value(info["value"]) for col, info in output_data.items()}
+    pd.DataFrame([values]).to_csv(output_path, index=False)
+    save_metadata_safely(output_data, metadata_path)
+    
+    total_columns = len(output_data)
+    filled_columns = sum(1 for info in output_data.values() if info["value"] is not None)
+    null_columns = total_columns - filled_columns
+    logger.info(f"[INFO] Filled columns: {filled_columns}")
+    logger.info(f"[INFO] Remaining null columns: {null_columns}")
+    
     logger.info(f"Table saved to {output_path}")
     logger.info(f"Metadata JSON saved to {metadata_path}")
     

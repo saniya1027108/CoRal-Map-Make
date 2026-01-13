@@ -83,6 +83,9 @@ def extract_group_from_chunk(chunk, group, context_text=None, metrics_dir: Path 
         # Build content based on chunk type
         if chunk["type"] == "text":
             content_text = chunk["content"]
+        elif chunk["type"] == "combined":
+            # Combined chunks from retrieval - already have full structured content
+            content_text = chunk["content"]
         elif chunk["type"] in ["table", "figure"]:
             content_text = chunk.get("table_content") or chunk.get("figure_content", "")
         elif chunk["type"] == "image":
