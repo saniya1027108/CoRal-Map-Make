@@ -76,8 +76,9 @@
             letter-spacing: 1px;
         }
         
-        .stat-card.filled .number { color: #28a745; }
-        .stat-card.null .number { color: #dc3545; }
+        .stat-card.has-value .number { color: #ffc107; }
+        .stat-card.missing .number { color: #dc3545; }
+        .stat-card.both-null .number { color: #6c757d; }
         .stat-card.total .number { color: #667eea; }
         
         .progress-bar {
@@ -142,14 +143,19 @@
             transform: translateY(-2px);
         }
         
-        .column-card.filled {
-            background: #d4edda;
-            border-color: #28a745;
+        .column-card.has_value {
+            background: #fff3cd;
+            border-color: #ffc107;
         }
         
-        .column-card.null {
+        .column-card.missing {
             background: #f8d7da;
             border-color: #dc3545;
+        }
+        
+        .column-card.both_null {
+            background: #e9ecef;
+            border-color: #6c757d;
         }
         
         .column-name {
@@ -170,10 +176,54 @@
             word-break: break-word;
         }
         
+        .gold-value {
+            padding: 8px;
+            background: #e3f2fd;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #1565c0;
+            word-break: break-word;
+            border-left: 3px solid #1976d2;
+        }
+        
+        .value-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        
         .null-indicator {
             color: #dc3545;
             font-style: italic;
             font-size: 14px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        
+        .status-badge.has_value {
+            background: #ffc107;
+            color: #000;
+        }
+        
+        .status-badge.missing {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .status-badge.both_null {
+            background: #6c757d;
+            color: white;
         }
         
         .evidence {
@@ -244,13 +294,17 @@
         </div>
         
         <div class="summary">
-            <div class="stat-card filled">
+            <div class="stat-card has-value">
                 <div class="number">37</div>
-                <div class="label">Filled</div>
+                <div class="label">Has Value</div>
             </div>
-            <div class="stat-card null">
-                <div class="number">96</div>
-                <div class="label">Null</div>
+            <div class="stat-card missing">
+                <div class="number">32</div>
+                <div class="label">Missing</div>
+            </div>
+            <div class="stat-card both-null">
+                <div class="number">64</div>
+                <div class="label">N/A</div>
             </div>
             <div class="stat-card total">
                 <div class="number">133</div>
@@ -270,750 +324,711 @@
             <div class="filter-bar">
                 <strong>Quick Filter:</strong>
                 <button class="filter-button active" onclick="filterColumns('all')">All</button>
-                <button class="filter-button" onclick="filterColumns('filled')">Filled Only</button>
-                <button class="filter-button" onclick="filterColumns('null')">Null Only</button>
+                <button class="filter-button" onclick="filterColumns('has_value')">Has Value</button>
+                <button class="filter-button" onclick="filterColumns('missing')">Missing</button>
+                <button class="filter-button" onclick="filterColumns('both_null')">N/A</button>
             </div>
 
             <div class="category">
                 <div class="category-header">
-                    📄 Study Metadata
-                    <span class="category-stats">(8/9 filled)</span>
+                    📄 Trial Characteristics
+                    <span class="category-stats">(24/30 with values)</span>
                 </div>
                 <div class="columns-grid">
 
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Author</div>
-                        <div class="column-value">Karim Fizazi, M.D., Ph.D., NamPhuong Tran, M.D., Luis Fein, M.D., Nobuaki Matsubara, M.D., Alfredo Rodriguez-Antolin, M.D., Ph.D., Boris Y. Alekseev, M.D., Mustafa Özgüroğlu, M.D., Dingwei Ye, M.D., Susan Feyerabend, M.D., Andrew Protheroe, M.D., Ph.D., Peter De Porre, M.D., Thian Kheoh, Ph.D., Youn C. Park, Ph.D., Mary B. Todd, D.O., and Kim N. Chi, M.D.</div><div class="evidence">💬 "Karim Fizazi, M.D., Ph.D., NamPhuong Tran, M.D., Luis Fein, M.D., ... and Kim N. Chi, M.D., for the LATITUDE Investigators*"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
+                    <div class="column-card has_value" data-status="has_value">
                         <div class="column-name">NCT</div>
-                        <div class="column-value">NCT01715285</div><div class="evidence">💬 "LATITUDE ClinicalTrials.gov number, NCT01715285."</div><span class="page-badge">Page 2</span>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">NCT01715285</div><div class="evidence">💬 "LATITUDE ClinicalTrials.gov number, NCT01715285."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">NCT01715285</div><div class="status-badge has_value">🟡 Has Value</div>
                     </div>
 
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Phase</div>
-                        <div class="column-value">III</div><div class="evidence">💬 "the trial was conducted in three randomized, phase 3 trials"</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Primary Endpoint(s)</div>
-                        <div class="column-value">overall survival and radiographic progression-free survival</div><div class="evidence">💬 "The two primary end points were overall survival and radiographic progression-free survival."</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
+                    <div class="column-card missing" data-status="missing">
                         <div class="column-name">PubMed ID</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">28578607</div><div class="status-badge missing">🔴 Missing</div>
                     </div>
 
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Secondary Endpoint(s)</div>
-                        <div class="column-value">time to the next skeletal-related event, time to progression with respect to prostate-specific antigen (PSA) level, time to the next therapy for prostate cancer, time to initiation of chemotherapy, and time to pain progression</div><div class="evidence">💬 "Prespecified secondary end points were the time to the next 'skeletal-related event'... time to progression with respect to prostate-specific antigen ..."</div><span class="page-badge">Page 5</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Trial</div>
-                        <div class="column-value">LATITUDE</div><div class="evidence">💬 "In LATITUDE, a multinational, randomized, double-blind, placebo-controlled, phase 3 trial..."</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
+                    <div class="column-card has_value" data-status="has_value">
                         <div class="column-name">Trial Name</div>
-                        <div class="column-value">LATITUDE</div><div class="evidence">💬 "In LATITUDE, a multinational, randomized, double-blind, placebo-controlled, phase 3 trial..."</div><span class="page-badge">Page 2</span>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">LATITUDE</div><div class="evidence">💬 "In LATITUDE, a multinational, randomized, double-blind, placebo-controlled, phase 3 trial..."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">LATITUDE</div><div class="status-badge has_value">🟡 Has Value</div>
                     </div>
 
-                    <div class="column-card filled" data-status="filled">
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Author</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">Karim Fizazi, M.D., Ph.D., NamPhuong Tran, M.D., Luis Fein, M.D., Nobuaki Matsubara, M.D., Alfredo Rodriguez-Antolin, M.D., Ph.D., Boris Y. Alekseev, M.D., Mustafa Özgüroğlu, M.D., Dingwei Ye, M.D., Susan Feyerabend, M.D., Andrew Protheroe, M.D., Ph.D., Peter De Porre, M.D., Thian Kheoh, Ph.D., Youn C. Park, Ph.D., Mary B. Todd, D.O., and Kim N. Chi, M.D.</div><div class="evidence">💬 "Karim Fizazi, M.D., Ph.D., NamPhuong Tran, M.D., Luis Fein, M.D., ... and Kim N. Chi, M.D., for the LATITUDE Investigators*"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Fizazi K et al</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
                         <div class="column-name">Year</div>
-                        <div class="column-value">2017</div><div class="evidence">💬 "This article was published on June 4, 2017, at NEJM.org."</div><span class="page-badge">Page 2</span>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">2017</div><div class="evidence">💬 "This article was published on June 4, 2017, at NEJM.org."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">2017</div><div class="status-badge has_value">🟡 Has Value</div>
                     </div>
 
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    👥 Demographics
-                    <span class="category-stats">(3/37 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Class of Agent in Treatment Arm 1</div>
-                        <div class="column-value">abiraterone acetate</div><div class="evidence">💬 "we evaluated the addition of abiraterone plus prednisone to androgen-deprivation therapy"</div><span class="page-badge">Page 7</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median Age (years) | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median Age (years) | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">PS - N (%) | 0 | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">PS - N (%) | 0 | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">PS - N (%) | 1-2 | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">PS - N (%) | 1-2 | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | White | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | White | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Black or African American | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Black or African American | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Asian | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Asian | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Nat. Hawaiian or Pac. Islander | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Amer. Indian or Alaska Nat. | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Amer. Indian or Alaska Nat. | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Other | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Other | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Unknown | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Race - N (%) | Unknown | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | North America | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | North America | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | South America | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | South America | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Europe | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Europe | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Africa | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Africa | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Asia | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Asia | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Oceania | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Region - N (%) | Oceania | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Reporting by prognostic groups - Y/N | Synchronous</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Reporting by prognostic groups - Y/N | Metachronous</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Reporting by prognostic groups - Y/N | High volume</div>
-                        <div class="column-value">Y</div><div class="evidence">💬 "The table compares the efficacy and safety of two treatments, Darolutamide and Abiraterone, in patients with metastatic prostate cancer, categorized b..."</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Reporting by prognostic groups - Y/N | Low volume</div>
-                        <div class="column-value">Y</div><div class="evidence">💬 "The table compares the efficacy and safety of two treatments, Darolutamide and Abiraterone, in patients with metastatic prostate cancer, categorized b..."</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    💊 Treatment Details
-                    <span class="category-stats">(13/33 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Add-on Treatment</div>
-                        <div class="column-value">abiraterone acetate plus prednisone</div><div class="evidence">💬 "we evaluated the clinical benefit of abiraterone acetate plus prednisone with androgen-deprivation therapy"</div><span class="page-badge">Page 1</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Control Arm</div>
-                        <div class="column-value">placebo group</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate... or androgen-deprivation therapy plus dua..."</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Control Arm - N</div>
-                        <div class="column-value">602</div><div class="evidence">💬 "No. at Risk (Placebo) = 602"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Docetaxel administration - N (%) | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Docetaxel administration - N (%) | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Gleason score - N (%) | ≤ 7 | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Gleason score - N (%) | ≤ 7 | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Gleason score - N (%) | ≥ 8 | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Gleason score - N (%) | ≥ 8 | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Median On-Treatment Duration (mo) | Treatment</div>
-                        <div class="column-value">24</div><div class="evidence">💬 "the longer duration of abiraterone treatment in our trial than in previous trials (24 months in the LATITUDE trial)"</div><span class="page-badge">Page 6</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median On-Treatment Duration (mo) | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">No. of Deaths - N | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">No. of Deaths - N | Control</div>
-                        <div class="column-value">406</div><div class="evidence">💬 "After a median follow-up of 30.4 months at a planned interim analysis (after 406 patients had died)"</div><span class="page-badge">Page 7</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Number of Arms Included</div>
-                        <div class="column-value">2</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate... or androgen-deprivation therapy plus dua..."</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Treatment | Overall</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Treatment | CR</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Treatment | SD</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Treatment | PD</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Control | Overall</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Control | CR</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Control | SD</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">ORR - N (%) | Control | PD</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Previous local therapy - N (%) | Orchiectomy | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Previous local therapy - N (%) | Orchiectomy | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Previous local therapy - N (%) | Radiotherapy | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Previous local therapy - N (%) | Radiotherapy | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">TTPSA (mo) | Treatment</div>
-                        <div class="column-value">33.2</div><div class="evidence">💬 "Median time to PSA progression (mo) | 33.2"</div><span class="page-badge">Page 6</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">TTPSA (mo) | Control</div>
-                        <div class="column-value">7.4</div><div class="evidence">💬 "Median time to PSA progression (mo) | 7.4"</div><span class="page-badge">Page 6</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Treatment Arm - N</div>
-                        <div class="column-value">1199</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Treatment Arm 1 Regimen</div>
-                        <div class="column-value">androgen-deprivation therapy plus abiraterone acetate (1000 mg daily, given once daily as four 250-mg tablets) plus prednisone (5 mg daily)</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate (1000 mg daily, given once daily as four 25..."</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Treatment Arm(s)</div>
-                        <div class="column-value">abiraterone group</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate... (the abiraterone group)"</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Treatment Class</div>
-                        <div class="column-value">Androgen-deprivation therapy plus abiraterone acetate and prednisone</div><div class="evidence">💬 "we evaluated the clinical benefit of abiraterone acetate plus prednisone with androgen-deprivation therapy"</div><span class="page-badge">Page 1</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Type of Therapy</div>
-                        <div class="column-value">androgen-deprivation therapy plus abiraterone acetate plus prednisone</div><div class="evidence">💬 "we evaluated the clinical benefit of abiraterone acetate plus prednisone with androgen-deprivation therapy"</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    🎯 Disease Characteristics
-                    <span class="category-stats">(0/15 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Liver | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Liver | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Lungs | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Lungs | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Bone | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Bone | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Nodal | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Metastases - N (%) | Nodal | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Mode of metastases - N (%) | Synchronous | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Mode of metastases - N (%) | Synchronous | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Mode of metastases - N (%) | Metachronous | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Mode of metastases - N (%) | Metachronous | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Volume of disease - N (%) | High | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Volume of disease - N (%) | High | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Volume of disease - N (%) | Low | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    📊 Survival Outcomes
-                    <span class="category-stats">(6/26 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Median OS (mo) | Overall | Treatment</div>
-                        <div class="column-value">34.7</div><div class="evidence">💬 "The median overall survival was significantly longer in the abiraterone group than in the placebo group (not reached vs. 34.7 months)"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Median OS (mo) | Overall | Control</div>
-                        <div class="column-value">31.3</div><div class="evidence">💬 "Placebo | 31.3"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median OS (mo) | High volume | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median OS (mo) | High volume | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median OS (mo) | Low volume | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median OS (mo) | Low volume | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Median PFS (mo) | Overall | Treatment</div>
-                        <div class="column-value">33.0</div><div class="evidence">💬 "The median length of radiographic progression-free survival was 33.0 months in the abiraterone group"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Median PFS (mo) | Overall | Control</div>
-                        <div class="column-value">30.0</div><div class="evidence">💬 "30.0 months in the placebo group"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median PFS (mo) | High volume | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median PFS (mo) | High volume | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median PFS (mo) | Low volume | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Median PFS (mo) | Low volume | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Overall | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Overall | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Synchronous | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Synchronous | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Metachronous | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Metachronous | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | High volume | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | High volume | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Low volume | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">OS Rate (%) | Low volume | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">PFS Rate (%) | Overall | Treatment</div>
-                        <div class="column-value">33.0 (NA)</div><div class="evidence">💬 "The median radiographic progression-free survival was 33.0 months in the abiraterone group."</div><span class="page-badge">Page 5</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">PFS Rate (%) | Overall | Control</div>
-                        <div class="column-value">14.8 (NA)</div><div class="evidence">💬 "The corresponding medians for progression-free survival were 33.0 months and 14.8 months."</div><span class="page-badge">Page 5</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Previous local therapy - N (%) | Prostatectomy | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Previous local therapy - N (%) | Prostatectomy | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    ⚠️ Adverse Events
-                    <span class="category-stats">(2/6 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment</div>
-                        <div class="column-value">374 (63%)</div><div class="evidence">💬 "Grade 3 or 4 adverse event 374 (63)"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control</div>
-                        <div class="column-value">287 (48%)</div><div class="evidence">💬 "Grade 3 or 4 adverse event 287 (48)"</div><span class="page-badge">Page 9</span>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 5 | Treatment</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 5 | Control</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    😊 Quality of Life
-                    <span class="category-stats">(0/2 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Quality of Life Scale</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                    <div class="column-card null" data-status="null">
-                        <div class="column-name">Quality of Life reported</div>
-                        <div class="null-indicator">⚠️ No value extracted</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="category">
-                <div class="category-header">
-                    📋 Other
-                    <span class="category-stats">(5/5 filled)</span>
-                </div>
-                <div class="columns-grid">
-
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">COE_RCT_IND_OVERALL_RJ</div>
-                        <div class="column-value">favorable</div><div class="evidence">💬 "the rate of overall survival was significantly higher among those who received androgen-deprivation therapy plus abiraterone and prednisone than among..."</div><span class="page-badge">Page 2</span>
-                    </div>
-
-                    <div class="column-card filled" data-status="filled">
+                    <div class="column-card has_value" data-status="has_value">
                         <div class="column-name">Full Pub or Abstract</div>
-                        <div class="column-value">Full Pub</div><div class="evidence">💬 "This article was published on June 4, 2017, at NEJM.org."</div><span class="page-badge">Page 3</span>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">Full Pub</div><div class="evidence">💬 "This article was published on June 4, 2017, at NEJM.org."</div><span class="page-badge">Page 3</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Full Pub</div><div class="status-badge has_value">🟡 Has Value</div>
                     </div>
 
-                    <div class="column-card filled" data-status="filled">
-                        <div class="column-name">Median Follow-Up Duration (mo)</div>
-                        <div class="column-value">30.4</div><div class="evidence">💬 "After a median follow-up of 30.4 months at a planned interim analysis (after 406 patients had died)"</div><span class="page-badge">Page 4</span>
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Phase</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">III</div><div class="evidence">💬 "the trial was conducted in three randomized, phase 3 trials"</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">3</div><div class="status-badge has_value">🟡 Has Value</div>
                     </div>
 
-                    <div class="column-card filled" data-status="filled">
+                    <div class="column-card has_value" data-status="has_value">
                         <div class="column-name">Original/Follow Up</div>
-                        <div class="column-value">Original</div><div class="evidence">💬 "In this double-blind, placebo-controlled, phase 3 trial..."</div><span class="page-badge">Page 1</span>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">Original</div><div class="evidence">💬 "In this double-blind, placebo-controlled, phase 3 trial..."</div><span class="page-badge">Page 1</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Original</div><div class="status-badge has_value">🟡 Has Value</div>
                     </div>
 
-                    <div class="column-card filled" data-status="filled">
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Number of Arms Included</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">2</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate... or androgen-deprivation therapy plus dua..."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">2</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Treatment Arm(s)</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">abiraterone group</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate... (the abiraterone group)"</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">AAP+ADT</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Class of Agent in Treatment Arm 1</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">abiraterone acetate</div><div class="evidence">💬 "we evaluated the addition of abiraterone plus prednisone to androgen-deprivation therapy"</div><span class="page-badge">Page 7</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">NHT</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Treatment Arm 1 Regimen</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">androgen-deprivation therapy plus abiraterone acetate (1000 mg daily, given once daily as four 250-mg tablets) plus prednisone (5 mg daily)</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate (1000 mg daily, given once daily as four 25..."</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Abiraterone acetate 1000mg OD + Prednisolone 5mg BID; Standard androgen deprivation</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Treatment Arm - N</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">1199</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">597</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Control Arm</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">placebo group</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate... or androgen-deprivation therapy plus dua..."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">ADT</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Control Arm - N</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">602</div><div class="evidence">💬 "No. at Risk (Placebo) = 602"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">602.0</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
                         <div class="column-name">Total Participants - N</div>
-                        <div class="column-value">1199</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate"</div><span class="page-badge">Page 7</span>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">1199</div><div class="evidence">💬 "we randomly assigned 1199 patients to receive either androgen-deprivation therapy plus abiraterone acetate"</div><span class="page-badge">Page 7</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">1199</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Median Follow-Up Duration (mo)</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">30.4</div><div class="evidence">💬 "After a median follow-up of 30.4 months at a planned interim analysis (after 406 patients had died)"</div><span class="page-badge">Page 4</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">30.4</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Median On-Treatment Duration (mo) | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">24</div><div class="evidence">💬 "the longer duration of abiraterone treatment in our trial than in previous trials (24 months in the LATITUDE trial)"</div><span class="page-badge">Page 6</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">24</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median On-Treatment Duration (mo) | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Quality of Life reported</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Quality of Life Scale</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Reporting by prognostic groups - Y/N | Synchronous</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Yes</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Reporting by prognostic groups - Y/N | Metachronous</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Yes</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Reporting by prognostic groups - Y/N | High volume</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">Y</div><div class="evidence">💬 "The table compares the efficacy and safety of two treatments, Darolutamide and Abiraterone, in patients with metastatic prostate cancer, categorized b..."</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Yes</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Reporting by prognostic groups - Y/N | Low volume</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">Y</div><div class="evidence">💬 "The table compares the efficacy and safety of two treatments, Darolutamide and Abiraterone, in patients with metastatic prostate cancer, categorized b..."</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">No</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Add-on Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">abiraterone acetate plus prednisone</div><div class="evidence">💬 "we evaluated the clinical benefit of abiraterone acetate plus prednisone with androgen-deprivation therapy"</div><span class="page-badge">Page 1</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Abiraterone acetate</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Treatment Class</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">Androgen-deprivation therapy plus abiraterone acetate and prednisone</div><div class="evidence">💬 "we evaluated the clinical benefit of abiraterone acetate plus prednisone with androgen-deprivation therapy"</div><span class="page-badge">Page 1</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">ARPI</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Trial</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">LATITUDE</div><div class="evidence">💬 "In LATITUDE, a multinational, randomized, double-blind, placebo-controlled, phase 3 trial..."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Type of Therapy</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">androgen-deprivation therapy plus abiraterone acetate plus prednisone</div><div class="evidence">💬 "we evaluated the clinical benefit of abiraterone acetate plus prednisone with androgen-deprivation therapy"</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">ARPI-doublet</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">COE_RCT_IND_OVERALL_RJ</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">favorable</div><div class="evidence">💬 "the rate of overall survival was significantly higher among those who received androgen-deprivation therapy plus abiraterone and prednisone than among..."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">V</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    👥 Population Characteristics
+                    <span class="category-stats">(0/59 with values)</span>
+                </div>
+                <div class="columns-grid">
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Mode of metastases - N (%) | Synchronous | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">597 (100) </div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Mode of metastases - N (%) | Synchronous | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">602 (100)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Mode of metastases - N (%) | Metachronous | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">0 (0)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Mode of metastases - N (%) | Metachronous | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">0 (0)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Volume of disease - N (%) | High | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Volume of disease - N (%) | High | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Volume of disease - N (%) | Low | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Docetaxel administration - N (%) | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">106 (34) </div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Docetaxel administration - N (%) | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">187 (40)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Median Age (years) | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">68</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Median Age (years) | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">67.0</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | White | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | White | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Black or African American | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Black or African American | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Asian | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Asian | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Nat. Hawaiian or Pac. Islander | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Amer. Indian or Alaska Nat. | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Amer. Indian or Alaska Nat. | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Other | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Other | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Unknown | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Race - N (%) | Unknown | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | North America | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | North America | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | South America | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | South America | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Europe | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Europe | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Africa | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Africa | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Asia | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Asia | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Oceania | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Region - N (%) | Oceania | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">PS - N (%) | 0 | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">PS - N (%) | 0 | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">PS - N (%) | 1-2 | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">PS - N (%) | 1-2 | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Gleason score - N (%) | ≤ 7 | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">4 (0.7) </div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Gleason score - N (%) | ≤ 7 | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">1 (0.2)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Gleason score - N (%) | ≥ 8 | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">584 (98) </div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Gleason score - N (%) | ≥ 8 | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">586 (97)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Liver | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">32 (5)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Liver | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">30 (5)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Lungs | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">73 (12)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Lungs | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">72 (12)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Bone | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">580 (97)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Bone | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">585 (98)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Nodal | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">283 (47)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Metastases - N (%) | Nodal | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">287 (48)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Previous local therapy - N (%) | Prostatectomy | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Previous local therapy - N (%) | Prostatectomy | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Previous local therapy - N (%) | Orchiectomy | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">73 (12)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Previous local therapy - N (%) | Orchiectomy | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">71 (12)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Previous local therapy - N (%) | Radiotherapy | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">19 (3)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Previous local therapy - N (%) | Radiotherapy | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">26 (4)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    📊 Results for Overall Population
+                    <span class="category-stats">(13/28 with values)</span>
+                </div>
+                <div class="columns-grid">
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Primary Endpoint(s)</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">overall survival and radiographic progression-free survival</div><div class="evidence">💬 "The two primary end points were overall survival and radiographic progression-free survival."</div><span class="page-badge">Page 2</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">OS, rPFS</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Secondary Endpoint(s)</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">time to the next skeletal-related event, time to progression with respect to prostate-specific antigen (PSA) level, time to the next therapy for prostate cancer, time to initiation of chemotherapy, and time to pain progression</div><div class="evidence">💬 "Prespecified secondary end points were the time to the next 'skeletal-related event'... time to progression with respect to prostate-specific antigen ..."</div><span class="page-badge">Page 5</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">Time to pain progression; Time to initiation of chemotherapy; Subsequent therapy for prostate cancer;  PSA progression; Symptomatic skeletal-related events</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Treatment | Overall</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Treatment | CR</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Treatment | SD</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Treatment | PD</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Control | Overall</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Control | CR</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Control | SD</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">ORR - N (%) | Control | PD</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">374 (63%)</div><div class="evidence">💬 "Grade 3 or 4 adverse event 374 (63)"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">374(63)</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">287 (48%)</div><div class="evidence">💬 "Grade 3 or 4 adverse event 287 (48)"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">287 (48)</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 5 | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">28 (5)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">Adverse Events - N (%) | Treatment-related Grade 5 | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">24 (4)</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">No. of Deaths - N | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">169.0</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">No. of Deaths - N | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">406</div><div class="evidence">💬 "After a median follow-up of 30.4 months at a planned interim analysis (after 406 patients had died)"</div><span class="page-badge">Page 7</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">237.0</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">TTPSA (mo) | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">33.2</div><div class="evidence">💬 "Median time to PSA progression (mo) | 33.2"</div><span class="page-badge">Page 6</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">33.2</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">TTPSA (mo) | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">7.4</div><div class="evidence">💬 "Median time to PSA progression (mo) | 7.4"</div><span class="page-badge">Page 6</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">7.4</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">OS Rate (%) | Overall | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">66 at 3 y</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card missing" data-status="missing">
+                        <div class="column-name">OS Rate (%) | Overall | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">49 at 3 y</div><div class="status-badge missing">🔴 Missing</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Median OS (mo) | Overall | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">34.7</div><div class="evidence">💬 "The median overall survival was significantly longer in the abiraterone group than in the placebo group (not reached vs. 34.7 months)"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Median OS (mo) | Overall | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">31.3</div><div class="evidence">💬 "Placebo | 31.3"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">34.7</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">PFS Rate (%) | Overall | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">33.0 (NA)</div><div class="evidence">💬 "The median radiographic progression-free survival was 33.0 months in the abiraterone group."</div><span class="page-badge">Page 5</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">PFS Rate (%) | Overall | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">14.8 (NA)</div><div class="evidence">💬 "The corresponding medians for progression-free survival were 33.0 months and 14.8 months."</div><span class="page-badge">Page 5</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Median PFS (mo) | Overall | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">33.0</div><div class="evidence">💬 "The median length of radiographic progression-free survival was 33.0 months in the abiraterone group"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">33.0</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                    <div class="column-card has_value" data-status="has_value">
+                        <div class="column-name">Median PFS (mo) | Overall | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="column-value">30.0</div><div class="evidence">💬 "30.0 months in the placebo group"</div><span class="page-badge">Page 9</span><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="gold-value">14.8</div><div class="status-badge has_value">🟡 Has Value</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    🎯 Results by Prognostic Groups
+                    <span class="category-stats">(0/16 with values)</span>
+                </div>
+                <div class="columns-grid">
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | Synchronous | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | Synchronous | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | Metachronous | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | Metachronous | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | High volume | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | High volume | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | Low volume | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">OS Rate (%) | Low volume | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median OS (mo) | High volume | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median OS (mo) | High volume | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median OS (mo) | Low volume | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median OS (mo) | Low volume | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median PFS (mo) | High volume | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median PFS (mo) | High volume | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median PFS (mo) | Low volume | Treatment</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
+                    </div>
+
+                    <div class="column-card both_null" data-status="both_null">
+                        <div class="column-name">Median PFS (mo) | Low volume | Control</div>
+                        <div class="value-label">📤 Extracted:</div><div class="null-indicator">⚠️ No value extracted</div><div class="value-label" style="margin-top: 12px;">🎯 Gold:</div><div class="null-indicator" style="font-size: 12px;">N/A</div><div class="status-badge both_null">⚪ N/A</div>
                     </div>
 
                 </div>

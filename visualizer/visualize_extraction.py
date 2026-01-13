@@ -20,31 +20,10 @@ import socketserver
 import threading
 import time
 
-def categorize_column(col_name):
-    """Categorize column based on name patterns."""
-    col_lower = col_name.lower()
-    
-    # Define category patterns
-    if any(x in col_lower for x in ['age', 'sex', 'race', 'region', 'ps ']):
-        return '👥 Demographics'
-    elif any(x in col_lower for x in ['os', 'pfs', 'overall survival', 'progression']):
-        return '📊 Survival Outcomes'
-    elif any(x in col_lower for x in ['adverse', 'grade', 'toxicity']):
-        return '⚠️ Adverse Events'
-    elif any(x in col_lower for x in ['metasta', 'liver', 'lung', 'bone', 'nodal', 'volume']):
-        return '🎯 Disease Characteristics'
-    elif any(x in col_lower for x in ['treatment', 'regimen', 'arm', 'therapy', 'agent', 'docetaxel', 'control']):
-        return '💊 Treatment Details'
-    elif any(x in col_lower for x in ['orr', 'response rate', 'cr', 'sd', 'pd']):
-        return '📈 Response Rates'
-    elif any(x in col_lower for x in ['gleason', 'prostatectomy', 'radiotherapy', 'local therapy']):
-        return '🏥 Clinical History'
-    elif any(x in col_lower for x in ['author', 'year', 'nct', 'trial', 'phase', 'pubmed', 'endpoint']):
-        return '📄 Study Metadata'
-    elif any(x in col_lower for x in ['quality of life', 'qol']):
-        return '😊 Quality of Life'
-    else:
-        return '📋 Other'
+# Import column mapping
+from column_mapping import get_category_for_column, get_ordered_categories, COLUMN_CATEGORIES
+
+# categorize_column function removed - now using column_mapping.py
 
 def load_metadata(csv_path):
     """Load metadata JSON if available."""
@@ -53,6 +32,61 @@ def load_metadata(csv_path):
         with open(metadata_path, 'r') as f:
             return json.load(f)
     return None
+
+
+def load_gold_table(trial_name):
+    """Load gold table and find row for this trial."""
+    try:
+        # Get gold table path from project root (up one level from visualizer/)
+        project_root = Path(__file__).parent.parent
+        gold_path = project_root / "dataset" / "GoldTable.csv"
+        
+        if not gold_path.exists():
+            print(f"⚠️  Gold table not found: {gold_path}")
+            return None
+        
+        # Load gold table
+        gold_df = pd.read_csv(gold_path)
+        
+        # Match by document name (trial_name + .pdf)
+        document_name = f"{trial_name}.pdf"
+        matching_rows = gold_df[gold_df['Document Name'] == document_name]
+        
+        if matching_rows.empty:
+            print(f"⚠️  No gold data found for trial: {document_name}")
+            return None
+        
+        print(f"✅ Found gold data for: {document_name}")
+        return matching_rows.iloc[0]  # Return first matching row as Series
+        
+    except Exception as e:
+        print(f"⚠️  Error loading gold table: {e}")
+        return None
+
+
+def is_value_null(value):
+    """Check if value is null/empty/NA."""
+    if pd.isna(value):
+        return True
+    if isinstance(value, str) and value.strip() in ['', 'NA', 'N/A', 'na', 'null']:
+        return True
+    return False
+
+
+def get_comparison_status(extracted_val, gold_val):
+    """
+    Determine comparison status.
+    Returns: 'both_null', 'missing', 'has_value'
+    """
+    extracted_null = is_value_null(extracted_val)
+    gold_null = is_value_null(gold_val)
+    
+    if extracted_null and gold_null:
+        return 'both_null'  # Gray
+    elif extracted_null and not gold_null:
+        return 'missing'  # Red - extracted is null but gold exists
+    else:
+        return 'has_value'  # Yellow - extracted has value (regardless of gold)
 
 def generate_html_report(csv_path, output_path=None):
     """Generate HTML visualization of extraction results."""
@@ -69,17 +103,36 @@ def generate_html_report(csv_path, output_path=None):
     # Get trial name
     trial_name = csv_path.parent.name
     
+    # Load gold table
+    gold_row = load_gold_table(trial_name)
+    
     # Analyze data
     total_cols = len(df.columns)
-    filled_cols = df.notna().iloc[0].sum()
-    null_cols = total_cols - filled_cols
-    completion_pct = (filled_cols / total_cols * 100) if total_cols > 0 else 0
+    
+    # Count by comparison status
+    both_null_count = 0
+    missing_count = 0
+    has_value_count = 0
     
     # Group columns by category
     categories = defaultdict(list)
     for col in df.columns:
-        value = df[col].iloc[0]
-        is_filled = pd.notna(value) and str(value).strip() != ''
+        extracted_val = df[col].iloc[0]
+        
+        # Get gold value
+        gold_val = None
+        if gold_row is not None and col in gold_row.index:
+            gold_val = gold_row[col]
+        
+        # Get comparison status
+        status = get_comparison_status(extracted_val, gold_val)
+        
+        if status == 'both_null':
+            both_null_count += 1
+        elif status == 'missing':
+            missing_count += 1
+        elif status == 'has_value':
+            has_value_count += 1
         
         # Get evidence from metadata if available
         evidence = None
@@ -88,28 +141,30 @@ def generate_html_report(csv_path, output_path=None):
             evidence = metadata[col].get('evidence')
             page = metadata[col].get('page')
         
-        category = categorize_column(col)
+        category = get_category_for_column(col)
         categories[category].append({
             'name': col,
-            'value': value if is_filled else None,
-            'filled': is_filled,
+            'value': extracted_val if not is_value_null(extracted_val) else None,
+            'gold_value': gold_val if not is_value_null(gold_val) else None,
+            'status': status,
             'evidence': evidence,
             'page': page
         })
     
-    # Sort categories
-    category_order = [
-        '📄 Study Metadata',
-        '👥 Demographics',
-        '💊 Treatment Details',
-        '🎯 Disease Characteristics',
-        '🏥 Clinical History',
-        '📊 Survival Outcomes',
-        '📈 Response Rates',
-        '⚠️ Adverse Events',
-        '😊 Quality of Life',
-        '📋 Other'
-    ]
+    # Calculate percentages
+    completion_pct = (has_value_count / total_cols * 100) if total_cols > 0 else 0
+    
+    # Sort columns within each category according to mapping order
+    for category in categories:
+        if category in COLUMN_CATEGORIES:
+            # Create a mapping of column name to its position in the defined order
+            order_map = {col: idx for idx, col in enumerate(COLUMN_CATEGORIES[category])}
+            # Sort the columns according to the mapping order
+            # Columns not in mapping go to end
+            categories[category].sort(key=lambda x: order_map.get(x['name'], 999999))
+    
+    # Get categories in order from mapping
+    category_order = get_ordered_categories()
     
     # Generate HTML
     html = f"""
@@ -190,8 +245,9 @@ def generate_html_report(csv_path, output_path=None):
             letter-spacing: 1px;
         }}
         
-        .stat-card.filled .number {{ color: #28a745; }}
-        .stat-card.null .number {{ color: #dc3545; }}
+        .stat-card.has-value .number {{ color: #ffc107; }}
+        .stat-card.missing .number {{ color: #dc3545; }}
+        .stat-card.both-null .number {{ color: #6c757d; }}
         .stat-card.total .number {{ color: #667eea; }}
         
         .progress-bar {{
@@ -256,14 +312,19 @@ def generate_html_report(csv_path, output_path=None):
             transform: translateY(-2px);
         }}
         
-        .column-card.filled {{
-            background: #d4edda;
-            border-color: #28a745;
+        .column-card.has_value {{
+            background: #fff3cd;
+            border-color: #ffc107;
         }}
         
-        .column-card.null {{
+        .column-card.missing {{
             background: #f8d7da;
             border-color: #dc3545;
+        }}
+        
+        .column-card.both_null {{
+            background: #e9ecef;
+            border-color: #6c757d;
         }}
         
         .column-name {{
@@ -284,10 +345,54 @@ def generate_html_report(csv_path, output_path=None):
             word-break: break-word;
         }}
         
+        .gold-value {{
+            padding: 8px;
+            background: #e3f2fd;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #1565c0;
+            word-break: break-word;
+            border-left: 3px solid #1976d2;
+        }}
+        
+        .value-label {{
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }}
+        
         .null-indicator {{
             color: #dc3545;
             font-style: italic;
             font-size: 14px;
+        }}
+        
+        .status-badge {{
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 8px;
+        }}
+        
+        .status-badge.has_value {{
+            background: #ffc107;
+            color: #000;
+        }}
+        
+        .status-badge.missing {{
+            background: #dc3545;
+            color: white;
+        }}
+        
+        .status-badge.both_null {{
+            background: #6c757d;
+            color: white;
         }}
         
         .evidence {{
@@ -358,13 +463,17 @@ def generate_html_report(csv_path, output_path=None):
         </div>
         
         <div class="summary">
-            <div class="stat-card filled">
-                <div class="number">{filled_cols}</div>
-                <div class="label">Filled</div>
+            <div class="stat-card has-value">
+                <div class="number">{has_value_count}</div>
+                <div class="label">Has Value</div>
             </div>
-            <div class="stat-card null">
-                <div class="number">{null_cols}</div>
-                <div class="label">Null</div>
+            <div class="stat-card missing">
+                <div class="number">{missing_count}</div>
+                <div class="label">Missing</div>
+            </div>
+            <div class="stat-card both-null">
+                <div class="number">{both_null_count}</div>
+                <div class="label">N/A</div>
             </div>
             <div class="stat-card total">
                 <div class="number">{total_cols}</div>
@@ -384,8 +493,9 @@ def generate_html_report(csv_path, output_path=None):
             <div class="filter-bar">
                 <strong>Quick Filter:</strong>
                 <button class="filter-button active" onclick="filterColumns('all')">All</button>
-                <button class="filter-button" onclick="filterColumns('filled')">Filled Only</button>
-                <button class="filter-button" onclick="filterColumns('null')">Null Only</button>
+                <button class="filter-button" onclick="filterColumns('has_value')">Has Value</button>
+                <button class="filter-button" onclick="filterColumns('missing')">Missing</button>
+                <button class="filter-button" onclick="filterColumns('both_null')">N/A</button>
             </div>
 """
     
@@ -395,31 +505,50 @@ def generate_html_report(csv_path, output_path=None):
             continue
         
         cols = categories[category]
-        filled_in_cat = sum(1 for c in cols if c['filled'])
+        has_value_in_cat = sum(1 for c in cols if c['status'] == 'has_value')
         total_in_cat = len(cols)
         
         html += f"""
             <div class="category">
                 <div class="category-header">
                     {category}
-                    <span class="category-stats">({filled_in_cat}/{total_in_cat} filled)</span>
+                    <span class="category-stats">({has_value_in_cat}/{total_in_cat} with values)</span>
                 </div>
                 <div class="columns-grid">
 """
         
         for col in cols:
-            status = 'filled' if col['filled'] else 'null'
+            status = col['status']
             value_html = ''
             
-            if col['filled']:
-                value_html = f'<div class="column-value">{col["value"]}</div>'
+            # Show extracted value
+            if col['value'] is not None:
+                value_html += '<div class="value-label">📤 Extracted:</div>'
+                value_html += f'<div class="column-value">{col["value"]}</div>'
                 if col['evidence']:
                     evidence_preview = col['evidence'][:150] + ('...' if len(col['evidence']) > 150 else '')
                     value_html += f'<div class="evidence">💬 "{evidence_preview}"</div>'
                 if col['page']:
                     value_html += f'<span class="page-badge">Page {col["page"]}</span>'
             else:
-                value_html = '<div class="null-indicator">⚠️ No value extracted</div>'
+                value_html += '<div class="value-label">📤 Extracted:</div>'
+                value_html += '<div class="null-indicator">⚠️ No value extracted</div>'
+            
+            # Show gold value
+            if col['gold_value'] is not None:
+                value_html += '<div class="value-label" style="margin-top: 12px;">🎯 Gold:</div>'
+                value_html += f'<div class="gold-value">{col["gold_value"]}</div>'
+            else:
+                value_html += '<div class="value-label" style="margin-top: 12px;">🎯 Gold:</div>'
+                value_html += '<div class="null-indicator" style="font-size: 12px;">N/A</div>'
+            
+            # Status badge
+            status_labels = {
+                'has_value': '🟡 Has Value',
+                'missing': '🔴 Missing',
+                'both_null': '⚪ N/A'
+            }
+            value_html += f'<div class="status-badge {status}">{status_labels.get(status, status)}</div>'
             
             html += f"""
                     <div class="column-card {status}" data-status="{status}">
