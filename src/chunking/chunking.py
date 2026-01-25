@@ -34,9 +34,10 @@ class PDFChunker:
     def __init__(self, pdf_path):
         self.pdf_path = pdf_path
         self.chunks = []
+        self.accumulated_text = []  # Accumulate all text from pages
     
     def _process_page_text(self, page, page_num, patterns):
-        """Process text content for a single page."""
+        """Process text content for a single page and accumulate it."""
         page_height = page.rect.height
         raw_text = clean_page_text_advanced(page, page_height, patterns)
         
@@ -45,15 +46,12 @@ class PDFChunker:
         if ref_match:
             raw_text = raw_text[:ref_match.start()].strip()
         
-        # Generate text chunks
+        # Accumulate text from this page (will be chunked later)
         if raw_text.strip():
-            for txt in text_chunking(raw_text):
-                self.chunks.append({
-                    "type": "text",
-                    "content": txt,
-                    "page": page_num + 1,
-                    "length": len(txt)
-                })
+            self.accumulated_text.append({
+                "text": raw_text,
+                "page": page_num + 1
+            })
     
     def _process_tables(self, page, page_num, pdf_path):
         """Extract and process tables for a single page using LLM with retry logic."""
@@ -156,6 +154,34 @@ class PDFChunker:
         img_chunks = extract_images_fitz(page, page_num + 1)
         self.chunks.extend(img_chunks)
     
+    def _create_large_text_chunks(self):
+        """Create 4-5 large text chunks from all accumulated text."""
+        if not self.accumulated_text:
+            return
+        
+        # Combine all text from all pages
+        all_text = "\n\n".join([item["text"] for item in self.accumulated_text])
+        
+        # Get the page range for reference
+        page_numbers = [item["page"] for item in self.accumulated_text]
+        min_page = min(page_numbers) if page_numbers else 1
+        max_page = max(page_numbers) if page_numbers else 1
+        
+        # Generate large text chunks (4-5 chunks total)
+        text_chunks = text_chunking(all_text)
+        
+        logger.info(f"📝 Created {len(text_chunks)} large text chunks from {len(self.accumulated_text)} pages")
+        
+        # Add text chunks to the chunks list
+        for idx, txt in enumerate(text_chunks, 1):
+            self.chunks.append({
+                "type": "text",
+                "content": txt,
+                "page": f"{min_page}-{max_page}",  # Show page range
+                "chunk_number": idx,
+                "length": len(txt)
+            })
+    
     def chunk(self):
         """Main method to process the entire PDF and generate chunks."""
         try:
@@ -173,20 +199,24 @@ class PDFChunker:
 
                 page = doc[page_num]
                 
-                # Process text
+                # Accumulate text (will be chunked later)
                 raw_text = clean_page_text_advanced(page, page.rect.height, patterns)
                 self._process_page_text(page, page_num, patterns)
                 
-                # Process tables
+                # Process tables (as before - no changes)
                 self._process_tables(page, page_num, self.pdf_path)
                 
-                # Process figures
+                # Process figures (as before - no changes)
                 self._process_figures(raw_text, page, page_num)
                 
-                # Process embedded images
+                # Process embedded images (as before - no changes)
                 self._process_embedded_images(page, page_num)
 
             doc.close()
+            
+            # After processing all pages, create large text chunks (4-5 per PDF)
+            self._create_large_text_chunks()
+            
         except Exception as e:
             logger.error(f"Chunking failed: {e}")
         

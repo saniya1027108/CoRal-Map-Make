@@ -42,7 +42,9 @@ GOLD_TABLE_PATH = PROJECT_ROOT / "dataset" / "GoldTable.csv"
 EVALUATION_PROMPT_PATH = PROJECT_ROOT / "src" / "evaluation" / "llm_judge.txt"
 
 # ============== CHUNKING CONFIGS ==============
-TEXT_CHUNK_MIN_SIZE = 1000  # Minimum characters per text chunk
+TEXT_CHUNK_MIN_SIZE = 5000  # Larger chunks for 4-5 chunks per PDF
+TEXT_CHUNK_OVERLAP = 0      # No overlap (deprecated, but kept for compatibility)
+CHUNKING_MODE = "paragraph" # 'paragraph' (default), 'sentence' (legacy)
 PATTERN_SAMPLE_PAGES = 5
 TOP_MARGIN = 60
 BOTTOM_MARGIN = 60

@@ -19,7 +19,9 @@ from ..config.config import (
     TEXT_CHUNK_MIN_SIZE,
     HEURISTIC_MAX_LENGTH,
     CHUNKING_PROVIDER,
-    CHUNKING_MODEL
+    CHUNKING_MODEL,
+    TEXT_CHUNK_OVERLAP,
+    CHUNKING_MODE
 )
 from ..utils.logging_utils import setup_logger
 from ..LLMProvider import LLMProvider
@@ -60,43 +62,85 @@ def is_table_caption_or_footnote(text):
     )
 
 
-def text_chunking(text, max_size=TEXT_CHUNK_MIN_SIZE):
+def text_chunking(text, max_size=TEXT_CHUNK_MIN_SIZE, overlap=0, mode=None):
     """
-    Simple sentence-based text chunking.
-    
+    Paragraph-based chunking that creates large chunks (4-5 per document).
+    The text is collected and then divided into equal-sized large chunks.
     Args:
         text: Input text to chunk
-        max_size: Maximum size of each chunk in characters
-    
+        max_size: Maximum size of each chunk in characters (used as target chunk size)
+        overlap: Deprecated parameter (kept for backward compatibility, but not used)
+        mode: 'paragraph' (default), 'sentence' (legacy)
     Returns:
-        List of text chunks
+        List of text chunks (typically 4-5 chunks with large content)
     """
-    doc = nlp(text)
+    if mode is None:
+        mode = CHUNKING_MODE if 'CHUNKING_MODE' in globals() else 'paragraph'
+
+    if mode == 'sentence':
+        # Legacy sentence-based chunking
+        doc = nlp(text)
+        chunks = []
+        current_chunk = ""
+        for sent in doc.sents:
+            sentence = sent.text.strip()
+            if looks_like_inline_table(sentence) or is_table_caption_or_footnote(sentence):
+                continue
+            if is_header_or_footer_by_heuristics(sentence):
+                continue
+            if current_chunk and len(current_chunk) + len(sentence) + 1 > max_size:
+                if current_chunk.strip():
+                    chunks.append(current_chunk.strip())
+                current_chunk = sentence
+            else:
+                current_chunk += (" " + sentence) if current_chunk else sentence
+        if current_chunk.strip():
+            chunks.append(current_chunk.strip())
+        return chunks
+
+    # New: Large chunk creation (4-5 chunks per document)
+    # Split by double newlines (paragraphs)
+    paragraphs = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+    filtered_paragraphs = []
+    for para in paragraphs:
+        # Remove paragraphs that are tables, captions, or headers/footers
+        if looks_like_inline_table(para) or is_table_caption_or_footnote(para):
+            continue
+        if is_header_or_footer_by_heuristics(para):
+            continue
+        filtered_paragraphs.append(para)
+
+    # Combine all filtered paragraphs into one text
+    all_text = "\n\n".join(filtered_paragraphs)
+    
+    if not all_text.strip():
+        return []
+    
+    # Calculate target number of chunks (4-5 per document)
+    # Use a large target chunk size to ensure we get only 4-5 chunks
+    total_length = len(all_text)
+    target_num_chunks = 5  # Target 5 chunks per document
+    target_chunk_size = max(max_size * 2, total_length // target_num_chunks)  # At least double the max_size
+    
+    # Create chunks by distributing paragraphs
     chunks = []
     current_chunk = ""
     
-    for sent in doc.sents:
-        sentence = sent.text.strip()
-        
-        # Skip sentences that look like tables or metadata
-        if looks_like_inline_table(sentence) or is_table_caption_or_footnote(sentence):
-            continue
-        
-        # Skip if sentence looks like header/footer
-        if is_header_or_footer_by_heuristics(sentence):
-            continue
-        
-        # Check if adding this sentence would exceed max_size
-        if current_chunk and len(current_chunk) + len(sentence) + 1 > max_size:
-            # Save current chunk and start new one
-            if current_chunk.strip():
-                chunks.append(current_chunk.strip())
-            current_chunk = sentence
+    for para in filtered_paragraphs:
+        if not current_chunk:
+            current_chunk = para
+        elif len(current_chunk) + len(para) + 2 <= target_chunk_size:
+            current_chunk += "\n\n" + para
         else:
-            # Add sentence to current chunk
-            current_chunk += (" " + sentence) if current_chunk else sentence
+            # Only create a new chunk if we haven't reached target number of chunks
+            # or if current chunk is already very large
+            if len(chunks) < target_num_chunks or len(current_chunk) > target_chunk_size * 1.5:
+                chunks.append(current_chunk.strip())
+                current_chunk = para
+            else:
+                # Keep adding to current chunk to maintain 4-5 chunks total
+                current_chunk += "\n\n" + para
     
-    # Add the last chunk if it exists
     if current_chunk.strip():
         chunks.append(current_chunk.strip())
     
