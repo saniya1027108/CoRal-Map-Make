@@ -1,3917 +1,497 @@
 {
   "summary": {
-    "total_duration_seconds": 290.7,
-    "total_calls": 598,
-    "calls_per_second": 2.06,
-    "avg_call_duration": 150.58
+    "total_duration_seconds": 225.88,
+    "total_calls": 46,
+    "calls_per_second": 0.2,
+    "avg_call_duration": 4.9
   },
   "groups": {
     "Add-on Treatment": {
-      "total_duration": 4.77,
-      "num_calls": 13,
-      "avg_call_duration": 3.43,
-      "min_call_duration": 2.88,
-      "max_call_duration": 4.77,
-      "throughput_calls_per_sec": 2.72
+      "total_duration": 3.01,
+      "num_calls": 1,
+      "avg_call_duration": 3.01,
+      "min_call_duration": 3.01,
+      "max_call_duration": 3.01,
+      "throughput_calls_per_sec": 0.33
     },
     "Adverse Events - N (%)": {
-      "total_duration": 21.21,
-      "num_calls": 13,
-      "avg_call_duration": 16.48,
-      "min_call_duration": 11.19,
-      "max_call_duration": 21.21,
-      "throughput_calls_per_sec": 0.61
+      "total_duration": 13.01,
+      "num_calls": 1,
+      "avg_call_duration": 13.0,
+      "min_call_duration": 13.0,
+      "max_call_duration": 13.0,
+      "throughput_calls_per_sec": 0.08
     },
     "Author": {
-      "total_duration": 24.9,
-      "num_calls": 13,
-      "avg_call_duration": 22.3,
-      "min_call_duration": 21.21,
-      "max_call_duration": 24.9,
-      "throughput_calls_per_sec": 0.52
+      "total_duration": 5.58,
+      "num_calls": 1,
+      "avg_call_duration": 5.58,
+      "min_call_duration": 5.58,
+      "max_call_duration": 5.58,
+      "throughput_calls_per_sec": 0.18
     },
     "COE_RCT_IND_OVERALL_RJ": {
-      "total_duration": 25.93,
-      "num_calls": 13,
-      "avg_call_duration": 25.08,
-      "min_call_duration": 24.9,
-      "max_call_duration": 25.93,
-      "throughput_calls_per_sec": 0.5
+      "total_duration": 3.06,
+      "num_calls": 1,
+      "avg_call_duration": 3.06,
+      "min_call_duration": 3.06,
+      "max_call_duration": 3.06,
+      "throughput_calls_per_sec": 0.33
     },
     "Class of Agent in Treatment Arm 1": {
-      "total_duration": 29.2,
-      "num_calls": 13,
-      "avg_call_duration": 27.96,
-      "min_call_duration": 26.99,
-      "max_call_duration": 29.19,
-      "throughput_calls_per_sec": 0.45
+      "total_duration": 2.83,
+      "num_calls": 1,
+      "avg_call_duration": 2.82,
+      "min_call_duration": 2.82,
+      "max_call_duration": 2.82,
+      "throughput_calls_per_sec": 0.35
     },
     "Control Arm": {
-      "total_duration": 32.56,
-      "num_calls": 13,
-      "avg_call_duration": 30.78,
-      "min_call_duration": 29.75,
-      "max_call_duration": 32.56,
-      "throughput_calls_per_sec": 0.4
+      "total_duration": 3.24,
+      "num_calls": 1,
+      "avg_call_duration": 3.24,
+      "min_call_duration": 3.24,
+      "max_call_duration": 3.24,
+      "throughput_calls_per_sec": 0.31
     },
     "Control Arm - N": {
-      "total_duration": 34.33,
-      "num_calls": 13,
-      "avg_call_duration": 33.2,
-      "min_call_duration": 32.56,
-      "max_call_duration": 34.33,
-      "throughput_calls_per_sec": 0.38
+      "total_duration": 2.48,
+      "num_calls": 1,
+      "avg_call_duration": 2.48,
+      "min_call_duration": 2.48,
+      "max_call_duration": 2.48,
+      "throughput_calls_per_sec": 0.4
     },
     "Docetaxel administration - N (%)": {
-      "total_duration": 41.13,
-      "num_calls": 13,
-      "avg_call_duration": 38.23,
-      "min_call_duration": 35.26,
-      "max_call_duration": 41.13,
-      "throughput_calls_per_sec": 0.32
+      "total_duration": 4.31,
+      "num_calls": 1,
+      "avg_call_duration": 4.3,
+      "min_call_duration": 4.3,
+      "max_call_duration": 4.3,
+      "throughput_calls_per_sec": 0.23
     },
     "Full Pub or Abstract": {
-      "total_duration": 43.45,
-      "num_calls": 13,
-      "avg_call_duration": 41.92,
-      "min_call_duration": 41.13,
-      "max_call_duration": 43.45,
-      "throughput_calls_per_sec": 0.3
+      "total_duration": 2.72,
+      "num_calls": 1,
+      "avg_call_duration": 2.72,
+      "min_call_duration": 2.72,
+      "max_call_duration": 2.72,
+      "throughput_calls_per_sec": 0.37
     },
     "Gleason score - N (%)": {
-      "total_duration": 53.65,
-      "num_calls": 13,
-      "avg_call_duration": 49.74,
-      "min_call_duration": 46.66,
-      "max_call_duration": 53.65,
-      "throughput_calls_per_sec": 0.24
+      "total_duration": 6.38,
+      "num_calls": 1,
+      "avg_call_duration": 6.37,
+      "min_call_duration": 6.37,
+      "max_call_duration": 6.37,
+      "throughput_calls_per_sec": 0.16
     },
     "Median Age (years)": {
-      "total_duration": 58.37,
-      "num_calls": 13,
-      "avg_call_duration": 55.83,
-      "min_call_duration": 53.65,
-      "max_call_duration": 58.37,
-      "throughput_calls_per_sec": 0.22
+      "total_duration": 3.22,
+      "num_calls": 1,
+      "avg_call_duration": 3.22,
+      "min_call_duration": 3.22,
+      "max_call_duration": 3.22,
+      "throughput_calls_per_sec": 0.31
     },
     "Median Follow-Up Duration (mo)": {
-      "total_duration": 63.15,
-      "num_calls": 13,
-      "avg_call_duration": 61.4,
-      "min_call_duration": 58.38,
-      "max_call_duration": 63.15,
-      "throughput_calls_per_sec": 0.21
+      "total_duration": 2.33,
+      "num_calls": 1,
+      "avg_call_duration": 2.33,
+      "min_call_duration": 2.33,
+      "max_call_duration": 2.33,
+      "throughput_calls_per_sec": 0.43
     },
     "Median OS (mo)": {
-      "total_duration": 81.73,
-      "num_calls": 13,
-      "avg_call_duration": 75.78,
-      "min_call_duration": 67.25,
-      "max_call_duration": 81.73,
-      "throughput_calls_per_sec": 0.16
-    },
-    "Median On-Treatment Duration (mo)": {
-      "total_duration": 81.73,
-      "num_calls": 13,
-      "avg_call_duration": 81.73,
-      "min_call_duration": 81.73,
-      "max_call_duration": 81.73,
-      "throughput_calls_per_sec": 0.16
-    },
-    "Median PFS (mo)": {
-      "total_duration": 93.86,
-      "num_calls": 13,
-      "avg_call_duration": 88.68,
-      "min_call_duration": 84.32,
-      "max_call_duration": 93.86,
+      "total_duration": 6.97,
+      "num_calls": 1,
+      "avg_call_duration": 6.96,
+      "min_call_duration": 6.96,
+      "max_call_duration": 6.96,
       "throughput_calls_per_sec": 0.14
     },
-    "Metastases - N (%)": {
-      "total_duration": 114.32,
-      "num_calls": 13,
-      "avg_call_duration": 105.08,
-      "min_call_duration": 94.54,
-      "max_call_duration": 114.32,
+    "Median On-Treatment Duration (mo)": {
+      "total_duration": 2.81,
+      "num_calls": 1,
+      "avg_call_duration": 2.81,
+      "min_call_duration": 2.81,
+      "max_call_duration": 2.81,
+      "throughput_calls_per_sec": 0.36
+    },
+    "Median PFS (mo)": {
+      "total_duration": 9.0,
+      "num_calls": 1,
+      "avg_call_duration": 8.99,
+      "min_call_duration": 8.99,
+      "max_call_duration": 8.99,
       "throughput_calls_per_sec": 0.11
+    },
+    "Metastases - N (%)": {
+      "total_duration": 10.81,
+      "num_calls": 1,
+      "avg_call_duration": 10.8,
+      "min_call_duration": 10.8,
+      "max_call_duration": 10.8,
+      "throughput_calls_per_sec": 0.09
     },
     "Mode of metastases - N (%)": {
-      "total_duration": 114.32,
-      "num_calls": 13,
-      "avg_call_duration": 114.32,
-      "min_call_duration": 114.32,
-      "max_call_duration": 114.32,
-      "throughput_calls_per_sec": 0.11
+      "total_duration": 7.17,
+      "num_calls": 1,
+      "avg_call_duration": 7.16,
+      "min_call_duration": 7.16,
+      "max_call_duration": 7.16,
+      "throughput_calls_per_sec": 0.14
     },
     "NCT": {
-      "total_duration": 114.32,
-      "num_calls": 13,
-      "avg_call_duration": 114.32,
-      "min_call_duration": 114.32,
-      "max_call_duration": 114.32,
-      "throughput_calls_per_sec": 0.11
+      "total_duration": 2.0,
+      "num_calls": 1,
+      "avg_call_duration": 1.99,
+      "min_call_duration": 1.99,
+      "max_call_duration": 1.99,
+      "throughput_calls_per_sec": 0.5
     },
     "No. of Deaths - N": {
-      "total_duration": 117.63,
-      "num_calls": 13,
-      "avg_call_duration": 116.28,
-      "min_call_duration": 114.32,
-      "max_call_duration": 117.63,
-      "throughput_calls_per_sec": 0.11
+      "total_duration": 3.99,
+      "num_calls": 1,
+      "avg_call_duration": 3.99,
+      "min_call_duration": 3.99,
+      "max_call_duration": 3.99,
+      "throughput_calls_per_sec": 0.25
     },
     "Number of Arms Included": {
-      "total_duration": 119.84,
-      "num_calls": 13,
-      "avg_call_duration": 118.59,
-      "min_call_duration": 117.63,
-      "max_call_duration": 119.84,
-      "throughput_calls_per_sec": 0.11
+      "total_duration": 2.42,
+      "num_calls": 1,
+      "avg_call_duration": 2.42,
+      "min_call_duration": 2.42,
+      "max_call_duration": 2.42,
+      "throughput_calls_per_sec": 0.41
     },
     "ORR - N (%)": {
-      "total_duration": 133.87,
-      "num_calls": 13,
-      "avg_call_duration": 128.97,
-      "min_call_duration": 126.76,
-      "max_call_duration": 133.87,
-      "throughput_calls_per_sec": 0.1
+      "total_duration": 11.32,
+      "num_calls": 1,
+      "avg_call_duration": 11.31,
+      "min_call_duration": 11.31,
+      "max_call_duration": 11.31,
+      "throughput_calls_per_sec": 0.09
     },
     "OS Rate (%)": {
-      "total_duration": 159.98,
-      "num_calls": 13,
-      "avg_call_duration": 147.05,
-      "min_call_duration": 136.73,
-      "max_call_duration": 159.98,
-      "throughput_calls_per_sec": 0.08
+      "total_duration": 14.21,
+      "num_calls": 1,
+      "avg_call_duration": 14.2,
+      "min_call_duration": 14.2,
+      "max_call_duration": 14.2,
+      "throughput_calls_per_sec": 0.07
     },
     "Original/Follow Up": {
-      "total_duration": 159.98,
-      "num_calls": 13,
-      "avg_call_duration": 159.98,
-      "min_call_duration": 159.98,
-      "max_call_duration": 159.98,
-      "throughput_calls_per_sec": 0.08
+      "total_duration": 2.28,
+      "num_calls": 1,
+      "avg_call_duration": 2.28,
+      "min_call_duration": 2.28,
+      "max_call_duration": 2.28,
+      "throughput_calls_per_sec": 0.44
     },
     "PFS Rate (%)": {
-      "total_duration": 161.11,
-      "num_calls": 13,
-      "avg_call_duration": 160.24,
-      "min_call_duration": 159.98,
-      "max_call_duration": 161.11,
-      "throughput_calls_per_sec": 0.08
+      "total_duration": 5.01,
+      "num_calls": 1,
+      "avg_call_duration": 5.01,
+      "min_call_duration": 5.01,
+      "max_call_duration": 5.01,
+      "throughput_calls_per_sec": 0.2
     },
     "PS - N (%)": {
-      "total_duration": 168.93,
-      "num_calls": 13,
-      "avg_call_duration": 165.76,
-      "min_call_duration": 163.45,
-      "max_call_duration": 168.93,
-      "throughput_calls_per_sec": 0.08
+      "total_duration": 6.48,
+      "num_calls": 1,
+      "avg_call_duration": 6.48,
+      "min_call_duration": 6.48,
+      "max_call_duration": 6.48,
+      "throughput_calls_per_sec": 0.15
     },
     "Phase": {
-      "total_duration": 169.22,
-      "num_calls": 13,
-      "avg_call_duration": 169.02,
-      "min_call_duration": 168.93,
-      "max_call_duration": 169.22,
-      "throughput_calls_per_sec": 0.08
+      "total_duration": 1.7,
+      "num_calls": 1,
+      "avg_call_duration": 1.7,
+      "min_call_duration": 1.7,
+      "max_call_duration": 1.7,
+      "throughput_calls_per_sec": 0.59
     },
     "Previous local therapy - N (%)": {
-      "total_duration": 182.08,
-      "num_calls": 13,
-      "avg_call_duration": 177.74,
-      "min_call_duration": 174.4,
-      "max_call_duration": 182.08,
-      "throughput_calls_per_sec": 0.07
+      "total_duration": 8.25,
+      "num_calls": 1,
+      "avg_call_duration": 8.23,
+      "min_call_duration": 8.23,
+      "max_call_duration": 8.23,
+      "throughput_calls_per_sec": 0.12
     },
     "Primary Endpoint(s)": {
-      "total_duration": 184.25,
-      "num_calls": 13,
-      "avg_call_duration": 182.52,
-      "min_call_duration": 182.08,
-      "max_call_duration": 184.25,
-      "throughput_calls_per_sec": 0.07
+      "total_duration": 3.13,
+      "num_calls": 1,
+      "avg_call_duration": 3.12,
+      "min_call_duration": 3.12,
+      "max_call_duration": 3.12,
+      "throughput_calls_per_sec": 0.32
     },
     "PubMed ID": {
-      "total_duration": 186.66,
-      "num_calls": 13,
-      "avg_call_duration": 184.76,
-      "min_call_duration": 184.25,
-      "max_call_duration": 186.66,
-      "throughput_calls_per_sec": 0.07
+      "total_duration": 2.11,
+      "num_calls": 1,
+      "avg_call_duration": 2.11,
+      "min_call_duration": 2.11,
+      "max_call_duration": 2.11,
+      "throughput_calls_per_sec": 0.47
     },
     "Quality of Life Scale": {
-      "total_duration": 187.85,
-      "num_calls": 13,
-      "avg_call_duration": 187.21,
-      "min_call_duration": 186.66,
-      "max_call_duration": 187.85,
-      "throughput_calls_per_sec": 0.07
+      "total_duration": 1.68,
+      "num_calls": 1,
+      "avg_call_duration": 1.68,
+      "min_call_duration": 1.68,
+      "max_call_duration": 1.68,
+      "throughput_calls_per_sec": 0.6
     },
     "Quality of Life reported": {
-      "total_duration": 191.42,
-      "num_calls": 13,
-      "avg_call_duration": 189.4,
-      "min_call_duration": 187.85,
-      "max_call_duration": 191.42,
-      "throughput_calls_per_sec": 0.07
+      "total_duration": 1.99,
+      "num_calls": 1,
+      "avg_call_duration": 1.99,
+      "min_call_duration": 1.99,
+      "max_call_duration": 1.99,
+      "throughput_calls_per_sec": 0.5
     },
     "Race - N (%)": {
-      "total_duration": 226.13,
-      "num_calls": 13,
-      "avg_call_duration": 208.98,
-      "min_call_duration": 202.3,
-      "max_call_duration": 226.13,
+      "total_duration": 17.21,
+      "num_calls": 1,
+      "avg_call_duration": 17.19,
+      "min_call_duration": 17.19,
+      "max_call_duration": 17.19,
       "throughput_calls_per_sec": 0.06
     },
     "Region - N (%)": {
-      "total_duration": 235.16,
-      "num_calls": 13,
-      "avg_call_duration": 228.36,
-      "min_call_duration": 226.13,
-      "max_call_duration": 235.16,
-      "throughput_calls_per_sec": 0.06
+      "total_duration": 14.86,
+      "num_calls": 1,
+      "avg_call_duration": 14.84,
+      "min_call_duration": 14.84,
+      "max_call_duration": 14.84,
+      "throughput_calls_per_sec": 0.07
     },
     "Reporting by prognostic groups - Y/N": {
-      "total_duration": 242.88,
-      "num_calls": 13,
-      "avg_call_duration": 239.41,
-      "min_call_duration": 235.16,
-      "max_call_duration": 242.88,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 7.53,
+      "num_calls": 1,
+      "avg_call_duration": 7.52,
+      "min_call_duration": 7.52,
+      "max_call_duration": 7.52,
+      "throughput_calls_per_sec": 0.13
     },
     "Secondary Endpoint(s)": {
-      "total_duration": 245.6,
-      "num_calls": 13,
-      "avg_call_duration": 243.96,
-      "min_call_duration": 242.88,
-      "max_call_duration": 245.6,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 2.89,
+      "num_calls": 1,
+      "avg_call_duration": 2.88,
+      "min_call_duration": 2.88,
+      "max_call_duration": 2.88,
+      "throughput_calls_per_sec": 0.35
     },
     "TTPSA (mo)": {
-      "total_duration": 249.26,
-      "num_calls": 13,
-      "avg_call_duration": 247.39,
-      "min_call_duration": 245.65,
-      "max_call_duration": 249.26,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 2.91,
+      "num_calls": 1,
+      "avg_call_duration": 2.91,
+      "min_call_duration": 2.91,
+      "max_call_duration": 2.91,
+      "throughput_calls_per_sec": 0.34
     },
     "Total Participants - N": {
-      "total_duration": 251.56,
-      "num_calls": 13,
-      "avg_call_duration": 250.62,
-      "min_call_duration": 249.26,
-      "max_call_duration": 251.56,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 1.69,
+      "num_calls": 1,
+      "avg_call_duration": 1.69,
+      "min_call_duration": 1.69,
+      "max_call_duration": 1.69,
+      "throughput_calls_per_sec": 0.59
     },
     "Treatment Arm - N": {
-      "total_duration": 254.4,
-      "num_calls": 13,
-      "avg_call_duration": 253.5,
-      "min_call_duration": 252.64,
-      "max_call_duration": 254.4,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 2.72,
+      "num_calls": 1,
+      "avg_call_duration": 2.72,
+      "min_call_duration": 2.72,
+      "max_call_duration": 2.72,
+      "throughput_calls_per_sec": 0.37
     },
     "Treatment Arm 1 Regimen": {
-      "total_duration": 258.61,
-      "num_calls": 13,
-      "avg_call_duration": 256.43,
-      "min_call_duration": 254.44,
-      "max_call_duration": 258.61,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 2.65,
+      "num_calls": 1,
+      "avg_call_duration": 2.65,
+      "min_call_duration": 2.65,
+      "max_call_duration": 2.65,
+      "throughput_calls_per_sec": 0.38
     },
     "Treatment Arm(s)": {
-      "total_duration": 261.05,
-      "num_calls": 13,
-      "avg_call_duration": 259.61,
-      "min_call_duration": 258.61,
-      "max_call_duration": 261.05,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 3.16,
+      "num_calls": 1,
+      "avg_call_duration": 3.16,
+      "min_call_duration": 3.16,
+      "max_call_duration": 3.16,
+      "throughput_calls_per_sec": 0.32
     },
     "Treatment Class": {
-      "total_duration": 264.27,
-      "num_calls": 13,
-      "avg_call_duration": 262.9,
-      "min_call_duration": 261.52,
-      "max_call_duration": 264.27,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 2.51,
+      "num_calls": 1,
+      "avg_call_duration": 2.51,
+      "min_call_duration": 2.51,
+      "max_call_duration": 2.51,
+      "throughput_calls_per_sec": 0.4
     },
     "Trial": {
-      "total_duration": 271.59,
-      "num_calls": 13,
-      "avg_call_duration": 268.44,
-      "min_call_duration": 264.27,
-      "max_call_duration": 271.59,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 1.33,
+      "num_calls": 1,
+      "avg_call_duration": 1.33,
+      "min_call_duration": 1.33,
+      "max_call_duration": 1.33,
+      "throughput_calls_per_sec": 0.75
     },
     "Trial Name": {
-      "total_duration": 276.75,
-      "num_calls": 13,
-      "avg_call_duration": 274.59,
-      "min_call_duration": 272.92,
-      "max_call_duration": 276.75,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 1.56,
+      "num_calls": 1,
+      "avg_call_duration": 1.56,
+      "min_call_duration": 1.56,
+      "max_call_duration": 1.56,
+      "throughput_calls_per_sec": 0.64
     },
     "Type of Therapy": {
-      "total_duration": 280.22,
-      "num_calls": 13,
-      "avg_call_duration": 278.83,
-      "min_call_duration": 276.92,
-      "max_call_duration": 280.22,
-      "throughput_calls_per_sec": 0.05
+      "total_duration": 2.69,
+      "num_calls": 1,
+      "avg_call_duration": 2.69,
+      "min_call_duration": 2.69,
+      "max_call_duration": 2.69,
+      "throughput_calls_per_sec": 0.37
     },
     "Volume of disease - N (%)": {
-      "total_duration": 290.67,
-      "num_calls": 13,
-      "avg_call_duration": 289.07,
-      "min_call_duration": 280.22,
-      "max_call_duration": 290.67,
-      "throughput_calls_per_sec": 0.04
+      "total_duration": 4.77,
+      "num_calls": 1,
+      "avg_call_duration": 4.76,
+      "min_call_duration": 4.76,
+      "max_call_duration": 4.76,
+      "throughput_calls_per_sec": 0.21
     },
     "Year": {
-      "total_duration": 290.67,
-      "num_calls": 13,
-      "avg_call_duration": 290.67,
-      "min_call_duration": 290.67,
-      "max_call_duration": 290.67,
-      "throughput_calls_per_sec": 0.04
+      "total_duration": 1.87,
+      "num_calls": 1,
+      "avg_call_duration": 1.86,
+      "min_call_duration": 1.86,
+      "max_call_duration": 1.86,
+      "throughput_calls_per_sec": 0.54
     }
   },
   "bottlenecks": [
     {
-      "group": "Year",
-      "duration": 290.67,
-      "percentage_of_total": 100.0
+      "group": "Race - N (%)",
+      "duration": 17.21,
+      "percentage_of_total": 7.6
     },
     {
-      "group": "Volume of disease - N (%)",
-      "duration": 290.67,
-      "percentage_of_total": 100.0
+      "group": "Region - N (%)",
+      "duration": 14.86,
+      "percentage_of_total": 6.6
     },
     {
-      "group": "Type of Therapy",
-      "duration": 280.22,
-      "percentage_of_total": 96.4
+      "group": "OS Rate (%)",
+      "duration": 14.21,
+      "percentage_of_total": 6.3
     },
     {
-      "group": "Trial Name",
-      "duration": 276.75,
-      "percentage_of_total": 95.2
+      "group": "Adverse Events - N (%)",
+      "duration": 13.01,
+      "percentage_of_total": 5.8
     },
     {
-      "group": "Trial",
-      "duration": 271.59,
-      "percentage_of_total": 93.4
+      "group": "ORR - N (%)",
+      "duration": 11.32,
+      "percentage_of_total": 5.0
     }
   ],
   "slow_calls": [
     {
       "group": "Adverse Events - N (%)",
       "chunk": 0,
-      "duration": 11.190932035446167,
-      "timestamp": "2025-12-22T17:01:16.023531"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 1,
-      "duration": 11.191351175308228,
-      "timestamp": "2025-12-22T17:01:16.023946"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 2,
-      "duration": 11.372985124588013,
-      "timestamp": "2025-12-22T17:01:16.205590"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 3,
-      "duration": 15.802080869674683,
-      "timestamp": "2025-12-22T17:01:20.634690"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 4,
-      "duration": 15.802443027496338,
-      "timestamp": "2025-12-22T17:01:20.635051"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 5,
-      "duration": 15.80250597000122,
-      "timestamp": "2025-12-22T17:01:20.635131"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 6,
-      "duration": 15.802565813064575,
-      "timestamp": "2025-12-22T17:01:20.635196"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 7,
-      "duration": 15.802624702453613,
-      "timestamp": "2025-12-22T17:01:20.635260"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 8,
-      "duration": 19.1234290599823,
-      "timestamp": "2025-12-22T17:01:23.956071"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 9,
-      "duration": 20.161009073257446,
-      "timestamp": "2025-12-22T17:01:24.993655"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 10,
-      "duration": 20.161285161972046,
-      "timestamp": "2025-12-22T17:01:24.993935"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 11,
-      "duration": 20.881462812423706,
-      "timestamp": "2025-12-22T17:01:25.714208"
-    },
-    {
-      "group": "Adverse Events - N (%)",
-      "chunk": 12,
-      "duration": 21.210020065307617,
-      "timestamp": "2025-12-22T17:01:26.042770"
+      "duration": 12.999444961547852,
+      "timestamp": "2026-01-26T10:30:36.255365"
     },
     {
       "group": "Author",
       "chunk": 0,
-      "duration": 21.212681770324707,
-      "timestamp": "2025-12-22T17:01:26.045454"
-    },
-    {
-      "group": "Author",
-      "chunk": 1,
-      "duration": 21.213036060333252,
-      "timestamp": "2025-12-22T17:01:26.045796"
-    },
-    {
-      "group": "Author",
-      "chunk": 2,
-      "duration": 21.213106870651245,
-      "timestamp": "2025-12-22T17:01:26.045875"
-    },
-    {
-      "group": "Author",
-      "chunk": 3,
-      "duration": 21.213181018829346,
-      "timestamp": "2025-12-22T17:01:26.045954"
-    },
-    {
-      "group": "Author",
-      "chunk": 4,
-      "duration": 21.213232278823853,
-      "timestamp": "2025-12-22T17:01:26.046009"
-    },
-    {
-      "group": "Author",
-      "chunk": 5,
-      "duration": 21.213275909423828,
-      "timestamp": "2025-12-22T17:01:26.046059"
-    },
-    {
-      "group": "Author",
-      "chunk": 6,
-      "duration": 21.213409185409546,
-      "timestamp": "2025-12-22T17:01:26.046196"
-    },
-    {
-      "group": "Author",
-      "chunk": 7,
-      "duration": 23.306730031967163,
-      "timestamp": "2025-12-22T17:01:28.139526"
-    },
-    {
-      "group": "Author",
-      "chunk": 8,
-      "duration": 23.30701732635498,
-      "timestamp": "2025-12-22T17:01:28.139815"
-    },
-    {
-      "group": "Author",
-      "chunk": 9,
-      "duration": 23.30708909034729,
-      "timestamp": "2025-12-22T17:01:28.139891"
-    },
-    {
-      "group": "Author",
-      "chunk": 10,
-      "duration": 23.307151794433594,
-      "timestamp": "2025-12-22T17:01:28.139959"
-    },
-    {
-      "group": "Author",
-      "chunk": 11,
-      "duration": 23.307220935821533,
-      "timestamp": "2025-12-22T17:01:28.140032"
-    },
-    {
-      "group": "Author",
-      "chunk": 12,
-      "duration": 24.8954119682312,
-      "timestamp": "2025-12-22T17:01:29.728230"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 0,
-      "duration": 24.897632122039795,
-      "timestamp": "2025-12-22T17:01:29.730456"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 1,
-      "duration": 24.897974014282227,
-      "timestamp": "2025-12-22T17:01:29.730800"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 2,
-      "duration": 24.898047924041748,
-      "timestamp": "2025-12-22T17:01:29.730878"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 3,
-      "duration": 24.89812397956848,
-      "timestamp": "2025-12-22T17:01:29.730959"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 4,
-      "duration": 24.898173093795776,
-      "timestamp": "2025-12-22T17:01:29.731014"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 5,
-      "duration": 24.898213863372803,
-      "timestamp": "2025-12-22T17:01:29.731060"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 6,
-      "duration": 24.89825701713562,
-      "timestamp": "2025-12-22T17:01:29.731108"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 7,
-      "duration": 24.89829397201538,
-      "timestamp": "2025-12-22T17:01:29.731159"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 8,
-      "duration": 24.898340940475464,
-      "timestamp": "2025-12-22T17:01:29.731211"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 9,
-      "duration": 25.360716104507446,
-      "timestamp": "2025-12-22T17:01:30.193594"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 10,
-      "duration": 25.362594842910767,
-      "timestamp": "2025-12-22T17:01:30.195476"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 11,
-      "duration": 25.363906860351562,
-      "timestamp": "2025-12-22T17:01:30.196792"
-    },
-    {
-      "group": "COE_RCT_IND_OVERALL_RJ",
-      "chunk": 12,
-      "duration": 25.930415868759155,
-      "timestamp": "2025-12-22T17:01:30.763309"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 0,
-      "duration": 26.985494136810303,
-      "timestamp": "2025-12-22T17:01:31.818394"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 1,
-      "duration": 26.985655069351196,
-      "timestamp": "2025-12-22T17:01:31.818555"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 2,
-      "duration": 27.33510708808899,
-      "timestamp": "2025-12-22T17:01:32.168018"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 3,
-      "duration": 27.335491180419922,
-      "timestamp": "2025-12-22T17:01:32.168401"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 4,
-      "duration": 27.335612058639526,
-      "timestamp": "2025-12-22T17:01:32.168526"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 5,
-      "duration": 27.335714101791382,
-      "timestamp": "2025-12-22T17:01:32.168636"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 6,
-      "duration": 27.34205174446106,
-      "timestamp": "2025-12-22T17:01:32.174977"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 7,
-      "duration": 27.980998992919922,
-      "timestamp": "2025-12-22T17:01:32.813932"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 8,
-      "duration": 28.66020894050598,
-      "timestamp": "2025-12-22T17:01:33.493147"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 9,
-      "duration": 28.6944739818573,
-      "timestamp": "2025-12-22T17:01:33.527415"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 10,
-      "duration": 29.114484071731567,
-      "timestamp": "2025-12-22T17:01:33.947428"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 11,
-      "duration": 29.115145921707153,
-      "timestamp": "2025-12-22T17:01:33.948093"
-    },
-    {
-      "group": "Class of Agent in Treatment Arm 1",
-      "chunk": 12,
-      "duration": 29.19489622116089,
-      "timestamp": "2025-12-22T17:01:34.027850"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 0,
-      "duration": 29.75274419784546,
-      "timestamp": "2025-12-22T17:01:34.585709"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 1,
-      "duration": 29.753082036972046,
-      "timestamp": "2025-12-22T17:01:34.586043"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 2,
-      "duration": 29.753172874450684,
-      "timestamp": "2025-12-22T17:01:34.586138"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 3,
-      "duration": 29.97964119911194,
-      "timestamp": "2025-12-22T17:01:34.812614"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 4,
-      "duration": 30.855046033859253,
-      "timestamp": "2025-12-22T17:01:35.688026"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 5,
-      "duration": 30.889275312423706,
-      "timestamp": "2025-12-22T17:01:35.722257"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 6,
-      "duration": 30.89811897277832,
-      "timestamp": "2025-12-22T17:01:35.731105"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 7,
-      "duration": 30.898320198059082,
-      "timestamp": "2025-12-22T17:01:35.731309"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 8,
-      "duration": 30.919172048568726,
-      "timestamp": "2025-12-22T17:01:35.752169"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 9,
-      "duration": 31.05957818031311,
-      "timestamp": "2025-12-22T17:01:35.892607"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 10,
-      "duration": 31.248466968536377,
-      "timestamp": "2025-12-22T17:01:36.081501"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 11,
-      "duration": 31.580359935760498,
-      "timestamp": "2025-12-22T17:01:36.413400"
-    },
-    {
-      "group": "Control Arm",
-      "chunk": 12,
-      "duration": 32.558815002441406,
-      "timestamp": "2025-12-22T17:01:37.391857"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 0,
-      "duration": 32.561509132385254,
-      "timestamp": "2025-12-22T17:01:37.394558"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 1,
-      "duration": 32.56192088127136,
-      "timestamp": "2025-12-22T17:01:37.394969"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 2,
-      "duration": 32.56201505661011,
-      "timestamp": "2025-12-22T17:01:37.395068"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 3,
-      "duration": 32.56207013130188,
-      "timestamp": "2025-12-22T17:01:37.395127"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 4,
-      "duration": 32.5621178150177,
-      "timestamp": "2025-12-22T17:01:37.395180"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 5,
-      "duration": 32.79372692108154,
-      "timestamp": "2025-12-22T17:01:37.626796"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 6,
-      "duration": 32.82105207443237,
-      "timestamp": "2025-12-22T17:01:37.654128"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 7,
-      "duration": 33.52547311782837,
-      "timestamp": "2025-12-22T17:01:38.358561"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 8,
-      "duration": 33.65625715255737,
-      "timestamp": "2025-12-22T17:01:38.489345"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 9,
-      "duration": 33.65650510787964,
-      "timestamp": "2025-12-22T17:01:38.489595"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 10,
-      "duration": 33.656588077545166,
-      "timestamp": "2025-12-22T17:01:38.489683"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 11,
-      "duration": 34.333637952804565,
-      "timestamp": "2025-12-22T17:01:39.166740"
-    },
-    {
-      "group": "Control Arm - N",
-      "chunk": 12,
-      "duration": 34.334092140197754,
-      "timestamp": "2025-12-22T17:01:39.167196"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 0,
-      "duration": 35.25764608383179,
-      "timestamp": "2025-12-22T17:01:40.090763"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 1,
-      "duration": 35.57294178009033,
-      "timestamp": "2025-12-22T17:01:40.406060"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 2,
-      "duration": 36.598260164260864,
-      "timestamp": "2025-12-22T17:01:41.431380"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 3,
-      "duration": 38.125043869018555,
-      "timestamp": "2025-12-22T17:01:42.958168"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 4,
-      "duration": 38.127604246139526,
-      "timestamp": "2025-12-22T17:01:42.960733"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 5,
-      "duration": 38.15664100646973,
-      "timestamp": "2025-12-22T17:01:42.989775"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 6,
-      "duration": 38.15844988822937,
-      "timestamp": "2025-12-22T17:01:42.991586"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 7,
-      "duration": 38.158544063568115,
-      "timestamp": "2025-12-22T17:01:42.991684"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 8,
-      "duration": 38.41056489944458,
-      "timestamp": "2025-12-22T17:01:43.243713"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 9,
-      "duration": 39.08862614631653,
-      "timestamp": "2025-12-22T17:01:43.921778"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 10,
-      "duration": 39.7708957195282,
-      "timestamp": "2025-12-22T17:01:44.604054"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 11,
-      "duration": 40.41236925125122,
-      "timestamp": "2025-12-22T17:01:45.245533"
-    },
-    {
-      "group": "Docetaxel administration - N (%)",
-      "chunk": 12,
-      "duration": 41.13203501701355,
-      "timestamp": "2025-12-22T17:01:45.965202"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 0,
-      "duration": 41.13410305976868,
-      "timestamp": "2025-12-22T17:01:45.967276"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 1,
-      "duration": 41.13417983055115,
-      "timestamp": "2025-12-22T17:01:45.967357"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 2,
-      "duration": 41.13423204421997,
-      "timestamp": "2025-12-22T17:01:45.967413"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 3,
-      "duration": 41.13427519798279,
-      "timestamp": "2025-12-22T17:01:45.967461"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 4,
-      "duration": 41.134313106536865,
-      "timestamp": "2025-12-22T17:01:45.967503"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 5,
-      "duration": 41.69016480445862,
-      "timestamp": "2025-12-22T17:01:46.523362"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 6,
-      "duration": 42.10467576980591,
-      "timestamp": "2025-12-22T17:01:46.937878"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 7,
-      "duration": 42.15957307815552,
-      "timestamp": "2025-12-22T17:01:46.992779"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 8,
-      "duration": 42.31998801231384,
-      "timestamp": "2025-12-22T17:01:47.153198"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 9,
-      "duration": 42.32979393005371,
-      "timestamp": "2025-12-22T17:01:47.163010"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 10,
-      "duration": 42.33803606033325,
-      "timestamp": "2025-12-22T17:01:47.171258"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 11,
-      "duration": 42.86272311210632,
-      "timestamp": "2025-12-22T17:01:47.695949"
-    },
-    {
-      "group": "Full Pub or Abstract",
-      "chunk": 12,
-      "duration": 43.44592213630676,
-      "timestamp": "2025-12-22T17:01:48.279153"
+      "duration": 5.576185464859009,
+      "timestamp": "2026-01-26T10:30:41.834366"
     },
     {
       "group": "Gleason score - N (%)",
       "chunk": 0,
-      "duration": 46.65858292579651,
-      "timestamp": "2025-12-22T17:01:51.491827"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 1,
-      "duration": 46.976425886154175,
-      "timestamp": "2025-12-22T17:01:51.809666"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 2,
-      "duration": 46.97672891616821,
-      "timestamp": "2025-12-22T17:01:51.809972"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 3,
-      "duration": 47.08188319206238,
-      "timestamp": "2025-12-22T17:01:51.915143"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 4,
-      "duration": 47.09959006309509,
-      "timestamp": "2025-12-22T17:01:51.932844"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 5,
-      "duration": 47.09997200965881,
-      "timestamp": "2025-12-22T17:01:51.933230"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 6,
-      "duration": 48.156872034072876,
-      "timestamp": "2025-12-22T17:01:52.990137"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 7,
-      "duration": 48.37919092178345,
-      "timestamp": "2025-12-22T17:01:53.212486"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 8,
-      "duration": 53.642311811447144,
-      "timestamp": "2025-12-22T17:01:58.475611"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 9,
-      "duration": 53.644521951675415,
-      "timestamp": "2025-12-22T17:01:58.477824"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 10,
-      "duration": 53.645934104919434,
-      "timestamp": "2025-12-22T17:01:58.479241"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 11,
-      "duration": 53.64636588096619,
-      "timestamp": "2025-12-22T17:01:58.479677"
-    },
-    {
-      "group": "Gleason score - N (%)",
-      "chunk": 12,
-      "duration": 53.64645218849182,
-      "timestamp": "2025-12-22T17:01:58.479768"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 0,
-      "duration": 53.646645069122314,
-      "timestamp": "2025-12-22T17:01:58.479970"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 1,
-      "duration": 53.646711111068726,
-      "timestamp": "2025-12-22T17:01:58.480036"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 2,
-      "duration": 53.64675807952881,
-      "timestamp": "2025-12-22T17:01:58.480087"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 3,
-      "duration": 53.646803855895996,
-      "timestamp": "2025-12-22T17:01:58.480138"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 4,
-      "duration": 53.774779081344604,
-      "timestamp": "2025-12-22T17:01:58.608121"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 5,
-      "duration": 53.81581902503967,
-      "timestamp": "2025-12-22T17:01:58.649165"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 6,
-      "duration": 56.45632791519165,
-      "timestamp": "2025-12-22T17:02:01.289678"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 7,
-      "duration": 56.45650887489319,
-      "timestamp": "2025-12-22T17:02:01.289863"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 8,
-      "duration": 57.91003489494324,
-      "timestamp": "2025-12-22T17:02:02.743397"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 9,
-      "duration": 57.93090081214905,
-      "timestamp": "2025-12-22T17:02:02.764267"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 10,
-      "duration": 58.22022199630737,
-      "timestamp": "2025-12-22T17:02:03.053596"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 11,
-      "duration": 58.22197127342224,
-      "timestamp": "2025-12-22T17:02:03.055344"
-    },
-    {
-      "group": "Median Age (years)",
-      "chunk": 12,
-      "duration": 58.37459111213684,
-      "timestamp": "2025-12-22T17:02:03.207973"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 0,
-      "duration": 58.37747597694397,
-      "timestamp": "2025-12-22T17:02:03.210864"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 1,
-      "duration": 58.377655267715454,
-      "timestamp": "2025-12-22T17:02:03.211044"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 2,
-      "duration": 60.34149193763733,
-      "timestamp": "2025-12-22T17:02:05.174887"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 3,
-      "duration": 60.827008962631226,
-      "timestamp": "2025-12-22T17:02:05.660408"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 4,
-      "duration": 60.828186988830566,
-      "timestamp": "2025-12-22T17:02:05.661588"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 5,
-      "duration": 61.838311195373535,
-      "timestamp": "2025-12-22T17:02:06.671723"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 6,
-      "duration": 62.01349997520447,
-      "timestamp": "2025-12-22T17:02:06.846914"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 7,
-      "duration": 62.043907165527344,
-      "timestamp": "2025-12-22T17:02:06.877328"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 8,
-      "duration": 62.04416298866272,
-      "timestamp": "2025-12-22T17:02:06.877585"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 9,
-      "duration": 62.24178981781006,
-      "timestamp": "2025-12-22T17:02:07.075217"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 10,
-      "duration": 63.004668951034546,
-      "timestamp": "2025-12-22T17:02:07.838105"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 11,
-      "duration": 63.072532176971436,
-      "timestamp": "2025-12-22T17:02:07.905967"
-    },
-    {
-      "group": "Median Follow-Up Duration (mo)",
-      "chunk": 12,
-      "duration": 63.153315782547,
-      "timestamp": "2025-12-22T17:02:07.986764"
+      "duration": 6.369336843490601,
+      "timestamp": "2026-01-26T10:31:06.856304"
     },
     {
       "group": "Median OS (mo)",
       "chunk": 0,
-      "duration": 67.25240397453308,
-      "timestamp": "2025-12-22T17:02:12.085862"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 1,
-      "duration": 71.09979605674744,
-      "timestamp": "2025-12-22T17:02:15.933252"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 2,
-      "duration": 71.10332798957825,
-      "timestamp": "2025-12-22T17:02:15.936790"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 3,
-      "duration": 71.11117696762085,
-      "timestamp": "2025-12-22T17:02:15.944643"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 4,
-      "duration": 71.1113440990448,
-      "timestamp": "2025-12-22T17:02:15.944815"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 5,
-      "duration": 71.11237287521362,
-      "timestamp": "2025-12-22T17:02:15.945847"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 6,
-      "duration": 72.01734685897827,
-      "timestamp": "2025-12-22T17:02:16.850827"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 7,
-      "duration": 81.72841286659241,
-      "timestamp": "2025-12-22T17:02:26.561901"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 8,
-      "duration": 81.7310779094696,
-      "timestamp": "2025-12-22T17:02:26.564566"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 9,
-      "duration": 81.73139023780823,
-      "timestamp": "2025-12-22T17:02:26.564880"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 10,
-      "duration": 81.73144197463989,
-      "timestamp": "2025-12-22T17:02:26.564936"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 11,
-      "duration": 81.73147916793823,
-      "timestamp": "2025-12-22T17:02:26.564977"
-    },
-    {
-      "group": "Median OS (mo)",
-      "chunk": 12,
-      "duration": 81.7315149307251,
-      "timestamp": "2025-12-22T17:02:26.565017"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 0,
-      "duration": 81.73167490959167,
-      "timestamp": "2025-12-22T17:02:26.565188"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 1,
-      "duration": 81.73172402381897,
-      "timestamp": "2025-12-22T17:02:26.565238"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 2,
-      "duration": 81.73175382614136,
-      "timestamp": "2025-12-22T17:02:26.565274"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 3,
-      "duration": 81.73178696632385,
-      "timestamp": "2025-12-22T17:02:26.565311"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 4,
-      "duration": 81.73182010650635,
-      "timestamp": "2025-12-22T17:02:26.565349"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 5,
-      "duration": 81.73182797431946,
-      "timestamp": "2025-12-22T17:02:26.565386"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 6,
-      "duration": 81.73186182975769,
-      "timestamp": "2025-12-22T17:02:26.565423"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 7,
-      "duration": 81.73189806938171,
-      "timestamp": "2025-12-22T17:02:26.565463"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 8,
-      "duration": 81.73192882537842,
-      "timestamp": "2025-12-22T17:02:26.565500"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 9,
-      "duration": 81.73196220397949,
-      "timestamp": "2025-12-22T17:02:26.565537"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 10,
-      "duration": 81.73199415206909,
-      "timestamp": "2025-12-22T17:02:26.565573"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 11,
-      "duration": 81.73202681541443,
-      "timestamp": "2025-12-22T17:02:26.565611"
-    },
-    {
-      "group": "Median On-Treatment Duration (mo)",
-      "chunk": 12,
-      "duration": 81.73205828666687,
-      "timestamp": "2025-12-22T17:02:26.565647"
+      "duration": 6.962639808654785,
+      "timestamp": "2026-01-26T10:31:19.382125"
     },
     {
       "group": "Median PFS (mo)",
       "chunk": 0,
-      "duration": 84.31668400764465,
-      "timestamp": "2025-12-22T17:02:29.150288"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 1,
-      "duration": 85.22733116149902,
-      "timestamp": "2025-12-22T17:02:30.060937"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 2,
-      "duration": 85.22756791114807,
-      "timestamp": "2025-12-22T17:02:30.061175"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 3,
-      "duration": 85.86061310768127,
-      "timestamp": "2025-12-22T17:02:30.694228"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 4,
-      "duration": 86.77857279777527,
-      "timestamp": "2025-12-22T17:02:31.612194"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 5,
-      "duration": 86.77888894081116,
-      "timestamp": "2025-12-22T17:02:31.612509"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 6,
-      "duration": 86.77896189689636,
-      "timestamp": "2025-12-22T17:02:31.612587"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 7,
-      "duration": 88.38063406944275,
-      "timestamp": "2025-12-22T17:02:33.214268"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 8,
-      "duration": 90.55324196815491,
-      "timestamp": "2025-12-22T17:02:35.386880"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 9,
-      "duration": 92.60151290893555,
-      "timestamp": "2025-12-22T17:02:37.435155"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 10,
-      "duration": 92.60285186767578,
-      "timestamp": "2025-12-22T17:02:37.436497"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 11,
-      "duration": 93.8612380027771,
-      "timestamp": "2025-12-22T17:02:38.694892"
-    },
-    {
-      "group": "Median PFS (mo)",
-      "chunk": 12,
-      "duration": 93.86295509338379,
-      "timestamp": "2025-12-22T17:02:38.696610"
+      "duration": 8.994232654571533,
+      "timestamp": "2026-01-26T10:31:31.195734"
     },
     {
       "group": "Metastases - N (%)",
       "chunk": 0,
-      "duration": 94.5442247390747,
-      "timestamp": "2025-12-22T17:02:39.377891"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 1,
-      "duration": 94.95517420768738,
-      "timestamp": "2025-12-22T17:02:39.788842"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 2,
-      "duration": 96.31410789489746,
-      "timestamp": "2025-12-22T17:02:41.147781"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 3,
-      "duration": 98.91717314720154,
-      "timestamp": "2025-12-22T17:02:43.750850"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 4,
-      "duration": 99.34257411956787,
-      "timestamp": "2025-12-22T17:02:44.176255"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 5,
-      "duration": 100.5874171257019,
-      "timestamp": "2025-12-22T17:02:45.421103"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 6,
-      "duration": 109.60864305496216,
-      "timestamp": "2025-12-22T17:02:54.442331"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 7,
-      "duration": 109.60899114608765,
-      "timestamp": "2025-12-22T17:02:54.442682"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 8,
-      "duration": 109.61134314537048,
-      "timestamp": "2025-12-22T17:02:54.445040"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 9,
-      "duration": 109.61162495613098,
-      "timestamp": "2025-12-22T17:02:54.445324"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 10,
-      "duration": 114.31280517578125,
-      "timestamp": "2025-12-22T17:02:59.146513"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 11,
-      "duration": 114.31555891036987,
-      "timestamp": "2025-12-22T17:02:59.149270"
-    },
-    {
-      "group": "Metastases - N (%)",
-      "chunk": 12,
-      "duration": 114.31570196151733,
-      "timestamp": "2025-12-22T17:02:59.149415"
+      "duration": 10.795252084732056,
+      "timestamp": "2026-01-26T10:31:42.007147"
     },
     {
       "group": "Mode of metastases - N (%)",
       "chunk": 0,
-      "duration": 114.31591010093689,
-      "timestamp": "2025-12-22T17:02:59.149629"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 1,
-      "duration": 114.31597399711609,
-      "timestamp": "2025-12-22T17:02:59.149695"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 2,
-      "duration": 114.3160240650177,
-      "timestamp": "2025-12-22T17:02:59.149750"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 3,
-      "duration": 114.31606769561768,
-      "timestamp": "2025-12-22T17:02:59.149800"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 4,
-      "duration": 114.3161129951477,
-      "timestamp": "2025-12-22T17:02:59.149850"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 5,
-      "duration": 114.31615900993347,
-      "timestamp": "2025-12-22T17:02:59.149899"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 6,
-      "duration": 114.31620407104492,
-      "timestamp": "2025-12-22T17:02:59.149948"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 7,
-      "duration": 114.31624817848206,
-      "timestamp": "2025-12-22T17:02:59.149997"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 8,
-      "duration": 114.31628894805908,
-      "timestamp": "2025-12-22T17:02:59.150043"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 9,
-      "duration": 114.316330909729,
-      "timestamp": "2025-12-22T17:02:59.150089"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 10,
-      "duration": 114.3163731098175,
-      "timestamp": "2025-12-22T17:02:59.150136"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 11,
-      "duration": 114.31641697883606,
-      "timestamp": "2025-12-22T17:02:59.150185"
-    },
-    {
-      "group": "Mode of metastases - N (%)",
-      "chunk": 12,
-      "duration": 114.3164610862732,
-      "timestamp": "2025-12-22T17:02:59.150232"
-    },
-    {
-      "group": "NCT",
-      "chunk": 0,
-      "duration": 114.31655764579773,
-      "timestamp": "2025-12-22T17:02:59.150336"
-    },
-    {
-      "group": "NCT",
-      "chunk": 1,
-      "duration": 114.31673192977905,
-      "timestamp": "2025-12-22T17:02:59.150516"
-    },
-    {
-      "group": "NCT",
-      "chunk": 2,
-      "duration": 114.31715202331543,
-      "timestamp": "2025-12-22T17:02:59.150964"
-    },
-    {
-      "group": "NCT",
-      "chunk": 3,
-      "duration": 114.31882405281067,
-      "timestamp": "2025-12-22T17:02:59.152639"
-    },
-    {
-      "group": "NCT",
-      "chunk": 4,
-      "duration": 114.31889271736145,
-      "timestamp": "2025-12-22T17:02:59.152712"
-    },
-    {
-      "group": "NCT",
-      "chunk": 5,
-      "duration": 114.31893706321716,
-      "timestamp": "2025-12-22T17:02:59.152761"
-    },
-    {
-      "group": "NCT",
-      "chunk": 6,
-      "duration": 114.31903004646301,
-      "timestamp": "2025-12-22T17:02:59.152858"
-    },
-    {
-      "group": "NCT",
-      "chunk": 7,
-      "duration": 114.31907606124878,
-      "timestamp": "2025-12-22T17:02:59.152908"
-    },
-    {
-      "group": "NCT",
-      "chunk": 8,
-      "duration": 114.31911396980286,
-      "timestamp": "2025-12-22T17:02:59.152951"
-    },
-    {
-      "group": "NCT",
-      "chunk": 9,
-      "duration": 114.3191568851471,
-      "timestamp": "2025-12-22T17:02:59.152997"
-    },
-    {
-      "group": "NCT",
-      "chunk": 10,
-      "duration": 114.31919312477112,
-      "timestamp": "2025-12-22T17:02:59.153039"
-    },
-    {
-      "group": "NCT",
-      "chunk": 11,
-      "duration": 114.31922674179077,
-      "timestamp": "2025-12-22T17:02:59.153078"
-    },
-    {
-      "group": "NCT",
-      "chunk": 12,
-      "duration": 114.31926202774048,
-      "timestamp": "2025-12-22T17:02:59.153116"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 0,
-      "duration": 114.31935811042786,
-      "timestamp": "2025-12-22T17:02:59.153219"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 1,
-      "duration": 114.7226951122284,
-      "timestamp": "2025-12-22T17:02:59.556567"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 2,
-      "duration": 114.7243881225586,
-      "timestamp": "2025-12-22T17:02:59.558258"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 3,
-      "duration": 114.75070714950562,
-      "timestamp": "2025-12-22T17:02:59.584583"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 4,
-      "duration": 114.78693795204163,
-      "timestamp": "2025-12-22T17:02:59.620819"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 5,
-      "duration": 114.9489951133728,
-      "timestamp": "2025-12-22T17:02:59.782887"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 6,
-      "duration": 117.6244249343872,
-      "timestamp": "2025-12-22T17:03:02.458317"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 7,
-      "duration": 117.62542295455933,
-      "timestamp": "2025-12-22T17:03:02.459318"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 8,
-      "duration": 117.62626910209656,
-      "timestamp": "2025-12-22T17:03:02.460167"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 9,
-      "duration": 117.62650084495544,
-      "timestamp": "2025-12-22T17:03:02.460404"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 10,
-      "duration": 117.62801098823547,
-      "timestamp": "2025-12-22T17:03:02.461918"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 11,
-      "duration": 117.62806296348572,
-      "timestamp": "2025-12-22T17:03:02.461974"
-    },
-    {
-      "group": "No. of Deaths - N",
-      "chunk": 12,
-      "duration": 117.6284031867981,
-      "timestamp": "2025-12-22T17:03:02.462319"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 0,
-      "duration": 117.62860107421875,
-      "timestamp": "2025-12-22T17:03:02.462546"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 1,
-      "duration": 117.62873125076294,
-      "timestamp": "2025-12-22T17:03:02.462659"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 2,
-      "duration": 117.67853808403015,
-      "timestamp": "2025-12-22T17:03:02.512475"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 3,
-      "duration": 117.9895920753479,
-      "timestamp": "2025-12-22T17:03:02.823537"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 4,
-      "duration": 118.16564893722534,
-      "timestamp": "2025-12-22T17:03:02.999600"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 5,
-      "duration": 118.2118673324585,
-      "timestamp": "2025-12-22T17:03:03.045818"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 6,
-      "duration": 118.21199369430542,
-      "timestamp": "2025-12-22T17:03:03.045948"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 7,
-      "duration": 118.97955298423767,
-      "timestamp": "2025-12-22T17:03:03.813517"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 8,
-      "duration": 119.343022108078,
-      "timestamp": "2025-12-22T17:03:04.176988"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 9,
-      "duration": 119.34508180618286,
-      "timestamp": "2025-12-22T17:03:04.179051"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 10,
-      "duration": 119.3454020023346,
-      "timestamp": "2025-12-22T17:03:04.179375"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 11,
-      "duration": 119.36167502403259,
-      "timestamp": "2025-12-22T17:03:04.195655"
-    },
-    {
-      "group": "Number of Arms Included",
-      "chunk": 12,
-      "duration": 119.83853793144226,
-      "timestamp": "2025-12-22T17:03:04.672524"
+      "duration": 7.155563592910767,
+      "timestamp": "2026-01-26T10:31:49.172767"
     },
     {
       "group": "ORR - N (%)",
       "chunk": 0,
-      "duration": 126.75664496421814,
-      "timestamp": "2025-12-22T17:03:11.590639"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 1,
-      "duration": 126.75795936584473,
-      "timestamp": "2025-12-22T17:03:11.591953"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 2,
-      "duration": 126.7594358921051,
-      "timestamp": "2025-12-22T17:03:11.593440"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 3,
-      "duration": 126.75997495651245,
-      "timestamp": "2025-12-22T17:03:11.593977"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 4,
-      "duration": 126.76006197929382,
-      "timestamp": "2025-12-22T17:03:11.594068"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 5,
-      "duration": 126.76011800765991,
-      "timestamp": "2025-12-22T17:03:11.594127"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 6,
-      "duration": 126.76016521453857,
-      "timestamp": "2025-12-22T17:03:11.594181"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 7,
-      "duration": 126.7602150440216,
-      "timestamp": "2025-12-22T17:03:11.594235"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 8,
-      "duration": 131.30752992630005,
-      "timestamp": "2025-12-22T17:03:16.141560"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 9,
-      "duration": 131.61537790298462,
-      "timestamp": "2025-12-22T17:03:16.449412"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 10,
-      "duration": 131.92174696922302,
-      "timestamp": "2025-12-22T17:03:16.755790"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 11,
-      "duration": 133.87041878700256,
-      "timestamp": "2025-12-22T17:03:18.704462"
-    },
-    {
-      "group": "ORR - N (%)",
-      "chunk": 12,
-      "duration": 133.87070512771606,
-      "timestamp": "2025-12-22T17:03:18.704751"
+      "duration": 11.310653924942017,
+      "timestamp": "2026-01-26T10:32:08.905390"
     },
     {
       "group": "OS Rate (%)",
       "chunk": 0,
-      "duration": 136.73477482795715,
-      "timestamp": "2025-12-22T17:03:21.568857"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 1,
-      "duration": 136.73496508598328,
-      "timestamp": "2025-12-22T17:03:21.569047"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 2,
-      "duration": 136.73623967170715,
-      "timestamp": "2025-12-22T17:03:21.570326"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 3,
-      "duration": 145.0387101173401,
-      "timestamp": "2025-12-22T17:03:29.872803"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 4,
-      "duration": 145.03895497322083,
-      "timestamp": "2025-12-22T17:03:29.873051"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 5,
-      "duration": 145.0390260219574,
-      "timestamp": "2025-12-22T17:03:29.873126"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 6,
-      "duration": 145.26732802391052,
-      "timestamp": "2025-12-22T17:03:30.101438"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 7,
-      "duration": 148.10347533226013,
-      "timestamp": "2025-12-22T17:03:32.937590"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 8,
-      "duration": 151.2763421535492,
-      "timestamp": "2025-12-22T17:03:36.110460"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 9,
-      "duration": 151.99578189849854,
-      "timestamp": "2025-12-22T17:03:36.829903"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 10,
-      "duration": 151.99607014656067,
-      "timestamp": "2025-12-22T17:03:36.830194"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 11,
-      "duration": 157.72852301597595,
-      "timestamp": "2025-12-22T17:03:42.562655"
-    },
-    {
-      "group": "OS Rate (%)",
-      "chunk": 12,
-      "duration": 159.97851419448853,
-      "timestamp": "2025-12-22T17:03:44.812654"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 0,
-      "duration": 159.98011803627014,
-      "timestamp": "2025-12-22T17:03:44.814256"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 1,
-      "duration": 159.98021912574768,
-      "timestamp": "2025-12-22T17:03:44.814360"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 2,
-      "duration": 159.9802849292755,
-      "timestamp": "2025-12-22T17:03:44.814430"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 3,
-      "duration": 159.98033165931702,
-      "timestamp": "2025-12-22T17:03:44.814482"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 4,
-      "duration": 159.98038029670715,
-      "timestamp": "2025-12-22T17:03:44.814534"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 5,
-      "duration": 159.9804391860962,
-      "timestamp": "2025-12-22T17:03:44.814597"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 6,
-      "duration": 159.98048400878906,
-      "timestamp": "2025-12-22T17:03:44.814647"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 7,
-      "duration": 159.9805359840393,
-      "timestamp": "2025-12-22T17:03:44.814704"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 8,
-      "duration": 159.98058891296387,
-      "timestamp": "2025-12-22T17:03:44.814760"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 9,
-      "duration": 159.98063683509827,
-      "timestamp": "2025-12-22T17:03:44.814814"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 10,
-      "duration": 159.98162174224854,
-      "timestamp": "2025-12-22T17:03:44.815805"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 11,
-      "duration": 159.98195099830627,
-      "timestamp": "2025-12-22T17:03:44.816138"
-    },
-    {
-      "group": "Original/Follow Up",
-      "chunk": 12,
-      "duration": 159.98200392723083,
-      "timestamp": "2025-12-22T17:03:44.816195"
+      "duration": 14.201026201248169,
+      "timestamp": "2026-01-26T10:32:23.119834"
     },
     {
       "group": "PFS Rate (%)",
       "chunk": 0,
-      "duration": 159.98210215568542,
-      "timestamp": "2025-12-22T17:03:44.816299"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 1,
-      "duration": 159.9822678565979,
-      "timestamp": "2025-12-22T17:03:44.816474"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 2,
-      "duration": 159.9824402332306,
-      "timestamp": "2025-12-22T17:03:44.816648"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 3,
-      "duration": 159.9825189113617,
-      "timestamp": "2025-12-22T17:03:44.816730"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 4,
-      "duration": 159.98257613182068,
-      "timestamp": "2025-12-22T17:03:44.816792"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 5,
-      "duration": 159.9826250076294,
-      "timestamp": "2025-12-22T17:03:44.816845"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 6,
-      "duration": 159.98266983032227,
-      "timestamp": "2025-12-22T17:03:44.816894"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 7,
-      "duration": 159.9827163219452,
-      "timestamp": "2025-12-22T17:03:44.816943"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 8,
-      "duration": 159.98276090621948,
-      "timestamp": "2025-12-22T17:03:44.816994"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 9,
-      "duration": 159.98280811309814,
-      "timestamp": "2025-12-22T17:03:44.817046"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 10,
-      "duration": 161.1063847541809,
-      "timestamp": "2025-12-22T17:03:45.940630"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 11,
-      "duration": 161.10933804512024,
-      "timestamp": "2025-12-22T17:03:45.943588"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 12,
-      "duration": 161.1104507446289,
-      "timestamp": "2025-12-22T17:03:45.944704"
+      "duration": 5.007605314254761,
+      "timestamp": "2026-01-26T10:32:30.411066"
     },
     {
       "group": "PS - N (%)",
       "chunk": 0,
-      "duration": 163.4453752040863,
-      "timestamp": "2025-12-22T17:03:48.279640"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 1,
-      "duration": 163.44577312469482,
-      "timestamp": "2025-12-22T17:03:48.280038"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 2,
-      "duration": 163.9713339805603,
-      "timestamp": "2025-12-22T17:03:48.805602"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 3,
-      "duration": 163.97319388389587,
-      "timestamp": "2025-12-22T17:03:48.807467"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 4,
-      "duration": 164.38496208190918,
-      "timestamp": "2025-12-22T17:03:49.219243"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 5,
-      "duration": 165.61161422729492,
-      "timestamp": "2025-12-22T17:03:50.445903"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 6,
-      "duration": 165.6120090484619,
-      "timestamp": "2025-12-22T17:03:50.446300"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 7,
-      "duration": 165.61211395263672,
-      "timestamp": "2025-12-22T17:03:50.446408"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 8,
-      "duration": 166.70246386528015,
-      "timestamp": "2025-12-22T17:03:51.536768"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 9,
-      "duration": 167.55512690544128,
-      "timestamp": "2025-12-22T17:03:52.389433"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 10,
-      "duration": 167.5569770336151,
-      "timestamp": "2025-12-22T17:03:52.391287"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 11,
-      "duration": 168.06265020370483,
-      "timestamp": "2025-12-22T17:03:52.896991"
-    },
-    {
-      "group": "PS - N (%)",
-      "chunk": 12,
-      "duration": 168.92660689353943,
-      "timestamp": "2025-12-22T17:03:53.760960"
-    },
-    {
-      "group": "Phase",
-      "chunk": 0,
-      "duration": 168.9300820827484,
-      "timestamp": "2025-12-22T17:03:53.764440"
-    },
-    {
-      "group": "Phase",
-      "chunk": 1,
-      "duration": 168.93052196502686,
-      "timestamp": "2025-12-22T17:03:53.764875"
-    },
-    {
-      "group": "Phase",
-      "chunk": 2,
-      "duration": 168.93058109283447,
-      "timestamp": "2025-12-22T17:03:53.764937"
-    },
-    {
-      "group": "Phase",
-      "chunk": 3,
-      "duration": 168.93062496185303,
-      "timestamp": "2025-12-22T17:03:53.764986"
-    },
-    {
-      "group": "Phase",
-      "chunk": 4,
-      "duration": 168.93066906929016,
-      "timestamp": "2025-12-22T17:03:53.765034"
-    },
-    {
-      "group": "Phase",
-      "chunk": 5,
-      "duration": 168.93071222305298,
-      "timestamp": "2025-12-22T17:03:53.765082"
-    },
-    {
-      "group": "Phase",
-      "chunk": 6,
-      "duration": 168.93075299263,
-      "timestamp": "2025-12-22T17:03:53.765128"
-    },
-    {
-      "group": "Phase",
-      "chunk": 7,
-      "duration": 168.93079495429993,
-      "timestamp": "2025-12-22T17:03:53.765174"
-    },
-    {
-      "group": "Phase",
-      "chunk": 8,
-      "duration": 168.93083596229553,
-      "timestamp": "2025-12-22T17:03:53.765220"
-    },
-    {
-      "group": "Phase",
-      "chunk": 9,
-      "duration": 169.2121241092682,
-      "timestamp": "2025-12-22T17:03:54.046521"
-    },
-    {
-      "group": "Phase",
-      "chunk": 10,
-      "duration": 169.21461009979248,
-      "timestamp": "2025-12-22T17:03:54.049013"
-    },
-    {
-      "group": "Phase",
-      "chunk": 11,
-      "duration": 169.21503114700317,
-      "timestamp": "2025-12-22T17:03:54.049433"
-    },
-    {
-      "group": "Phase",
-      "chunk": 12,
-      "duration": 169.21509909629822,
-      "timestamp": "2025-12-22T17:03:54.049504"
+      "duration": 6.478594779968262,
+      "timestamp": "2026-01-26T10:32:36.892285"
     },
     {
       "group": "Previous local therapy - N (%)",
       "chunk": 0,
-      "duration": 174.39578008651733,
-      "timestamp": "2025-12-22T17:03:59.230198"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 1,
-      "duration": 174.39848518371582,
-      "timestamp": "2025-12-22T17:03:59.232901"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 2,
-      "duration": 175.3329200744629,
-      "timestamp": "2025-12-22T17:04:00.167343"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 3,
-      "duration": 175.33311009407043,
-      "timestamp": "2025-12-22T17:04:00.167534"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 4,
-      "duration": 175.38048005104065,
-      "timestamp": "2025-12-22T17:04:00.214916"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 5,
-      "duration": 175.38289999961853,
-      "timestamp": "2025-12-22T17:04:00.217338"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 6,
-      "duration": 175.38331007957458,
-      "timestamp": "2025-12-22T17:04:00.217752"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 7,
-      "duration": 176.05531907081604,
-      "timestamp": "2025-12-22T17:04:00.889767"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 8,
-      "duration": 181.3429970741272,
-      "timestamp": "2025-12-22T17:04:06.177451"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 9,
-      "duration": 181.3449409008026,
-      "timestamp": "2025-12-22T17:04:06.179396"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 10,
-      "duration": 182.06310200691223,
-      "timestamp": "2025-12-22T17:04:06.897565"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 11,
-      "duration": 182.08423805236816,
-      "timestamp": "2025-12-22T17:04:06.918703"
-    },
-    {
-      "group": "Previous local therapy - N (%)",
-      "chunk": 12,
-      "duration": 182.08461499214172,
-      "timestamp": "2025-12-22T17:04:06.919083"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 0,
-      "duration": 182.08473801612854,
-      "timestamp": "2025-12-22T17:04:06.919213"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 1,
-      "duration": 182.08478808403015,
-      "timestamp": "2025-12-22T17:04:06.919268"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 2,
-      "duration": 182.0848262310028,
-      "timestamp": "2025-12-22T17:04:06.919311"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 3,
-      "duration": 182.08486080169678,
-      "timestamp": "2025-12-22T17:04:06.919350"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 4,
-      "duration": 182.08489394187927,
-      "timestamp": "2025-12-22T17:04:06.919390"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 5,
-      "duration": 182.08492708206177,
-      "timestamp": "2025-12-22T17:04:06.919428"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 6,
-      "duration": 182.08495903015137,
-      "timestamp": "2025-12-22T17:04:06.919465"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 7,
-      "duration": 182.2102267742157,
-      "timestamp": "2025-12-22T17:04:07.044741"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 8,
-      "duration": 182.91006517410278,
-      "timestamp": "2025-12-22T17:04:07.744589"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 9,
-      "duration": 182.91037797927856,
-      "timestamp": "2025-12-22T17:04:07.744898"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 10,
-      "duration": 182.91044807434082,
-      "timestamp": "2025-12-22T17:04:07.744973"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 11,
-      "duration": 183.0405580997467,
-      "timestamp": "2025-12-22T17:04:07.875087"
-    },
-    {
-      "group": "Primary Endpoint(s)",
-      "chunk": 12,
-      "duration": 184.2490451335907,
-      "timestamp": "2025-12-22T17:04:09.083581"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 0,
-      "duration": 184.2495129108429,
-      "timestamp": "2025-12-22T17:04:09.084054"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 1,
-      "duration": 184.25142669677734,
-      "timestamp": "2025-12-22T17:04:09.085970"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 2,
-      "duration": 184.2515251636505,
-      "timestamp": "2025-12-22T17:04:09.086072"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 3,
-      "duration": 184.25158405303955,
-      "timestamp": "2025-12-22T17:04:09.086135"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 4,
-      "duration": 184.25162601470947,
-      "timestamp": "2025-12-22T17:04:09.086181"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 5,
-      "duration": 184.48243498802185,
-      "timestamp": "2025-12-22T17:04:09.316997"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 6,
-      "duration": 184.48582291603088,
-      "timestamp": "2025-12-22T17:04:09.320389"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 7,
-      "duration": 184.4862620830536,
-      "timestamp": "2025-12-22T17:04:09.320831"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 8,
-      "duration": 184.71296286582947,
-      "timestamp": "2025-12-22T17:04:09.547543"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 9,
-      "duration": 185.28074598312378,
-      "timestamp": "2025-12-22T17:04:10.115355"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 10,
-      "duration": 185.28105092048645,
-      "timestamp": "2025-12-22T17:04:10.115657"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 11,
-      "duration": 185.28114104270935,
-      "timestamp": "2025-12-22T17:04:10.115751"
-    },
-    {
-      "group": "PubMed ID",
-      "chunk": 12,
-      "duration": 186.65907311439514,
-      "timestamp": "2025-12-22T17:04:11.493694"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 0,
-      "duration": 186.6618688106537,
-      "timestamp": "2025-12-22T17:04:11.496493"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 1,
-      "duration": 186.66198205947876,
-      "timestamp": "2025-12-22T17:04:11.496606"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 2,
-      "duration": 186.66204810142517,
-      "timestamp": "2025-12-22T17:04:11.496676"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 3,
-      "duration": 186.66210103034973,
-      "timestamp": "2025-12-22T17:04:11.496733"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 4,
-      "duration": 186.66214394569397,
-      "timestamp": "2025-12-22T17:04:11.496784"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 5,
-      "duration": 186.66218900680542,
-      "timestamp": "2025-12-22T17:04:11.496834"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 6,
-      "duration": 186.6622338294983,
-      "timestamp": "2025-12-22T17:04:11.496883"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 7,
-      "duration": 187.84549283981323,
-      "timestamp": "2025-12-22T17:04:12.680149"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 8,
-      "duration": 187.84719705581665,
-      "timestamp": "2025-12-22T17:04:12.681856"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 9,
-      "duration": 187.8474941253662,
-      "timestamp": "2025-12-22T17:04:12.682158"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 10,
-      "duration": 187.84755611419678,
-      "timestamp": "2025-12-22T17:04:12.682224"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 11,
-      "duration": 187.84759902954102,
-      "timestamp": "2025-12-22T17:04:12.682271"
-    },
-    {
-      "group": "Quality of Life Scale",
-      "chunk": 12,
-      "duration": 187.84763717651367,
-      "timestamp": "2025-12-22T17:04:12.682313"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 0,
-      "duration": 187.84772396087646,
-      "timestamp": "2025-12-22T17:04:12.682406"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 1,
-      "duration": 187.87363719940186,
-      "timestamp": "2025-12-22T17:04:12.708325"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 2,
-      "duration": 188.9879539012909,
-      "timestamp": "2025-12-22T17:04:13.822659"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 3,
-      "duration": 188.9895796775818,
-      "timestamp": "2025-12-22T17:04:13.824285"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 4,
-      "duration": 189.0918469429016,
-      "timestamp": "2025-12-22T17:04:13.926560"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 5,
-      "duration": 189.23183012008667,
-      "timestamp": "2025-12-22T17:04:14.066548"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 6,
-      "duration": 189.3699231147766,
-      "timestamp": "2025-12-22T17:04:14.204646"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 7,
-      "duration": 189.39978694915771,
-      "timestamp": "2025-12-22T17:04:14.234512"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 8,
-      "duration": 189.4154019355774,
-      "timestamp": "2025-12-22T17:04:14.250130"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 9,
-      "duration": 189.77790117263794,
-      "timestamp": "2025-12-22T17:04:14.612636"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 10,
-      "duration": 190.38700914382935,
-      "timestamp": "2025-12-22T17:04:15.221751"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 11,
-      "duration": 190.38937902450562,
-      "timestamp": "2025-12-22T17:04:15.224119"
-    },
-    {
-      "group": "Quality of Life reported",
-      "chunk": 12,
-      "duration": 191.41683506965637,
-      "timestamp": "2025-12-22T17:04:16.251583"
+      "duration": 8.232920169830322,
+      "timestamp": "2026-01-26T10:32:46.842193"
     },
     {
       "group": "Race - N (%)",
       "chunk": 0,
-      "duration": 202.2971420288086,
-      "timestamp": "2025-12-22T17:04:27.131897"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 1,
-      "duration": 202.43232583999634,
-      "timestamp": "2025-12-22T17:04:27.267083"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 2,
-      "duration": 202.43485188484192,
-      "timestamp": "2025-12-22T17:04:27.269611"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 3,
-      "duration": 202.51924514770508,
-      "timestamp": "2025-12-22T17:04:27.354012"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 4,
-      "duration": 203.1043779850006,
-      "timestamp": "2025-12-22T17:04:27.939148"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 5,
-      "duration": 205.49401307106018,
-      "timestamp": "2025-12-22T17:04:30.328790"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 6,
-      "duration": 206.36601090431213,
-      "timestamp": "2025-12-22T17:04:31.200793"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 7,
-      "duration": 206.36621522903442,
-      "timestamp": "2025-12-22T17:04:31.200999"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 8,
-      "duration": 214.74106192588806,
-      "timestamp": "2025-12-22T17:04:39.575856"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 9,
-      "duration": 214.74142408370972,
-      "timestamp": "2025-12-22T17:04:39.576217"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 10,
-      "duration": 214.96861910820007,
-      "timestamp": "2025-12-22T17:04:39.803419"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 11,
-      "duration": 215.2068817615509,
-      "timestamp": "2025-12-22T17:04:40.041689"
-    },
-    {
-      "group": "Race - N (%)",
-      "chunk": 12,
-      "duration": 226.13051795959473,
-      "timestamp": "2025-12-22T17:04:50.965330"
+      "duration": 17.187161207199097,
+      "timestamp": "2026-01-26T10:33:12.963904"
     },
     {
       "group": "Region - N (%)",
       "chunk": 0,
-      "duration": 226.13428211212158,
-      "timestamp": "2025-12-22T17:04:50.969095"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 1,
-      "duration": 226.13465118408203,
-      "timestamp": "2025-12-22T17:04:50.969466"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 2,
-      "duration": 226.1347210407257,
-      "timestamp": "2025-12-22T17:04:50.969542"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 3,
-      "duration": 226.13478708267212,
-      "timestamp": "2025-12-22T17:04:50.969612"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 4,
-      "duration": 226.1348478794098,
-      "timestamp": "2025-12-22T17:04:50.969678"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 5,
-      "duration": 226.13503503799438,
-      "timestamp": "2025-12-22T17:04:50.969869"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 6,
-      "duration": 226.13481092453003,
-      "timestamp": "2025-12-22T17:04:50.970028"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 7,
-      "duration": 226.13492107391357,
-      "timestamp": "2025-12-22T17:04:50.970143"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 8,
-      "duration": 227.053692817688,
-      "timestamp": "2025-12-22T17:04:51.888922"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 9,
-      "duration": 228.27619194984436,
-      "timestamp": "2025-12-22T17:04:53.111425"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 10,
-      "duration": 234.53018498420715,
-      "timestamp": "2025-12-22T17:04:59.365424"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 11,
-      "duration": 234.53049778938293,
-      "timestamp": "2025-12-22T17:04:59.365737"
-    },
-    {
-      "group": "Region - N (%)",
-      "chunk": 12,
-      "duration": 235.15840888023376,
-      "timestamp": "2025-12-22T17:04:59.993656"
+      "duration": 14.839654445648193,
+      "timestamp": "2026-01-26T10:33:27.825173"
     },
     {
       "group": "Reporting by prognostic groups - Y/N",
       "chunk": 0,
-      "duration": 235.15883708000183,
-      "timestamp": "2025-12-22T17:04:59.994088"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 1,
-      "duration": 235.15892910957336,
-      "timestamp": "2025-12-22T17:04:59.994183"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 2,
-      "duration": 235.15898990631104,
-      "timestamp": "2025-12-22T17:04:59.994248"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 3,
-      "duration": 239.95277786254883,
-      "timestamp": "2025-12-22T17:05:04.788044"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 4,
-      "duration": 239.95310497283936,
-      "timestamp": "2025-12-22T17:05:04.788373"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 5,
-      "duration": 239.95319771766663,
-      "timestamp": "2025-12-22T17:05:04.788468"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 6,
-      "duration": 239.95327591896057,
-      "timestamp": "2025-12-22T17:05:04.788551"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 7,
-      "duration": 240.15352416038513,
-      "timestamp": "2025-12-22T17:05:04.988810"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 8,
-      "duration": 240.15395092964172,
-      "timestamp": "2025-12-22T17:05:04.989240"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 9,
-      "duration": 240.1541130542755,
-      "timestamp": "2025-12-22T17:05:04.989405"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 10,
-      "duration": 240.79306316375732,
-      "timestamp": "2025-12-22T17:05:05.628363"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 11,
-      "duration": 242.88080191612244,
-      "timestamp": "2025-12-22T17:05:07.716107"
-    },
-    {
-      "group": "Reporting by prognostic groups - Y/N",
-      "chunk": 12,
-      "duration": 242.88112616539001,
-      "timestamp": "2025-12-22T17:05:07.716431"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 0,
-      "duration": 242.88131880760193,
-      "timestamp": "2025-12-22T17:05:07.716629"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 1,
-      "duration": 242.88140296936035,
-      "timestamp": "2025-12-22T17:05:07.716717"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 2,
-      "duration": 242.88147902488708,
-      "timestamp": "2025-12-22T17:05:07.716797"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 3,
-      "duration": 242.8815460205078,
-      "timestamp": "2025-12-22T17:05:07.716869"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 4,
-      "duration": 242.88161206245422,
-      "timestamp": "2025-12-22T17:05:07.716941"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 5,
-      "duration": 243.10489702224731,
-      "timestamp": "2025-12-22T17:05:07.940233"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 6,
-      "duration": 243.27639603614807,
-      "timestamp": "2025-12-22T17:05:08.111736"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 7,
-      "duration": 244.63696479797363,
-      "timestamp": "2025-12-22T17:05:09.472315"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 8,
-      "duration": 244.6382200717926,
-      "timestamp": "2025-12-22T17:05:09.473566"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 9,
-      "duration": 244.63924193382263,
-      "timestamp": "2025-12-22T17:05:09.474594"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 10,
-      "duration": 245.59654188156128,
-      "timestamp": "2025-12-22T17:05:10.431899"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 11,
-      "duration": 245.59668612480164,
-      "timestamp": "2025-12-22T17:05:10.432045"
-    },
-    {
-      "group": "Secondary Endpoint(s)",
-      "chunk": 12,
-      "duration": 245.59673976898193,
-      "timestamp": "2025-12-22T17:05:10.432104"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 0,
-      "duration": 245.65305399894714,
-      "timestamp": "2025-12-22T17:05:10.488426"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 1,
-      "duration": 245.68290185928345,
-      "timestamp": "2025-12-22T17:05:10.518278"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 2,
-      "duration": 246.61577486991882,
-      "timestamp": "2025-12-22T17:05:11.451158"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 3,
-      "duration": 246.61738920211792,
-      "timestamp": "2025-12-22T17:05:11.452774"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 4,
-      "duration": 246.61881613731384,
-      "timestamp": "2025-12-22T17:05:11.454205"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 5,
-      "duration": 247.12958192825317,
-      "timestamp": "2025-12-22T17:05:11.964981"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 6,
-      "duration": 247.44222378730774,
-      "timestamp": "2025-12-22T17:05:12.277626"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 7,
-      "duration": 247.4436731338501,
-      "timestamp": "2025-12-22T17:05:12.279074"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 8,
-      "duration": 247.56882691383362,
-      "timestamp": "2025-12-22T17:05:12.404239"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 9,
-      "duration": 247.56911730766296,
-      "timestamp": "2025-12-22T17:05:12.404529"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 10,
-      "duration": 249.22647500038147,
-      "timestamp": "2025-12-22T17:05:14.061900"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 11,
-      "duration": 249.25972199440002,
-      "timestamp": "2025-12-22T17:05:14.095147"
-    },
-    {
-      "group": "TTPSA (mo)",
-      "chunk": 12,
-      "duration": 249.26009392738342,
-      "timestamp": "2025-12-22T17:05:14.095521"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 0,
-      "duration": 249.26021814346313,
-      "timestamp": "2025-12-22T17:05:14.095651"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 1,
-      "duration": 249.26027297973633,
-      "timestamp": "2025-12-22T17:05:14.095709"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 2,
-      "duration": 249.26031374931335,
-      "timestamp": "2025-12-22T17:05:14.095754"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 3,
-      "duration": 249.26034903526306,
-      "timestamp": "2025-12-22T17:05:14.095794"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 4,
-      "duration": 249.26035928726196,
-      "timestamp": "2025-12-22T17:05:14.095832"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 5,
-      "duration": 250.8119351863861,
-      "timestamp": "2025-12-22T17:05:15.647417"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 6,
-      "duration": 251.55983591079712,
-      "timestamp": "2025-12-22T17:05:16.395324"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 7,
-      "duration": 251.56012892723083,
-      "timestamp": "2025-12-22T17:05:16.395616"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 8,
-      "duration": 251.5601987838745,
-      "timestamp": "2025-12-22T17:05:16.395689"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 9,
-      "duration": 251.56025910377502,
-      "timestamp": "2025-12-22T17:05:16.395754"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 10,
-      "duration": 251.5603151321411,
-      "timestamp": "2025-12-22T17:05:16.395814"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 11,
-      "duration": 251.56037092208862,
-      "timestamp": "2025-12-22T17:05:16.395874"
-    },
-    {
-      "group": "Total Participants - N",
-      "chunk": 12,
-      "duration": 251.5604248046875,
-      "timestamp": "2025-12-22T17:05:16.395932"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 0,
-      "duration": 252.63950896263123,
-      "timestamp": "2025-12-22T17:05:17.475026"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 1,
-      "duration": 252.64180302619934,
-      "timestamp": "2025-12-22T17:05:17.477322"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 2,
-      "duration": 252.68254208564758,
-      "timestamp": "2025-12-22T17:05:17.518065"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 3,
-      "duration": 253.2983648777008,
-      "timestamp": "2025-12-22T17:05:18.133893"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 4,
-      "duration": 253.30082631111145,
-      "timestamp": "2025-12-22T17:05:18.136358"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 5,
-      "duration": 253.300922870636,
-      "timestamp": "2025-12-22T17:05:18.136457"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 6,
-      "duration": 253.30098009109497,
-      "timestamp": "2025-12-22T17:05:18.136519"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 7,
-      "duration": 253.30102825164795,
-      "timestamp": "2025-12-22T17:05:18.136571"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 8,
-      "duration": 254.1208758354187,
-      "timestamp": "2025-12-22T17:05:18.956428"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 9,
-      "duration": 254.12880778312683,
-      "timestamp": "2025-12-22T17:05:18.964361"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 10,
-      "duration": 254.18342304229736,
-      "timestamp": "2025-12-22T17:05:19.018982"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 11,
-      "duration": 254.18526101112366,
-      "timestamp": "2025-12-22T17:05:19.020824"
-    },
-    {
-      "group": "Treatment Arm - N",
-      "chunk": 12,
-      "duration": 254.4016568660736,
-      "timestamp": "2025-12-22T17:05:19.237228"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 0,
-      "duration": 254.44092106819153,
-      "timestamp": "2025-12-22T17:05:19.276497"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 1,
-      "duration": 255.00577521324158,
-      "timestamp": "2025-12-22T17:05:19.841351"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 2,
-      "duration": 255.0185341835022,
-      "timestamp": "2025-12-22T17:05:19.854116"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 3,
-      "duration": 255.92913007736206,
-      "timestamp": "2025-12-22T17:05:20.764719"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 4,
-      "duration": 256.05787897109985,
-      "timestamp": "2025-12-22T17:05:20.893472"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 5,
-      "duration": 256.2068569660187,
-      "timestamp": "2025-12-22T17:05:21.042454"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 6,
-      "duration": 256.4088559150696,
-      "timestamp": "2025-12-22T17:05:21.244457"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 7,
-      "duration": 256.79396390914917,
-      "timestamp": "2025-12-22T17:05:21.629569"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 8,
-      "duration": 256.79428720474243,
-      "timestamp": "2025-12-22T17:05:21.629931"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 9,
-      "duration": 256.7944152355194,
-      "timestamp": "2025-12-22T17:05:21.630028"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 10,
-      "duration": 257.12917590141296,
-      "timestamp": "2025-12-22T17:05:21.964798"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 11,
-      "duration": 258.38490176200867,
-      "timestamp": "2025-12-22T17:05:23.220526"
-    },
-    {
-      "group": "Treatment Arm 1 Regimen",
-      "chunk": 12,
-      "duration": 258.6136701107025,
-      "timestamp": "2025-12-22T17:05:23.449302"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 0,
-      "duration": 258.61410880088806,
-      "timestamp": "2025-12-22T17:05:23.449744"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 1,
-      "duration": 258.6142020225525,
-      "timestamp": "2025-12-22T17:05:23.449838"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 2,
-      "duration": 258.6142818927765,
-      "timestamp": "2025-12-22T17:05:23.449921"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 3,
-      "duration": 259.20843720436096,
-      "timestamp": "2025-12-22T17:05:24.044085"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 4,
-      "duration": 259.20988392829895,
-      "timestamp": "2025-12-22T17:05:24.045532"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 5,
-      "duration": 259.20994782447815,
-      "timestamp": "2025-12-22T17:05:24.045601"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 6,
-      "duration": 259.2115960121155,
-      "timestamp": "2025-12-22T17:05:24.047256"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 7,
-      "duration": 259.6068811416626,
-      "timestamp": "2025-12-22T17:05:24.442546"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 8,
-      "duration": 259.69727516174316,
-      "timestamp": "2025-12-22T17:05:24.532947"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 9,
-      "duration": 259.7460000514984,
-      "timestamp": "2025-12-22T17:05:24.581674"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 10,
-      "duration": 261.0468089580536,
-      "timestamp": "2025-12-22T17:05:25.882490"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 11,
-      "duration": 261.0492558479309,
-      "timestamp": "2025-12-22T17:05:25.884943"
-    },
-    {
-      "group": "Treatment Arm(s)",
-      "chunk": 12,
-      "duration": 261.0497691631317,
-      "timestamp": "2025-12-22T17:05:25.885457"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 0,
-      "duration": 261.5192930698395,
-      "timestamp": "2025-12-22T17:05:26.354997"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 1,
-      "duration": 261.52121758461,
-      "timestamp": "2025-12-22T17:05:26.356916"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 2,
-      "duration": 262.1792199611664,
-      "timestamp": "2025-12-22T17:05:27.014949"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 3,
-      "duration": 262.1793532371521,
-      "timestamp": "2025-12-22T17:05:27.015084"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 4,
-      "duration": 262.1794009208679,
-      "timestamp": "2025-12-22T17:05:27.015136"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 5,
-      "duration": 262.17943501472473,
-      "timestamp": "2025-12-22T17:05:27.015175"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 6,
-      "duration": 262.17946600914,
-      "timestamp": "2025-12-22T17:05:27.015210"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 7,
-      "duration": 263.8557357788086,
-      "timestamp": "2025-12-22T17:05:28.691489"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 8,
-      "duration": 263.8570890426636,
-      "timestamp": "2025-12-22T17:05:28.692843"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 9,
-      "duration": 263.85814094543457,
-      "timestamp": "2025-12-22T17:05:28.693899"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 10,
-      "duration": 263.8584611415863,
-      "timestamp": "2025-12-22T17:05:28.694223"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 11,
-      "duration": 264.0226979255676,
-      "timestamp": "2025-12-22T17:05:28.858468"
-    },
-    {
-      "group": "Treatment Class",
-      "chunk": 12,
-      "duration": 264.2650508880615,
-      "timestamp": "2025-12-22T17:05:29.100827"
-    },
-    {
-      "group": "Trial",
-      "chunk": 0,
-      "duration": 264.26774406433105,
-      "timestamp": "2025-12-22T17:05:29.103524"
-    },
-    {
-      "group": "Trial",
-      "chunk": 1,
-      "duration": 264.3306670188904,
-      "timestamp": "2025-12-22T17:05:29.166453"
-    },
-    {
-      "group": "Trial",
-      "chunk": 2,
-      "duration": 265.1864550113678,
-      "timestamp": "2025-12-22T17:05:30.022246"
-    },
-    {
-      "group": "Trial",
-      "chunk": 3,
-      "duration": 265.1867301464081,
-      "timestamp": "2025-12-22T17:05:30.022521"
-    },
-    {
-      "group": "Trial",
-      "chunk": 4,
-      "duration": 268.8305501937866,
-      "timestamp": "2025-12-22T17:05:33.666349"
-    },
-    {
-      "group": "Trial",
-      "chunk": 5,
-      "duration": 269.6340968608856,
-      "timestamp": "2025-12-22T17:05:34.469900"
-    },
-    {
-      "group": "Trial",
-      "chunk": 6,
-      "duration": 269.6343150138855,
-      "timestamp": "2025-12-22T17:05:34.470120"
-    },
-    {
-      "group": "Trial",
-      "chunk": 7,
-      "duration": 269.72267389297485,
-      "timestamp": "2025-12-22T17:05:34.558485"
-    },
-    {
-      "group": "Trial",
-      "chunk": 8,
-      "duration": 269.722815990448,
-      "timestamp": "2025-12-22T17:05:34.558628"
-    },
-    {
-      "group": "Trial",
-      "chunk": 9,
-      "duration": 269.722873210907,
-      "timestamp": "2025-12-22T17:05:34.558690"
-    },
-    {
-      "group": "Trial",
-      "chunk": 10,
-      "duration": 270.9166741371155,
-      "timestamp": "2025-12-22T17:05:35.752500"
-    },
-    {
-      "group": "Trial",
-      "chunk": 11,
-      "duration": 270.91693806648254,
-      "timestamp": "2025-12-22T17:05:35.752764"
-    },
-    {
-      "group": "Trial",
-      "chunk": 12,
-      "duration": 271.59242391586304,
-      "timestamp": "2025-12-22T17:05:36.428257"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 0,
-      "duration": 272.924702167511,
-      "timestamp": "2025-12-22T17:05:37.760543"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 1,
-      "duration": 273.07467794418335,
-      "timestamp": "2025-12-22T17:05:37.910523"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 2,
-      "duration": 273.4022009372711,
-      "timestamp": "2025-12-22T17:05:38.238055"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 3,
-      "duration": 273.40364503860474,
-      "timestamp": "2025-12-22T17:05:38.239501"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 4,
-      "duration": 273.4046301841736,
-      "timestamp": "2025-12-22T17:05:38.240487"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 5,
-      "duration": 273.40495109558105,
-      "timestamp": "2025-12-22T17:05:38.240812"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 6,
-      "duration": 274.4592459201813,
-      "timestamp": "2025-12-22T17:05:39.295117"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 7,
-      "duration": 274.4595172405243,
-      "timestamp": "2025-12-22T17:05:39.295388"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 8,
-      "duration": 275.55368280410767,
-      "timestamp": "2025-12-22T17:05:40.389562"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 9,
-      "duration": 275.5552468299866,
-      "timestamp": "2025-12-22T17:05:40.391125"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 10,
-      "duration": 276.4916920661926,
-      "timestamp": "2025-12-22T17:05:41.327576"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 11,
-      "duration": 276.7430009841919,
-      "timestamp": "2025-12-22T17:05:41.578894"
-    },
-    {
-      "group": "Trial Name",
-      "chunk": 12,
-      "duration": 276.7453022003174,
-      "timestamp": "2025-12-22T17:05:41.581194"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 0,
-      "duration": 276.9227879047394,
-      "timestamp": "2025-12-22T17:05:41.758693"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 1,
-      "duration": 277.64375400543213,
-      "timestamp": "2025-12-22T17:05:42.479658"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 2,
-      "duration": 277.64584493637085,
-      "timestamp": "2025-12-22T17:05:42.481752"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 3,
-      "duration": 277.64610266685486,
-      "timestamp": "2025-12-22T17:05:42.482014"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 4,
-      "duration": 277.64646911621094,
-      "timestamp": "2025-12-22T17:05:42.482384"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 5,
-      "duration": 277.6484217643738,
-      "timestamp": "2025-12-22T17:05:42.484343"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 6,
-      "duration": 279.27502703666687,
-      "timestamp": "2025-12-22T17:05:44.110956"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 7,
-      "duration": 279.3337490558624,
-      "timestamp": "2025-12-22T17:05:44.169679"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 8,
-      "duration": 280.2134780883789,
-      "timestamp": "2025-12-22T17:05:45.049413"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 9,
-      "duration": 280.215341091156,
-      "timestamp": "2025-12-22T17:05:45.051279"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 10,
-      "duration": 280.21567487716675,
-      "timestamp": "2025-12-22T17:05:45.051617"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 11,
-      "duration": 280.21575593948364,
-      "timestamp": "2025-12-22T17:05:45.051703"
-    },
-    {
-      "group": "Type of Therapy",
-      "chunk": 12,
-      "duration": 280.21580505371094,
-      "timestamp": "2025-12-22T17:05:45.051757"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 0,
-      "duration": 280.21587896347046,
-      "timestamp": "2025-12-22T17:05:45.051861"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 1,
-      "duration": 281.2217381000519,
-      "timestamp": "2025-12-22T17:05:46.057726"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 2,
-      "duration": 290.37466406822205,
-      "timestamp": "2025-12-22T17:05:55.210654"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 3,
-      "duration": 290.37487387657166,
-      "timestamp": "2025-12-22T17:05:55.210867"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 4,
-      "duration": 290.3749270439148,
-      "timestamp": "2025-12-22T17:05:55.210926"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 5,
-      "duration": 290.66749906539917,
-      "timestamp": "2025-12-22T17:05:55.503511"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 6,
-      "duration": 290.66770815849304,
-      "timestamp": "2025-12-22T17:05:55.503716"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 7,
-      "duration": 290.6677827835083,
-      "timestamp": "2025-12-22T17:05:55.503796"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 8,
-      "duration": 290.66783690452576,
-      "timestamp": "2025-12-22T17:05:55.503854"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 9,
-      "duration": 290.6678829193115,
-      "timestamp": "2025-12-22T17:05:55.503904"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 10,
-      "duration": 290.6679241657257,
-      "timestamp": "2025-12-22T17:05:55.503950"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 11,
-      "duration": 290.66796708106995,
-      "timestamp": "2025-12-22T17:05:55.503996"
-    },
-    {
-      "group": "Volume of disease - N (%)",
-      "chunk": 12,
-      "duration": 290.66800475120544,
-      "timestamp": "2025-12-22T17:05:55.504039"
-    },
-    {
-      "group": "Year",
-      "chunk": 0,
-      "duration": 290.6681909561157,
-      "timestamp": "2025-12-22T17:05:55.504233"
-    },
-    {
-      "group": "Year",
-      "chunk": 1,
-      "duration": 290.6682550907135,
-      "timestamp": "2025-12-22T17:05:55.504301"
-    },
-    {
-      "group": "Year",
-      "chunk": 2,
-      "duration": 290.66829800605774,
-      "timestamp": "2025-12-22T17:05:55.504348"
-    },
-    {
-      "group": "Year",
-      "chunk": 3,
-      "duration": 290.66833901405334,
-      "timestamp": "2025-12-22T17:05:55.504392"
-    },
-    {
-      "group": "Year",
-      "chunk": 4,
-      "duration": 290.6683769226074,
-      "timestamp": "2025-12-22T17:05:55.504436"
-    },
-    {
-      "group": "Year",
-      "chunk": 5,
-      "duration": 290.66841292381287,
-      "timestamp": "2025-12-22T17:05:55.504478"
-    },
-    {
-      "group": "Year",
-      "chunk": 6,
-      "duration": 290.6684498786926,
-      "timestamp": "2025-12-22T17:05:55.504520"
-    },
-    {
-      "group": "Year",
-      "chunk": 7,
-      "duration": 290.6684899330139,
-      "timestamp": "2025-12-22T17:05:55.504564"
-    },
-    {
-      "group": "Year",
-      "chunk": 8,
-      "duration": 290.66853404045105,
-      "timestamp": "2025-12-22T17:05:55.504612"
-    },
-    {
-      "group": "Year",
-      "chunk": 9,
-      "duration": 290.6685721874237,
-      "timestamp": "2025-12-22T17:05:55.504655"
-    },
-    {
-      "group": "Year",
-      "chunk": 10,
-      "duration": 290.6686210632324,
-      "timestamp": "2025-12-22T17:05:55.504708"
-    },
-    {
-      "group": "Year",
-      "chunk": 11,
-      "duration": 290.66865825653076,
-      "timestamp": "2025-12-22T17:05:55.504750"
-    },
-    {
-      "group": "Year",
-      "chunk": 12,
-      "duration": 290.6686987876892,
-      "timestamp": "2025-12-22T17:05:55.504795"
+      "duration": 7.518484115600586,
+      "timestamp": "2026-01-26T10:33:35.352733"
     }
   ]
 }

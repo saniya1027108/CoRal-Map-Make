@@ -1,0 +1,175 @@
+BATCH 1
+Tokens: 1219 input, 1769 output
+============================================================
+Add-on Treatment: Darolutamide + Docetaxel, androgen-deprivation therapy and docetaxel vs androgen-deprivation therapy and docetaxel => Not Equivalent, Explanation: The predicted value is missing "Darolutamide", which is a key component of the gold value.
+Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control: 439 (67.5) vs 189 (37.4) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment: 458 (70.2) vs 188 (37.8) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Adverse Events - N (%) | Treatment-related Grade 5 | Control: 27 (4.0) vs 20 (4.0) => Not Equivalent, Explanation: The numeric N values (27 vs 20) are not exactly equal.
+Adverse Events - N (%) | Treatment-related Grade 5 | Treatment: 28 (4.1) vs 21 (4.2) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Author: Hussain M et al vs Maha Hussain, MD et al. => Equivalent, Explanation: "Hussain M et al" and "Maha Hussain, MD et al." refer to the same lead author and are semantically similar.
+COE_RCT_IND_OVERALL_RJ: V vs favorable => Equivalent, Explanation: In this context, 'V' is semantically similar to 'favorable'.
+Class of Agent in Treatment Arm 1: NHT; Chemotherapy vs androgen receptor pathway inhibitor => Not Equivalent, Explanation: "androgen receptor pathway inhibitor" is a specific type of agent, but does not encompass "NHT; Chemotherapy" entirely, as chemotherapy is a distinct class.
+Control Arm: D+ADT vs Placebo + docetaxel + ADT => Not Equivalent, Explanation: The predicted value includes "Placebo" which is not present in the gold value, making them not equivalent.
+Control Arm - N: 654.0 vs 655 => Not Equivalent, Explanation: The numeric values are not exactly equal.
+Docetaxel administration - N (%) | Control: 654 (100) vs 655 (100%) => Not Equivalent, Explanation: The numeric N values (654 vs 655) are not exactly equal.
+Docetaxel administration - N (%) | Treatment: 651 (100) vs 651 (100%) => Equivalent, Explanation: The numeric values for N and percentage are exactly equal, with only a minor formatting difference in the percentage sign.
+Full Pub or Abstract: Full Pub vs Full Pub => Equivalent, Explanation: Both values are exactly the same.
+Gleason score - N (%) | ≤ 7 | Control: 138 (21.1) vs 39 (17.1%) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Gleason score - N (%) | ≤ 7 | Treatment: 110 (22.4) vs 30 (19.3%) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Gleason score - N (%) | ≥ 8 | Control: 516 (78.9) vs 403 (79.3%) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Gleason score - N (%) | ≥ 8 | Treatment: 505 (77.6) vs 381 (76.7%) => Not Equivalent, Explanation: The numeric values for N and percentage are not exactly equal.
+Median Age (years) | Control: 67.0 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric value, while the predicted value indicates absence.
+Median Age (years) | Treatment: 67 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric value, while the predicted value indicates absence.
+Median Follow-Up Duration (mo): 43.7; 42.4 vs not present => Not Equivalent, Explanation: The gold value provides specific numeric values, while the predicted value indicates absence.
+Median OS (mo) | High volume | Control: 42.4 vs 39.7 => Not Equivalent, Explanation: The numeric values are not exactly equal.
+Median OS (mo) | High volume | Treatment: not present vs 42.4 => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides a specific numeric value.
+Median OS (mo) | Low volume | Control: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Median OS (mo) | Low volume | Treatment: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Median OS (mo) | Overall | Control: 42.4 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric value, while the predicted value indicates absence.
+Median OS (mo) | Overall | Treatment: 43.7 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric value, while the predicted value indicates absence.
+Median On-Treatment Duration (mo) | Treatment: 41 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric value, while the predicted value indicates absence.
+Median PFS (mo) | High volume | Control: not present vs 16.1 => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides a specific numeric value.
+Median PFS (mo) | High volume | Treatment: not present vs 16.4 => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides a specific numeric value.
+Median PFS (mo) | Low volume | Control: not present vs 19.0 => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides a specific numeric value.
+Median PFS (mo) | Low volume | Treatment: not present vs 25.8 => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides a specific numeric value.
+Median PFS (mo) | Overall | Control: 49.9 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric value, while the predicted value indicates absence.
+Median PFS (mo) | Overall | Treatment: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Metastases - N (%) | Bone | Control: not present vs 497 (100%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific numeric values.
+Metastases - N (%) | Bone | Treatment: not present vs 497 (100%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific numeric values.
+Metastases - N (%) | Liver | Control: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Metastases - N (%) | Liver | Treatment: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+Metastases - N (%) | Lungs | Control: not present vs not present => Equivalent, Explanation: Both values are exactly the same, indicating absence.
+
+Total evaluated columns: 40, Equivalent columns: 12, Percentage equivalent: 30.0%
+
+============================================================
+
+BATCH 2
+Tokens: 1127 input, 1815 output
+============================================================
+Metastases - N (%) | Lungs | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+Metastases - N (%) | Nodal | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+Metastases - N (%) | Nodal | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+Mode of metastases - N (%) | Metachronous | Control: 82 (12.5) vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data, while the predicted value indicates absence.
+Mode of metastases - N (%) | Metachronous | Treatment: 86 (13.2) vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data, while the predicted value indicates absence.
+Mode of metastases - N (%) | Synchronous | Control: 566 (86.5) vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data, while the predicted value indicates absence.
+Mode of metastases - N (%) | Synchronous | Treatment: 558 (85.7) vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data, while the predicted value indicates absence.
+NCT: NCT02799602 vs not present => Not Equivalent, Explanation: The gold value provides a specific NCT identifier, while the predicted value indicates absence.
+No. of Deaths - N | Control: 304.0 vs not present => Not Equivalent, Explanation: The gold value provides a specific numeric count, while the predicted value indicates absence.
+No. of Deaths - N | Treatment: 229.0 vs 8 => Not Equivalent, Explanation: The numeric values 229.0 and 8 are not exactly equal.
+Number of Arms Included: 2 vs 2 => Equivalent, Explanation: The numeric values are exactly equal.
+ORR - N (%) | Control | CR: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Control | Overall: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Control | PD: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Control | SD: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Treatment | CR: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Treatment | Overall: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Treatment | PD: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+ORR - N (%) | Treatment | SD: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+OS Rate (%) | High volume | Control: 47.2 at 4 y vs 34.6 => Not Equivalent, Explanation: The numeric values 47.2 and 34.6 are not exactly equal, and the temporal context "at 4 y" is missing from the predicted value.
+OS Rate (%) | High volume | Treatment: 59.1 at 4 y vs 39.5 => Not Equivalent, Explanation: The numeric values 59.1 and 39.5 are not exactly equal, and the temporal context "at 4 y" is missing from the predicted value.
+OS Rate (%) | Low volume | Control: 75.3 at 4 y vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data with context, while the predicted value indicates absence.
+OS Rate (%) | Low volume | Treatment: 83.1 at 4 y vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data with context, while the predicted value indicates absence.
+OS Rate (%) | Metachronous | Control: 63.4 at 4 y vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data with context, while the predicted value indicates absence.
+OS Rate (%) | Metachronous | Treatment: 74.4 at 4 y vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data with context, while the predicted value indicates absence.
+OS Rate (%) | Overall | Control: 50.4 at 4 y vs 75 => Not Equivalent, Explanation: The numeric values 50.4 and 75 are not exactly equal, and the temporal context "at 4 y" is missing from the predicted value.
+OS Rate (%) | Overall | Treatment: 62.7 at 4 y vs 80 => Not Equivalent, Explanation: The numeric values 62.7 and 80 are not exactly equal, and the temporal context "at 4 y" is missing from the predicted value.
+OS Rate (%) | Synchronous | Control: 52.1 at 4 y vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data with context, while the predicted value indicates absence.
+OS Rate (%) | Synchronous | Treatment: 63.1 at 4 y vs not present => Not Equivalent, Explanation: The gold value provides specific numeric data with context, while the predicted value indicates absence.
+Original/Follow Up: Follow up vs Original => Not Equivalent, Explanation: "Follow up" and "Original" have distinct meanings and are not semantically similar.
+PFS Rate (%) | Overall | Control: not present vs 55 (55%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific numeric data.
+PFS Rate (%) | Overall | Treatment: not present vs 60 (60%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific numeric data.
+PS - N (%) | 0 | Control: 462 (70.6) vs 349 (68.7%) => Not Equivalent, Explanation: Neither the count (462 vs 349) nor the percentage (70.6 vs 68.7) values are exactly equal.
+PS - N (%) | 0 | Treatment: 466 (71.6) vs 343 (69.0%) => Not Equivalent, Explanation: Neither the count (466 vs 343) nor the percentage (71.6 vs 69.0) values are exactly equal.
+PS - N (%) | 1-2 | Control: 190 (29.1) vs 157 (30.9%) => Not Equivalent, Explanation: Neither the count (190 vs 157) nor the percentage (29.1 vs 30.9) values are exactly equal.
+PS - N (%) | 1-2 | Treatment: 185 (28.4) vs 154 (31.0%) => Not Equivalent, Explanation: Neither the count (185 vs 154) nor the percentage (28.4 vs 31.0) values are exactly equal.
+Phase: 3 vs III => Equivalent, Explanation: "3" and "III" are different representations of the same clinical trial phase, making them semantically similar.
+Previous local therapy - N (%) | Orchiectomy | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+Previous local therapy - N (%) | Orchiectomy | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+Previous local therapy - N (%) | Prostatectomy | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are "not present", indicating equivalence.
+
+Total evaluated columns: 40, Equivalent columns: 16, Percentage equivalent: 40.0%
+
+============================================================
+
+BATCH 3
+Tokens: 1081 input, 1581 output
+============================================================
+Previous local therapy - N (%) | Prostatectomy | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Previous local therapy - N (%) | Radiotherapy | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Previous local therapy - N (%) | Radiotherapy | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Primary Endpoint(s): OS vs Overall survival (OS) => Equivalent, Explanation: "OS" is an abbreviation for "Overall survival", indicating a similar meaning.
+PubMed ID: 36795843 vs not present => Not Equivalent, Explanation: The gold value is a specific numeric ID, while the predicted value indicates absence. They are not equal.
+Quality of Life Scale: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Quality of Life reported: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Amer. Indian or Alaska Nat. | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Amer. Indian or Alaska Nat. | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Asian | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Asian | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Black or African American | Control: not present vs 14 (66.7%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Race - N (%) | Black or African American | Treatment: not present vs 62 (86.1%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Race - N (%) | Nat. Hawaiian or Pac. Islander | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Other | Control: not present vs 17 (48.6%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Race - N (%) | Other | Treatment: not present vs 14 (35%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Race - N (%) | Unknown | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | Unknown | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Race - N (%) | White | Control: not present vs 151 (58.3%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Race - N (%) | White | Treatment: not present vs 118 (45.7%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Region - N (%) | Africa | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | Africa | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | Asia | Control: not present vs 85 (44.6%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Region - N (%) | Asia | Treatment: not present vs 64 (36.6%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Region - N (%) | Europe | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | Europe | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | North America | Control: not present vs 46 (56.8%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Region - N (%) | North America | Treatment: not present vs 36 (37.9%) => Not Equivalent, Explanation: The gold value indicates absence, while the predicted value provides specific data. They do not have a similar meaning.
+Region - N (%) | Oceania | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | Oceania | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | South America | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Region - N (%) | South America | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+Reporting by prognostic groups - Y/N | High volume: No vs Y => Not Equivalent, Explanation: "No" and "Y" (meaning Yes) are opposite in meaning.
+Reporting by prognostic groups - Y/N | Low volume: No vs Y => Not Equivalent, Explanation: "No" and "Y" (meaning Yes) are opposite in meaning.
+Reporting by prognostic groups - Y/N | Metachronous: Yes vs Y => Equivalent, Explanation: "Y" is a common abbreviation for "Yes", indicating a similar meaning.
+Reporting by prognostic groups - Y/N | Synchronous: Yes vs Y => Equivalent, Explanation: "Y" is a common abbreviation for "Yes", indicating a similar meaning.
+Secondary Endpoint(s): Time to CRPC; Time to pain progression; SSE-free survival; Time to first SSE; Time to subsequent systemic anti-neoplastic therapy; Time to worsening of disease related physical symptoms; Time to initiation of opioid use for ≥7 consecutive days; Time to initiation of opioid use; Safety vs time to castration-resistant prostate cancer and subsequent systemic antineoplastic therapy => Not Equivalent, Explanation: The predicted value is a partial list of the gold value's endpoints, missing several key items.
+TTPSA (mo) | Control: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+TTPSA (mo) | Treatment: not present vs not present => Equivalent, Explanation: Both gold and predicted values are exactly the same.
+
+Total evaluated columns: 40, Equivalent columns: 26, Percentage equivalent: 65.0%
+
+============================================================
+
+BATCH 4
+Tokens: 577 input, 562 output
+============================================================
+Total Participants - N: 1306 vs 1306 => Equivalent, Explanation: Numeric values are exactly equal.
+Treatment Arm - N: 651 vs 651 => Equivalent, Explanation: Numeric values are exactly equal.
+Treatment Arm 1 Regimen: Darolutamide 600mg BID; Docetaxel 6 cycles at 75mg/m²/cycle, one cycle every 3 weeks; Standard androgen deprivation vs Darolutamide + ADT + Docetaxel => Not Equivalent, Explanation: The predicted value is a high-level summary of the components but lacks the detailed dosage, frequency, and duration information present in the gold value, which is crucial for a regimen description.
+Treatment Arm(s): DARO+D+ADT vs darolutamide + docetaxel + ADT => Equivalent, Explanation: The predicted value spells out the abbreviations used in the gold value, referring to the same treatment components.
+Treatment Class: ARPI; Chemotherapy vs Darolutamide plus androgen-deprivation therapy and docetaxel => Not Equivalent, Explanation: The gold value specifies the drug classes, while the predicted value lists the specific drugs. These are semantically different concepts for "Treatment Class".
+Trial Name: ARASENS vs ARASENS => Equivalent, Explanation: Non-numeric values are exactly equal.
+Type of Therapy: Triplet vs darolutamide plus androgen-deprivation therapy and docetaxel => Not Equivalent, Explanation: The gold value describes the type of therapy as a classification ("Triplet"), while the predicted value lists the specific components of that therapy. They are semantically different for "Type of Therapy".
+Volume of disease - N (%) | High | Control: 508 (77.6) vs 508 (77%) => Not Equivalent, Explanation: The numeric percentage values (77.6 vs 77) are not exactly equal.
+Volume of disease - N (%) | High | Treatment: 497 (76.3) vs 497 (77%) => Not Equivalent, Explanation: The numeric percentage values (76.3 vs 77) are not exactly equal.
+Volume of disease - N (%) | Low | Control: 146 (22.3) vs 146 (29%) => Not Equivalent, Explanation: The numeric percentage values (22.3 vs 29) are not exactly equal.
+Year: 2023 vs 2023 => Equivalent, Explanation: Numeric values are exactly equal.
+
+Total evaluated columns: 11, Equivalent columns: 5, Percentage equivalent: 45.45%
+
+============================================================
+SUMMARY
+============================================================
+Provider: gemini/gemini-2.5-flash
+Total Evaluated Columns: 131
+Correct Columns: 59
+Overall Accuracy: 45.04%
+
+Non-null Gold Columns: 67
+Non-null Correct Columns: 14
+Non-null Accuracy: 20.90%
+
+Total Input Tokens: 4004
+Total Output Tokens: 5727

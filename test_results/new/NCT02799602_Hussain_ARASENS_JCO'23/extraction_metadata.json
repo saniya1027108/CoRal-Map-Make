@@ -1,800 +1,800 @@
 {
     "Add-on Treatment": {
         "value": "androgen-deprivation therapy and docetaxel",
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment": {
-        "value": "64.9%",
-        "evidence": "Grade 3 or 4 AEs occurred in 64.9% of darolutamide patients",
-        "chunk_id": 0,
-        "page": 1
+        "value": "188 (37.8)",
+        "evidence": "Grade 3: 188 (37.8)",
+        "chunk_id": "combined",
+        "page": 13
     },
     "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control": {
-        "value": "64.2%",
-        "evidence": "64.2% of placebo patients in the high-volume subgroup",
-        "chunk_id": 0,
-        "page": 1
+        "value": "189 (37.4)",
+        "evidence": "Grade 3: 189 (37.4)",
+        "chunk_id": "combined",
+        "page": 13
     },
     "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 13
     },
     "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 13
     },
     "Adverse Events - N (%) | Treatment-related Grade 5 | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "21 (4.2)",
+        "evidence": "Grade 5 (death): 21 (4.2)",
+        "chunk_id": "combined",
+        "page": 13
     },
     "Adverse Events - N (%) | Treatment-related Grade 5 | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "20 (4.0)",
+        "evidence": "Grade 5 (death): 20 (4.0)",
+        "chunk_id": "combined",
+        "page": 13
     },
     "Author": {
         "value": "Maha Hussain, MD et al.",
-        "evidence": "Maha Hussain, MD1; Bertrand Tombal, MD, PhD2; Fred Saad, MD3; Karim Fizazi, MD, PhD4; Cora N. Sternberg, MD5; E. David Crawford, MD6; Neal Shore, MD7; Evgeny Kopyltsov, MD8; Arash Rezazadeh Kalebasty, MD9; Martin B¨ogemann, MD10; Dingwei Ye, MD11; Felipe Cruz, MD, PhD12; Hiroyoshi Suzuki, MD, PhD13; Shivani Kapur, MD14; Shankar Srinivasan, PhD15; Frank Verholen, MD16; Iris Kuss, MD17; Heikki Joensuu, MD18; and Matthew R. Smith, MD, PhD19",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "Maha Hussain, MD1; Bertrand Tombal, MD, PhD2; Fred Saad, MD3; Karim Fizazi, MD, PhD4; Cora N. Sternberg, MD5; E. David Crawford, MD6; Neal Shore, MD7; Evgeny Kopyltsov, MD8; Arash Rezazadeh Kalebasty, MD9; Martin Bögemann, MD10; Dingwei Ye, MD11; Felipe Cruz, MD, PhD12; Hiroyoshi Suzuki, MD, PhD13; Shivani Kapur, MD14; Shankar Srinivasan, PhD15; Frank Verholen, MD16; Iris Kuss, MD17; Heikki Joensuu, MD18; and Matthew R. Smith, MD, PhD19",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "COE_RCT_IND_OVERALL_RJ": {
         "value": "favorable",
-        "evidence": "Darolutamide increased overall survival (OS) versus placebo in patients with high-volume (hazard ratio [HR], 0.69; 95% CI, 0.57 to 0.82)",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "In patients with high-volume and high-risk/low-risk metastatic hormone-sensitive prostate cancer, treatment intensification with darolutamide, ADT, and docetaxel increased OS, consistent with the overall population.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Class of Agent in Treatment Arm 1": {
         "value": "androgen receptor pathway inhibitor",
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
+        "chunk_id": "combined",
+        "page": 2
     },
     "Control Arm": {
-        "value": "placebo",
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "value": "Placebo + docetaxel + ADT",
+        "evidence": "Patients were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Control Arm - N": {
-        "value": 652,
-        "evidence": "Analyzed for safety (n = 650d)",
-        "chunk_id": 11,
+        "value": "655",
+        "evidence": "Placebo + docetaxel + ADT (n = 655)",
+        "chunk_id": "combined",
         "page": 3
     },
     "Docetaxel administration - N (%) | Treatment": {
-        "value": "1305 (100%)",
+        "value": "651 (100%)",
         "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 3,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Docetaxel administration - N (%) | Control": {
-        "value": "1305 (100%)",
+        "value": "655 (100%)",
         "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 3,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Full Pub or Abstract": {
         "value": "Full Pub",
-        "evidence": "J Clin Oncol 00. © 2023 by American Society of Clinical Oncology",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "The study results were fully published in J Clin Oncol.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Gleason score - N (%) | ≤ 7 | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "30 (19.3%)",
+        "evidence": "30/96",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Gleason score - N (%) | ≤ 7 | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "39 (17.1%)",
+        "evidence": "39/87",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Gleason score - N (%) | ≥ 8 | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "381 (76.7%)",
+        "evidence": "381/497",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Gleason score - N (%) | ≥ 8 | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "403 (79.3%)",
+        "evidence": "403/508",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Median Age (years) | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 16
     },
     "Median Age (years) | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 16
     },
     "Median Follow-Up Duration (mo)": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Median OS (mo) | Overall | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 6
     },
     "Median OS (mo) | Overall | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 6
     },
     "Median OS (mo) | High volume | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "42.4",
+        "evidence": "42.4",
+        "chunk_id": "combined",
+        "page": 6
     },
     "Median OS (mo) | High volume | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "39.7",
+        "evidence": "39.7",
+        "chunk_id": "combined",
+        "page": 6
     },
     "Median OS (mo) | Low volume | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 6
     },
     "Median OS (mo) | Low volume | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 6
     },
     "Median On-Treatment Duration (mo) | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 12
     },
     "Median On-Treatment Duration (mo) | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 12
     },
     "Median PFS (mo) | Overall | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 7
     },
     "Median PFS (mo) | Overall | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 7
     },
     "Median PFS (mo) | High volume | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "16.4",
+        "evidence": "Median (months) | High Volume - Darolutamide (n=497) | 16.4",
+        "chunk_id": "combined",
+        "page": 7
     },
     "Median PFS (mo) | High volume | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "16.1",
+        "evidence": "Median (months) | High Volume - Placebo (n=508) | 16.1",
+        "chunk_id": "combined",
+        "page": 7
     },
     "Median PFS (mo) | Low volume | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "25.8",
+        "evidence": "Median (months) | Low Volume - Darolutamide (n=154) | 25.8",
+        "chunk_id": "combined",
+        "page": 7
     },
     "Median PFS (mo) | Low volume | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "19.0",
+        "evidence": "Median (months) | Low Volume - Placebo (n=146) | 19.0",
+        "chunk_id": "combined",
+        "page": 7
     },
     "Metastases - N (%) | Liver | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Liver | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Lungs | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Lungs | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Bone | Treatment": {
-        "value": "1005 (77%)",
-        "evidence": "1,005 (77%) had high-volume disease",
-        "chunk_id": 0,
-        "page": 1
+        "value": "497 (100%)",
+        "evidence": "High-volume disease was defined as visceral metastases and/or four or more bone metastases.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Bone | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "497 (100%)",
+        "evidence": "High-volume disease was defined as visceral metastases and/or four or more bone metastases.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Nodal | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Metastases - N (%) | Nodal | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Mode of metastases - N (%) | Synchronous | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Mode of metastases - N (%) | Synchronous | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Mode of metastases - N (%) | Metachronous | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Mode of metastases - N (%) | Metachronous | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "NCT": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "No. of Deaths - N | Treatment": {
-        "value": "229",
-        "evidence": "229 in the darolutamide group",
-        "chunk_id": 11,
-        "page": 3
+        "value": 8,
+        "evidence": "Death (n = 8)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "No. of Deaths - N | Control": {
-        "value": "304",
-        "evidence": "304 in the placebo group",
-        "chunk_id": 11,
-        "page": 3
+        "value": null,
+        "evidence": null,
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Number of Arms Included": {
         "value": 2,
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "Patients were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "ORR - N (%) | Treatment | Overall": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Treatment | CR": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Treatment | SD": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Treatment | PD": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Control | Overall": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Control | CR": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Control | SD": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "ORR - N (%) | Control | PD": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 2
     },
     "OS Rate (%) | Overall | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": 80,
+        "evidence": "Darolutamide 80%",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Overall | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": 75,
+        "evidence": "ADT + Docetaxel 75%",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Synchronous | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Synchronous | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Metachronous | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Metachronous | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | High volume | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": 39.5,
+        "evidence": "High Volume - Darolutamide (n=497) Overall Survival (months) 39.5",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | High volume | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": 34.6,
+        "evidence": "High Volume - Placebo (n=497) Overall Survival (months) 34.6",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Low volume | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "OS Rate (%) | Low volume | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Original/Follow Up": {
         "value": "Original",
-        "evidence": "ARASENS was a randomized, double-blind, placebo-controlled, phase III trial",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "ARASENS was designed before results were reported for the LATITUDE trial...",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "PFS Rate (%) | Overall | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "60 (60%)",
+        "evidence": "The table summarizes the outcomes of different treatment groups for metastatic hormone-sensitive prostate cancer.",
+        "chunk_id": "combined",
+        "page": 13
     },
     "PFS Rate (%) | Overall | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "55 (55%)",
+        "evidence": "The table summarizes the outcomes of different treatment groups for metastatic hormone-sensitive prostate cancer.",
+        "chunk_id": "combined",
+        "page": 13
     },
     "PS - N (%) | 0 | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "343 (69.0%)",
+        "evidence": "ECOG PS*, No. (%): 0 | 343 (69.0)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "PS - N (%) | 0 | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "349 (68.7%)",
+        "evidence": "ECOG PS*, No. (%): 0 | 349 (68.7)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "PS - N (%) | 1-2 | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "154 (31.0%)",
+        "evidence": "ECOG PS*, No. (%): 1 | 154 (31.0)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "PS - N (%) | 1-2 | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "157 (30.9%)",
+        "evidence": "ECOG PS*, No. (%): 1 | 157 (30.9)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Phase": {
         "value": "III",
         "evidence": "ARASENS was a randomized, double-blind, placebo-controlled, phase III trial",
-        "chunk_id": 0,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Previous local therapy - N (%) | Prostatectomy | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Previous local therapy - N (%) | Prostatectomy | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Previous local therapy - N (%) | Orchiectomy | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Previous local therapy - N (%) | Orchiectomy | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Previous local therapy - N (%) | Radiotherapy | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Previous local therapy - N (%) | Radiotherapy | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Primary Endpoint(s)": {
-        "value": "overall survival (OS)",
-        "evidence": "Darolutamide increased overall survival (OS) versus placebo",
-        "chunk_id": 0,
-        "page": 1
+        "value": "Overall survival (OS)",
+        "evidence": "Darolutamide increased overall survival (OS) versus placebo in patients with high-volume (hazard ratio [HR], 0.69; 95% CI, 0.57 to 0.82)...",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "PubMed ID": {
-        "value": "10.1200/JCO.23.00041",
-        "evidence": "DOI https://doi.org/10.1200/JCO.23.00041",
-        "chunk_id": 2,
-        "page": 1
+        "value": null,
+        "evidence": null,
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Quality of Life Scale": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": 17
     },
     "Quality of Life reported": {
-        "value": "No",
+        "value": null,
         "evidence": null,
-        "chunk_id": 1,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | White | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "118 (45.7%)",
+        "evidence": "Darolutamide + ADT + Docetaxel: 118/258",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | White | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "151 (58.3%)",
+        "evidence": "Placebo + ADT + Docetaxel: 151/259",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Black or African American | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "62 (86.1%)",
+        "evidence": "Darolutamide + ADT + Docetaxel: 62/72",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Black or African American | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "14 (66.7%)",
+        "evidence": "Placebo + ADT + Docetaxel: 14/21",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Asian | Treatment": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Asian | Control": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Nat. Hawaiian or Pac. Islander | Control": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Amer. Indian or Alaska Nat. | Treatment": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Amer. Indian or Alaska Nat. | Control": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Other | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "14 (35%)",
+        "evidence": "Other or not reported: 14/40",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Other | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "17 (48.6%)",
+        "evidence": "Other or not reported: 17/35",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Unknown | Treatment": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Race - N (%) | Unknown | Control": {
-        "value": null,
+        "value": "NA",
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | North America | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "36 (37.9%)",
+        "evidence": "36/95",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | North America | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "46 (56.8%)",
+        "evidence": "46/81",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | South America | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | South America | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Europe | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Europe | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Africa | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Africa | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Asia | Treatment": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "64 (36.6%)",
+        "evidence": "64/175",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Asia | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "85 (44.6%)",
+        "evidence": "85/191",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Oceania | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Region - N (%) | Oceania | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Reporting by prognostic groups - Y/N | Synchronous": {
-        "value": "yes",
-        "evidence": "the effect of darolutamide on OS was favorable in patients with de novo (HR, 0.71; 95% CI, 0.59 to 0.85) and recurrent (HR, 0.61; 95% CI, 0.35 to 1.05) metastatic hormone-sensitive prostate cancer.",
-        "chunk_id": 3,
-        "page": 1
+        "value": "Y",
+        "evidence": "The presence of metastatic disease at initial diagnosis (de novo or synchronous disease) is associated with poorer outcomes",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Reporting by prognostic groups - Y/N | Metachronous": {
-        "value": "yes",
-        "evidence": "the effect of darolutamide on OS was favorable in patients with de novo (HR, 0.71; 95% CI, 0.59 to 0.85) and recurrent (HR, 0.61; 95% CI, 0.35 to 1.05) metastatic hormone-sensitive prostate cancer.",
-        "chunk_id": 3,
-        "page": 1
+        "value": "Y",
+        "evidence": "developing metastases after local therapy (recurrent or metachronous disease)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Reporting by prognostic groups - Y/N | High volume": {
         "value": "Y",
         "evidence": "Darolutamide increased overall survival (OS) versus placebo in patients with high-volume (hazard ratio [HR], 0.69; 95% CI, 0.57 to 0.82)",
-        "chunk_id": 0,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Reporting by prognostic groups - Y/N | Low volume": {
         "value": "Y",
         "evidence": "in the smaller low-volume subgroup, the results were also suggestive of survival benefit (HR, 0.68; 95% CI, 0.41 to 1.13)",
-        "chunk_id": 0,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Secondary Endpoint(s)": {
         "value": "time to castration-resistant prostate cancer and subsequent systemic antineoplastic therapy",
         "evidence": "Darolutamide improved clinically relevant secondary end points of time to castration-resistant prostate cancer and subsequent systemic antineoplastic therapy versus placebo in all disease volume and risk subgroups.",
-        "chunk_id": 0,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "TTPSA (mo) | Treatment": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "TTPSA (mo) | Control": {
         "value": null,
         "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Total Participants - N": {
-        "value": "1305",
-        "evidence": "Of 1,305 patients, 1,005 (77%) had high-volume disease and 912 (70%) had high-risk disease.",
-        "chunk_id": 0,
-        "page": 1
+        "value": "1306",
+        "evidence": "Patients randomly assigned (N = 1,306)",
+        "chunk_id": "combined",
+        "page": 3
     },
     "Treatment Arm - N": {
-        "value": 650,
-        "evidence": "Patients were randomly assigned to oral darolutamide 600 mg twice daily or matched placebo",
-        "chunk_id": 0,
-        "page": 1
+        "value": "651",
+        "evidence": "Darolutamide + docetaxel + ADT (n = 651)",
+        "chunk_id": "combined",
+        "page": 3
     },
     "Treatment Arm 1 Regimen": {
-        "value": "darolutamide plus androgen-deprivation therapy and docetaxel",
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "value": "Darolutamide + ADT + Docetaxel",
+        "evidence": "patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo, plus androgen-deprivation therapy and docetaxel.",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Treatment Arm(s)": {
-        "value": "darolutamide",
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "value": "darolutamide + docetaxel + ADT",
+        "evidence": "Patients were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
+        "chunk_id": "combined",
+        "page": 15
     },
     "Treatment Class": {
-        "value": "Combination therapy with darolutamide, androgen-deprivation therapy, and docetaxel",
+        "value": "Darolutamide plus androgen-deprivation therapy and docetaxel",
         "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Trial": {
         "value": "ARASENS",
-        "evidence": "In ARASENS, patients with metastatic hormone-sensitive prostate cancer were randomly assigned to double-blind treatment with either darolutamide or placebo",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "ARASENS was designed before results were reported for the LATITUDE trial",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Trial Name": {
         "value": "ARASENS",
-        "evidence": "In ARASENS, patients with metastatic hormone-sensitive prostate cancer were randomly assigned to double-blind treatment with either darolutamide or placebo",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "ARASENS was designed before results were reported for the LATITUDE trial",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Type of Therapy": {
         "value": "darolutamide plus androgen-deprivation therapy and docetaxel",
-        "evidence": "Patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel.",
-        "chunk_id": 0,
-        "page": 1
+        "evidence": "patients with metastatic hormone-sensitive prostate cancer were randomly assigned to darolutamide or placebo plus androgen-deprivation therapy and docetaxel",
+        "chunk_id": "combined",
+        "page": 12
     },
     "Volume of disease - N (%) | High | Treatment": {
-        "value": "1005 (77%)",
-        "evidence": "1,005 (77%) had high-volume disease",
-        "chunk_id": 0,
-        "page": 1
+        "value": "497 (77%)",
+        "evidence": "Of 1,305 patients, 1,005 (77%) had high-volume disease",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Volume of disease - N (%) | High | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "508 (77%)",
+        "evidence": "High Volume - Placebo (n=508)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Volume of disease - N (%) | Low | Control": {
-        "value": null,
-        "evidence": null,
-        "chunk_id": null,
-        "page": null
+        "value": "146 (29%)",
+        "evidence": "Low Volume - Placebo (n=146)",
+        "chunk_id": "combined",
+        "page": "1-17"
     },
     "Year": {
-        "value": "2023",
+        "value": 2023,
         "evidence": "published at ascopubs.org/journal/jco on February 16, 2023",
-        "chunk_id": 0,
-        "page": 1
+        "chunk_id": "combined",
+        "page": "1-17"
     }
 }

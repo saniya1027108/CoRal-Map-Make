@@ -1,0 +1,38 @@
+You are provided with:
+
+A set of columns along with their definitions.
+A retrieved chunk from an unstructured document corpus that may include markdown formatted tables or free flow text.
+Task: For each column, extract the required value based on its definition by following these steps:
+
+Identify Relevant Keywords & Synonyms:
+
+Read the definition for each column.
+Look for keywords and synonyms. For example, for a column involving "synchronous metastases," search for terms like “synchronous metastases,” “concurrent metastases,” or “metastases at time of diagnosis.”
+For trial arms, recognize that “control arm” can also be referred to as “placebo arm” or “standard-of-care,” while “treatment arm” might be noted as “experimental arm” or “test arm.”
+
+Locate the Data in the Chunk:
+Examine the chunk for relevant sections, tables, or free flow text that mention overall survival (OS) outcomes.
+If the data is in markdown formatted tables, correctly parse the table cells to locate the hazard ratio (HR) and confidence intervals (CI).
+In free flow text, locate the sentences that explicitly describe the hazard ratios and confidence intervals using formats like “HR = X.XX (95% CI: Y.YY–Z.ZZ).”
+
+Verify Correct Subgroup or Arm:
+Ensure that the extracted data corresponds to the specific subgroup or trial arm as defined (e.g., only include data for the control arm if the definition requires it).
+
+Extract and Interpret the Information:
+Extract the numeric or textual information (e.g., HR and CI) exactly as presented.
+If multiple data points are available, choose the one explicitly labeled for the specified subgroup.
+If the definition implies a summation or calculation across multiple values, clearly perform and present the calculation as instructed.
+Handling Missing Data:
+
+Special Handling of Tables:
+If you are given a markdown formatted table, ensure to extract the values from the correct cells. Do so by first recreating the table in markdown format to visualize the data and then locate the correct cells to be used for answering. Note that the you  may need to use multiple cells to get the correct answer. For example. if we need to calculate the number of patients with metastases in the treatment arm, you may need to sum the values from multiple cells. (high volume+low_volume) or (high risk + low risk) etc. Generate a plan to correctly infer the value asked for and then answer it.
+
+If you cannot locate the required information for a column, mark its value as “not present.”
+Compile the Final Output:
+
+Consolidate the extracted values for all columns.
+Output Format:
+
+Return your final answer as a JSON object following this exact format: { "Column Name 1": "Extracted Value 1", "Column Name 2": "Extracted Value 2", ... }
+
+Ensure that each column name is exactly as provided and that every extracted value is accurately represented or marked as “not present” if no data is found.

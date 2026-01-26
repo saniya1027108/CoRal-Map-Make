@@ -48,7 +48,6 @@ def ask_llm_text(prompt_path, text, model_type=None):
         prompt=full_prompt,
         system_prompt="You are an expert evaluator for clinical trial data extraction.",
         temperature=0.0,
-        max_tokens=60000
     )
     
     if response.success:
@@ -76,7 +75,6 @@ def generate_text(prompt: str, system_prompt: str = None, temperature: float = 0
         prompt=prompt,
         system_prompt=system_prompt,
         temperature=temperature,
-        max_tokens=60000
     )
     
     if response.success:

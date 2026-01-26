@@ -76,7 +76,7 @@ def is_value_null(value):
 def get_comparison_status(extracted_val, gold_val):
     """
     Determine comparison status.
-    Returns: 'both_null', 'missing', 'has_value'
+    Returns: 'both_null', 'missing', 'correct', 'incorrect'
     """
     extracted_null = is_value_null(extracted_val)
     gold_null = is_value_null(gold_val)
@@ -85,8 +85,17 @@ def get_comparison_status(extracted_val, gold_val):
         return 'both_null'  # Gray
     elif extracted_null and not gold_null:
         return 'missing'  # Red - extracted is null but gold exists
+    elif not extracted_null and gold_null:
+        return 'incorrect'  # Yellow - extracted has value but no gold to compare
     else:
-        return 'has_value'  # Yellow - extracted has value (regardless of gold)
+        # Both have values - compare them
+        # Normalize strings for comparison
+        extracted_str = str(extracted_val).strip().lower()
+        gold_str = str(gold_val).strip().lower()
+        if extracted_str == gold_str:
+            return 'correct'  # Green - values match
+        else:
+            return 'incorrect'  # Yellow - values don't match
 
 def generate_html_report(csv_path, output_path=None):
     """Generate HTML visualization of extraction results."""
@@ -112,7 +121,8 @@ def generate_html_report(csv_path, output_path=None):
     # Count by comparison status
     both_null_count = 0
     missing_count = 0
-    has_value_count = 0
+    correct_count = 0
+    incorrect_count = 0
     
     # Group columns by category
     categories = defaultdict(list)
@@ -131,8 +141,10 @@ def generate_html_report(csv_path, output_path=None):
             both_null_count += 1
         elif status == 'missing':
             missing_count += 1
-        elif status == 'has_value':
-            has_value_count += 1
+        elif status == 'correct':
+            correct_count += 1
+        elif status == 'incorrect':
+            incorrect_count += 1
         
         # Get evidence from metadata if available
         evidence = None
@@ -152,6 +164,7 @@ def generate_html_report(csv_path, output_path=None):
         })
     
     # Calculate percentages
+    has_value_count = correct_count + incorrect_count
     completion_pct = (has_value_count / total_cols * 100) if total_cols > 0 else 0
     
     # Sort columns within each category according to mapping order
@@ -245,7 +258,8 @@ def generate_html_report(csv_path, output_path=None):
             letter-spacing: 1px;
         }}
         
-        .stat-card.has-value .number {{ color: #ffc107; }}
+        .stat-card.correct .number {{ color: #28a745; }}
+        .stat-card.incorrect .number {{ color: #ffc107; }}
         .stat-card.missing .number {{ color: #dc3545; }}
         .stat-card.both-null .number {{ color: #6c757d; }}
         .stat-card.total .number {{ color: #667eea; }}
@@ -312,7 +326,12 @@ def generate_html_report(csv_path, output_path=None):
             transform: translateY(-2px);
         }}
         
-        .column-card.has_value {{
+        .column-card.correct {{
+            background: #d4edda;
+            border-color: #28a745;
+        }}
+        
+        .column-card.incorrect {{
             background: #fff3cd;
             border-color: #ffc107;
         }}
@@ -380,7 +399,12 @@ def generate_html_report(csv_path, output_path=None):
             margin-top: 8px;
         }}
         
-        .status-badge.has_value {{
+        .status-badge.correct {{
+            background: #28a745;
+            color: white;
+        }}
+        
+        .status-badge.incorrect {{
             background: #ffc107;
             color: #000;
         }}
@@ -463,9 +487,17 @@ def generate_html_report(csv_path, output_path=None):
         </div>
         
         <div class="summary">
-            <div class="stat-card has-value">
-                <div class="number">{has_value_count}</div>
-                <div class="label">Has Value</div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="number" style="color: white;">{has_value_count}</div>
+                <div class="label" style="color: white;">Has Value</div>
+            </div>
+            <div class="stat-card correct">
+                <div class="number">{correct_count}</div>
+                <div class="label">├─ Correct</div>
+            </div>
+            <div class="stat-card incorrect">
+                <div class="number">{incorrect_count}</div>
+                <div class="label">└─ Incorrect</div>
             </div>
             <div class="stat-card missing">
                 <div class="number">{missing_count}</div>
@@ -477,7 +509,7 @@ def generate_html_report(csv_path, output_path=None):
             </div>
             <div class="stat-card total">
                 <div class="number">{total_cols}</div>
-                <div class="label">Total</div>
+                <div class="label">Total Fields</div>
             </div>
         </div>
         
@@ -494,6 +526,8 @@ def generate_html_report(csv_path, output_path=None):
                 <strong>Quick Filter:</strong>
                 <button class="filter-button active" onclick="filterColumns('all')">All</button>
                 <button class="filter-button" onclick="filterColumns('has_value')">Has Value</button>
+                <button class="filter-button" onclick="filterColumns('correct')">├─ Correct</button>
+                <button class="filter-button" onclick="filterColumns('incorrect')">└─ Incorrect</button>
                 <button class="filter-button" onclick="filterColumns('missing')">Missing</button>
                 <button class="filter-button" onclick="filterColumns('both_null')">N/A</button>
             </div>
@@ -505,7 +539,7 @@ def generate_html_report(csv_path, output_path=None):
             continue
         
         cols = categories[category]
-        has_value_in_cat = sum(1 for c in cols if c['status'] == 'has_value')
+        has_value_in_cat = sum(1 for c in cols if c['status'] in ['correct', 'incorrect'])
         total_in_cat = len(cols)
         
         html += f"""
@@ -544,7 +578,8 @@ def generate_html_report(csv_path, output_path=None):
             
             # Status badge
             status_labels = {
-                'has_value': '🟡 Has Value',
+                'correct': '🟢 Has Value, Correct',
+                'incorrect': '🟡 Has Value, Incorrect',
                 'missing': '🔴 Missing',
                 'both_null': '⚪ N/A'
             }
@@ -583,6 +618,9 @@ def generate_html_report(csv_path, output_path=None):
             document.querySelectorAll('.column-card').forEach(card => {
                 if (filter === 'all') {
                     card.style.display = 'block';
+                } else if (filter === 'has_value') {
+                    // Show both correct and incorrect
+                    card.style.display = (card.dataset.status === 'correct' || card.dataset.status === 'incorrect') ? 'block' : 'none';
                 } else {
                     card.style.display = card.dataset.status === filter ? 'block' : 'none';
                 }

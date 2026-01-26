@@ -1,0 +1,13 @@
+{
+    "total_columns": 131,
+    "correct_columns": 59,
+    "overall_accuracy": 45.038167938931295,
+    "non_null_total": 67,
+    "non_null_correct": 14,
+    "non_null_accuracy": 20.8955223880597,
+    "missing_columns": 0,
+    "total_input_tokens": 4004,
+    "total_output_tokens": 5727,
+    "evaluation_provider": "gemini",
+    "evaluation_model": "gemini-2.5-flash"
+}

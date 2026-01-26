@@ -1,0 +1,112 @@
+Missing Columns Report
+Total Missing: 108
+============================================================
+
+Race - N (%) | Amer. Indian or Alaska Nat. | Treatment
+PFS Rate (%) | Overall | Treatment
+Race - N (%) | Nat. Hawaiian or Pac. Islander | Control
+ORR - N (%) | Control | Overall
+Region - N (%) | South America | Control
+Race - N (%) | Unknown | Treatment
+Reporting by prognostic groups - Y/N | Synchronous
+COE_RCT_IND_OVERALL_RJ
+Median OS (mo) | Overall | Control
+Mode of metastases - N (%) | Synchronous | Control
+Region - N (%) | Europe | Treatment
+Metastases - N (%) | Lungs | Control
+Control Arm - N
+Mode of metastases - N (%) | Metachronous | Treatment
+Region - N (%) | North America | Control
+Median OS (mo) | Overall | Treatment
+No. of Deaths - N | Treatment
+Previous local therapy - N (%) | Prostatectomy | Control
+OS Rate (%) | Overall | Control
+PFS Rate (%) | Overall | Control
+Race - N (%) | White | Treatment
+Median PFS (mo) | Low volume | Control
+OS Rate (%) | Overall | Treatment
+Median PFS (mo) | Overall | Control
+Region - N (%) | Africa | Treatment
+Race - N (%) | Unknown | Control
+Docetaxel administration - N (%) | Treatment
+Reporting by prognostic groups - Y/N | Metachronous
+Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment
+Gleason score - N (%) | ≤ 7 | Control
+Median Age (years) | Control
+Race - N (%) | Black or African American | Treatment
+PS - N (%) | 0 | Control
+Secondary Endpoint(s)
+Median PFS (mo) | High volume | Control
+Reporting by prognostic groups - Y/N | High volume
+Median OS (mo) | Low volume | Control
+Class of Agent in Treatment Arm 1
+Docetaxel administration - N (%) | Control
+TTPSA (mo) | Treatment
+Race - N (%) | White | Control
+Median Follow-Up Duration (mo)
+Full Pub or Abstract
+Gleason score - N (%) | ≥ 8 | Treatment
+ORR - N (%) | Control | CR
+Phase
+Author
+Control Arm
+Number of Arms Included
+Metastases - N (%) | Liver | Treatment
+Metastases - N (%) | Liver | Control
+Median PFS (mo) | High volume | Treatment
+PS - N (%) | 0 | Treatment
+Adverse Events - N (%) | Treatment-related Grade 5 | Treatment
+PS - N (%) | 1-2 | Treatment
+ORR - N (%) | Control | PD
+Gleason score - N (%) | ≤ 7 | Treatment
+Adverse Events - N (%) | Treatment-related Grade 5 | Control
+Race - N (%) | Asian | Treatment
+Race - N (%) | Other | Control
+Region - N (%) | South America | Treatment
+Previous local therapy - N (%) | Orchiectomy | Control
+ORR - N (%) | Treatment | PD
+ORR - N (%) | Treatment | Overall
+Region - N (%) | Asia | Treatment
+Metastases - N (%) | Bone | Treatment
+Metastases - N (%) | Bone | Control
+Reporting by prognostic groups - Y/N | Low volume
+Region - N (%) | Oceania | Control
+OS Rate (%) | High volume | Treatment
+Region - N (%) | Europe | Control
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control
+Median OS (mo) | Low volume | Treatment
+Original/Follow Up
+Quality of Life reported
+Median Age (years) | Treatment
+Median PFS (mo) | Low volume | Treatment
+No. of Deaths - N | Control
+Region - N (%) | Asia | Control
+Race - N (%) | Other | Treatment
+Region - N (%) | Oceania | Treatment
+OS Rate (%) | Low volume | Control
+OS Rate (%) | Low volume | Treatment
+Median OS (mo) | High volume | Treatment
+Median OS (mo) | High volume | Control
+OS Rate (%) | Metachronous | Treatment
+Region - N (%) | Africa | Control
+Previous local therapy - N (%) | Orchiectomy | Treatment
+Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment
+Mode of metastases - N (%) | Synchronous | Treatment
+OS Rate (%) | Synchronous | Treatment
+Race - N (%) | Black or African American | Control
+Median On-Treatment Duration (mo) | Treatment
+ORR - N (%) | Control | SD
+TTPSA (mo) | Control
+PS - N (%) | 1-2 | Control
+ORR - N (%) | Treatment | SD
+NCT
+Quality of Life Scale
+Median PFS (mo) | Overall | Treatment
+Region - N (%) | North America | Treatment
+Race - N (%) | Amer. Indian or Alaska Nat. | Control
+OS Rate (%) | Metachronous | Control
+ORR - N (%) | Treatment | CR
+OS Rate (%) | High volume | Control
+OS Rate (%) | Synchronous | Control
+Gleason score - N (%) | ≥ 8 | Control
+Race - N (%) | Asian | Control

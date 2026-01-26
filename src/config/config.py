@@ -63,14 +63,14 @@ EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 USE_RETRIEVAL = True
 
 # Retrieval strategy: "bm25" (keyword), "semantic" (embedding), "hybrid" (both)
-RETRIEVAL_STRATEGY = "bm25"  # Options: "bm25", "semantic", "hybrid"
+RETRIEVAL_STRATEGY = "hybrid"  # Options: "bm25", "semantic", "hybrid"
 
 # Number of chunks to retrieve per group
-RETRIEVAL_TOP_N = 5
+RETRIEVAL_TOP_N = 3
 
 # For hybrid strategy: weights for BM25 and semantic scores (should sum to ~1.0)
-RETRIEVAL_BM25_WEIGHT = 0.5
-RETRIEVAL_SEMANTIC_WEIGHT = 0.5
+RETRIEVAL_BM25_WEIGHT = 0.7
+RETRIEVAL_SEMANTIC_WEIGHT = 0.3
 
 # Maximum number of chunks to combine in a single LLM call
 # Set to None to combine all retrieved chunks
