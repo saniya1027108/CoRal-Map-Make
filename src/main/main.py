@@ -57,7 +57,8 @@ if __name__ == "__main__":
     chunk_json   = out_dir / "pdf_chunked.json"
     table_csv    = out_dir / "extracted_table.csv"
     meta_json    = out_dir / "extraction_metadata.json"
-    context_txt  = out_dir / "context_text.txt"
+    context_txt  = out_dir / "context_text.txt"  # DEPRECATED - kept for backwards compatibility
+    extraction_guide = out_dir / "extraction_guide.txt"  # NEW - structured extraction guide
 
     metrics_dir = out_dir / "metrics"
     metrics_dir.mkdir(exist_ok=True)
@@ -162,8 +163,10 @@ if __name__ == "__main__":
         print(f"   CSV : {table_csv.name}")
     if meta_json.exists():
         print(f"   Meta: {meta_json.name}")
+    if extraction_guide.exists():
+        print(f"   Guide: {extraction_guide.name}")
     if context_txt.exists():
-        print(f"   Context: {context_txt.name}")
+        print(f"   Context (deprecated): {context_txt.name}")
     if metrics_dir.exists():
         print(f"   Eval: metrics/evaluation_summary.json")
         print(f"   Eval (full): metrics/evaluation_results.txt")

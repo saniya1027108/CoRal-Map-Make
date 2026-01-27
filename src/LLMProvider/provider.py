@@ -18,7 +18,8 @@ from groq import Groq
 from dotenv import load_dotenv
 
 # Gemini API import
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 from .models import get_model_pricing
 
@@ -104,8 +105,7 @@ class LLMProvider:
             api_key = os.getenv("GEMINI_API_KEY")
             if not api_key:
                 raise ValueError("GEMINI_API_KEY environment variable not set")
-            genai.configure(api_key=api_key)
-            self._client = genai.GenerativeModel(self.model)
+            self._client = genai.Client(api_key=api_key)
         
         elif self.provider == "openai":
             api_key = os.getenv("OPENAI_API_KEY")
@@ -189,20 +189,25 @@ class LLMProvider:
         temperature: float, 
         max_tokens: int
     ) -> LLMResponse:
-        """Generate using Gemini API."""
-        # Gemini API expects a list of messages (role/content) or just a string
-        full_prompt = f"{system_prompt}\n\n{prompt}" if system_prompt else prompt
-        response = self._client.generate_content(
-            full_prompt,
-            generation_config={
-                "temperature": temperature,
-                "max_output_tokens": max_tokens
-            }
+        """Generate using Gemini API with proper system_instruction."""
+        # Build config with system_instruction inside GenerateContentConfig
+        config = types.GenerateContentConfig(
+            temperature=temperature,
+            max_output_tokens=max_tokens,
+            system_instruction=system_prompt if system_prompt else None
         )
+        
+        response = self._client.models.generate_content(
+            model=self.model,
+            contents=prompt,  # Can be string or list
+            config=config
+        )
+        
         # Gemini API: usage_metadata may not always be present
         usage = getattr(response, 'usage_metadata', None)
         input_tokens = getattr(usage, 'prompt_token_count', 0) if usage else 0
         output_tokens = getattr(usage, 'candidates_token_count', 0) if usage else 0
+        
         return LLMResponse(
             text=response.text.strip(),
             input_tokens=input_tokens,
@@ -252,7 +257,8 @@ class LLMProvider:
         prompt: str,
         image: Union[Image.Image, bytes],
         temperature: float = 0.0,
-        max_tokens: int = 32000
+        max_tokens: int = 32000,
+        system_prompt: str = None
     ) -> LLMResponse:
         """
         Generate response with image input (multimodal).
@@ -260,7 +266,7 @@ class LLMProvider:
         """
         try:
             if self.provider == "gemini":
-                return self._generate_gemini_api_with_image(prompt, image, temperature, max_tokens)
+                return self._generate_gemini_api_with_image(prompt, image, temperature, max_tokens, system_prompt)
             if self.provider == "openai" and "gpt-4" in self.model:
                 return self._generate_openai_with_image(prompt, image, temperature, max_tokens)
             if self.provider == "deepinfra":
@@ -286,9 +292,10 @@ class LLMProvider:
         prompt: str, 
         image: Union[Image.Image, bytes], 
         temperature: float, 
-        max_tokens: int
+        max_tokens: int,
+        system_prompt: str = None
     ) -> LLMResponse:
-        """Generate with image using Gemini API."""
+        """Generate with image using Gemini API with proper system_instruction."""
         if isinstance(image, Image.Image):
             buf = BytesIO()
             image.save(buf, format="PNG")
@@ -300,12 +307,17 @@ class LLMProvider:
             "mime_type": "image/png",
             "data": image_bytes
         }
-        response = self._client.generate_content(
-            [prompt, gemini_image],
-            generation_config={
-                "temperature": temperature,
-                "max_output_tokens": max_tokens
-            }
+        
+        config = types.GenerateContentConfig(
+            temperature=temperature,
+            max_output_tokens=max_tokens,
+            system_instruction=system_prompt if system_prompt else None
+        )
+        
+        response = self._client.models.generate_content(
+            model=self.model,
+            contents=[prompt, gemini_image],  # List with prompt and image
+            config=config
         )
         usage = getattr(response, 'usage_metadata', None)
         input_tokens = getattr(usage, 'prompt_token_count', 0) if usage else 0

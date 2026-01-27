@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import numpy as np
 import fitz
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from ..utils.logging_utils import setup_logger
 from ..model_handling.llm_extraction import extract_group_from_chunk
@@ -17,6 +17,7 @@ from ..config.config import (
     RETRIEVAL_BM25_WEIGHT,
     RETRIEVAL_SEMANTIC_WEIGHT,
     RETRIEVAL_MAX_COMBINED_CHUNKS
+    MAX_WORKERS
 )
 
 logger = setup_logger("table_filling")
@@ -70,6 +71,8 @@ def save_metadata_safely(output_data, metadata_path):
 def extract_first_n_pages_text(pdf_path, n=2):
     """
     Extracts and concatenates the text from the first n pages of a PDF.
+    
+    DEPRECATED: Use get_or_generate_context() instead for better extraction guide.
     """
     doc = fitz.open(pdf_path)
     texts = []
@@ -78,6 +81,64 @@ def extract_first_n_pages_text(pdf_path, n=2):
         texts.append(page.get_text())
     doc.close()
     return "\n\n".join(texts)
+
+
+def get_or_generate_context(pdf_path, output_dir, use_file_api=None):
+    """
+    Load cached extraction guide or generate new one using Gemini File API.
+    
+    Args:
+        pdf_path: Path to PDF file
+        output_dir: Directory to save/load extraction_guide.txt
+        use_file_api: Override USE_FILE_API_CONTEXT config (optional)
+    
+    Returns:
+        Formatted context text for system_prompt
+    
+    Raises:
+        Exception: If generation fails
+    """
+    from ..config.config import USE_FILE_API_CONTEXT, CONTEXT_MAX_RETRIES
+    from ..utils.context_generator import generate_trial_context
+    
+    # Check if we should use new File API approach
+    if use_file_api is None:
+        use_file_api = USE_FILE_API_CONTEXT
+    
+    if not use_file_api:
+        # Fall back to old approach
+        logger.info("Using legacy 2-page text context")
+        return extract_first_n_pages_text(pdf_path, n=2)
+    
+    # Check for cached guide
+    guide_path = Path(output_dir) / "extraction_guide.txt"
+    
+    if guide_path.exists():
+        logger.info(f"✅ Loading cached extraction guide from {guide_path}")
+        try:
+            context_text = guide_path.read_text(encoding='utf-8')
+            logger.info(f"Loaded guide ({len(context_text)} chars)")
+            return context_text
+        except Exception as e:
+            logger.warning(f"Failed to load cached guide: {e}. Regenerating...")
+    
+    # Generate new extraction guide
+    logger.info("🔄 Generating new extraction guide via Gemini File API...")
+    try:
+        context_text = generate_trial_context(
+            pdf_path=pdf_path,
+            max_retries=CONTEXT_MAX_RETRIES
+        )
+        
+        # Save to cache
+        guide_path.write_text(context_text, encoding='utf-8')
+        logger.info(f"✅ Extraction guide saved to {guide_path}")
+        
+        return context_text
+        
+    except Exception as e:
+        logger.error(f"❌ Context generation failed: {e}")
+        raise Exception(f"Failed to generate extraction guide: {e}")
 
 def llm_call_and_log(chunk, group, context_text, metrics_dir, group_label, chunk_idx):
     # Only unpack 3 values as returned by extract_group_from_chunk
@@ -100,7 +161,7 @@ def fill_table_all_chunks(chunks, groups, pdf_path, output_path="extracted_table
     monitor = PerformanceMonitor(metrics_dir)
     monitor.start_monitoring()
 
-    context_text = extract_first_n_pages_text(pdf_path, n=2)
+    context_text = get_or_generate_context(pdf_path, out_dir)
     
     # Initialize output
     output_data = {}
@@ -216,8 +277,8 @@ def fill_table_with_retrieval(chunks, groups, pdf_path, output_path="extracted_t
     monitor = PerformanceMonitor(metrics_dir)
     monitor.start_monitoring()
     
-    # Extract context from first 2 pages
-    context_text = extract_first_n_pages_text(pdf_path, n=2)
+    # Extract context - use cached guide or generate new one
+    context_text = get_or_generate_context(pdf_path, out_dir)
     
     # Initialize retriever (builds indices once)
     logger.info(f"Initializing {strategy} retriever with {len(chunks)} chunks...")
@@ -233,29 +294,30 @@ def fill_table_with_retrieval(chunks, groups, pdf_path, output_path="extracted_t
     output_data = {}
     total_metrics = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
     
-    # Process each group (can be parallelized later if needed)
-    for group_label, group in groups.items():
+    # Helper function to process a single group (for parallelization)
+    def process_group(group_label, group):
+        """Process a single group: retrieve, combine, and extract."""
         monitor.record_group_start(group_label)
         logger.info(f"Processing group: {group_label}")
         
-        # 1. Build retrieval query from column definitions
-        query = build_retrieval_query(group)
-        logger.info(f"Query: {query[:200]}...")  # Log first 200 chars
-        
-        # 2. Retrieve top-N relevant chunks
-        top_chunks = retriever.retrieve(query, top_n=top_n)
-        logger.info(f"Retrieved {len(top_chunks)} chunks for group '{group_label}'")
-        
-        # 3. Combine chunks into single structured context
-        combined_chunk = combine_retrieved_chunks(
-            top_chunks, 
-            max_chunks=RETRIEVAL_MAX_COMBINED_CHUNKS
-        )
-        logger.info(f"Combined into {combined_chunk['source_chunks']} chunk(s)")
-        
-        # 4. Single LLM call for entire group
-        monitor.record_call_start(group_label, 0)
         try:
+            # 1. Build retrieval query from column definitions
+            query = build_retrieval_query(group)
+            logger.info(f"Query: {query[:200]}...")  # Log first 200 chars
+            
+            # 2. Retrieve top-N relevant chunks
+            top_chunks = retriever.retrieve(query, top_n=top_n)
+            logger.info(f"Retrieved {len(top_chunks)} chunks for group '{group_label}'")
+            
+            # 3. Combine chunks into single structured context
+            combined_chunk = combine_retrieved_chunks(
+                top_chunks, 
+                max_chunks=RETRIEVAL_MAX_COMBINED_CHUNKS
+            )
+            logger.info(f"Combined into {combined_chunk['source_chunks']} chunk(s)")
+            
+            # 4. Single LLM call for entire group
+            monitor.record_call_start(group_label, 0)
             extracted, in_t, out_t = extract_group_from_chunk(
                 combined_chunk, 
                 group, 
@@ -267,38 +329,59 @@ def fill_table_with_retrieval(chunks, groups, pdf_path, output_path="extracted_t
             # Log the extraction
             log_llm_response(metrics_dir, group_label, "combined", None, None, extracted)
             
-            # Update metrics
-            total_metrics["calls"] += 1
-            total_metrics["input_tokens"] += in_t
-            total_metrics["output_tokens"] += out_t
-            
-            # Store extracted values
+            # Store extracted values for this group
+            group_data = {}
             for col_name, data in extracted.items():
-                output_data[col_name] = {
+                group_data[col_name] = {
                     "value": data.get("value"),
                     "evidence": data.get("evidence"),
-                    "chunk_id": "combined",  # Mark as combined retrieval
+                    "chunk_id": "combined",
                     "page": combined_chunk.get("pages", [None])[0] if combined_chunk.get("pages") else None,
                     "retrieved_pages": combined_chunk.get("pages", [])
                 }
             
             logger.info(f"Group '{group_label}' processed: 1 LLM call, "
                        f"{in_t} input tokens, {out_t} output tokens")
+            
+            monitor.record_group_end(group_label)
+            return (group_label, group_data, in_t, out_t, None)
         
         except Exception as e:
             logger.error(f"Failed to extract group '{group_label}': {e}")
             # Initialize with null values
+            group_data = {}
             for col in group:
                 col_name = col["Column Name"]
-                output_data[col_name] = {
+                group_data[col_name] = {
                     "value": None,
                     "evidence": None,
                     "chunk_id": None,
                     "page": None,
                     "retrieved_pages": []
                 }
+            monitor.record_group_end(group_label)
+            return (group_label, group_data, 0, 0, str(e))
+    
+    # Process all groups in parallel (max_workers=8 for balance between speed and API limits)
+    logger.info(f"🚀 Processing {len(groups)} groups in parallel (8 workers)...")
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {executor.submit(process_group, label, group): label 
+                  for label, group in groups.items()}
         
-        monitor.record_group_end(group_label)
+        # Collect results as they complete
+        for future in as_completed(futures):
+            group_label, group_data, in_t, out_t, error = future.result()
+            
+            # Merge group data into output
+            output_data.update(group_data)
+            
+            # Update metrics
+            total_metrics["calls"] += 1
+            total_metrics["input_tokens"] += in_t
+            total_metrics["output_tokens"] += out_t
+            
+            if error:
+                logger.warning(f"Group '{group_label}' completed with error: {error}")
     
     monitor.finish_monitoring()
     monitor.save_report()

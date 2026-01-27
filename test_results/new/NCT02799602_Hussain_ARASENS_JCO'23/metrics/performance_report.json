@@ -1,497 +1,503 @@
 {
   "summary": {
-    "total_duration_seconds": 225.88,
+    "total_duration_seconds": 309.6,
     "total_calls": 46,
-    "calls_per_second": 0.2,
-    "avg_call_duration": 4.9
+    "calls_per_second": 0.15,
+    "avg_call_duration": 5.73
   },
   "groups": {
     "Add-on Treatment": {
-      "total_duration": 3.01,
+      "total_duration": 2.47,
       "num_calls": 1,
-      "avg_call_duration": 3.01,
-      "min_call_duration": 3.01,
-      "max_call_duration": 3.01,
-      "throughput_calls_per_sec": 0.33
-    },
-    "Adverse Events - N (%)": {
-      "total_duration": 13.01,
-      "num_calls": 1,
-      "avg_call_duration": 13.0,
-      "min_call_duration": 13.0,
-      "max_call_duration": 13.0,
-      "throughput_calls_per_sec": 0.08
-    },
-    "Author": {
-      "total_duration": 5.58,
-      "num_calls": 1,
-      "avg_call_duration": 5.58,
-      "min_call_duration": 5.58,
-      "max_call_duration": 5.58,
-      "throughput_calls_per_sec": 0.18
-    },
-    "COE_RCT_IND_OVERALL_RJ": {
-      "total_duration": 3.06,
-      "num_calls": 1,
-      "avg_call_duration": 3.06,
-      "min_call_duration": 3.06,
-      "max_call_duration": 3.06,
-      "throughput_calls_per_sec": 0.33
-    },
-    "Class of Agent in Treatment Arm 1": {
-      "total_duration": 2.83,
-      "num_calls": 1,
-      "avg_call_duration": 2.82,
-      "min_call_duration": 2.82,
-      "max_call_duration": 2.82,
-      "throughput_calls_per_sec": 0.35
-    },
-    "Control Arm": {
-      "total_duration": 3.24,
-      "num_calls": 1,
-      "avg_call_duration": 3.24,
-      "min_call_duration": 3.24,
-      "max_call_duration": 3.24,
-      "throughput_calls_per_sec": 0.31
-    },
-    "Control Arm - N": {
-      "total_duration": 2.48,
-      "num_calls": 1,
-      "avg_call_duration": 2.48,
-      "min_call_duration": 2.48,
-      "max_call_duration": 2.48,
+      "avg_call_duration": 2.47,
+      "min_call_duration": 2.47,
+      "max_call_duration": 2.47,
       "throughput_calls_per_sec": 0.4
     },
-    "Docetaxel administration - N (%)": {
-      "total_duration": 4.31,
+    "Adverse Events - N (%)": {
+      "total_duration": 13.42,
       "num_calls": 1,
-      "avg_call_duration": 4.3,
-      "min_call_duration": 4.3,
-      "max_call_duration": 4.3,
-      "throughput_calls_per_sec": 0.23
+      "avg_call_duration": 13.4,
+      "min_call_duration": 13.4,
+      "max_call_duration": 13.4,
+      "throughput_calls_per_sec": 0.07
     },
-    "Full Pub or Abstract": {
-      "total_duration": 2.72,
+    "Author": {
+      "total_duration": 9.07,
       "num_calls": 1,
-      "avg_call_duration": 2.72,
-      "min_call_duration": 2.72,
-      "max_call_duration": 2.72,
-      "throughput_calls_per_sec": 0.37
-    },
-    "Gleason score - N (%)": {
-      "total_duration": 6.38,
-      "num_calls": 1,
-      "avg_call_duration": 6.37,
-      "min_call_duration": 6.37,
-      "max_call_duration": 6.37,
-      "throughput_calls_per_sec": 0.16
-    },
-    "Median Age (years)": {
-      "total_duration": 3.22,
-      "num_calls": 1,
-      "avg_call_duration": 3.22,
-      "min_call_duration": 3.22,
-      "max_call_duration": 3.22,
-      "throughput_calls_per_sec": 0.31
-    },
-    "Median Follow-Up Duration (mo)": {
-      "total_duration": 2.33,
-      "num_calls": 1,
-      "avg_call_duration": 2.33,
-      "min_call_duration": 2.33,
-      "max_call_duration": 2.33,
-      "throughput_calls_per_sec": 0.43
-    },
-    "Median OS (mo)": {
-      "total_duration": 6.97,
-      "num_calls": 1,
-      "avg_call_duration": 6.96,
-      "min_call_duration": 6.96,
-      "max_call_duration": 6.96,
-      "throughput_calls_per_sec": 0.14
-    },
-    "Median On-Treatment Duration (mo)": {
-      "total_duration": 2.81,
-      "num_calls": 1,
-      "avg_call_duration": 2.81,
-      "min_call_duration": 2.81,
-      "max_call_duration": 2.81,
-      "throughput_calls_per_sec": 0.36
-    },
-    "Median PFS (mo)": {
-      "total_duration": 9.0,
-      "num_calls": 1,
-      "avg_call_duration": 8.99,
-      "min_call_duration": 8.99,
-      "max_call_duration": 8.99,
+      "avg_call_duration": 9.06,
+      "min_call_duration": 9.06,
+      "max_call_duration": 9.06,
       "throughput_calls_per_sec": 0.11
     },
-    "Metastases - N (%)": {
-      "total_duration": 10.81,
+    "COE_RCT_IND_OVERALL_RJ": {
+      "total_duration": 2.25,
       "num_calls": 1,
-      "avg_call_duration": 10.8,
-      "min_call_duration": 10.8,
-      "max_call_duration": 10.8,
+      "avg_call_duration": 2.23,
+      "min_call_duration": 2.23,
+      "max_call_duration": 2.23,
+      "throughput_calls_per_sec": 0.44
+    },
+    "Class of Agent in Treatment Arm 1": {
+      "total_duration": 2.42,
+      "num_calls": 1,
+      "avg_call_duration": 2.4,
+      "min_call_duration": 2.4,
+      "max_call_duration": 2.4,
+      "throughput_calls_per_sec": 0.41
+    },
+    "Control Arm": {
+      "total_duration": 7.47,
+      "num_calls": 1,
+      "avg_call_duration": 7.45,
+      "min_call_duration": 7.45,
+      "max_call_duration": 7.45,
+      "throughput_calls_per_sec": 0.13
+    },
+    "Control Arm - N": {
+      "total_duration": 3.37,
+      "num_calls": 1,
+      "avg_call_duration": 3.36,
+      "min_call_duration": 3.36,
+      "max_call_duration": 3.36,
+      "throughput_calls_per_sec": 0.3
+    },
+    "Docetaxel administration - N (%)": {
+      "total_duration": 4.56,
+      "num_calls": 1,
+      "avg_call_duration": 4.52,
+      "min_call_duration": 4.52,
+      "max_call_duration": 4.52,
+      "throughput_calls_per_sec": 0.22
+    },
+    "Full Pub or Abstract": {
+      "total_duration": 2.11,
+      "num_calls": 1,
+      "avg_call_duration": 2.1,
+      "min_call_duration": 2.1,
+      "max_call_duration": 2.1,
+      "throughput_calls_per_sec": 0.47
+    },
+    "Gleason score - N (%)": {
+      "total_duration": 7.58,
+      "num_calls": 1,
+      "avg_call_duration": 7.54,
+      "min_call_duration": 7.54,
+      "max_call_duration": 7.54,
+      "throughput_calls_per_sec": 0.13
+    },
+    "Median Age (years)": {
+      "total_duration": 3.98,
+      "num_calls": 1,
+      "avg_call_duration": 3.96,
+      "min_call_duration": 3.96,
+      "max_call_duration": 3.96,
+      "throughput_calls_per_sec": 0.25
+    },
+    "Median Follow-Up Duration (mo)": {
+      "total_duration": 1.94,
+      "num_calls": 1,
+      "avg_call_duration": 1.92,
+      "min_call_duration": 1.92,
+      "max_call_duration": 1.92,
+      "throughput_calls_per_sec": 0.52
+    },
+    "Median OS (mo)": {
+      "total_duration": 9.27,
+      "num_calls": 1,
+      "avg_call_duration": 9.23,
+      "min_call_duration": 9.23,
+      "max_call_duration": 9.23,
+      "throughput_calls_per_sec": 0.11
+    },
+    "Median On-Treatment Duration (mo)": {
+      "total_duration": 4.31,
+      "num_calls": 1,
+      "avg_call_duration": 4.28,
+      "min_call_duration": 4.28,
+      "max_call_duration": 4.28,
+      "throughput_calls_per_sec": 0.23
+    },
+    "Median PFS (mo)": {
+      "total_duration": 11.75,
+      "num_calls": 1,
+      "avg_call_duration": 11.72,
+      "min_call_duration": 11.72,
+      "max_call_duration": 11.72,
+      "throughput_calls_per_sec": 0.09
+    },
+    "Metastases - N (%)": {
+      "total_duration": 11.2,
+      "num_calls": 1,
+      "avg_call_duration": 11.15,
+      "min_call_duration": 11.15,
+      "max_call_duration": 11.15,
       "throughput_calls_per_sec": 0.09
     },
     "Mode of metastases - N (%)": {
-      "total_duration": 7.17,
+      "total_duration": 6.3,
       "num_calls": 1,
-      "avg_call_duration": 7.16,
-      "min_call_duration": 7.16,
-      "max_call_duration": 7.16,
-      "throughput_calls_per_sec": 0.14
+      "avg_call_duration": 6.26,
+      "min_call_duration": 6.26,
+      "max_call_duration": 6.26,
+      "throughput_calls_per_sec": 0.16
     },
     "NCT": {
-      "total_duration": 2.0,
+      "total_duration": 2.2,
       "num_calls": 1,
-      "avg_call_duration": 1.99,
-      "min_call_duration": 1.99,
-      "max_call_duration": 1.99,
-      "throughput_calls_per_sec": 0.5
+      "avg_call_duration": 2.18,
+      "min_call_duration": 2.18,
+      "max_call_duration": 2.18,
+      "throughput_calls_per_sec": 0.46
     },
     "No. of Deaths - N": {
-      "total_duration": 3.99,
+      "total_duration": 3.41,
       "num_calls": 1,
-      "avg_call_duration": 3.99,
-      "min_call_duration": 3.99,
-      "max_call_duration": 3.99,
-      "throughput_calls_per_sec": 0.25
+      "avg_call_duration": 3.39,
+      "min_call_duration": 3.39,
+      "max_call_duration": 3.39,
+      "throughput_calls_per_sec": 0.29
     },
     "Number of Arms Included": {
-      "total_duration": 2.42,
+      "total_duration": 2.41,
+      "num_calls": 1,
+      "avg_call_duration": 2.39,
+      "min_call_duration": 2.39,
+      "max_call_duration": 2.39,
+      "throughput_calls_per_sec": 0.42
+    },
+    "ORR - N (%)": {
+      "total_duration": 11.32,
+      "num_calls": 1,
+      "avg_call_duration": 11.28,
+      "min_call_duration": 11.28,
+      "max_call_duration": 11.28,
+      "throughput_calls_per_sec": 0.09
+    },
+    "OS Rate (%)": {
+      "total_duration": 18.7,
+      "num_calls": 1,
+      "avg_call_duration": 18.66,
+      "min_call_duration": 18.66,
+      "max_call_duration": 18.66,
+      "throughput_calls_per_sec": 0.05
+    },
+    "Original/Follow Up": {
+      "total_duration": 4.18,
+      "num_calls": 1,
+      "avg_call_duration": 4.17,
+      "min_call_duration": 4.17,
+      "max_call_duration": 4.17,
+      "throughput_calls_per_sec": 0.24
+    },
+    "PFS Rate (%)": {
+      "total_duration": 3.93,
+      "num_calls": 1,
+      "avg_call_duration": 3.89,
+      "min_call_duration": 3.89,
+      "max_call_duration": 3.89,
+      "throughput_calls_per_sec": 0.25
+    },
+    "PS - N (%)": {
+      "total_duration": 8.08,
+      "num_calls": 1,
+      "avg_call_duration": 8.04,
+      "min_call_duration": 8.04,
+      "max_call_duration": 8.04,
+      "throughput_calls_per_sec": 0.12
+    },
+    "Phase": {
+      "total_duration": 1.68,
+      "num_calls": 1,
+      "avg_call_duration": 1.66,
+      "min_call_duration": 1.66,
+      "max_call_duration": 1.66,
+      "throughput_calls_per_sec": 0.6
+    },
+    "Previous local therapy - N (%)": {
+      "total_duration": 9.28,
+      "num_calls": 1,
+      "avg_call_duration": 9.24,
+      "min_call_duration": 9.24,
+      "max_call_duration": 9.24,
+      "throughput_calls_per_sec": 0.11
+    },
+    "Primary Endpoint(s)": {
+      "total_duration": 4.24,
+      "num_calls": 1,
+      "avg_call_duration": 4.22,
+      "min_call_duration": 4.22,
+      "max_call_duration": 4.22,
+      "throughput_calls_per_sec": 0.24
+    },
+    "PubMed ID": {
+      "total_duration": 1.42,
+      "num_calls": 1,
+      "avg_call_duration": 1.4,
+      "min_call_duration": 1.4,
+      "max_call_duration": 1.4,
+      "throughput_calls_per_sec": 0.71
+    },
+    "Quality of Life Scale": {
+      "total_duration": 1.57,
+      "num_calls": 1,
+      "avg_call_duration": 1.55,
+      "min_call_duration": 1.55,
+      "max_call_duration": 1.55,
+      "throughput_calls_per_sec": 0.64
+    },
+    "Quality of Life reported": {
+      "total_duration": 2.44,
       "num_calls": 1,
       "avg_call_duration": 2.42,
       "min_call_duration": 2.42,
       "max_call_duration": 2.42,
       "throughput_calls_per_sec": 0.41
     },
-    "ORR - N (%)": {
-      "total_duration": 11.32,
-      "num_calls": 1,
-      "avg_call_duration": 11.31,
-      "min_call_duration": 11.31,
-      "max_call_duration": 11.31,
-      "throughput_calls_per_sec": 0.09
-    },
-    "OS Rate (%)": {
-      "total_duration": 14.21,
-      "num_calls": 1,
-      "avg_call_duration": 14.2,
-      "min_call_duration": 14.2,
-      "max_call_duration": 14.2,
-      "throughput_calls_per_sec": 0.07
-    },
-    "Original/Follow Up": {
-      "total_duration": 2.28,
-      "num_calls": 1,
-      "avg_call_duration": 2.28,
-      "min_call_duration": 2.28,
-      "max_call_duration": 2.28,
-      "throughput_calls_per_sec": 0.44
-    },
-    "PFS Rate (%)": {
-      "total_duration": 5.01,
-      "num_calls": 1,
-      "avg_call_duration": 5.01,
-      "min_call_duration": 5.01,
-      "max_call_duration": 5.01,
-      "throughput_calls_per_sec": 0.2
-    },
-    "PS - N (%)": {
-      "total_duration": 6.48,
-      "num_calls": 1,
-      "avg_call_duration": 6.48,
-      "min_call_duration": 6.48,
-      "max_call_duration": 6.48,
-      "throughput_calls_per_sec": 0.15
-    },
-    "Phase": {
-      "total_duration": 1.7,
-      "num_calls": 1,
-      "avg_call_duration": 1.7,
-      "min_call_duration": 1.7,
-      "max_call_duration": 1.7,
-      "throughput_calls_per_sec": 0.59
-    },
-    "Previous local therapy - N (%)": {
-      "total_duration": 8.25,
-      "num_calls": 1,
-      "avg_call_duration": 8.23,
-      "min_call_duration": 8.23,
-      "max_call_duration": 8.23,
-      "throughput_calls_per_sec": 0.12
-    },
-    "Primary Endpoint(s)": {
-      "total_duration": 3.13,
-      "num_calls": 1,
-      "avg_call_duration": 3.12,
-      "min_call_duration": 3.12,
-      "max_call_duration": 3.12,
-      "throughput_calls_per_sec": 0.32
-    },
-    "PubMed ID": {
-      "total_duration": 2.11,
-      "num_calls": 1,
-      "avg_call_duration": 2.11,
-      "min_call_duration": 2.11,
-      "max_call_duration": 2.11,
-      "throughput_calls_per_sec": 0.47
-    },
-    "Quality of Life Scale": {
-      "total_duration": 1.68,
-      "num_calls": 1,
-      "avg_call_duration": 1.68,
-      "min_call_duration": 1.68,
-      "max_call_duration": 1.68,
-      "throughput_calls_per_sec": 0.6
-    },
-    "Quality of Life reported": {
-      "total_duration": 1.99,
-      "num_calls": 1,
-      "avg_call_duration": 1.99,
-      "min_call_duration": 1.99,
-      "max_call_duration": 1.99,
-      "throughput_calls_per_sec": 0.5
-    },
     "Race - N (%)": {
-      "total_duration": 17.21,
+      "total_duration": 23.3,
       "num_calls": 1,
-      "avg_call_duration": 17.19,
-      "min_call_duration": 17.19,
-      "max_call_duration": 17.19,
-      "throughput_calls_per_sec": 0.06
+      "avg_call_duration": 23.23,
+      "min_call_duration": 23.23,
+      "max_call_duration": 23.23,
+      "throughput_calls_per_sec": 0.04
     },
     "Region - N (%)": {
-      "total_duration": 14.86,
+      "total_duration": 17.54,
       "num_calls": 1,
-      "avg_call_duration": 14.84,
-      "min_call_duration": 14.84,
-      "max_call_duration": 14.84,
-      "throughput_calls_per_sec": 0.07
+      "avg_call_duration": 17.5,
+      "min_call_duration": 17.5,
+      "max_call_duration": 17.5,
+      "throughput_calls_per_sec": 0.06
     },
     "Reporting by prognostic groups - Y/N": {
-      "total_duration": 7.53,
+      "total_duration": 10.16,
       "num_calls": 1,
-      "avg_call_duration": 7.52,
-      "min_call_duration": 7.52,
-      "max_call_duration": 7.52,
-      "throughput_calls_per_sec": 0.13
+      "avg_call_duration": 10.12,
+      "min_call_duration": 10.12,
+      "max_call_duration": 10.12,
+      "throughput_calls_per_sec": 0.1
     },
     "Secondary Endpoint(s)": {
-      "total_duration": 2.89,
+      "total_duration": 2.55,
       "num_calls": 1,
-      "avg_call_duration": 2.88,
-      "min_call_duration": 2.88,
-      "max_call_duration": 2.88,
-      "throughput_calls_per_sec": 0.35
+      "avg_call_duration": 2.53,
+      "min_call_duration": 2.53,
+      "max_call_duration": 2.53,
+      "throughput_calls_per_sec": 0.39
     },
     "TTPSA (mo)": {
-      "total_duration": 2.91,
+      "total_duration": 4.34,
       "num_calls": 1,
-      "avg_call_duration": 2.91,
-      "min_call_duration": 2.91,
-      "max_call_duration": 2.91,
-      "throughput_calls_per_sec": 0.34
+      "avg_call_duration": 4.31,
+      "min_call_duration": 4.31,
+      "max_call_duration": 4.31,
+      "throughput_calls_per_sec": 0.23
     },
     "Total Participants - N": {
-      "total_duration": 1.69,
+      "total_duration": 2.44,
       "num_calls": 1,
-      "avg_call_duration": 1.69,
-      "min_call_duration": 1.69,
-      "max_call_duration": 1.69,
-      "throughput_calls_per_sec": 0.59
+      "avg_call_duration": 2.42,
+      "min_call_duration": 2.42,
+      "max_call_duration": 2.42,
+      "throughput_calls_per_sec": 0.41
     },
     "Treatment Arm - N": {
-      "total_duration": 2.72,
+      "total_duration": 4.05,
       "num_calls": 1,
-      "avg_call_duration": 2.72,
-      "min_call_duration": 2.72,
-      "max_call_duration": 2.72,
-      "throughput_calls_per_sec": 0.37
+      "avg_call_duration": 4.02,
+      "min_call_duration": 4.02,
+      "max_call_duration": 4.02,
+      "throughput_calls_per_sec": 0.25
     },
     "Treatment Arm 1 Regimen": {
-      "total_duration": 2.65,
+      "total_duration": 2.72,
       "num_calls": 1,
-      "avg_call_duration": 2.65,
-      "min_call_duration": 2.65,
-      "max_call_duration": 2.65,
-      "throughput_calls_per_sec": 0.38
+      "avg_call_duration": 2.7,
+      "min_call_duration": 2.7,
+      "max_call_duration": 2.7,
+      "throughput_calls_per_sec": 0.37
     },
     "Treatment Arm(s)": {
-      "total_duration": 3.16,
+      "total_duration": 2.21,
       "num_calls": 1,
-      "avg_call_duration": 3.16,
-      "min_call_duration": 3.16,
-      "max_call_duration": 3.16,
-      "throughput_calls_per_sec": 0.32
+      "avg_call_duration": 2.19,
+      "min_call_duration": 2.19,
+      "max_call_duration": 2.19,
+      "throughput_calls_per_sec": 0.45
     },
     "Treatment Class": {
       "total_duration": 2.51,
       "num_calls": 1,
-      "avg_call_duration": 2.51,
-      "min_call_duration": 2.51,
-      "max_call_duration": 2.51,
+      "avg_call_duration": 2.49,
+      "min_call_duration": 2.49,
+      "max_call_duration": 2.49,
       "throughput_calls_per_sec": 0.4
     },
     "Trial": {
-      "total_duration": 1.33,
+      "total_duration": 2.67,
       "num_calls": 1,
-      "avg_call_duration": 1.33,
-      "min_call_duration": 1.33,
-      "max_call_duration": 1.33,
-      "throughput_calls_per_sec": 0.75
+      "avg_call_duration": 2.65,
+      "min_call_duration": 2.65,
+      "max_call_duration": 2.65,
+      "throughput_calls_per_sec": 0.37
     },
     "Trial Name": {
-      "total_duration": 1.56,
+      "total_duration": 2.59,
+      "num_calls": 1,
+      "avg_call_duration": 2.57,
+      "min_call_duration": 2.57,
+      "max_call_duration": 2.57,
+      "throughput_calls_per_sec": 0.39
+    },
+    "Type of Therapy": {
+      "total_duration": 2.68,
+      "num_calls": 1,
+      "avg_call_duration": 2.66,
+      "min_call_duration": 2.66,
+      "max_call_duration": 2.66,
+      "throughput_calls_per_sec": 0.37
+    },
+    "Volume of disease - N (%)": {
+      "total_duration": 5.12,
+      "num_calls": 1,
+      "avg_call_duration": 5.08,
+      "min_call_duration": 5.08,
+      "max_call_duration": 5.08,
+      "throughput_calls_per_sec": 0.2
+    },
+    "Year": {
+      "total_duration": 1.57,
       "num_calls": 1,
       "avg_call_duration": 1.56,
       "min_call_duration": 1.56,
       "max_call_duration": 1.56,
       "throughput_calls_per_sec": 0.64
-    },
-    "Type of Therapy": {
-      "total_duration": 2.69,
-      "num_calls": 1,
-      "avg_call_duration": 2.69,
-      "min_call_duration": 2.69,
-      "max_call_duration": 2.69,
-      "throughput_calls_per_sec": 0.37
-    },
-    "Volume of disease - N (%)": {
-      "total_duration": 4.77,
-      "num_calls": 1,
-      "avg_call_duration": 4.76,
-      "min_call_duration": 4.76,
-      "max_call_duration": 4.76,
-      "throughput_calls_per_sec": 0.21
-    },
-    "Year": {
-      "total_duration": 1.87,
-      "num_calls": 1,
-      "avg_call_duration": 1.86,
-      "min_call_duration": 1.86,
-      "max_call_duration": 1.86,
-      "throughput_calls_per_sec": 0.54
     }
   },
   "bottlenecks": [
     {
       "group": "Race - N (%)",
-      "duration": 17.21,
-      "percentage_of_total": 7.6
-    },
-    {
-      "group": "Region - N (%)",
-      "duration": 14.86,
-      "percentage_of_total": 6.6
+      "duration": 23.3,
+      "percentage_of_total": 7.5
     },
     {
       "group": "OS Rate (%)",
-      "duration": 14.21,
-      "percentage_of_total": 6.3
+      "duration": 18.7,
+      "percentage_of_total": 6.0
+    },
+    {
+      "group": "Region - N (%)",
+      "duration": 17.54,
+      "percentage_of_total": 5.7
     },
     {
       "group": "Adverse Events - N (%)",
-      "duration": 13.01,
-      "percentage_of_total": 5.8
+      "duration": 13.42,
+      "percentage_of_total": 4.3
     },
     {
-      "group": "ORR - N (%)",
-      "duration": 11.32,
-      "percentage_of_total": 5.0
+      "group": "Median PFS (mo)",
+      "duration": 11.75,
+      "percentage_of_total": 3.8
     }
   ],
   "slow_calls": [
     {
       "group": "Adverse Events - N (%)",
       "chunk": 0,
-      "duration": 12.999444961547852,
-      "timestamp": "2026-01-26T10:30:36.255365"
+      "duration": 13.399704456329346,
+      "timestamp": "2026-01-27T14:45:07.680166"
     },
     {
       "group": "Author",
       "chunk": 0,
-      "duration": 5.576185464859009,
-      "timestamp": "2026-01-26T10:30:41.834366"
+      "duration": 9.056564807891846,
+      "timestamp": "2026-01-27T14:45:16.748807"
+    },
+    {
+      "group": "Control Arm",
+      "chunk": 0,
+      "duration": 7.449000120162964,
+      "timestamp": "2026-01-27T14:45:28.890915"
     },
     {
       "group": "Gleason score - N (%)",
       "chunk": 0,
-      "duration": 6.369336843490601,
-      "timestamp": "2026-01-26T10:31:06.856304"
+      "duration": 7.535327911376953,
+      "timestamp": "2026-01-27T14:45:46.514104"
     },
     {
       "group": "Median OS (mo)",
       "chunk": 0,
-      "duration": 6.962639808654785,
-      "timestamp": "2026-01-26T10:31:19.382125"
+      "duration": 9.230149745941162,
+      "timestamp": "2026-01-27T14:46:01.700094"
     },
     {
       "group": "Median PFS (mo)",
       "chunk": 0,
-      "duration": 8.994232654571533,
-      "timestamp": "2026-01-26T10:31:31.195734"
+      "duration": 11.719715118408203,
+      "timestamp": "2026-01-27T14:46:17.759482"
     },
     {
       "group": "Metastases - N (%)",
       "chunk": 0,
-      "duration": 10.795252084732056,
-      "timestamp": "2026-01-26T10:31:42.007147"
+      "duration": 11.15334153175354,
+      "timestamp": "2026-01-27T14:46:28.955638"
     },
     {
       "group": "Mode of metastases - N (%)",
       "chunk": 0,
-      "duration": 7.155563592910767,
-      "timestamp": "2026-01-26T10:31:49.172767"
+      "duration": 6.263300895690918,
+      "timestamp": "2026-01-27T14:46:35.260846"
     },
     {
       "group": "ORR - N (%)",
       "chunk": 0,
-      "duration": 11.310653924942017,
-      "timestamp": "2026-01-26T10:32:08.905390"
+      "duration": 11.283243656158447,
+      "timestamp": "2026-01-27T14:46:54.597179"
     },
     {
       "group": "OS Rate (%)",
       "chunk": 0,
-      "duration": 14.201026201248169,
-      "timestamp": "2026-01-26T10:32:23.119834"
-    },
-    {
-      "group": "PFS Rate (%)",
-      "chunk": 0,
-      "duration": 5.007605314254761,
-      "timestamp": "2026-01-26T10:32:30.411066"
+      "duration": 18.662938356399536,
+      "timestamp": "2026-01-27T14:47:13.296094"
     },
     {
       "group": "PS - N (%)",
       "chunk": 0,
-      "duration": 6.478594779968262,
-      "timestamp": "2026-01-26T10:32:36.892285"
+      "duration": 8.040350675582886,
+      "timestamp": "2026-01-27T14:47:29.481241"
     },
     {
       "group": "Previous local therapy - N (%)",
       "chunk": 0,
-      "duration": 8.232920169830322,
-      "timestamp": "2026-01-26T10:32:46.842193"
+      "duration": 9.241622686386108,
+      "timestamp": "2026-01-27T14:47:40.438853"
     },
     {
       "group": "Race - N (%)",
       "chunk": 0,
-      "duration": 17.187161207199097,
-      "timestamp": "2026-01-26T10:33:12.963904"
+      "duration": 23.228007316589355,
+      "timestamp": "2026-01-27T14:48:13.394890"
     },
     {
       "group": "Region - N (%)",
       "chunk": 0,
-      "duration": 14.839654445648193,
-      "timestamp": "2026-01-26T10:33:27.825173"
+      "duration": 17.499528646469116,
+      "timestamp": "2026-01-27T14:48:30.933562"
     },
     {
       "group": "Reporting by prognostic groups - Y/N",
       "chunk": 0,
-      "duration": 7.518484115600586,
-      "timestamp": "2026-01-26T10:33:35.352733"
+      "duration": 10.1220543384552,
+      "timestamp": "2026-01-27T14:48:41.090183"
+    },
+    {
+      "group": "Volume of disease - N (%)",
+      "chunk": 0,
+      "duration": 5.076578140258789,
+      "timestamp": "2026-01-27T14:49:14.981340"
     }
   ]
 }

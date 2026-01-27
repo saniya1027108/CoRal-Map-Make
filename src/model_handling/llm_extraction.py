@@ -64,11 +64,6 @@ You are an expert clinical trial data extractor with deep understanding of medic
 3. Verify subgroup/arm matches the column definition
 4. Quote the exact sentence as evidence
 
-🖼️ FOR FIGURES:
-1. Extract from figure captions, legends, or annotations
-2. Note if values are visual approximations
-3. State any limitations in reasoning
-
 🔗 FOR COMBINED (MULTIPLE CHUNKS):
 1. Scan all provided chunks systematically
 2. Prioritize the most explicit/direct source

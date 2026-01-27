@@ -75,3 +75,14 @@ RETRIEVAL_SEMANTIC_WEIGHT = 0.3
 # Maximum number of chunks to combine in a single LLM call
 # Set to None to combine all retrieved chunks
 RETRIEVAL_MAX_COMBINED_CHUNKS = None
+
+# ============== CONTEXT GENERATION CONFIGS ==============
+# Context generation settings for extraction guide
+USE_FILE_API_CONTEXT = True  # Use Gemini File API for context (vs old 2-page text)
+CONTEXT_GENERATION_PROVIDER = "gemini"  # Provider for context generation
+CONTEXT_GENERATION_MODEL = "gemini-2.5-flash"  # Model for context generation
+CONTEXT_MAX_RETRIES = 3  # Retry attempts for context generation
+
+
+## Table Filling Configs
+MAX_WORKERS = 8

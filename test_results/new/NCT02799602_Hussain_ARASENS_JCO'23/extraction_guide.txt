@@ -1,0 +1,224 @@
+**Extraction Guide: Darolutamide Plus Androgen-Deprivation Therapy and Docetaxel in Metastatic Hormone-Sensitive Prostate Cancer by Disease Volume and Risk Subgroups in the Phase III ARASENS Trial**
+
+**SECTION 1: TRIAL IDENTITY**
+
+*   **NCT ID:** NCT02799602 (Page 12)
+*   **Trial Name (Full):** Darolutamide Plus Androgen-Deprivation Therapy and Docetaxel in Metastatic Hormone-Sensitive Prostate Cancer by Disease Volume and Risk Subgroups in the Phase III ARASENS Trial (Page 1)
+*   **Trial Name (Short):** ARASENS trial (Page 1, Abstract)
+*   **First Author:** Maha Hussain (Page 1)
+*   **Year:** 2023 (Page 1, J Clin Oncol 00.© 2023)
+*   **Phase:** Phase III (Page 1, Abstract; Page 2, Methods)
+*   **Design:** Randomized, double-blind, placebo-controlled (Page 2, Methods)
+
+**SECTION 2: ARM MAPPING**
+
+**Treatment Arm**
+*   **Official Name:** Darolutamide plus androgen-deprivation therapy (ADT) and docetaxel
+*   **How it's referred to in tables:**
+    *   "Darolutamide + docetaxel + ADT" (Figure 1)
+    *   "Darolutamide" 
+    *   "Darolutamide + ADT + Docetaxel" (Figure 2, Figure 3, Figure A1)
+*   **How it's referred to in text and figures:**
+    *   "darolutamide group" (Page 1, Abstract)
+    *   "darolutamide plus ADT and docetaxel" (Page 2, Methods)
+    *   "Darolutamide + ADT + docetaxel" (Figure 2, Figure 3, Figure A1 legends)
+*   **Drug Composition/Regimen:** Oral darolutamide 600 mg twice daily, in combination with ADT and docetaxel (Page 2, Methods)
+*   **Sample Size (n=...):**
+    *   Overall (efficacy): n = 651 (Figure 1, "Analyzed for primary end point")
+    *   Overall (safety): n = 652 (Figure 1, "Analyzed for safety"; Table 3, "All Patients (N = 1302c)")
+
+**Control Arm**
+*   **Official Name:** Placebo plus androgen-deprivation therapy (ADT) and docetaxel
+*   **How it's referred to in tables:**
+    *   "Placebo + docetaxel + ADT" (Figure 1)
+    *   "Placebo" (Table 1, Table 2, Table 3, Table 4, Table A1)
+    *   "Placebo + ADT + Docetaxel" (Figure 2, Figure 3, Figure A1)
+*   **How it's referred to in text and figures:**
+    *   "placebo group" (Page 1, Abstract)
+    *   "placebo, in combination with ADT and docetaxel" (Page 2, Methods)
+    *   "Placebo + ADT + docetaxel" (Figure 2, Figure 3, Figure A1 legends)
+*   **Drug Composition/Regimen:** Matched placebo, in combination with ADT and docetaxel (Page 2, Methods)
+*   **Sample Size (n=...):**
+    *   Overall (efficacy): n = 654 (Figure 1, "Analyzed for primary end point")
+    *   Overall (safety): n = 650 (Figure 1, "Analyzed for safety"; Table 3, "All Patients (N = 1302c)")
+
+**SECTION 3: TERMINOLOGY BRIDGE**
+
+*   **"Synchronous metastases" means:**
+    *   "de novo mHSPC" (Page 2, Methods; Table 1, "Metastasis stage at initial diagnosis")
+    *   "metastatic disease at initial diagnosis" (Page 2, Methods)
+*   **"Metachronous metastases" means:**
+    *   "recurrent mHSPC" (Page 2, Methods; Table 1, "Metastasis stage at initial diagnosis")
+    *   "developing metastases after local therapy" (Page 2, Methods)
+*   **"High volume disease" means:**
+    *   "High Volume" (Table 1, Table 2, Table 3, Table 4, Table A1)
+    *   "high-volume disease" (Page 1, Abstract; Page 2, Methods; Figure 2, Figure 3, Figure A1)
+    *   **Definition:** "visceral metastases and/or ≥ 4 bone metastases with ≥ 1 beyond the vertebral column/pelvis" (Page 1, Abstract; Page 2, Methods; Table 1 footnote 'a')
+*   **"Low volume disease" means:**
+    *   "Low Volume" (Table 1, Table 2, Table 3, Table 4, Table A1)
+    *   "low-volume disease" (Page 1, Abstract; Page 2, Methods; Figure 2, Figure 3, Figure A1)
+    *   **Definition:** "not meeting the respective high-volume criteria" (Page 2, Methods)
+*   **"High risk disease" means:**
+    *   "High Risk" (Table 1, Table 2, Table 3, Table 4, Table A1)
+    *   "high-risk disease" (Page 1, Abstract; Page 2, Methods; Figure 2, Figure 3, Figure A1)
+    *   **Definition:** "≥ 2 risk factors: Gleason score ≥ 8, ≥ 3 bone lesions, and presence of measurable visceral metastases" (Page 1, Abstract; Page 2, Methods; Table 1 footnote 'b')
+*   **"Low risk disease" means:**
+    *   "Low Risk" (Table 1, Table 2, Table 3, Table 4, Table A1)
+    *   "low-risk disease" (Page 1, Abstract; Page 2, Methods; Figure 2, Figure 3, Figure A1)
+    *   **Definition:** "not meeting the respective high-risk criteria" (Page 2, Methods)
+*   **"Treatment arm" is called:**
+    *   "Darolutamide" (in tables)
+    *   "Darolutamide + docetaxel + ADT" (in figures)
+    *   "darolutamide group" (in text)
+*   **"Control arm" is called:**
+    *   "Placebo" (in tables)
+    *   "Placebo + docetaxel + ADT" (in figures)
+    *   "placebo group" (in text)
+*   **"Overall survival" is referred to as:**
+    *   "OS" (Page 1, Abstract; Page 3, Study Assessments; Figure 2, Figure A1)
+    *   "overall survival" (Page 1, Abstract)
+*   **"Progression-free survival" is referred to as:**
+    *   "Time to CRPC" (Time to Castration-Resistant Prostate Cancer) (Page 3, Study Assessments; Table 2, Figure 3)
+    *   "time to castration-resistant prostate cancer" (Page 1, Abstract)
+*   **"Adverse events" is referred to as:**
+    *   "AEs" (Page 1, Abstract; Page 3, Study Assessments; Table 3, Table 4)
+    *   "Adverse events" (Page 1, Abstract)
+    *   "Treatment-Emergent AEs" (Table 3)
+    *   "AEs of Special Interest" (Table 4)
+    *   "Serious AE" (Table 3)
+    *   "Grade 3 or 4 AEs" (Page 1, Abstract)
+    *   "Grade 5 (death)" (Table 3)
+*   **"Deaths" is referred to as:**
+    *   "Grade 5 (death)" (Table 3)
+    *   "Death" (Figure 1, "Primary reason for discontinuation")
+
+**SECTION 4: DATA ORGANIZATION**
+
+*   **Patient Stratification:** Patients are primarily stratified by:
+    1.  **Disease Volume:** High Volume vs. Low Volume (based on CHAARTED criteria). These are mutually exclusive.
+    2.  **Disease Risk:** High Risk vs. Low Risk (based on LATITUDE criteria). These are mutually exclusive.
+    3.  **Other Subgroups (within volume/risk categories):** Age, ECOG PS, Gleason score at initial diagnosis, Metastasis stage at initial diagnosis (de novo/recurrent), Metastasis stage at screening (M1a/M1b/M1c), Serum PSA level, Serum ALP level, Race, Geographical region.
+
+*   **Do subgroups overlap?**
+    *   Yes, the "Disease Volume" stratification (High/Low Volume) and "Disease Risk" stratification (High/Low Risk) are independent. A patient can be in "High Volume" and "High Risk", or "High Volume" and "Low Risk", etc. Therefore, patient counts for "High Volume" and "High Risk" should NOT be summed to get a total.
+    *   Within each stratification (e.g., High Volume vs. Low Volume), the subgroups are mutually exclusive.
+    *   Within the "Metastasis stage at screening" (Table 1), M1a, M1b, and M1c are mutually exclusive.
+    *   Within the "Gleason score at initial diagnosis" (Table 1), <8 and ≥8 are mutually exclusive.
+    *   For AEs (Table 3), Grade 1, 2, 3, 4, and 5 are mutually exclusive and sum to "Any AE". "Serious AE" is a subset of "Any AE" and can overlap with any grade.
+    *   For subsequent therapies (Table A1), patients can receive multiple therapies, so individual therapy counts are not mutually exclusive.
+
+*   **For each major table:**
+
+    *   **Table 1: Baseline Demographics and Patient Characteristics for the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS (Page 5)**
+        *   **Caption:** "Baseline Demographics and Patient Characteristics for the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS"
+        *   **Structure:** Rows represent demographic and disease characteristics. Columns represent treatment arms within disease volume/risk subgroups, and an overall "All Patients" column.
+        *   **Column Headers (exact text):**
+            *   "High Volumea": "Darolutamide (n = 497)", "Placebo (n = 508)"
+            *   "Low Volumea": "Darolutamide (n = 154)", "Placebo (n = 146)"
+            *   "High Riskb": "Darolutamide (n = 452)", "Placebo (n = 460)"
+            *   "Low Riskb": "Darolutamide (n = 199)", "Placebo (n = 194)"
+            *   "All Patients (N = 1,305)"
+        *   **Demographics/Disease Characteristics:**
+            *   Age, median, years (range)
+            *   ECOG PS, No. (%) (0, 1, Missing)
+            *   Gleason score at initial diagnosis,d No. (%) (<8, ≥8, Missing)
+            *   Metastasis stage at initial diagnosis, No. (%) (De novo mHSPC, Recurrent mHSPC, Missing)
+            *   Metastasis stage at screening, No. (%) (M1a, nonregional LN only; M1b, bone metastases ± LN; M1c, visceral metastases ± LN or bone)
+            *   Serum PSA level, ng/mL, median (range)
+            *   Serum ALP level, U/L, median (range)
+            *   ALP < ULN, No. (%)
+            *   ALP ≥ ULN, No. (%)
+        *   **Data Format:** "median (range)" for continuous variables, "No. (%)" for categorical variables.
+
+    *   **Table 2: Secondary Efficacy End Points for the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS (Page 8)**
+        *   **Caption:** "Secondary Efficacy End Points for the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS"
+        *   **Structure:** Rows represent secondary efficacy endpoints. Columns represent treatment arms within disease volume/risk subgroups, and an overall "All Patients" column.
+        *   **Column Headers (exact text):** Same as Table 1, plus "All Patients (N = 1,305)".
+        *   **Outcomes:**
+            *   Time to CRPC (Median Months, No. (%) [of patients with event], HR (95% CI))
+            *   Time to pain progression (Median Months, No. (%) [of patients with event], HR (95% CI))
+            *   SSE-free survival (Median Months, No. (%) [of patients with event], HR (95% CI))
+            *   Time to first SSE (Median Months, No. (%) [of patients with event], HR (95% CI))
+            *   Time to subsequent antineoplastic therapy (Median Months, No. (%) [of patients with event], HR (95% CI))
+            *   Time to worsening disease-related symptoms (Median Months, No. (%) [of patients with event], HR (95% CI))
+            *   Time to opioid use ≥ 7 days (Median Months, No. (%) [of patients with event], HR (95% CI))
+        *   **Data Format:** "Median Months", "No. (%)" (for patients with an event), "HR (95% CI)".
+
+    *   **Table 3: Treatment-Emergent AEs in the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS (Page 9)**
+        *   **Caption:** "Treatment-Emergent AEs in the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS"
+        *   **Structure:** Rows represent AE categories. Columns represent treatment arms within disease volume/risk subgroups, and an overall "All Patients" column.
+        *   **Column Headers (exact text):** Same as Table 1, but "All Patients (N = 1302c)".
+        *   **Safety Data:**
+            *   Any AE (No. (%))
+            *   Worst grade (Grade 1, Grade 2, Grade 3, Grade 4, Grade 5 (death)d) (No. (%))
+            *   Serious AE (No. (%))
+            *   AE leading to permanent discontinuation of trial agent (Darolutamide or placebo, Docetaxel) (No. (%))
+            *   Most common AEs (≥ 25%), No. (%)/EAIR (Alopecia, Neutropeniae, Fatigue, Anemia, Peripheral edema, Arthralgia, Diarrhea)
+        *   **Data Format:** "No. (%)" or "No. (%)/EAIR".
+
+    *   **Table 4: AEs of Special Interest for the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS (Page 10)**
+        *   **Caption:** "AEs of Special Interest for the Subgroups of Patients by Disease Volume and Disease Risk in ARASENS"
+        *   **Structure:** Rows represent AEs of special interest. Columns represent treatment arms within disease volume/risk subgroups, and an overall "All Patients" column.
+        *   **Column Headers (exact text):** Same as Table 1, but "All Patients".
+        *   **Safety Data:**
+            *   Fatigue, Vasodilation/flushing, Rashd, Diabetes mellitus and hyperglycemia, Hypertensione, Cardiac disordere, Cardiac arrhythmiae, Coronary artery disorderse, Heart failuree, Bone fracturef, Falls, including accident, Mental impairment disorderse, Weight decreased, Depressed mood disorderse, Breast disorders/gynecomastiae, Cerebral ischemia, Seizure. (All "No. (%)")
+        *   **Data Format:** "No. (%)".
+
+    *   **Table A1: Subsequent Life-Prolonging Systemic Antineoplastic Therapy in Patient Subgroups by Disease Volume and Disease Risk in ARASENS (Page 18)**
+        *   **Caption:** "Subsequent Life-Prolonging Systemic Antineoplastic Therapy in Patient Subgroups by Disease Volume and Disease Risk in ARASENS"
+        *   **Structure:** Rows represent subsequent therapies. Columns represent treatment arms within disease volume/risk subgroups, and an overall "All Patients" column.
+        *   **Column Headers (exact text):** Same as Table 1, but "All Patients".
+        *   **Outcomes:**
+            *   Patients with subsequent life-prolonging systemic antineoplastic therapy (No. (%))
+            *   Abiraterone acetate (No. (%))
+            *   Enzalutamide (No. (%))
+            *   Cabazitaxel (No. (%))
+            *   Docetaxel (No. (%))
+            *   Radium-223 (No. (%))
+            *   Sipuleucel-T (No. (%))
+            *   Lutetium-177 PSMA (No. (%))
+            *   Apalutamide (No. (%))
+            *   Other systemic antineoplastic therapy (No. (%))
+        *   **Data Format:** "No. (%)".
+
+**SECTION 5: AGGREGATION RULES**
+
+*   **Total Patients (Efficacy):**
+    *   Darolutamide arm: 651 (Figure 1)
+    *   Placebo arm: 654 (Figure 1)
+    *   Overall: 1305 (Figure 1)
+*   **Total Patients (Safety):**
+    *   Darolutamide arm: 652 (Table 3)
+    *   Placebo arm: 650 (Table 3)
+    *   Overall: 1302 (Table 3)
+    *   *Note:* The discrepancy (1305 vs 1302) is explained in Table 3 footnote 'c'.
+*   **Disease Volume Subgroups:**
+    *   High Volume (Darolutamide): 497 (Table 1)
+    *   Low Volume (Darolutamide): 154 (Table 1)
+    *   Total Darolutamide (High + Low Volume): 497 + 154 = 651 (Matches total efficacy N)
+    *   High Volume (Placebo): 508 (Table 1)
+    *   Low Volume (Placebo): 146 (Table 1)
+    *   Total Placebo (High + Low Volume): 508 + 146 = 654 (Matches total efficacy N)
+*   **Disease Risk Subgroups:**
+    *   High Risk (Darolutamide): 452 (Table 1)
+    *   Low Risk (Darolutamide): 199 (Table 1)
+    *   Total Darolutamide (High + Low Risk): 452 + 199 = 651 (Matches total efficacy N)
+    *   High Risk (Placebo): 460 (Table 1)
+    *   Low Risk (Placebo): 194 (Table 1)
+    *   Total Placebo (High + Low Risk): 460 + 194 = 654 (Matches total efficacy N)
+*   **Overlapping Subgroups:**
+    *   **DO NOT SUM** patient counts from "High Volume" and "High Risk" columns, as these are independent stratifications and patients can belong to both.
+    *   For "Metastasis stage at screening" (Table 1), M1a, M1b, and M1c are mutually exclusive. Summing them gives the total number of patients with known metastasis stage at screening.
+    *   For "Gleason score at initial diagnosis" (Table 1), "<8" and "≥8" are mutually exclusive. Summing them gives the total number of patients with known Gleason score.
+    *   For "ECOG PS" (Table 1), "0" and "1" are mutually exclusive. Summing them gives the total number of patients with known ECOG PS.
+    *   For "Subsequent Life-Prolonging Systemic Antineoplastic Therapy" (Table A1), individual therapies (e.g., Abiraterone acetate, Enzalutamide) are NOT mutually exclusive. Patients may have received more than one. The row "Patients with subsequent life-prolonging systemic antineoplastic therapy" represents the total count of unique patients who received *at least one* subsequent therapy.
+
+**SECTION 6: SPECIAL WARNINGS**
+
+*   **Missing Data:** Always use `null` for missing data points, never infer or calculate a zero unless an explicit aggregation rule or context from the paper dictates it (e.g., if a category is explicitly stated as "0"). For example, if a median is "NE" (Not Estimable), record as `null`.
+*   **Subgroup Overlap:** Be mindful that "Disease Volume" subgroups (High/Low Volume) and "Disease Risk" subgroups (High/Low Risk) are distinct stratifications. Do not combine data across these main subgroup types unless explicitly instructed for a specific aggregate field.
+*   **Race/Region Data:** Table 1 provides race and geographical region data. If a specific race or region is not listed for a particular arm/subgroup, it means there were no patients in that category for that group.
+*   **M1a/M1b/M1c Definition:** Note Table 1 footnote 'e' regarding one patient categorized as M1b in the high-volume subgroup despite having only lymph node metastasis. This indicates that the M1 categories are based on detailed tumor data, not just the M1a/M1b/M1c labels alone.
+*   **AE Exposure Adjustment:** For "Most common AEs" in Table 3, EAIR (Exposure-Adjusted Incidence Rate) is provided. However, footnote 'e' states "Exposure adjustment is not applicable, as the majority of AEs occurred during concomitant docetaxel treatment." Extract the "No. (%)" values primarily, and note the EAIR if the column is present, but be aware of this caveat.
+*   **Subsequent Therapy Denominators:** For Table A1, the denominators for percentages are explained in footnote 'c': "the number of patients who entered active or long-term follow-up, plus one patient who did not enter follow-up but received subsequent therapy." This is not simply the total N for the arm.
+*   **Overall Survival (OS) and Time to CRPC (Figures 2 & 3):** The Kaplan-Meier curves show "No. of patients at risk" at various time points. Extract the initial N at time 0 for each curve, and the HR (95% CI) and Median (95% CI) as presented in the figure legends.
