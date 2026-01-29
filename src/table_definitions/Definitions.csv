@@ -1,12 +1,12 @@
 Column Name,Definition,Label
-NCT,"What national Clinical Trial identifier, a unique identification number assigned to a clinical trial? Your answer should be a single string or 'NA'",NCT
-PubMed ID,What a unique identifier assigned to a clinical trial publication in the PubMed database? Your answer should be a single string or 'NA',PubMed ID
-Trial Name,What the title or identifier of the clinical trial being referred to in the study? Your answer should be a single string or 'NA' ,Trial Name
-Author,What the name of the person or people responsible for writing or publishing the clinical trial study? Your answer should be a name/ list of names (you can use th et al. format )or 'NA',Author
-Year,What the year in which the clinical trial was published? Your answer should be a single number (year) or 'NA',Year
-Full Pub or Abstract,What indicates whether the study results were fully published or only an abstract is available? Your answer should be Full Pub/Abstract or 'NA',Full Pub or Abstract
-Phase,"What the stage or step in the clinical trial process, typically denoted by a Roman numeral (e.g. I, II, III, IV), which defines the scope, objectives, and duration of the trial? ",Phase
-Original/Follow Up,"What the designation of the clinical trial as either an original study or a follow-up study? Your answer should be either ""Original/Followup""",Original/Follow Up
+NCT,"What national Clinical Trial identifier, a unique identification number assigned to a clinical trial? Your answer should be a single string or 'NA'",ID
+PubMed ID,What a unique identifier assigned to a clinical trial publication in the PubMed database? Your answer should be a single string or 'NA',ID
+Trial Name,What the title or identifier of the clinical trial being referred to in the study? Your answer should be a single string or 'NA' ,ID
+Author,What the name of the person or people responsible for writing or publishing the clinical trial study? Your answer should be a name/ list of names (you can use th et al. format )or 'NA',ID
+Year,What the year in which the clinical trial was published? Your answer should be a single number (year) or 'NA',ID
+Full Pub or Abstract,What indicates whether the study results were fully published or only an abstract is available? Your answer should be Full Pub/Abstract or 'NA',ID
+Phase,"What the stage or step in the clinical trial process, typically denoted by a Roman numeral (e.g. I, II, III, IV), which defines the scope, objectives, and duration of the trial? ",ID
+Original/Follow Up,"What the designation of the clinical trial as either an original study or a follow-up study? Your answer should be either ""Original/Followup""",ID
 Number of Arms Included,What is the total count of experimental treatment arms and control arms included in the clinical trial? ,Number of Arms Included
 Treatment Arm(s),What name of the experimental arm or arms in the clinical trial? ,Treatment Arm(s)
 Control Arm,"What the name of the arm in the clinical trial that does not receive the experimental treatment, serving as a comparison group?",Control Arm

@@ -150,7 +150,7 @@ class LLMProvider:
         prompt: str,
         system_prompt: str = None,
         temperature: float = 0.0,
-        max_tokens: int = 32000
+        max_tokens: int = 16000
     ) -> LLMResponse:
         """
         Generate text response.
@@ -257,7 +257,7 @@ class LLMProvider:
         prompt: str,
         image: Union[Image.Image, bytes],
         temperature: float = 0.0,
-        max_tokens: int = 32000,
+        max_tokens: int = 16000,
         system_prompt: str = None
     ) -> LLMResponse:
         """
@@ -384,7 +384,7 @@ class LLMProvider:
         system_prompt: str = None,
         max_workers: int = 5,
         temperature: float = 0.0,
-        max_tokens: int = 32000
+        max_tokens: int = 16000
     ) -> list:
         """
         Generate responses for multiple prompts in parallel.

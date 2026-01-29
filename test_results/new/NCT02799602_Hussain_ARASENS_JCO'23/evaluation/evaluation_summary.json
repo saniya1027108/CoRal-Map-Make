@@ -1,9 +1,0 @@
-{
-    "total_columns": 104,
-    "correct_columns": 60,
-    "overall_accuracy": 57.692307692307686,
-    "non_null_total": 11,
-    "non_null_correct": 3,
-    "non_null_accuracy": 27.27272727272727,
-    "missing_columns": 52
-}

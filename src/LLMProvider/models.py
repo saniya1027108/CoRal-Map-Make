@@ -35,6 +35,9 @@ SUPPORTED_MODELS = {
         "deepinfra/deepseek-v3": {"input": 0.0007, "output": 0.0014},
         "meta-llama/Llama-3.1-70B-Instruct": {"input": 0.00059, "output": 0.00079},
         "meta-llama/Llama-3.1-8B-Instruct": {"input": 0.0001, "output": 0.0001},
+    },
+    "local": {
+        "Qwen3-8B": {"input": 0.0, "output": 0.0},  # Local model, no API costs
     }
 }
 

@@ -3,6 +3,7 @@
 import fitz  # PyMuPDF
 import re
 import json
+from pathlib import Path
 from PIL import Image
 import pdfplumber
 from io import BytesIO
@@ -15,7 +16,6 @@ from ..chunking.utils_chunking import (
     text_chunking,
     extract_tables_pdfplumber,
     ask_gemini_with_image,
-    extract_images_fitz,
     extract_caption_from_gemini,
     parse_table_extraction_response,
     save_chunks_to_json
@@ -27,14 +27,26 @@ logger = setup_logger("chunking")
 
 class PDFChunker:
     """
-    Class for chunking PDF content into text, tables, figures, and images.
+    Class for chunking PDF content into text, tables, and figures.
     Orchestrates preprocessing, extraction, and chunk generation.
+    Supports targeted processing based on page metadata.
     """
     
-    def __init__(self, pdf_path):
+    def __init__(self, pdf_path, page_metadata=None):
         self.pdf_path = pdf_path
         self.chunks = []
         self.accumulated_text = []  # Accumulate all text from pages
+        
+        # Build lookup sets for fast page checking (targeted processing)
+        if page_metadata:
+            self.table_pages = set(t["page"] for t in page_metadata.get("tables", []))
+            self.figure_pages = set(f["page"] for f in page_metadata.get("figures", []))
+            logger.info(f"🎯 Targeted mode: {len(self.table_pages)} table pages, {len(self.figure_pages)} figure pages")
+        else:
+            # If no metadata, process all pages (backwards compatible)
+            self.table_pages = None
+            self.figure_pages = None
+            logger.info("📖 Standard mode: processing all pages")
     
     def _process_page_text(self, page, page_num, patterns):
         """Process text content for a single page and accumulate it."""
@@ -149,20 +161,24 @@ class PDFChunker:
                 "figure_content": block
             })
     
-    def _process_embedded_images(self, page, page_num):
-        """Extract embedded images from the page."""
-        img_chunks = extract_images_fitz(page, page_num + 1)
-        self.chunks.extend(img_chunks)
     
     def _create_large_text_chunks(self):
         """Create 4-5 large text chunks from all accumulated text."""
         if not self.accumulated_text:
             return
         
+        # Create page-delimited text segments with markers
+        page_texts = []
+        for item in self.accumulated_text:
+            page_texts.append({
+                "text": item["text"],
+                "page": item["page"]
+            })
+        
         # Combine all text from all pages
         all_text = "\n\n".join([item["text"] for item in self.accumulated_text])
         
-        # Get the page range for reference
+        # Get the overall page range for logging
         page_numbers = [item["page"] for item in self.accumulated_text]
         min_page = min(page_numbers) if page_numbers else 1
         max_page = max(page_numbers) if page_numbers else 1
@@ -172,12 +188,36 @@ class PDFChunker:
         
         logger.info(f"📝 Created {len(text_chunks)} large text chunks from {len(self.accumulated_text)} pages")
         
-        # Add text chunks to the chunks list
-        for idx, txt in enumerate(text_chunks, 1):
+        # Estimate page ranges for each chunk based on character distribution
+        total_chars = len(all_text)
+        cumulative_chars = 0
+        chunk_page_ranges = []
+        
+        for txt in text_chunks:
+            chunk_len = len(txt)
+            # Calculate which pages this chunk approximately covers
+            start_ratio = cumulative_chars / total_chars if total_chars > 0 else 0
+            end_ratio = (cumulative_chars + chunk_len) / total_chars if total_chars > 0 else 1
+            
+            # Map ratios to page numbers
+            total_pages = max_page - min_page + 1
+            start_page = min_page + int(start_ratio * total_pages)
+            end_page = min_page + int(end_ratio * total_pages)
+            
+            # Ensure at least one page and valid range
+            start_page = max(min_page, start_page)
+            end_page = min(max_page, max(start_page, end_page))
+            
+            chunk_page_ranges.append((start_page, end_page))
+            cumulative_chars += chunk_len
+        
+        # Add text chunks to the chunks list with estimated page ranges
+        for idx, (txt, (start_page, end_page)) in enumerate(zip(text_chunks, chunk_page_ranges), 1):
+            page_str = f"{start_page}-{end_page}" if start_page != end_page else str(start_page)
             self.chunks.append({
                 "type": "text",
                 "content": txt,
-                "page": f"{min_page}-{max_page}",  # Show page range
+                "page": page_str,
                 "chunk_number": idx,
                 "length": len(txt)
             })
@@ -198,19 +238,19 @@ class PDFChunker:
                     break
 
                 page = doc[page_num]
+                page_number = page_num + 1
                 
-                # Accumulate text (will be chunked later)
+                # ALWAYS: Accumulate text (will be chunked later)
                 raw_text = clean_page_text_advanced(page, page.rect.height, patterns)
                 self._process_page_text(page, page_num, patterns)
                 
-                # Process tables (as before - no changes)
-                self._process_tables(page, page_num, self.pdf_path)
+                # CONDITIONAL: Process tables (only if on table page OR no metadata)
+                if self.table_pages is None or page_number in self.table_pages:
+                    self._process_tables(page, page_num, self.pdf_path)
                 
-                # Process figures (as before - no changes)
-                self._process_figures(raw_text, page, page_num)
-                
-                # Process embedded images (as before - no changes)
-                self._process_embedded_images(page, page_num)
+                # CONDITIONAL: Process figures (only if on figure page OR no metadata)
+                if self.figure_pages is None or page_number in self.figure_pages:
+                    self._process_figures(raw_text, page, page_num)
 
             doc.close()
             
@@ -223,12 +263,85 @@ class PDFChunker:
         return self.chunks
 
 
-def process_pdf(pdf_path, output_path="pdf_chunks.json"):
-    """Entry point function to process PDF using the PDFChunker class."""
-    logger.info(f"\n🔄 Processing PDF: {pdf_path} ...\n")
-    chunker = PDFChunker(pdf_path)
+def process_pdf(pdf_path, output_path="pdf_chunks.json", use_llm_classification=True):
+    """
+    Entry point function to process PDF with optional LLM-based page classification.
+    
+    Args:
+        pdf_path: Path to PDF file
+        output_path: Path to save chunks JSON (e.g., "output_dir/pdf_chunked.json")
+        use_llm_classification: If True, use Gemini to classify pages first (default: True)
+    
+    Returns:
+        list: List of extracted chunks
+    """
+    import os
+    output_dir = Path(output_path).parent
+    page_metadata = None
+    
+    if use_llm_classification:
+        logger.info("\n" + "=" * 80)
+        logger.info("🔍 STEP 1: Page Classification with LLM")
+        logger.info("=" * 80 + "\n")
+        
+        try:
+            from .page_classifier import PageClassifier
+            from ..config.config import (
+                STRUCTURER_MODEL, 
+                STRUCTURER_BASE_URL
+            )
+            
+            api_key = os.getenv("GEMINI_API_KEY")
+            if not api_key:
+                logger.error("❌ GEMINI_API_KEY not set, cannot use LLM classification")
+                raise ValueError("GEMINI_API_KEY environment variable not set")
+            
+            classifier = PageClassifier(
+                pdf_path=pdf_path,
+                output_dir=output_dir,
+                gemini_api_key=api_key,
+                structurer_model=STRUCTURER_MODEL,
+                structurer_base_url=STRUCTURER_BASE_URL
+            )
+            page_metadata = classifier.classify()
+            
+            # Log summary
+            table_pages = sorted(set(t["page"] for t in page_metadata["tables"]))
+            figure_pages = sorted(set(f["page"] for f in page_metadata["figures"]))
+            
+            logger.info(f"\n✅ Classification complete:")
+            logger.info(f"   Tables:  {len(page_metadata['tables'])} found on {len(table_pages)} pages: {table_pages}")
+            logger.info(f"   Figures: {len(page_metadata['figures'])} found on {len(figure_pages)} pages: {figure_pages}\n")
+        
+        except Exception as e:
+            logger.error(f"\n❌ Page classification failed: {e}")
+            logger.error("   Please check logs and retry manually\n")
+            raise  # Fail fast
+    
+    logger.info("=" * 80)
+    logger.info("🔄 STEP 2: Targeted PDF Chunking")
+    logger.info("=" * 80 + "\n")
+    
+    chunker = PDFChunker(pdf_path, page_metadata=page_metadata)
     chunks = chunker.chunk()
-    logger.info(f"✅ Extracted {len(chunks)} chunks.")
+    
+    logger.info(f"\n✅ Extracted {len(chunks)} total chunks")
+    
+    # Count chunk types
+    chunk_types = {}
+    for chunk in chunks:
+        chunk_type = chunk.get("type", "unknown")
+        chunk_types[chunk_type] = chunk_types.get(chunk_type, 0) + 1
+    
+    logger.info("   Chunk breakdown:")
+    for ctype, count in sorted(chunk_types.items()):
+        logger.info(f"   - {ctype}: {count}")
+    
     save_chunks_to_json(chunks, output_path)
-    logger.info("\n📄 Sample Chunk:\n")
-    logger.info(json.dumps(chunks[0] if chunks else {}, indent=4, ensure_ascii=False))
+    logger.info(f"\n💾 Saved chunks to: {output_path}")
+    
+    if chunks:
+        logger.info("\n📄 Sample Chunk:")
+        logger.info(json.dumps(chunks[0], indent=4, ensure_ascii=False)[:500] + "...")
+    
+    return chunks

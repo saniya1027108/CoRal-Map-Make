@@ -86,3 +86,10 @@ CONTEXT_MAX_RETRIES = 3  # Retry attempts for context generation
 
 ## Table Filling Configs
 MAX_WORKERS = 8
+
+# ============== PAGE CLASSIFICATION CONFIGS ==============
+# LLM-based page classification for targeted chunking
+USE_LLM_PAGE_CLASSIFICATION = True  # Use Gemini to identify table/figure pages
+PAGE_CLASSIFICATION_MODEL = "gemini-2.5-flash"  # Gemini model for classification
+STRUCTURER_MODEL = "Qwen/Qwen3-8B"  # Local model for structuring responses
+STRUCTURER_BASE_URL = "http://localhost:8001/v1"  # Local LLM endpoint for structuring

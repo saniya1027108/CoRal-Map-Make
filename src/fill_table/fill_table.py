@@ -16,7 +16,7 @@ from ..config.config import (
     RETRIEVAL_TOP_N,
     RETRIEVAL_BM25_WEIGHT,
     RETRIEVAL_SEMANTIC_WEIGHT,
-    RETRIEVAL_MAX_COMBINED_CHUNKS
+    RETRIEVAL_MAX_COMBINED_CHUNKS,
     MAX_WORKERS
 )
 
@@ -39,14 +39,32 @@ def log_llm_response(metrics_dir, group_label, chunk_idx, prompt, response, extr
         
 def _safe_json_value(val):
     """Convert numpy/pandas types to native Python types"""
+    # Handle None first
+    if val is None:
+        return None
+    
+    # Handle numpy/pandas numeric types
     if isinstance(val, (np.integer, np.int64, np.int32)):
         return int(val)
     if isinstance(val, (np.floating, np.float64, np.float32)):
         return float(val)
+    
+    # Handle numpy arrays
     if isinstance(val, np.ndarray):
         return val.tolist()
-    if pd.isna(val):
-        return None
+    
+    # Handle lists (convert to string if needed for JSON compatibility)
+    if isinstance(val, list):
+        return val
+    
+    # Check for pandas NA/NaN (only for scalar values)
+    try:
+        if pd.isna(val):
+            return None
+    except (ValueError, TypeError):
+        # pd.isna() failed (e.g., on a list), just return the value
+        pass
+    
     return val
 
 
@@ -111,7 +129,7 @@ def get_or_generate_context(pdf_path, output_dir, use_file_api=None):
         return extract_first_n_pages_text(pdf_path, n=2)
     
     # Check for cached guide
-    guide_path = Path(output_dir) / "extraction_guide.txt"
+    guide_path = Path(output_dir) / "context_text.txt"
     
     if guide_path.exists():
         logger.info(f"✅ Loading cached extraction guide from {guide_path}")
