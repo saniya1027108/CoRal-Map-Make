@@ -37,7 +37,7 @@ EVALUATION_MODEL = "gemini-2.5-flash"
 
 # ============== PATHS ==============
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFINITIONS_CSV_PATH = PROJECT_ROOT / "src" / "table_definitions" / "Definitions.csv"
+DEFINITIONS_CSV_PATH = PROJECT_ROOT / "src" / "table_definitions" / "Definitions_open_ended.csv"
 GOLD_TABLE_PATH = PROJECT_ROOT / "dataset" / "GoldTable.csv"
 EVALUATION_PROMPT_PATH = PROJECT_ROOT / "src" / "evaluation" / "llm_judge.txt"
 
@@ -76,7 +76,7 @@ RETRIEVAL_SEMANTIC_WEIGHT = 0.3
 # Set to None to combine all retrieved chunks
 RETRIEVAL_MAX_COMBINED_CHUNKS = None
 
-# ============== CONTEXT GENERATION CONFIGS ==============
+# ============== CONTEXT GENERATION CONFIGS (deprecated)==============
 # Context generation settings for extraction guide
 USE_FILE_API_CONTEXT = True  # Use Gemini File API for context (vs old 2-page text)
 CONTEXT_GENERATION_PROVIDER = "gemini"  # Provider for context generation

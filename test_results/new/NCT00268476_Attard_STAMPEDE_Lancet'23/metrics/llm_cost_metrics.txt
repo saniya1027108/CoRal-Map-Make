@@ -1,3 +1,0 @@
-calls: 3956
-input_tokens: 16012206
-output_tokens: 625322

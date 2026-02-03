@@ -1,8 +1,9 @@
 ## Current Challenges, Tasks:
 
 
-2. Issues with incomplete retreival - need to contextualise queries etc (dynamic queries based on the module).
-3. Prompts need to be refined, use more context specific from the paper.
-4. Dataset Contamination - need to make a clear gold set of 10-15 documents human validated answers to evaluate information extraction system. 
+1. Dataset Contamination - need to make a clear gold set of 10-15 documents human validated answers to evaluate information extraction system. 
+2. Add a verifier on the planner to allow for verifying plans and fixing them (incase they're buggy)
+3. The structurer model needs to change, the pydantic schema might be too rigid hence the string informations get boiled down to a single number eliminiating the correct values. 
+
 
 

@@ -202,7 +202,8 @@ def structure_responses(responses: dict, verbose: bool = True):
     tables_structurer = OutputStructurer(
         base_url="http://localhost:8001/v1",
         model="Qwen/Qwen3-8B",
-        debug_file=str(debug_tables_file)
+        debug_file=str(debug_tables_file),
+        enable_thinking=False  # Disable thinking for cleaner JSON
     )
     
     tables_result = tables_structurer.structure(
@@ -248,7 +249,8 @@ def structure_responses(responses: dict, verbose: bool = True):
     figures_structurer = OutputStructurer(
         base_url="http://localhost:8001/v1",
         model="Qwen/Qwen3-8B",
-        debug_file=str(debug_file)
+        debug_file=str(debug_file),
+        enable_thinking=False  # Disable thinking for cleaner JSON
     )
     
     figures_result = figures_structurer.structure(

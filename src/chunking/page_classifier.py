@@ -69,7 +69,8 @@ class PageClassifier:
         self.client = genai.Client(api_key=gemini_api_key)
         self.structurer = OutputStructurer(
             base_url=structurer_base_url,
-            model=structurer_model
+            model=structurer_model,
+            enable_thinking=False  # Disable thinking for cleaner JSON output
         )
     
     def classify(self) -> dict:

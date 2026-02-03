@@ -44,7 +44,8 @@ class OutputStructurer:
         base_url: str = "http://localhost:8001/v1",
         model: str = "Qwen/Qwen3-8B",  # Full HuggingFace path
         api_key: str = "not-needed",  # Local models don't need real API keys
-        debug_file: Optional[str] = None  # Path to debug file for logging
+        debug_file: Optional[str] = None,  # Path to debug file for logging
+        enable_thinking: bool = False  # Enable <think> tags in model output
     ):
         """
         Initialize the output structurer.
@@ -54,11 +55,13 @@ class OutputStructurer:
             model: Model name (default: Qwen/Qwen3-8B)
             api_key: API key (not needed for local, but required by OpenAI SDK)
             debug_file: Optional path to file for logging raw LLM responses
+            enable_thinking: Enable model thinking/reasoning output (default: False)
         """
         self.base_url = base_url
         self.model = model
         self.client = OpenAI(base_url=base_url, api_key=api_key)
         self.debug_file = debug_file
+        self.enable_thinking = enable_thinking
     
     def structure(
         self,
@@ -104,6 +107,11 @@ class OutputStructurer:
                         }
                     ],
                     temperature=temperature,
+                    extra_body={
+                        "chat_template_kwargs": {
+                            "enable_thinking": self.enable_thinking
+                        }
+                    }
                 )
                 
                 # Extract response text
@@ -210,24 +218,59 @@ class OutputStructurer:
     
     def _create_structuring_prompt(self, text: str, json_schema: dict) -> str:
         """Create the structuring prompt with text and schema."""
-        # Simplified prompt: just ask for array of objects
-        return f"""Extract information from the following text and return a JSON array.
+        # Extract schema information for prompt
+        schema_description = self._format_schema_for_prompt(json_schema)
+        
+        return f"""Extract information from the following text and structure it as JSON matching the schema below.
 
-Each item in the array should have these fields:
-- page: integer (page number)
-- name: string (table/figure name or number)
-- description: string (brief description of content)
+SCHEMA:
+{schema_description}
 
-Example format:
-[
-  {{"page": 3, "name": "Table 1", "description": "Patient demographics"}},
-  {{"page": 5, "name": "Figure 2", "description": "Survival curves"}}
-]
-
-TEXT:
+TEXT TO STRUCTURE:
 {text}
 
-Output ONLY the JSON array. No explanations, no markdown formatting."""
+Output ONLY valid JSON matching the schema above. No explanations, no markdown formatting, no extra text."""
+    
+    def _format_schema_for_prompt(self, json_schema: dict) -> str:
+        """Format JSON schema into a readable prompt description."""
+        lines = []
+        
+        # Add title/description if present
+        if "title" in json_schema:
+            lines.append(f"Object: {json_schema['title']}")
+        if "description" in json_schema:
+            lines.append(f"Description: {json_schema['description']}")
+        
+        # Add properties
+        if "properties" in json_schema:
+            lines.append("\nFields:")
+            for field_name, field_info in json_schema["properties"].items():
+                field_type = field_info.get("type", "unknown")
+                field_desc = field_info.get("description", "")
+                
+                # Handle array types
+                if field_type == "array" and "items" in field_info:
+                    items_info = field_info["items"]
+                    if "$ref" in items_info:
+                        # Reference to another schema - just show as array
+                        lines.append(f"  - {field_name}: array of objects")
+                        # Try to extract item properties if in definitions
+                        if "definitions" in json_schema or "$defs" in json_schema:
+                            defs = json_schema.get("definitions", json_schema.get("$defs", {}))
+                            ref_name = items_info["$ref"].split("/")[-1]
+                            if ref_name in defs:
+                                item_props = defs[ref_name].get("properties", {})
+                                lines.append(f"    Each item has:")
+                                for item_field, item_info in item_props.items():
+                                    item_type = item_info.get("type", "unknown")
+                                    item_desc = item_info.get("description", "")
+                                    lines.append(f"      • {item_field} ({item_type}): {item_desc}")
+                    else:
+                        lines.append(f"  - {field_name}: {field_type} - {field_desc}")
+                else:
+                    lines.append(f"  - {field_name} ({field_type}): {field_desc}")
+        
+        return "\n".join(lines)
     
     def _strip_think_tags(self, text: str) -> str:
         """
@@ -260,4 +303,4 @@ Output ONLY the JSON array. No explanations, no markdown formatting."""
     
     
     def __repr__(self) -> str:
-        return f"OutputStructurer(base_url='{self.base_url}', model='{self.model}')"
+        return f"OutputStructurer(base_url='{self.base_url}', model='{self.model}', enable_thinking={self.enable_thinking})"
