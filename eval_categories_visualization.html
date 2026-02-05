@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        .summary {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .summary span {
+            display: inline-block;
+            margin-right: 30px;
+            font-weight: bold;
+        }
+        .exact_match { background-color: #e3f2fd; }
+        .numeric_tolerance { background-color: #fff3e0; }
+        .structured_text { background-color: #f3e5f5; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th {
+            background: #2196F3;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .category-cell {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        .filter-buttons {
+            margin: 20px 0;
+        }
+        .filter-btn {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .filter-btn.active {
+            box-shadow: 0 0 0 2px #2196F3;
+        }
+    </style>
+    <script>
+        function filterByCategory(category) {
+            const rows = document.querySelectorAll('tbody tr');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter rows
+            rows.forEach(row => {
+                if (category === 'all') {
+                    row.style.display = '';
+                } else {
+                    const rowCategory = row.getAttribute('data-category');
+                    row.style.display = rowCategory === category ? '' : 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>📊 Evaluation Categories for All Columns</h1>
+    
+    <div class="summary">
+        <span class="exact_match">exact_match: 17</span>
+        <span class="numeric_tolerance">numeric_tolerance: 105</span>
+        <span class="structured_text">structured_text: 11</span>
+        <span>Total: 133</span>
+    </div>
+    
+    <div class="filter-buttons">
+        <button class="filter-btn active" style="background: #2196F3; color: white;" onclick="filterByCategory('all')">All</button>
+        <button class="filter-btn exact_match" onclick="filterByCategory('exact_match')">exact_match</button>
+        <button class="filter-btn numeric_tolerance" onclick="filterByCategory('numeric_tolerance')">numeric_tolerance</button>
+        <button class="filter-btn structured_text" onclick="filterByCategory('structured_text')">structured_text</button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 5%">#</th>
+                <th style="width: 25%">Column Name</th>
+                <th style="width: 15%">Label</th>
+                <th style="width: 15%">Eval Category</th>
+                <th style="width: 40%">Definition</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr data-category="exact_match" class="exact_match">
+                <td>1</td>
+                <td><strong>NCT</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What national Clinical Trial identifier, a unique identification number assigned to a clinical trial?. If reported, provide the value; otherwise use '...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>2</td>
+                <td><strong>PubMed ID</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What a unique identifier assigned to a clinical trial publication in the PubMed database?. If reported, provide the value; otherwise use 'Not reported...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>3</td>
+                <td><strong>Trial Name</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What the title or identifier of the clinical trial being referred to in the study?. If reported, provide the value; otherwise use 'Not reported'....</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>4</td>
+                <td><strong>Author</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What the name of the person or people responsible for writing or publishing the clinical trial study? Your answer should be a name/ list of names (you...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>5</td>
+                <td><strong>Year</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">Publication year of the clinical trial. Use 'Not reported' if unclear....</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>6</td>
+                <td><strong>Full Pub or Abstract</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">Indicates whether results are fully published or only an abstract is available. Use 'Full Pub' or 'Abstract'; use 'Not reported' if unclear....</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>7</td>
+                <td><strong>Phase</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">Clinical trial phase (e.g., I, II, III, IV) as reported. Use 'Not reported' if unclear....</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>8</td>
+                <td><strong>Original/Follow Up</strong></td>
+                <td>ID</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">Whether the study is an original report or a follow-up analysis. Use Original or Follow up; use 'Not reported' if unclear....</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>9</td>
+                <td><strong>Number of Arms Included</strong></td>
+                <td>Number of Arms Included</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What is the total count of experimental treatment arms and control arms included in the clinical trial?. If reported, provide the value; otherwise use...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>10</td>
+                <td><strong>Treatment Arm(s)</strong></td>
+                <td>Treatment Arm(s)</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What name of the experimental arm or arms in the clinical trial?. If reported, provide the value; otherwise use 'Not reported'....</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>11</td>
+                <td><strong>Control Arm</strong></td>
+                <td>Control Arm</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What the name of the arm in the clinical trial that does not receive the experimental treatment, serving as a comparison group?. If reported, provide ...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>12</td>
+                <td><strong>Class of Agent in Treatment Arm 1</strong></td>
+                <td>Class of Agent in Treatment Arm 1</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What the type or category of therapeutic agent used in the first experimental arm of the clinical trial?. If reported, provide the value; otherwise us...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>13</td>
+                <td><strong>Treatment Arm 1 Regimen</strong></td>
+                <td>Treatment Arm 1 Regimen</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What the specific treatment protocol or regimen used in the first experimental arm of the clinical trial?. If reported, provide the value; otherwise u...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>14</td>
+                <td><strong>Total Participants - N</strong></td>
+                <td>Total Participants - N</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What are the total number of participants included in the clinical trial?. If reported, provide the value; otherwise use 'Not reported'....</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>15</td>
+                <td><strong>Treatment Arm - N</strong></td>
+                <td>Treatment Arm - N</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What are the total number of participants included in the experimental arm of the clinical trial?. If reported, provide the value; otherwise use 'Not ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>16</td>
+                <td><strong>Control Arm - N</strong></td>
+                <td>Control Arm - N</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the total number of participants included in the control arm of the clinical trial?. If reported, provide the value; otherwise use 'Not reported'...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>17</td>
+                <td><strong>Median Follow-Up Duration (mo)</strong></td>
+                <td>Median Follow-Up Duration (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the median length of time, measured in months, that participants in the clinical trial were followed up or monitored after the start of the trial...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>18</td>
+                <td><strong>Median On-Treatment Duration (mo) | Treatment</strong></td>
+                <td>Median On-Treatment Duration (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median duration in months that participants in the treatment arm of the trial received on-treatment therapy? If reported, include the valu...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>19</td>
+                <td><strong>Median On-Treatment Duration (mo) | Control</strong></td>
+                <td>Median On-Treatment Duration (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median duration in months of participants receiving treatment in the control arm of the clinical trial? If reported, include the value; us...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>20</td>
+                <td><strong>Quality of Life reported</strong></td>
+                <td>Quality of Life reported</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">Does the clinical trial report results on the quality of life of participants? Answer Yes or No; use 'Not reported' if unclear....</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>21</td>
+                <td><strong>Quality of Life Scale</strong></td>
+                <td>Quality of Life Scale</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What a measure of the participants' overall well-being and satisfaction with their health status, as assessed through a standardized questionnaire or ...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>22</td>
+                <td><strong>Reporting by prognostic groups - Y/N | Synchronous</strong></td>
+                <td>Reporting by prognostic groups - Y/N</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What indicates whether the results of the clinical trial were reported based on prognostic groups with synchronous metastases, where synchronous metas...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>23</td>
+                <td><strong>Reporting by prognostic groups - Y/N | Metachronous</strong></td>
+                <td>Reporting by prognostic groups - Y/N</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What indicates whether the results of the clinical trial were reported based on prognostic groups of patients with metachronous diseases (diseases tha...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>24</td>
+                <td><strong>Reporting by prognostic groups - Y/N | High volume</strong></td>
+                <td>Reporting by prognostic groups - Y/N</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What indicates whether the results of the clinical trial were reported based on prognostic groups with high volume/burden of metastases, with a respon...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>25</td>
+                <td><strong>Reporting by prognostic groups - Y/N | Low volume</strong></td>
+                <td>Reporting by prognostic groups - Y/N</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What indicates whether the results were reported based on prognostic groups having a low volume of metastasis, with a yes or no response (Y/N)? Answer...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>26</td>
+                <td><strong>Mode of metastases - N (%) | Synchronous | Treatment</strong></td>
+                <td>Mode of metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants with synchronous metastases (metastases at the time of diagnosis of prostate cancer) in the treatment a...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>27</td>
+                <td><strong>Mode of metastases - N (%) | Synchronous | Control</strong></td>
+                <td>Mode of metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants with synchronous metastases (metastases at the time of diagnosis of prostate cancer) in the control arm...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>28</td>
+                <td><strong>Mode of metastases - N (%) | Metachronous | Treatment</strong></td>
+                <td>Mode of metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants with metachronous metastases (metastases that occur after the diagnosis of prostate cancer) in the treatmen...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>29</td>
+                <td><strong>Mode of metastases - N (%) | Metachronous | Control</strong></td>
+                <td>Mode of metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients with metachronous metastases (metastases that occur after the diagnosis of prostate cancer) in the control ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>30</td>
+                <td><strong>Volume of disease - N (%) | High | Treatment</strong></td>
+                <td>Volume of disease - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the clinical trial with a high volume or burden of metastatic disease? If repor...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>31</td>
+                <td><strong>Volume of disease - N (%) | High | Control</strong></td>
+                <td>Volume of disease - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the control arm of the clinical trial with high volume/burden metastasis? If reported, include count...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>32</td>
+                <td><strong>Trial</strong></td>
+                <td>Trial</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What name of the clinical study or experiment being referenced?. If reported, provide the value; otherwise use 'Not reported'....</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>33</td>
+                <td><strong>Volume of disease - N (%) | Low | Control</strong></td>
+                <td>Volume of disease - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the control arm of the trial with low volume/burden metastases? If reported, include count and/or pe...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>34</td>
+                <td><strong>Docetaxel administration - N (%) | Treatment</strong></td>
+                <td>Docetaxel administration - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of participants in the treatment arm of the clinical trial who received docetaxel before or during the trial? If reported, include cou...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>35</td>
+                <td><strong>Docetaxel administration - N (%) | Control</strong></td>
+                <td>Docetaxel administration - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants who received docetaxel before or during the trial in the control arm of the clinical trial? If reported, in...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>36</td>
+                <td><strong>Median Age (years) | Treatment</strong></td>
+                <td>Median Age (years)</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What median age in years of participants included in the treatment arm of the clinical trial? If reported, include the value; use 'Not reported' if mi...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>37</td>
+                <td><strong>Median Age (years) | Control</strong></td>
+                <td>Median Age (years)</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What the median age of participants included in the control arm of the clinical trial? If reported, include the value; use 'Not reported' if missing....</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>38</td>
+                <td><strong>Race - N (%) | White | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants of White race included in the treatment arm of the clinical trial? If reported, include count and/or percen...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>39</td>
+                <td><strong>Race - N (%) | White | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of control arm participants who identified as White in terms of their racial background? If reported, include count and/or ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>40</td>
+                <td><strong>Race - N (%) | Black or African American | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants identifying as Black or African American in the treatment arm of the clinical trial? If reported, include c...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>41</td>
+                <td><strong>Race - N (%) | Black or African American | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants identified as Black or African American in the control arm of the clinical trial? If reported, include coun...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>42</td>
+                <td><strong>Race - N (%) | Asian | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the clinical trial who are of Asian race? If reported, include count and/or per...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>43</td>
+                <td><strong>Race - N (%) | Asian | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the control arm of the trial who identify as Asian? If reported, include count and/or percentage. If...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>44</td>
+                <td><strong>Race - N (%) | Nat. Hawaiian or Pac. Islander | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants identifying as Native Hawaiian or Pacific Islander in the treatment arm of the clinical trial? If reported,...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>45</td>
+                <td><strong>Race - N (%) | Nat. Hawaiian or Pac. Islander | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the trial who identify as Native Hawaiian or Pacific Islander by race? If reported, inclu...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>46</td>
+                <td><strong>Race - N (%) | Amer. Indian or Alaska Nat. | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm of the clinical trial who identify as American Indian or Alaska Native by race? If rep...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>47</td>
+                <td><strong>Race - N (%) | Amer. Indian or Alaska Nat. | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the control arm of the trial who identified as American Indian or Alaska Native by race? If reported, in...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>48</td>
+                <td><strong>Race - N (%) | Other | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the clinical trial who identified as "other" in terms of race? If reported, inc...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>49</td>
+                <td><strong>Race - N (%) | Other | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants with 'Other' race included in the control arm of the clinical trial? If reported, include count and/or perc...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>50</td>
+                <td><strong>Race - N (%) | Unknown | Treatment</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants with unknown race included in the treatment arm of the clinical trial? If reported, include count and/or pe...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>51</td>
+                <td><strong>Race - N (%) | Unknown | Control</strong></td>
+                <td>Race - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the control arm of the trial with unknown race? If reported, include count and/or percentage. If multipl...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>52</td>
+                <td><strong>Region - N (%) | North America | Treatment</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants from North America included in the treatment arm of the clinical trial? If reported, include count and/or p...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>53</td>
+                <td><strong>Region - N (%) | North America | Control</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the control arm of the trial who were from the North America region? If reported, include count and/or p...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>54</td>
+                <td><strong>Region - N (%) | South America | Treatment</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm of the clinical trial from the South America region? If reported, include count and/or...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>55</td>
+                <td><strong>Region - N (%) | South America | Control</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the trial from the South America region? If reported, include count and/or percentage. If...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>56</td>
+                <td><strong>Region - N (%) | Europe | Treatment</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants included in the treatment arm of the clinical trial from the Europe region? If reported, include count and/...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>57</td>
+                <td><strong>Region - N (%) | Europe | Control</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the trial from the Europe region? If reported, include count and/or percentage. If multip...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>58</td>
+                <td><strong>Region - N (%) | Africa | Treatment</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm of the trial who were from the Africa region? If reported, include count and/or percen...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>59</td>
+                <td><strong>Region - N (%) | Africa | Control</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the control arm of the trial from the Africa region? If reported, include count and/or percentage. If mu...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>60</td>
+                <td><strong>Region - N (%) | Asia | Treatment</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the clinical trial who are from the Asia region? If reported, include count and...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>61</td>
+                <td><strong>Region - N (%) | Asia | Control</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the trial from the Asian region? If reported, include count and/or percentage. If multipl...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>62</td>
+                <td><strong>Region - N (%) | Oceania | Treatment</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm of the clinical trial who are from the Oceania region? If reported, include count and/...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>63</td>
+                <td><strong>Region - N (%) | Oceania | Control</strong></td>
+                <td>Region - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the control arm of the trial from the Oceania region? If reported, include count and/or percentage. If m...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>64</td>
+                <td><strong>PS - N (%) | 0 | Treatment</strong></td>
+                <td>PS - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants included in the treatment arm with a Performance Status (PS) score of 0? If reported, include count and/or ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>65</td>
+                <td><strong>PS - N (%) | 0 | Control</strong></td>
+                <td>PS - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients with a Performance Status (PS) score of 0 in the control arm of the trial? If reported, include count and/o...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>66</td>
+                <td><strong>PS - N (%) | 1-2 | Treatment</strong></td>
+                <td>PS - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants with a Performance Status (PS) score of 1-2 in the treatment arm of the clinical trial? If reported, includ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>67</td>
+                <td><strong>PS - N (%) | 1-2 | Control</strong></td>
+                <td>PS - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients with performance status (PS) score of 1-2 in the control arm of the clinical trial? If reported, include count ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>68</td>
+                <td><strong>Gleason score - N (%) | ≤ 7 | Treatment</strong></td>
+                <td>Gleason score - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants included in the treatment arm of the clinical trial with a Gleason score of 7 or less? If reported, include...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>69</td>
+                <td><strong>Gleason score - N (%) | ≤ 7 | Control</strong></td>
+                <td>Gleason score - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients with a Gleason score of 7 or less in the control arm of the trial? If reported, include count and/or percentage...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>70</td>
+                <td><strong>Gleason score - N (%) | ≥ 8 | Treatment</strong></td>
+                <td>Gleason score - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm of the clinical trial with a Gleason score of 8 or higher? If reported, include count ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>71</td>
+                <td><strong>Gleason score - N (%) | ≥ 8 | Control</strong></td>
+                <td>Gleason score - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the clinical trial with a Gleason score of 8 or higher? If reported, include count and/or...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>72</td>
+                <td><strong>Metastases - N (%) | Liver | Treatment</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment of the trial who had liver as the metastatic site? If reported, include count and/or p...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>73</td>
+                <td><strong>Metastases - N (%) | Liver | Control</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the control arm of the trial who had liver as the metastatic site? If reported, include count and/or...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>74</td>
+                <td><strong>Metastases - N (%) | Lungs | Treatment</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the trial who had lungs as the metastatic site? If reported, include count and/...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>75</td>
+                <td><strong>Metastases - N (%) | Lungs | Control</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the control arm of the trial who had lungs as the metastatic site? If reported, include count and/or...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>76</td>
+                <td><strong>Metastases - N (%) | Bone | Treatment</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm of the clinical trial who have metastases in the bone? If reported, include count and/...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>77</td>
+                <td><strong>Metastases - N (%) | Bone | Control</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients showing metastases in the bone in the control arm of the trial? If reported, include count and/or percentag...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>78</td>
+                <td><strong>Metastases - N (%) | Nodal | Treatment</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the clinical trial who have metastases in the lymph nodes? If reported, include...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>79</td>
+                <td><strong>Metastases - N (%) | Nodal | Control</strong></td>
+                <td>Metastases - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients showing metastases in the nodal region in the control arm of the trial? If reported, include count and/or p...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>80</td>
+                <td><strong>Previous local therapy - N (%) | Prostatectomy | Treatment</strong></td>
+                <td>Previous local therapy - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of participants in the treatment arm of the trial who received prostatectomy as a previous local therapy? If reported, ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>81</td>
+                <td><strong>Previous local therapy - N (%) | Prostatectomy | Control</strong></td>
+                <td>Previous local therapy - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the trial who received previous local therapy in the form of prostatectomy? If reported, ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>82</td>
+                <td><strong>Previous local therapy - N (%) | Orchiectomy | Treatment</strong></td>
+                <td>Previous local therapy - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants who received orchiectomy as a previous local therapy in the treatment arm of the clinical trial? If reporte...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>83</td>
+                <td><strong>Previous local therapy - N (%) | Orchiectomy | Control</strong></td>
+                <td>Previous local therapy - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients in the control arm of the trial who received previous local orchiectomy therapy? If reported, include count...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>84</td>
+                <td><strong>Previous local therapy - N (%) | Radiotherapy | Treatment</strong></td>
+                <td>Previous local therapy - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of participants in the treatment arm who received radiotherapy as previous local therapy? If reported, include count and/or...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>85</td>
+                <td><strong>Previous local therapy - N (%) | Radiotherapy | Control</strong></td>
+                <td>Previous local therapy - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients in the control arm of the trial who received previous local radiotherapy? If reported, include count and/or per...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>86</td>
+                <td><strong>Primary Endpoint(s)</strong></td>
+                <td>Primary Endpoint(s)</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What the main outcome(s) or objective(s) that the clinical trial is designed to measure or achieve?. If reported, provide the value; otherwise use 'No...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>87</td>
+                <td><strong>Secondary Endpoint(s)</strong></td>
+                <td>Secondary Endpoint(s)</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What the secondary outcome(s) or objective(s) of the clinical trial, in addition to the primary endpoint, that are being measured or evaluated?. If re...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>88</td>
+                <td><strong>ORR - N (%) | Treatment | Overall</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the experimental arm showed overall response (complete or partial response) of metastatic disease? If reported, i...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>89</td>
+                <td><strong>ORR - N (%) | Treatment | CR</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the experimental arm showed complete response of metastatic disease? If reported, include count and/or percentage...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>90</td>
+                <td><strong>ORR - N (%) | Treatment | SD</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the experimental arm showed stable metastatic disease? If reported, include count and/or percentage. If multiple ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>91</td>
+                <td><strong>ORR - N (%) | Treatment | PD</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the experimental arm showed progression of metastatic disease? If reported, include count and/or percentage. If m...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>92</td>
+                <td><strong>ORR - N (%) | Control | Overall</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the control arm showed overall response (complete or partial response) of metastatic disease? If reported, includ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>93</td>
+                <td><strong>ORR - N (%) | Control | CR</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the control arm showed complete response of metastatic disease? If reported, include count and/or percentage. If ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>94</td>
+                <td><strong>ORR - N (%) | Control | SD</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the control arm showed stable metastatic disease? If reported, include count and/or percentage. If multiple relev...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>95</td>
+                <td><strong>ORR - N (%) | Control | PD</strong></td>
+                <td>ORR - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the control arm showed progression of metastatic disease? If reported, include count and/or percentage. If multip...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>96</td>
+                <td><strong>Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment</strong></td>
+                <td>Adverse Events - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients experiencing adverse events of all causes with a grade of 3 or higher in the treatment arm of the trial? If...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>97</td>
+                <td><strong>Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control</strong></td>
+                <td>Adverse Events - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients experiencing all-cause adverse events with a grade of 3 or higher in the control arm of the trial? If reported,...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>98</td>
+                <td><strong>Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment</strong></td>
+                <td>Adverse Events - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number and percentage of patients experiencing treatment-related adverse events with a grade of 3 or higher in the treatment arm of the trial? If...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>99</td>
+                <td><strong>Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control</strong></td>
+                <td>Adverse Events - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients experiencing adverse events that are related to the treatment and have a severity grade of 3 or higher in t...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>100</td>
+                <td><strong>Adverse Events - N (%) | Treatment-related Grade 5 | Treatment</strong></td>
+                <td>Adverse Events - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients showing adverse events that are treatment-related and have a grade of 5 in the treatment arm of the trial? ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>101</td>
+                <td><strong>Adverse Events - N (%) | Treatment-related Grade 5 | Control</strong></td>
+                <td>Adverse Events - N (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number and percentage of patients experiencing treatment-related adverse events with a grade of 5 in the control arm of the clinical trial? I...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>102</td>
+                <td><strong>No. of Deaths - N | Treatment</strong></td>
+                <td>No. of Deaths - N</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the number of participants who died in the treatment arm of the clinical trial?....</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>103</td>
+                <td><strong>No. of Deaths - N | Control</strong></td>
+                <td>No. of Deaths - N</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What number of deaths that occurred in the control arm of the clinical trial?....</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>104</td>
+                <td><strong>TTPSA (mo) | Treatment</strong></td>
+                <td>TTPSA (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What time To Progression of Serum Androgen (in months) in the treatment arm of the clinical trial? If reported, include the value; use 'Not reported' ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>105</td>
+                <td><strong>TTPSA (mo) | Control</strong></td>
+                <td>TTPSA (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What time to Progressive Serum Androgen (TTPSA) in months for participants in the control arm of the clinical trial? If reported, include the value; u...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>106</td>
+                <td><strong>OS Rate (%) | Overall | Treatment</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the experimental arm survived at the latest follow-up? If reported, include the rate (percentage) and any accompa...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>107</td>
+                <td><strong>OS Rate (%) | Overall | Control</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of total patients in the control arm survived at the latest follow-up? If reported, include the rate (percentage) and any accompanying...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>108</td>
+                <td><strong>OS Rate (%) | Synchronous | Treatment</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with metastasis at the time of diagnosis (synchronous metastasis) in the experimental arm survived at the latest follow-up...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>109</td>
+                <td><strong>OS Rate (%) | Synchronous | Control</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with metastasis at the time of diagnosis (synchronous metastasis) in the control arm survived at the latest follow-up? If ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>110</td>
+                <td><strong>OS Rate (%) | Metachronous | Treatment</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with metastasis after diagnosis (metachronous metastasis) in the experimental arm survived at the latest follow-up? If rep...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>111</td>
+                <td><strong>OS Rate (%) | Metachronous | Control</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with metastasis after diagnosis (metachronous metastasis) in the control arm survived at the latest follow-up? If reported...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>112</td>
+                <td><strong>OS Rate (%) | High volume | Treatment</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with high volume metastasis (by CHAARTED criteria) in the experimental arm survived at the latest follow-up? If reported, ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>113</td>
+                <td><strong>OS Rate (%) | High volume | Control</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with high volume metastasis (by CHAARTED criteria) in the control arm survived at the latest follow-up? If reported, inclu...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>114</td>
+                <td><strong>OS Rate (%) | Low volume | Treatment</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with low volume metastasis (by CHAARTED criteria) in the experimental arm survived at the latest follow-up? If reported, i...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>115</td>
+                <td><strong>OS Rate (%) | Low volume | Control</strong></td>
+                <td>OS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What percentage of patients with low volume metastasis (by CHAARTED criteria) in the control arm survived at the latest follow-up? If reported, includ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>116</td>
+                <td><strong>Median OS (mo) | Overall | Treatment</strong></td>
+                <td>Median OS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median overall survival (in months) for all patients in the experimental arm? If reported, include the value; use 'Not reported' if missin...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>117</td>
+                <td><strong>Median OS (mo) | Overall | Control</strong></td>
+                <td>Median OS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median overall survival (in months) for all patients in the control arm? If reported, include the value; use 'Not reported' if missing....</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>118</td>
+                <td><strong>Median OS (mo) | High volume | Treatment</strong></td>
+                <td>Median OS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median overall survival (in months) for patients with high volume metastasis (by CHAARTED criteria) in the experimental arm? If reported, ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>119</td>
+                <td><strong>Median OS (mo) | High volume | Control</strong></td>
+                <td>Median OS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median overall survival (in months) for patients with high volume metastasis (by CHAARTED criteria) in the control arm? If reported, inclu...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>120</td>
+                <td><strong>Median OS (mo) | Low volume | Treatment</strong></td>
+                <td>Median OS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median overall survival (in months) for patients with low volume metastasis (by CHAARTED criteria) in the experimental arm? If reported, i...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>121</td>
+                <td><strong>Median OS (mo) | Low volume | Control</strong></td>
+                <td>Median OS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median overall survival (in months) for patients with low volume metastasis (by CHAARTED criteria) in the control arm? If reported, includ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>122</td>
+                <td><strong>PFS Rate (%) | Overall | Treatment</strong></td>
+                <td>PFS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What the hazard ratio with confidence intervals of progression-free survival (PFS) of all comparisons in all participants, regardless of metastasis ty...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>123</td>
+                <td><strong>PFS Rate (%) | Overall | Control</strong></td>
+                <td>PFS Rate (%)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What hazard ratio with confidence intervals of Progression-Free Survival (PFS) of all comparisons in all participants in the control arm of the trial?...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>124</td>
+                <td><strong>Median PFS (mo) | Overall | Treatment</strong></td>
+                <td>Median PFS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median progression free survival (in months) for all patients in the experimental arm? If reported, include the value; use 'Not reported' ...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>125</td>
+                <td><strong>Median PFS (mo) | Overall | Control</strong></td>
+                <td>Median PFS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median progression free survival (in months) for all patients in the control arm? If reported, include the value; use 'Not reported' if mi...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>126</td>
+                <td><strong>Median PFS (mo) | High volume | Treatment</strong></td>
+                <td>Median PFS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median progression free survival (in months) for patients with high volume metastasis (by CHAARTED criteria) in the experimental arm? If r...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>127</td>
+                <td><strong>Median PFS (mo) | High volume | Control</strong></td>
+                <td>Median PFS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median progression free survival (in months) for patients with high volume metastasis (by CHAARTED criteria) in the control arm? If report...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>128</td>
+                <td><strong>Median PFS (mo) | Low volume | Treatment</strong></td>
+                <td>Median PFS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median progression free survival (in months) for patients with low volume metastasis (by CHAARTED criteria) in the experimental arm? If re...</td>
+            </tr>
+    
+            <tr data-category="numeric_tolerance" class="numeric_tolerance">
+                <td>129</td>
+                <td><strong>Median PFS (mo) | Low volume | Control</strong></td>
+                <td>Median PFS (mo)</td>
+                <td><span class="category-cell numeric_tolerance">numeric_tolerance</span></td>
+                <td style="font-size: 0.9em;">What is the median progression free survival (in months) for patients with low volume metastasis (by CHAARTED criteria) in the control arm? If reporte...</td>
+            </tr>
+    
+            <tr data-category="exact_match" class="exact_match">
+                <td>130</td>
+                <td><strong>COE_RCT_IND_OVERALL_RJ</strong></td>
+                <td>COE_RCT_IND_OVERALL_RJ</td>
+                <td><span class="category-cell exact_match">exact_match</span></td>
+                <td style="font-size: 0.9em;">What is the overall risk judgment of individual criteria of evidence (COE) in randomized controlled trials (RCT)?....</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>131</td>
+                <td><strong>Add-on Treatment</strong></td>
+                <td>Add-on Treatment</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What is the name of additional therapy or intervention given in combination with the primary treatment in the clinical trial?. If reported, provide th...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>132</td>
+                <td><strong>Treatment Class</strong></td>
+                <td>Treatment Class</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What is the categorization or classification of the treatment or therapy received by participants in the clinical trial?. If reported, provide the val...</td>
+            </tr>
+    
+            <tr data-category="structured_text" class="structured_text">
+                <td>133</td>
+                <td><strong>Type of Therapy</strong></td>
+                <td>Type of Therapy</td>
+                <td><span class="category-cell structured_text">structured_text</span></td>
+                <td style="font-size: 0.9em;">What is the description of the type of treatment or intervention provided to participants in the clinical trial?. If reported, provide the value; othe...</td>
+            </tr>
+    
+        </tbody>
+    </table>
+</body>
+</html>
