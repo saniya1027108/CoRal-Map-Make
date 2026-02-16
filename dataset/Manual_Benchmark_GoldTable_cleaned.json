@@ -676,11 +676,19 @@
         "location": ""
       },
       "Docetaxel administration - N (%) | Treatment": {
+<<<<<<< HEAD
         "value": "Abiraterone + Enzalutamide trial: 41 (9%)",
         "location": ""
       },
       "Docetaxel administration - N (%) | Control": {
         "value": "Abiraterone + Enzalutamide trial: 39 (9%)",
+=======
+        "value": "Abiraterone trial: 0 (0%), Abiraterone + Enzalutamide trial: 41 (9%)",
+        "location": ""
+      },
+      "Docetaxel administration - N (%) | Control": {
+        "value": "Abiraterone trial: 0 (0%), Abiraterone + Enzalutamide trial: 39 (9%)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": ""
       },
       "Median Age (years) | Treatment": {
@@ -1712,11 +1720,19 @@
         "location": ""
       },
       "Reporting by prognostic groups - Y/N | High volume": {
+<<<<<<< HEAD
         "value": "No (extensive vs minimal disease) is reported in table 1 but outcomes by volumne are not reported",
         "location": "(pg2, text; Table 1)"
       },
       "Reporting by prognostic groups - Y/N | Low volume": {
         "value": "No (extensive vs minimal disease) is reported in table 1 but outcomes by volumne are not reported",
+=======
+        "value": "Yes (extensive vs minimal disease) is reported in table 1 but outcomes by volumne are not reported",
+        "location": "(pg2, text; Table 1)"
+      },
+      "Reporting by prognostic groups - Y/N | Low volume": {
+        "value": "Yes (extensive vs minimal disease) is reported in table 1 but outcomes by volumne are not reported",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg2, text; Table 1)"
       },
       "Mode of metastases - N (%) | Synchronous | Treatment": {
@@ -2136,8 +2152,13 @@
         "location": "(pg13, table)"
       },
       "COE_RCT_IND_OVERALL_RJ": {
+<<<<<<< HEAD
         "value": "3.6 years (~43.2 mo)",
         "location": "(pg13, table)"
+=======
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Add-on Treatment": {
         "value": "Orteronel",
@@ -2227,11 +2248,19 @@
       },
       "Median On-Treatment Duration (mo) | Treatment": {
         "value": "Median treatment duration in ARASENS was 41 months",
+<<<<<<< HEAD
         "location": "(pg4, text)"
       },
       "Median On-Treatment Duration (mo) | Control": {
         "value": "",
         "location": ""
+=======
+        "location": "(pg4, text); (pg4, text); (pg4, text); (pg4, text)"
+      },
+      "Median On-Treatment Duration (mo) | Control": {
+        "value": "",
+        "location": "(pg4, text); (pg4, text); (pg4, text); (pg4, text)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Quality of Life reported": {
         "value": "Yes (pain + symptom/physical-function instruments listed as secondary endpoints)",
@@ -2242,7 +2271,11 @@
         "location": "(pg3, text)"
       },
       "Reporting by prognostic groups - Y/N | Synchronous": {
+<<<<<<< HEAD
         "value": "Yes",
+=======
+        "value": "Yes (de novo/synchronous described; de novo counts shown in Table 1)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg1, text; pg5, table)"
       },
       "Reporting by prognostic groups - Y/N | Metachronous": {
@@ -2259,6 +2292,7 @@
       },
       "Mode of metastases - N (%) | Synchronous | Treatment": {
         "value": "558(85.7%)",
+<<<<<<< HEAD
         "location": "(pg5, table)"
       },
       "Mode of metastases - N (%) | Synchronous | Control": {
@@ -2272,6 +2306,21 @@
       "Mode of metastases - N (%) | Metachronous | Control": {
         "value": "82(12.5%)",
         "location": "(pg5, table)"
+=======
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Mode of metastases - N (%) | Synchronous | Control": {
+        "value": "566(86.5%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Mode of metastases - N (%) | Metachronous | Treatment": {
+        "value": "86(13.2%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Mode of metastases - N (%) | Metachronous | Control": {
+        "value": "82(12.5%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Volume of disease - N (%) | High | Treatment": {
         "value": "497 (76.3%)",
@@ -2299,11 +2348,19 @@
       },
       "Median Age (years) | Treatment": {
         "value": "67.0",
+<<<<<<< HEAD
         "location": "(pg5, table)"
       },
       "Median Age (years) | Control": {
         "value": "67.0",
         "location": "(pg5, table)"
+=======
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Median Age (years) | Control": {
+        "value": "67.0",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Race - N (%) | White | Treatment": {
         "value": "",
@@ -2411,6 +2468,7 @@
       },
       "PS - N (%) | 0 | Treatment": {
         "value": "466(71.6%)",
+<<<<<<< HEAD
         "location": "(pg5, table)"
       },
       "PS - N (%) | 0 | Control": {
@@ -2440,6 +2498,37 @@
       "Gleason score - N (%) | ≥ 8 | Control": {
         "value": "516(78.9%)",
         "location": "(pg5, table)"
+=======
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "PS - N (%) | 0 | Control": {
+        "value": "462(70.6%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "PS - N (%) | 1-2 | Treatment": {
+        "value": "185(28.4%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "PS - N (%) | 1-2 | Control": {
+        "value": "190(29.1%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Gleason score - N (%) | ≤ 7 | Treatment": {
+        "value": "122(18.7%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Gleason score - N (%) | ≤ 7 | Control": {
+        "value": "118(18.0%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Treatment": {
+        "value": "505(77.6%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Control": {
+        "value": "516(78.9%)",
+        "location": "(pg5, table); (pg5, table); (pg5, table); (pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Metastases - N (%) | Liver | Treatment": {
         "value": "",
@@ -2458,6 +2547,7 @@
         "location": ""
       },
       "Metastases - N (%) | Bone | Treatment": {
+<<<<<<< HEAD
         "value": "517(79.4%)",
         "location": "(pg5, table)"
       },
@@ -2472,6 +2562,22 @@
       "Metastases - N (%) | Nodal | Control": {
         "value": "15 (2.29%)",
         "location": "(pg5, table)"
+=======
+        "value": "",
+        "location": ""
+      },
+      "Metastases - N (%) | Bone | Control": {
+        "value": "",
+        "location": ""
+      },
+      "Metastases - N (%) | Nodal | Treatment": {
+        "value": "",
+        "location": ""
+      },
+      "Metastases - N (%) | Nodal | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Previous local therapy - N (%) | Prostatectomy | Treatment": {
         "value": "",
@@ -2780,7 +2886,11 @@
         "location": "(pg3, text)"
       },
       "Reporting by prognostic groups - Y/N | Synchronous": {
+<<<<<<< HEAD
         "value": "Yes",
+=======
+        "value": "Yes (de novo vs recurrent)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg1, tableq)"
       },
       "Reporting by prognostic groups - Y/N | Metachronous": {
@@ -2788,7 +2898,11 @@
         "location": "(pg1, table 1)"
       },
       "Reporting by prognostic groups - Y/N | High volume": {
+<<<<<<< HEAD
         "value": "No",
+=======
+        "value": "No (CHAARTED volume not used)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": ""
       },
       "Reporting by prognostic groups - Y/N | Low volume": {
@@ -2908,12 +3022,21 @@
         "location": "(pg5, table)"
       },
       "Region - N (%) | South America | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
       "Region - N (%) | South America | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "229 (35.2%)",
+        "location": "(pg5, table)"
+      },
+      "Region - N (%) | South America | Control": {
+        "value": "244 (37.3%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Region - N (%) | Europe | Treatment": {
         "value": "",
@@ -2932,12 +3055,21 @@
         "location": ""
       },
       "Region - N (%) | Asia | Treatment": {
+<<<<<<< HEAD
         "value": "229 (35.2%)",
         "location": "(pg5, table)"
       },
       "Region - N (%) | Asia | Control": {
         "value": "244 (37.3%)",
         "location": "(pg5, table)"
+=======
+        "value": "",
+        "location": ""
+      },
+      "Region - N (%) | Asia | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Region - N (%) | Oceania | Treatment": {
         "value": "",
@@ -2980,12 +3112,21 @@
         "location": "(pg5, table)"
       },
       "Metastases - N (%) | Liver | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
       "Metastases - N (%) | Liver | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "111 (17.1%)",
+        "location": "(pg5, table)"
+      },
+      "Metastases - N (%) | Liver | Control": {
+        "value": "118 (18.0%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Metastases - N (%) | Lungs | Treatment": {
         "value": "",
@@ -3216,7 +3357,11 @@
         "location": "(pg2, text)"
       },
       "Add-on Treatment": {
+<<<<<<< HEAD
         "value": "ADT + Docetaxel",
+=======
+        "value": "Darolutamide",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg1, text)"
       },
       "Treatment Class": {
@@ -3361,10 +3506,13 @@
         "value": "ENZAMET",
         "location": "(pg1, text)"
       },
+<<<<<<< HEAD
       "Volume of disease - N (%) | Low | Treatment": {
         "value": "262 (47%)",
         "location": "(pg5, table)"
       },
+=======
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       "Volume of disease - N (%) | Low | Control": {
         "value": "261 (46%)",
         "location": "(pg5, table)"
@@ -3378,11 +3526,19 @@
         "location": "(pg5–6, table/text)"
       },
       "Median Age (years) | Treatment": {
+<<<<<<< HEAD
         "value": "69 (64-75)",
         "location": "(pg1, text; Table 1)"
       },
       "Median Age (years) | Control": {
         "value": "69 63-74)",
+=======
+        "value": "69",
+        "location": "(pg1, text; Table 1)"
+      },
+      "Median Age (years) | Control": {
+        "value": "69",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg1, text; Table 1)"
       },
       "Race - N (%) | White | Treatment": {
@@ -3442,11 +3598,19 @@
         "location": ""
       },
       "Region - N (%) | North America | Treatment": {
+<<<<<<< HEAD
         "value": "20 (4%)",
         "location": "(pg5, table)"
       },
       "Region - N (%) | North America | Control": {
         "value": "22 (4%)",
+=======
+        "value": "129 (23%)",
+        "location": "(pg5, table)"
+      },
+      "Region - N (%) | North America | Control": {
+        "value": "117 (21%)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg5, table)"
       },
       "Region - N (%) | South America | Treatment": {
@@ -3458,12 +3622,21 @@
         "location": ""
       },
       "Region - N (%) | Europe | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
       "Region - N (%) | Europe | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "102(18%)",
+        "location": "(pg5, table)"
+      },
+      "Region - N (%) | Europe | Control": {
+        "value": "93(17%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Region - N (%) | Africa | Treatment": {
         "value": "",
@@ -3482,12 +3655,21 @@
         "location": ""
       },
       "Region - N (%) | Oceania | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
       "Region - N (%) | Oceania | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "344(61%)",
+        "location": "(pg5, table)"
+      },
+      "Region - N (%) | Oceania | Control": {
+        "value": "341(60%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "PS - N (%) | 0 | Treatment": {
         "value": "405 (72%)",
@@ -3506,6 +3688,7 @@
         "location": "(pg5, table)"
       },
       "Gleason score - N (%) | ≤ 7 | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
@@ -3520,6 +3703,22 @@
       "Gleason score - N (%) | ≥ 8 | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "152 (27%)", 
+        "location": "(pg7, figure 3)"
+      },
+      "Gleason score - N (%) | ≤ 7 | Control": {
+        "value": "164(29%)", 
+        "location": "(pg7, figure 3)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Treatment": {
+        "value": "335 (59%)",
+        "location": "(pg7, figure 3)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Control": {
+        "value": "320 (57%)",
+        "location": "(pg7, figure 3)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Metastases - N (%) | Liver | Treatment": {
         "value": "14 (2%)",
@@ -3530,12 +3729,21 @@
         "location": "(pg5, table)"
       },
       "Metastases - N (%) | Lungs | Treatment": {
+<<<<<<< HEAD
         "value": "69 (12%)",
         "location": "(pg5, table)"
       },
       "Metastases - N (%) | Lungs | Control": {
         "value": "70 (12%)",
         "location": "(pg5, table)"
+=======
+        "value": "",
+        "location": ""
+      },
+      "Metastases - N (%) | Lungs | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Metastases - N (%) | Bone | Treatment": {
         "value": "",
@@ -3642,11 +3850,19 @@
         "location": "(pg7–8, text)"
       },
       "No. of Deaths - N | Treatment": {
+<<<<<<< HEAD
         "value": "208 (37%)",
         "location": "(pg6, text)"
       },
       "No. of Deaths - N | Control": {
         "value": "268 (48%)",
+=======
+        "value": "208",
+        "location": "(pg6, text)"
+      },
+      "No. of Deaths - N | Control": {
+        "value": "268",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg6, text)"
       },
       "TTPSA (mo) | Treatment": {
@@ -3722,6 +3938,7 @@
         "location": ""
       },
       "PFS Rate (%) | Overall | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
@@ -3735,6 +3952,21 @@
       },
       "Median PFS (mo) | Overall | Control": {
         "value": "",
+=======
+        "value": "PSA Progression Free Survival: 54% at 5 years. Clinical progression-free survival: 56% at 5 years.",
+        "location": ""
+      },
+      "PFS Rate (%) | Overall | Control": {
+        "value": "PSA Progression Free Survival: 25% at 5 years. Clinical progression-free survival: 28% at 5 years.",
+        "location": ""
+      },
+      "Median PFS (mo) | Overall | Treatment": {
+        "value": "PSA PFS:68 months. Clinical PFS: 81 months",
+        "location": ""
+      },
+      "Median PFS (mo) | Overall | Control": {
+        "value": "PSA PFS: 22 months. Clinical PFS: 25 months",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": ""
       },
       "Median PFS (mo) | High volume | Treatment": {
@@ -3820,7 +4052,11 @@
         "location": "(pg1, text)"
       },
       "Class of Agent in Treatment Arm 1": {
+<<<<<<< HEAD
         "value": "Androgen-deprivation therapy (ADT) and docetaxel",
+=======
+        "value": "Cytotoxic chemotherapy (taxane – docetaxel)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg1, text)"
       },
       "Treatment Arm 1 Regimen": {
@@ -4132,8 +4368,13 @@
         "location": ""
       },
       "ORR - N (%) | Treatment | CR": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "PSA < 0.2 ng/mL at 12 mo: 27.7%",
+        "location": "(pg1, text; Table 2)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "ORR - N (%) | Treatment | SD": {
         "value": "",
@@ -4148,8 +4389,13 @@
         "location": ""
       },
       "ORR - N (%) | Control | CR": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "PSA < 0.2 ng/mL at 12 mo: 16.8%",
+        "location": "(pg1, text; Table 2)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "ORR - N (%) | Control | SD": {
         "value": "",
@@ -4160,23 +4406,37 @@
         "location": ""
       },
       "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "29.6% (grade 3–5 combined)",
+        "location": "(pg8, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control": {
         "value": "",
         "location": ""
       },
       "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Treatment": {
+<<<<<<< HEAD
         "value": "65 (16.7%) Grade 3 and 49 (12.6%) Grade 4 (Total for docetaxel-containing regimen population)",
         "location": "(pg8, table)"
+=======
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Adverse Events - N (%) | Treatment-related Grade 3 or Higher | Control": {
         "value": "",
         "location": ""
       },
       "Adverse Events - N (%) | Treatment-related Grade 5 | Treatment": {
+<<<<<<< HEAD
         "value": "1 (0.3%) (Total for docetaxel-containing regimen population)",
+=======
+        "value": "1 (0.3%)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg8, table)"
       },
       "Adverse Events - N (%) | Treatment-related Grade 5 | Control": {
@@ -4192,12 +4452,21 @@
         "location": "(pg4, text)"
       },
       "TTPSA (mo) | Treatment": {
+<<<<<<< HEAD
         "value": "20.2",
         "location": "(pg8, table)"
       },
       "TTPSA (mo) | Control": {
         "value": "11.7",
         "location": "(pg8, table"
+=======
+        "value": "",
+        "location": ""
+      },
+      "TTPSA (mo) | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "OS Rate (%) | Overall | Treatment": {
         "value": "",
@@ -4264,20 +4533,34 @@
         "location": ""
       },
       "PFS Rate (%) | Overall | Treatment": {
+<<<<<<< HEAD
         "value": "Hazard ratio 0.61 (95% CI, 0.51 to 0.72); Median time to progression: 20.2 months",
         "location": "(pg1, text)"
+=======
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "PFS Rate (%) | Overall | Control": {
         "value": "",
         "location": ""
       },
       "Median PFS (mo) | Overall | Treatment": {
+<<<<<<< HEAD
         "value": "20.2",
         "location": "(pg4, text)"
       },
       "Median PFS (mo) | Overall | Control": {
         "value": "11.7",
         "location": "(pg4, text)"
+=======
+        "value": "",
+        "location": ""
+      },
+      "Median PFS (mo) | Overall | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Median PFS (mo) | High volume | Treatment": {
         "value": "",
@@ -4374,6 +4657,7 @@
         "location": "(pg1, text)"
       },
       "Treatment Arm - N": {
+<<<<<<< HEAD
         "value": "583 (SOC + abiraterone pooled), 355 (ADT with docetaxel population)",
         "location": "(pg1, image)"
       },
@@ -4388,6 +4672,22 @@
       "Median On-Treatment Duration (mo) | Treatment": {
         "value": "",
         "location": ""
+=======
+        "value": "583 (SOC + abiraterone pooled)",
+        "location": "(pg1, image)"
+      },
+      "Control Arm - N": {
+        "value": "589 (SOC without abiraterone pooled)",
+        "location": "(pg1, image)"
+      },
+      "Median Follow-Up Duration (mo)": {
+        "value": "rPFS: 3.5 yr (~42 mo) OS: 4.4 yr (~53 mo)",
+        "location": "(pg1, text)"
+      },
+      "Median On-Treatment Duration (mo) | Treatment": {
+        "value": "Abiraterone duration: ADT + docetaxel population: 34.1 mo",
+        "location": "(pg7, text)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Median On-Treatment Duration (mo) | Control": {
         "value": "",
@@ -4398,6 +4698,7 @@
         "location": ""
       },
       "Quality of Life Scale": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
@@ -4407,6 +4708,17 @@
       },
       "Reporting by prognostic groups - Y/N | Metachronous": {
         "value": "",
+=======
+        "value": "QoL instruments planned; results not yet reported",
+        "location": "(pg3–4, text)"
+      },
+      "Reporting by prognostic groups - Y/N | Synchronous": {
+        "value": "Yes",
+        "location": ""
+      },
+      "Reporting by prognostic groups - Y/N | Metachronous": {
+        "value": "Yes",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": ""
       },
       "Reporting by prognostic groups - Y/N | High volume": {
@@ -4418,12 +4730,21 @@
         "location": ""
       },
       "Mode of metastases - N (%) | Synchronous | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": "("
       },
       "Mode of metastases - N (%) | Synchronous | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "583 (100%)",
+        "location": "(pg1–2, text)"
+      },
+      "Mode of metastases - N (%) | Synchronous | Control": {
+        "value": "589 (100%)",
+        "location": "(pg1–2, text)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Mode of metastases - N (%) | Metachronous | Treatment": {
         "value": "",
@@ -4446,11 +4767,15 @@
         "location": "(pg1, text)"
       },
       "Volume of disease - N (%) | Low | Control": {
+<<<<<<< HEAD
         "value": "Overall population: 253 (43%) ADT + docetaxel population: 123 (35%)",
         "location": "(pg6–7, table)"
       },
       "Volume of disease - N (%) | Low | Treatment": {
         "value": "Overall population: 252 (43%) ADT + docetaxel population: 131 (37%)",
+=======
+        "value": "253 (43%)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg6–7, table)"
       },
       "Docetaxel administration - N (%) | Treatment": {
@@ -4543,11 +4868,19 @@
       },
       "Region - N (%) | Europe | Treatment": {
         "value": "583 (100%)",
+<<<<<<< HEAD
         "location": "(pg2, text"
       },
       "Region - N (%) | Europe | Control": {
         "value": "589 (100%)",
         "location": "(pg2, text)"
+=======
+        "location": ""
+      },
+      "Region - N (%) | Europe | Control": {
+        "value": "589 (100%)",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Region - N (%) | Africa | Treatment": {
         "value": "",
@@ -4590,6 +4923,7 @@
         "location": "(pg6, table)"
       },
       "Gleason score - N (%) | ≤ 7 | Treatment": {
+<<<<<<< HEAD
         "value": "Overall population: 145 (25%) ADT + docetaxel population: 79 (23%)",
         "location": "(pg7, table)"
       },
@@ -4603,6 +4937,21 @@
       },
       "Gleason score - N (%) | ≥ 8 | Control": {
         "value": "Overall population: 441 (77%) ADT + docetaxel population: 276 (80%)",
+=======
+        "value": "145 (25%)",
+        "location": "(pg7, table)"
+      },
+      "Gleason score - N (%) | ≤ 7 | Control": {
+        "value": "133 (23%)",
+        "location": "(pg7, table)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Treatment": {
+        "value": "429 (75%)",
+        "location": "(pg7, table)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Control": {
+        "value": "441 (77%)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg7, table)"
       },
       "Metastases - N (%) | Liver | Treatment": {
@@ -4614,6 +4963,7 @@
         "location": ""
       },
       "Metastases - N (%) | Lungs | Treatment": {
+<<<<<<< HEAD
         "value": "Overall population: 64 (11%) ADT + docetaxel population: 41 (12%)",
         "location": "(pg6, table)"
       },
@@ -4635,6 +4985,29 @@
       },
       "Metastases - N (%) | Nodal | Control": {
         "value": "Overall population: 52 (9%) ADT + docetaxel population: 29 (8%)",
+=======
+        "value": "",
+        "location": ""
+      },
+      "Metastases - N (%) | Lungs | Control": {
+        "value": "",
+        "location": ""
+      },
+      "Metastases - N (%) | Bone | Treatment": {
+        "value": "472 (81%)",
+        "location": "(pg6, table)"
+      },
+      "Metastases - N (%) | Bone | Control": {
+        "value": "475 (81%)",
+        "location": "(pg6, table)"
+      },
+      "Metastases - N (%) | Nodal | Treatment": {
+        "value": "47 (8%)",
+        "location": "(pg6, table)"
+      },
+      "Metastases - N (%) | Nodal | Control": {
+        "value": "52 (9%)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg6, table)"
       },
       "Previous local therapy - N (%) | Prostatectomy | Treatment": {
@@ -4726,11 +5099,19 @@
         "location": "(pg7, text)"
       },
       "No. of Deaths - N | Treatment": {
+<<<<<<< HEAD
         "value": "Overall population: 228; ADT + docetaxel population: 121",
         "location": "(pg5–6, text)"
       },
       "No. of Deaths - N | Control": {
         "value": "Overall population: 268; ADT + docetaxel population: 151",
+=======
+        "value": "228",
+        "location": "(pg5–6, text)"
+      },
+      "No. of Deaths - N | Control": {
+        "value": "268",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg5–6, text)"
       },
       "TTPSA (mo) | Treatment": {
@@ -4782,6 +5163,7 @@
         "location": ""
       },
       "Median OS (mo) | Overall | Treatment": {
+<<<<<<< HEAD
         "value": "68.64 months (5.72 years)",
         "location": "(pg6, text)"
       },
@@ -4796,6 +5178,22 @@
       "Median OS (mo) | High volume | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "5.72 yr (~69 mo)",
+        "location": "(pg6, text)"
+      },
+      "Median OS (mo) | Overall | Control": {
+        "value": "4.72 yr (~57 mo)",
+        "location": "(pg6, text)"
+      },
+      "Median OS (mo) | High volume | Treatment": {
+        "value": "5.14 yr (~62 mo)",
+        "location": "(pg7, text)"
+      },
+      "Median OS (mo) | High volume | Control": {
+        "value": "3.47 yr (~42 mo)",
+        "location": "(pg7, text)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Median OS (mo) | Low volume | Treatment": {
         "value": "",
@@ -4846,7 +5244,11 @@
         "location": ""
       },
       "Treatment Class": {
+<<<<<<< HEAD
         "value": "Standard of care (androgen deprivation therapy alone or with intravenous docetaxel), standard of care plus radiotherapy, standard of care plus abiraterone (oral 1000 mg abiraterone once daily plus oral 5 mg prednisone twice daily), or standard of care plus radiotherapy plus abiraterone.",
+=======
+        "value": "Androgen-biosynthesis inhibitor (CYP17 inhibitor)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": ""
       },
       "Type of Therapy": {
@@ -4904,7 +5306,11 @@
         "location": "(pg1, text)"
       },
       "Class of Agent in Treatment Arm 1": {
+<<<<<<< HEAD
         "value": "Chemohormonal therapy (docetaxel and androgen-deprivation therapy)",
+=======
+        "value": "Cytotoxic chemotherapy (taxane – docetaxel)",
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
         "location": "(pg1, text)"
       },
       "Treatment Arm 1 Regimen": {
@@ -4928,8 +5334,13 @@
         "location": "(pg3–4, text)"
       },
       "Median On-Treatment Duration (mo) | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "Up to six cycles planned; median cycles = 6",
+        "location": "(pg7, table footnote)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Median On-Treatment Duration (mo) | Control": {
         "value": "",
@@ -5004,6 +5415,7 @@
         "location": "(pg1–3, text)"
       },
       "Median Age (years) | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
@@ -5026,6 +5438,30 @@
       "Race - N (%) | Black or African American | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "64 (36–88)",
+        "location": "(pg4–5, table)"
+      },
+      "Median Age (years) | Control": {
+        "value": "63 (39–91)",
+        "location": "(pg4–5, table)"
+      },
+      "Race - N (%) | White | Treatment": {
+        "value": "344 (86.6%)",
+        "location": "(pg5, table)"
+      },
+      "Race - N (%) | White | Control": {
+        "value": "330 (84.0%)",
+        "location": "(pg5, table)"
+      },
+      "Race - N (%) | Black or African American | Treatment": {
+        "value": "39 (9.8%)",
+        "location": "(pg5, table)"
+      },
+      "Race - N (%) | Black or African American | Control": {
+        "value": "37 (9.4%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Race - N (%) | Asian | Treatment": {
         "value": "",
@@ -5052,6 +5488,7 @@
         "location": ""
       },
       "Race - N (%) | Other | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
@@ -5066,6 +5503,22 @@
       "Race - N (%) | Unknown | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "4 (1.0%)",
+        "location": "(pg5, table)"
+      },
+      "Race - N (%) | Other | Control": {
+        "value": "6 (1.5%)",
+        "location": "(pg5, table)"
+      },
+      "Race - N (%) | Unknown | Treatment": {
+        "value": "10 (2.5%)",
+        "location": "(pg5, table)"
+      },
+      "Race - N (%) | Unknown | Control": {
+        "value": "20 (5.1%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Region - N (%) | North America | Treatment": {
         "value": "",
@@ -5116,6 +5569,7 @@
         "location": ""
       },
       "PS - N (%) | 0 | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
@@ -5146,6 +5600,38 @@
       "Gleason score - N (%) | ≥ 8 | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "277 (69.8%)",
+        "location": "(pg5, table)"
+      },
+      "PS - N (%) | 0 | Control": {
+        "value": "272 (69.2%)",
+        "location": "(pg5, table)"
+      },
+      "PS - N (%) | 1-2 | Treatment": {
+        "value": "120 (30.2%)",
+        "location": "(pg5, table)"
+      },
+      "PS - N (%) | 1-2 | Control": {
+        "value": "121 (30.8%)",
+        "location": "(pg5, table)"
+      },
+      "Gleason score - N (%) | ≤ 7 | Treatment": {
+        "value": "117 (29.5%)",
+        "location": "(pg5, table)"
+      },
+      "Gleason score - N (%) | ≤ 7 | Control": {
+        "value": "104 (26.4%)",
+        "location": "(pg5, table)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Treatment": {
+        "value": "241 (60.7%)",
+        "location": "(pg5, table)"
+      },
+      "Gleason score - N (%) | ≥ 8 | Control": {
+        "value": "243 (61.8%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Metastases - N (%) | Liver | Treatment": {
         "value": "",
@@ -5180,12 +5666,21 @@
         "location": ""
       },
       "Previous local therapy - N (%) | Prostatectomy | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
       "Previous local therapy - N (%) | Prostatectomy | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "81 (20.4%)",
+        "location": "(pg5, table)"
+      },
+      "Previous local therapy - N (%) | Prostatectomy | Control": {
+        "value": "73 (18.6%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Previous local therapy - N (%) | Orchiectomy | Treatment": {
         "value": "",
@@ -5196,12 +5691,21 @@
         "location": ""
       },
       "Previous local therapy - N (%) | Radiotherapy | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
       },
       "Previous local therapy - N (%) | Radiotherapy | Control": {
         "value": "",
         "location": ""
+=======
+        "value": "27 (6.8%)",
+        "location": "(pg5, table)"
+      },
+      "Previous local therapy - N (%) | Radiotherapy | Control": {
+        "value": "33 (8.4%)",
+        "location": "(pg5, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Primary Endpoint(s)": {
         "value": "Overall survival",
@@ -5216,8 +5720,13 @@
         "location": ""
       },
       "ORR - N (%) | Treatment | CR": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "PSA < 0.2 ng/mL at 12 mo = 27.7%",
+        "location": "(pg1, table 2)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "ORR - N (%) | Treatment | SD": {
         "value": "",
@@ -5232,8 +5741,13 @@
         "location": ""
       },
       "ORR - N (%) | Control | CR": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "PSA < 0.2 ng/mL at 12 mo = 16.8%",
+        "location": "(pg1, table 2)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "ORR - N (%) | Control | SD": {
         "value": "",
@@ -5244,8 +5758,13 @@
         "location": ""
       },
       "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "29.6% (grade 3–5 combined)",
+        "location": "(pg8, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Adverse Events - N (%) | All-Cause Grade 3 or Higher | Control": {
         "value": "",
@@ -5260,8 +5779,13 @@
         "location": ""
       },
       "Adverse Events - N (%) | Treatment-related Grade 5 | Treatment": {
+<<<<<<< HEAD
         "value": "",
         "location": ""
+=======
+        "value": "1 (0.3%)",
+        "location": "(pg8, table)"
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "Adverse Events - N (%) | Treatment-related Grade 5 | Control": {
         "value": "",
@@ -5276,12 +5800,21 @@
         "location": "(pg3–4, text)"
       },
       "TTPSA (mo) | Treatment": {
+<<<<<<< HEAD
         "value": "19.4 months",
         "location": "(pg6, table)"
       },
       "TTPSA (mo) | Control": {
         "value": "11.7 months",
         "location": "(pg6, table)"
+=======
+        "value": "",
+        "location": ""
+      },
+      "TTPSA (mo) | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "OS Rate (%) | Overall | Treatment": {
         "value": "",
@@ -5356,6 +5889,7 @@
         "location": ""
       },
       "Median PFS (mo) | Overall | Treatment": {
+<<<<<<< HEAD
         "value": "33.0 months",
         "location": "(pg5, text)"
       },
@@ -5378,6 +5912,30 @@
       "Median PFS (mo) | Low volume | Control": {
         "value": "44.3 months",
         "location": "(pg6, table)"
+=======
+        "value": "",
+        "location": ""
+      },
+      "Median PFS (mo) | Overall | Control": {
+        "value": "",
+        "location": ""
+      },
+      "Median PFS (mo) | High volume | Treatment": {
+        "value": "",
+        "location": ""
+      },
+      "Median PFS (mo) | High volume | Control": {
+        "value": "",
+        "location": ""
+      },
+      "Median PFS (mo) | Low volume | Treatment": {
+        "value": "",
+        "location": ""
+      },
+      "Median PFS (mo) | Low volume | Control": {
+        "value": "",
+        "location": ""
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
       },
       "COE_RCT_IND_OVERALL_RJ": {
         "value": "Yes",
@@ -5397,4 +5955,8 @@
       }
     }
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e5158b0420ee37ada4542f6acadc21f2bcc94c0e
