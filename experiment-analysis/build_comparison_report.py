@@ -35,8 +35,8 @@ PDF_LIST = [
 MODELS = [
     ("Gemini 2.5 Flash (native)", SCRIPT_BASE / "baselines_file_search_results/gemini_native/gemini-2.5-flash"),
     ("LandingAI (ADE)", SCRIPT_BASE / "baselines_landing_ai_new_results"),
+    ("Our Pipeline (V2)", REPO_ROOT / "new_pipeline_outputs_10th_feb/results"),
     # ("Gemini 2.5 Flash (free-form)", SCRIPT_BASE / "baselines_file_search_results/free_form/gemini-2.5-flash"),
-    # ("Our Pipeline", ...),
 ]
 
 
@@ -117,10 +117,23 @@ def load_ground_truth_from_gold_table(gold_path: Path) -> dict[str, dict[str, st
 
 
 def load_eval(pdf_id: str, model_path: Path) -> dict | None:
+    """Load evaluation results for a PDF from a model directory.
+    
+    Handles different path structures:
+    - Baselines: model_path/pdf_id/evaluation/evaluation_results.json
+    - Pipeline V2: model_path/pdf_id/latest/evaluation/evaluation_results.json
+    """
+    # Try baseline path first
     path = model_path / pdf_id / "evaluation" / "evaluation_results.json"
-    if not path.exists():
-        return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    
+    # Try pipeline V2 path (with /latest/)
+    path_v2 = model_path / pdf_id / "latest" / "evaluation" / "evaluation_results.json"
+    if path_v2.exists():
+        return json.loads(path_v2.read_text(encoding="utf-8"))
+    
+    return None
 
 
 def main() -> None:
@@ -131,17 +144,22 @@ def main() -> None:
     models_out = [{"id": f"m{i}", "name": name} for i, (name, _) in enumerate(MODELS)]
     pdfs_out = [{"id": pdf, "name": pdf} for pdf in PDF_LIST]
 
+    # Find the index of "Our Pipeline (V2)" model
+    pipeline_model_idx = next((i for i, (name, _) in enumerate(MODELS) if "Our Pipeline" in name), None)
+    pipeline_model_id = f"m{pipeline_model_idx}" if pipeline_model_idx is not None else None
+
     # Load updated ground truth from Manual_Benchmark_GoldTable_cleaned.json (new benchmark)
     definition_columns = [d["column"] for d in definitions]
     ground_truth_updated = load_updated_gold_table(PDF_LIST, definition_columns)
 
-    # data[pdf_id] = { ground_truth: { col: str }, ground_truth_updated: { col: str }, models: ... }
+    # data[pdf_id] = { ground_truth: { col: str }, ground_truth_updated: { col: str }, models: ..., pipeline_match: { col: str } }
     data: dict = {}
     for pdf_id in PDF_LIST:
         data[pdf_id] = {
             "ground_truth": {},
             "ground_truth_updated": ground_truth_updated.get(pdf_id, {}),
             "models": {m["id"]: {} for m in models_out},
+            "pipeline_match": {},  # New: stores 'correct'/'incorrect' for each column
         }
         for mi, (_, model_path) in enumerate(MODELS):
             mid = models_out[mi]["id"]
@@ -155,6 +173,30 @@ def main() -> None:
                     "completeness": float(col_data.get("completeness", 0)),
                     "reason": col_data.get("reason", ""),
                 }
+        
+        # Compute pipeline match status for this PDF
+        if pipeline_model_id:
+            gt_updated = data[pdf_id]["ground_truth_updated"]
+            pipeline_data = data[pdf_id]["models"].get(pipeline_model_id, {})
+            
+            for col_name in definition_columns:
+                gt_value = str(gt_updated.get(col_name) or "").strip().lower()
+                pipeline_cell = pipeline_data.get(col_name)
+                
+                if pipeline_cell:
+                    pipeline_value = str(pipeline_cell.get("value") or "").strip().lower()
+                    correctness = pipeline_cell.get("correctness", 0)
+                    
+                    # Use the correctness score from evaluation (more accurate)
+                    # or simple string comparison as fallback
+                    if correctness == 1.0:
+                        data[pdf_id]["pipeline_match"][col_name] = "correct"
+                    elif correctness == 0.0:
+                        data[pdf_id]["pipeline_match"][col_name] = "incorrect"
+                    else:
+                        data[pdf_id]["pipeline_match"][col_name] = "partial"
+                else:
+                    data[pdf_id]["pipeline_match"][col_name] = "N/A"
 
     # Unique labels for filter dropdown (preserve order)
     labels_seen = []
@@ -192,6 +234,7 @@ def main() -> None:
         "definitions": definitions,
         "labels": labels_seen,
         "data": data,
+        "has_pipeline": pipeline_model_id is not None,
     }
 
     html = build_html(payload)
@@ -230,6 +273,11 @@ def build_html(payload: dict) -> str:
         .model-cell .reason {{ font-size: 11px; color: #888; margin-top: 4px; margin-bottom: 4px; line-height: 1.3; white-space: pre-wrap; }}
         .model-cell .scores {{ font-size: 11px; color: #aaa; margin-top: 4px; }}
         .model-cell.na {{ color: #666; font-style: italic; }}
+        .match-cell {{ text-align: center; font-weight: 600; padding: 10px; }}
+        .match-correct {{ background: rgba(78, 204, 163, 0.2); color: #4ecca3; }}
+        .match-incorrect {{ background: rgba(239, 68, 68, 0.2); color: #ef4444; }}
+        .match-partial {{ background: rgba(245, 158, 11, 0.2); color: #f59e0b; }}
+        .match-na {{ color: #666; font-style: italic; }}
         .header-band {{ display: flex; flex-wrap: wrap; gap: 20px; padding: 16px 20px; background: #16213e; border-radius: 10px; margin-bottom: 16px; }}
         .header-band .model-summary {{ flex: 1; min-width: 280px; background: #1a1a2e; border-radius: 8px; padding: 14px; border: 1px solid #4ecca3; }}
         .header-band .model-summary h3 {{ font-size: 14px; color: #4ecca3; margin-bottom: 10px; }}
@@ -340,8 +388,15 @@ def build_html(payload: dict) -> str:
 
             thead.innerHTML = '';
             const headRow = document.createElement('tr');
-            headRow.innerHTML = '<th>Column</th><th>Label</th><th>Category</th><th>Definition</th><th>Ground truth</th><th>Ground truth (updated)</th>' +
+            let headerHtml = '<th>Column</th><th>Label</th><th>Category</th><th>Definition</th><th>Ground truth</th><th>Ground truth (updated)</th>' +
                 models.map(m => '<th>' + m.name + '</th>').join('');
+            
+            // Add Pipeline Match column if pipeline data exists
+            if (PAYLOAD.has_pipeline) {{
+                headerHtml += '<th>Pipeline Match</th>';
+            }}
+            
+            headRow.innerHTML = headerHtml;
             thead.appendChild(headRow);
 
             tbody.innerHTML = '';
@@ -364,6 +419,30 @@ def build_html(payload: dict) -> str:
                     }}
                     tr.appendChild(td);
                 }});
+                
+                // Add Pipeline Match column if pipeline data exists
+                if (PAYLOAD.has_pipeline) {{
+                    const matchStatus = (pdfData.pipeline_match || {{}})[row.column] || 'N/A';
+                    const matchTd = document.createElement('td');
+                    matchTd.className = 'match-cell';
+                    
+                    if (matchStatus === 'correct') {{
+                        matchTd.classList.add('match-correct');
+                        matchTd.textContent = '✓ Correct';
+                    }} else if (matchStatus === 'incorrect') {{
+                        matchTd.classList.add('match-incorrect');
+                        matchTd.textContent = '✗ Incorrect';
+                    }} else if (matchStatus === 'partial') {{
+                        matchTd.classList.add('match-partial');
+                        matchTd.textContent = '~ Partial';
+                    }} else {{
+                        matchTd.classList.add('match-na');
+                        matchTd.textContent = 'N/A';
+                    }}
+                    
+                    tr.appendChild(matchTd);
+                }}
+                
                 tbody.appendChild(tr);
             }});
         }}
