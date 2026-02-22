@@ -418,12 +418,12 @@
         "location": "(pg3, Results)"
       },
       "TTPSA (mo) | Treatment": {
-        "value": "",
-        "location": ""
+        "value": "22.9",
+        "location": "(pg4, text"
       },
       "TTPSA (mo) | Control": {
-        "value": "",
-        "location": ""
+        "value": "12.9",
+        "location": "(pg4, text)"
       },
       "OS Rate (%) | Overall | Treatment": {
         "value": "",
@@ -852,12 +852,12 @@
         "location": ""
       },
       "Metastases - N (%) | Nodal | Treatment": {
-        "value": "",
-        "location": ""
+        "value": "Abiraterone trial: 293 (58%); Abiraterone and enzalutamide trial: 278 (61%)",
+        "location": "(pg5, table"
       },
       "Metastases - N (%) | Nodal | Control": {
-        "value": "",
-        "location": ""
+        "value": "Abiraterone trial: 291 (58%); Abiraterone and enzalutamide trial: 278 (61%)",
+        "location": "(pg5, table)"
       },
       "Previous local therapy - N (%) | Prostatectomy | Treatment": {
         "value": "",
@@ -868,12 +868,12 @@
         "location": ""
       },
       "Previous local therapy - N (%) | Orchiectomy | Treatment": {
-        "value": "",
-        "location": ""
+        "value": "3 (1%) abiraterone trial; 1 (<1%) abiraterone and enzalutamide trial",
+        "location": "(pg6, table"
       },
       "Previous local therapy - N (%) | Orchiectomy | Control": {
-        "value": "",
-        "location": ""
+        "value": "3 (1%) abiraterone trial; 0 abiraterone and enzalutamide trial",
+        "location": "(pg6, table)"
       },
       "Previous local therapy - N (%) | Radiotherapy | Treatment": {
         "value": "",
@@ -964,12 +964,12 @@
         "location": ""
       },
       "OS Rate (%) | Overall | Treatment": {
-        "value": "",
-        "location": ""
+        "value": "Abiraterone trial: 48% (95% CI 43-52) at 84 months; Abiraterone and enzalutamide trial: approximately 40% at 84 months",
+        "location": "(pg6, text)"
       },
       "OS Rate (%) | Overall | Control": {
-        "value": "",
-        "location": ""
+        "value": "Abiraterone trial: 30% (95% CI 26-34) at 84 months; Abiraterone and enzalutamide trial: approximately 25% at 84 months",
+        "location": "(pg6, text)"
       },
       "OS Rate (%) | Synchronous | Treatment": {
         "value": "",
@@ -2294,7 +2294,7 @@
         "location": "(pg1, text)"
       },
       "Docetaxel administration - N (%) | Control": {
-        "value": "All patients received docetaxel 654(100%)",
+        "value": "All patients received docetaxel 651 (100%)",
         "location": "(pg1, text)"
       },
       "Median Age (years) | Treatment": {
